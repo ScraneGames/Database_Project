@@ -2,6 +2,7 @@
 <html lang="en">
    <head>
       <title>GFG- Store Data</title>
+      <script src="jquery-3.6.1.min.js"></script>
    </head>
    <body>
       <center>
@@ -45,7 +46,7 @@
 
 <p>
                 <label for="Position">Position:</label>
-                <select name="position">
+                <select name="position" id="position">
                 <option value="">Select...</option>
                 <option value="nurse">Nurse</option>
                 <option value="surgeon">Surgeon</option>
@@ -55,9 +56,37 @@
                 <option value="Secretary">Secretary</option>
                 </select>
             </p>
+            <div id="nurses" class="specific_staff" style="display: none">
+              <label for="Position">nurse thing:</label>
+               <input type="text">
+            </div>
+            <div id="surgeon" class="specific_staff"  style="display: none">
+              <label for="Position">surgeon thing:</label>
+               <input type="text">
+            </div>
+            <div id="physician" class="specific_staff"  style="display: none">
+              <label for="Position">physician thing:</label>
+               <input type="text">
+               <div class="owner_fields" style="display: none">
+                   sasfasf
+               </div>
+            </div>
 
             <input type="submit" value="Submit">
          </form>
       </center>
    </body>
+
+
+   <script>
+     $( document ).ready(function() {
+        $('#position').change(function() {
+           $('.specific_staff').hide()
+           if($(this).val() == "nurse")
+              $('#nurses').show();
+           else if($(this).val() == "surgeon")
+              $('#surgeon').show();
+        });
+      });
+   </script>
 </html>

@@ -6,10 +6,10 @@
    <body>
       <center>
          <h1>Adding a Patient</h1>
-         <form action="insert-patient.php" method="post">
+         <form action="insert-staff.php" method="post">
 
 <p>
-               <label for="patient_name">Patient Name:</label>
+               <label for="Employee_name">Employee Name:</label>
                <input type="text" name="patient_name" id="patient_name">
             </p>
 
@@ -23,10 +23,10 @@
                <label for="gender">Gender:</label>
                <select name="gender">
                <option value="">Select...</option>
-               <option value="M">Male</option>
-               <option value="F">Female</option>
-               <option value="F">NonBinary</option>
-               <option value="F">Other</option>
+               <option value="male">Male</option>
+               <option value="female">Female</option>
+               <option value="nonbinary">NonBinary</option>
+               <option value="other">Other</option>
                </select>
 </p>
                 </p>
@@ -44,8 +44,16 @@
             </p>
 
 <p>
-                <label for="dob">Date of Birth:</label>
-                <input type="text" name="dob" id="dob">
+                <label for="Position">Position:</label>
+                <select name="position">
+                <option value="">Select...</option>
+                <option value="nurse">Nurse</option>
+                <option value="surgeon">Surgeon</option>
+                <option value="physician">Physician</option>
+                <option value="chief of staff">Chief of Staff</option>
+                <option value="janitor">Janitor</option>
+                <option value="Secretary">Secretary</option>
+                </select>
             </p>
 
             <input type="submit" value="Submit">

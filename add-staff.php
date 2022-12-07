@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <title>GFG- Store Data</title>
-      <script src="jquery-3.6.1.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    </head>
    <body>
       <center>
@@ -58,7 +58,7 @@
             </p>
             <div id="nurses" class="specific_staff" style="display: none">
               <label for="Position">nurse thing:</label>
-               <input type="text">
+               <input type="text" name="salary" id="salary">
             </div>
             <div id="surgeon" class="specific_staff"  style="display: none">
               <label for="Position">surgeon thing:</label>
@@ -66,9 +66,8 @@
             </div>
             <div id="physician" class="specific_staff"  style="display: none">
               <label for="Position">physician thing:</label>
-               <input type="text">
+               <input type="text" name="salary" id="salary">
                <div class="owner_fields" style="display: none">
-                   sasfasf
                </div>
             </div>
 

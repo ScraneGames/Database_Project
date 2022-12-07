@@ -57,8 +57,10 @@
                 </select>
             </p>
             <div id="nurses" class="specific_staff" style="display: none">
-              <label for="Position">nurse thing:</label>
+              <label for="salary">Salary:</label>
                <input type="text" name="salary" id="salary">
+               <label for="salary">Salary:</label>
+                <input type="text" name="salary" id="salary">
             </div>
             <div id="surgeon" class="specific_staff"  style="display: none">
               <label for="Position">surgeon thing:</label>

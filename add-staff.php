@@ -59,17 +59,39 @@
             <div id="nurses" class="specific_staff" style="display: none">
               <label for="salary">Salary:</label>
                <input type="text" name="salary" id="salary">
-               <label for="salary">Salary:</label>
-                <input type="text" name="salary" id="salary">
+               <label for="grade">Grade:</label>
+                <input type="text" name="grade" id="grade">
+              <label for="experience">Experience:</label>
+                 <input type="text" name="experience" id="experience">
             </div>
             <div id="surgeon" class="specific_staff"  style="display: none">
-              <label for="Position">surgeon thing:</label>
-               <input type="text">
+              <label for="contract_type">Contract Type:</label>
+               <input type="text" name="contract_type" id="contract_type">
             </div>
             <div id="physician" class="specific_staff"  style="display: none">
-              <label for="Position">physician thing:</label>
+              <label for="salary">Salary:</label>
                <input type="text" name="salary" id="salary">
+               <label for="specialty">Specialty:</label>
+                <input type="text" name="specialty" id="specialty">
+              <label for="ownership">Has Ownership Stake?:</label>
+               <input type="radio" name="ownership" id="ownership">Yes
+               <input type="radio" name="ownership" id="ownership">No
                <div class="owner_fields" style="display: none">
+                 <label for="shares">Shares:</label>
+                  <input type="number" name="salary" id="salary">
+               </div>
+            </div>
+            <div id="chief" class="specific_staff"  style="display: none">
+              <label for="salary">Salary:</label>
+               <input type="text" name="salary" id="salary">
+               <label for="specialty">Specialty:</label>
+                <input type="text" name="specialty" id="specialty">
+              <label for="ownership">Has Ownership Stake?:</label>
+               <input type="radio" name="ownership" id="ownership">Yes
+               <input type="radio" name="ownership" id="ownership">No
+               <div class="owner_fields" style="display: none">
+                 <label for="shares">Shares:</label>
+                  <input type="number" name="salary" id="salary">
                </div>
             </div>
 
@@ -87,6 +109,17 @@
               $('#nurses').show();
            else if($(this).val() == "surgeon")
               $('#surgeon').show();
+              else if($(this).val() == "physician")
+                 $('#physician').show();
+                 else if($(this).val() == "chief of staff")
+                    $('#chief').show();
+        });
+      });
+      $( document ).ready(function() {
+        $('#ownership').change(function() {
+          $('.owner_fields').hide()
+          if($(this.val() == "Yes")
+          $('#owner_fields').show();
         });
       });
    </script>

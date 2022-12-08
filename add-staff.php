@@ -99,10 +99,10 @@
             <option value="">Select...</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
+          </select>
           </p>
             </div>
 <!-- Chief of Staff -->
-
             <div id="chief" class="specific_staff"  style="display: none">
 <p>
               <label for="salary">Salary:</label>
@@ -117,7 +117,8 @@
             <select name="own" id="own">
             <option value="">Select...</option>
             <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="no">No</option>\
+            </select
              </p>
             </div>
             <div id="owner" class="owner_fields" style="display: none">
@@ -126,7 +127,6 @@
                <input type="number" name="shares" id="shares">
              </p>
             </div>
-
             <input type="submit" value="Submit">
          </form>
       </center>

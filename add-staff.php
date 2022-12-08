@@ -106,8 +106,8 @@
               </p>
 <p>
               <label for="ownership">Has Ownership Stake?:</label>
-               <input type="radio" name="ownership" id="ownership">Yes
-               <input type="radio" name="ownership" id="ownership">No
+               <input type="radio" name="ownership" id="owner_yes" value="Yes">Yes
+               <input type="radio" name="ownership" id="owner_no" value="No">No
              </p>
             </div>
             <div id="owner" class="owner_fields" style="display: none">

@@ -34,7 +34,7 @@
 
 
 <p>
-               <label for="address">address:</label>
+               <label for="address">Address:</label>
                <input type="text" name="address" id="address">
             </p>
 
@@ -94,6 +94,12 @@
                 <input type="text" name="specialty" id="specialty">
               </p>
             </div>
+            <div id="other_staff" class="specific_staff"  style="display: none">
+<p>
+              <label for="salary">Salary:</label>
+               <input type="text" name="contract_type" id="contract_type">
+             </p>
+            </div>
 <!-- Has Ownership -->
             <div id="has_ownership" class="specific_staff" style="display: none">
                 <label for="ownership">Has Ownership Stake?:</label>
@@ -125,14 +131,18 @@
               $('#nurses').show();
            else if($(this).val() == "surgeon")
               $('#surgeon').show();
-              else if($(this).val() == "physician"){
-                 $('#physician').show();
-                 $('#has_ownership').show();
-               }
-                 else if($(this).val() == "chief_of_staff") {
-                    $('#physician').show();
-                    $('#has_ownership').show();
-                  }
+                else if($(this).val() == "physician"){
+                  $('#physician').show();
+                  $('#has_ownership').show();
+                }
+                   else if($(this).val() == "chief_of_staff") {
+                      $('#physician').show();
+                      $('#has_ownership').show();
+                    }
+                      else if($(this).val() == "secretary")
+                        $('#other_staff').show();
+                          else if($(this).val() == "janitor")
+                            $('#other_staff').show();
         });
       });
    </script>

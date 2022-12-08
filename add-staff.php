@@ -113,7 +113,7 @@
             <div id="owner" class="owner_fields" style="display: none">
 <p>
               <label for="shares">Shares:</label>
-               <input type="number" name="salary" id="salary">
+               <input type="number" name="shares" id="shares">
              </p>
             </div>
 

@@ -4,30 +4,33 @@ Database project for class
 
 ## Tables that Need Insert Pages
 
-* Allergies
-* beds
+* ~~Allergies~~
+* ~~beds~~
 * cholesterol
   * Blocked until I can figure out how to create a drop down menu populated by values from other tables
 * consultations
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* contracts
+* ~~contracts~~
+  * Handled in the add-staff files
 * heart_risk
   * might want to just make this a view instead
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* illnesses
+* ~~illnesses~~
 * inpatients
-* medical_corporations
+  * blocked until I can figure out how to create a drop down menu populated by values from other tables
+* ~~medical_corporations~~
 * medication_reactions
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* medications
+* ~~medications~~
 * nurse_inpatient_assignments
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* nurses
+* ~~nurses~~
 * nurse_skills
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
 * nurse_surgery_assignments
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* owners
+* ~~owners~~
+  * handled in add-staff and add-medical-corporations files
 * patient_allergies
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
 * patient_illness
@@ -39,25 +42,27 @@ Database project for class
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
 * patient_medications
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* patient_personal_data
+* ~~patient_personal_data~~
 * patient_primary
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
   * might just include this as an item in the add-patient.php once I figure out/resolve the block
-* physician_owners
-* physicians
+* ~~physician_owners~~
+  * handled in the add-staff files
+* ~~physicians~~
 * recorded_surgeries
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* salaries
-* staff
+* ~~salaries~~
+  * Handled in the add-staff files
+* ~~staff~~
 * staff_patients
   * This might just be a view based on matching SSNs maybe
-* surgeons
+* ~~surgeons~~
 * surgery_requirements
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
 * surgery_schedule
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
-* surgery_skills
-* surgery_types
+* ~~surgery_skills~~
+* ~~surgery_types~~
 * work_schedule
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
 

@@ -61,15 +61,15 @@
             <div id="nurses" class="specific_staff" style="display: none">
 <p>
               <label for="salary">Salary:</label>
-               <input type="text" name="salary" id="salary">
+               <input type="number" name="salary" id="salary" min="25000" max="300000">
              </p>
 <p>
                <label for="grade">Grade:</label>
                 <input type="text" name="grade" id="grade">
               </p>
 <p>
-              <label for="experience">Experience:</label>
-                 <input type="text" name="experience" id="experience">
+              <label for="experience">Experience(in years):</label>
+                 <input type="number" name="experience" id="experience">
                </p>
             </div>
 <!-- Surgeon -->
@@ -79,25 +79,26 @@
                <input type="text" name="contract_type" id="contract_type">
              </p>
  <p>
-             <label for="contract_type">Contract Length:</label>
-            <input type="text" name="contract_length" id="contract_type">
+             <label for="contract_type">Contract Length(in years):</label>
+            <input type="number" name="contract_length" id="contract_type">
                           </p>
             </div>
 <!-- Physician -->
             <div id="physician" class="specific_staff"  style="display: none">
 <p>
               <label for="salary">Salary:</label>
-               <input type="text" name="salary" id="salary">
+               <input type="number" name="salary" id="salary" min="25000" max="300000">
              </p>
 <p>
                <label for="specialty">Specialty:</label>
                 <input type="text" name="specialty" id="specialty">
               </p>
+<!-- Other Staff -->
             </div>
             <div id="other_staff" class="specific_staff"  style="display: none">
 <p>
               <label for="salary">Salary:</label>
-               <input type="text" name="contract_type" id="contract_type">
+               <input type="number" name="salary" id="salary" min="25000" max="300000">
              </p>
             </div>
 <!-- Has Ownership -->

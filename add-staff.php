@@ -115,12 +115,14 @@
                     $('#chief').show();
         });
       });
-      $( document ).ready(function() {
-        $('#ownership').change(function() {
-          $('.owner_fields').hide()
-          if($(this.val() == "Yes")
+   </script>
+   <script>
+   $( document ).ready(function() {
+     $('#ownership').change(function() {
+       $('.owner_fields').hide()
+       if($(this.val() == "Yes")
           $('#owner_fields').show();
-        });
-      });
+     )});
+   });
    </script>
 </html>

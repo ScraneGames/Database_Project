@@ -53,7 +53,7 @@
                 <option value="physician">Physician</option>
                 <option value="chief_of_staff">Chief of Staff</option>
                 <option value="janitor">Janitor</option>
-                <option value="Secretary">Secretary</option>
+                <option value="secretary">Secretary</option>
                 </select>
             </p>
 <!-- Hidden specific_staff class sections

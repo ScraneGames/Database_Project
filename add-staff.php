@@ -51,7 +51,7 @@
                 <option value="nurse">Nurse</option>
                 <option value="surgeon">Surgeon</option>
                 <option value="physician">Physician</option>
-                <option value="chief of staff">Chief of Staff</option>
+                <option value="chief_of_staff">Chief of Staff</option>
                 <option value="janitor">Janitor</option>
                 <option value="Secretary">Secretary</option>
                 </select>
@@ -137,7 +137,7 @@
               $('#surgeon').show();
               else if($(this).val() == "physician")
                  $('#physician').show();
-                 else if($(this).val() == "chief of staff")
+                 else if($(this).val() == "chief_of_staff")
                     $('#chief').show();
         });
       });

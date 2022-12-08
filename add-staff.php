@@ -96,17 +96,25 @@
                <p>
             </div>
             <div id="chief" class="specific_staff"  style="display: none">
+<p>
               <label for="salary">Salary:</label>
                <input type="text" name="salary" id="salary">
+             </p>
+<p>
                <label for="specialty">Specialty:</label>
                 <input type="text" name="specialty" id="specialty">
+              </p>
+<p>
               <label for="ownership">Has Ownership Stake?:</label>
                <input type="radio" name="ownership" id="ownership">Yes
                <input type="radio" name="ownership" id="ownership">No
+             </p>
             </div>
             <div id="owner" class="owner_fields" style="display: none">
+<p>
               <label for="shares">Shares:</label>
                <input type="number" name="salary" id="salary">
+             </p>
             </div>
 
             <input type="submit" value="Submit">
@@ -135,7 +143,7 @@
      $('#ownership').change(function() {
        $('.owner_fields').hide()
        if($(this.val() == "Yes")
-          $('#owner_fields').show();
+          $('#owner').show();
      )});
    });
    </script>

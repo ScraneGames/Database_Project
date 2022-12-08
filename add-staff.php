@@ -146,7 +146,7 @@
    $( document ).ready(function() {
      $('#own').change(function() {
        $('.owner_fields').hide()
-       if($(this.val() == "yes"))
+       if($(this).val() == "yes")
           $('#owner').show();
      });
    });

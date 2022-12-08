@@ -26,7 +26,7 @@
         }
 
 
-        // Taking all the values from the patient-administration.php 
+        // Taking all the values from the patient-administration.php
         $patient_name = $_REUEST['patient_name'];
         $ssn = $_REQUEST['ssn'];
         $gender = $_REQUEST['gender'];
@@ -38,7 +38,8 @@
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO patient_personal_data VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number')";
+        $sql = "INSERT INTO patient_personal_data (patient_name, ssn, gender, dob, address, telephone_number)
+          VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number')";
 
         if(mysqli_query($conn, $sql)){
             echo "<h3>Information added successfully.";

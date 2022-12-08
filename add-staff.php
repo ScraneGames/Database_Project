@@ -93,14 +93,6 @@
                <label for="specialty">Specialty:</label>
                 <input type="text" name="specialty" id="specialty">
               </p>
-<p>
-            <label for="ownership">Has Ownership Stake?:</label>
-            <select name="own" id="own">
-            <option value="">Select...</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          </p>
             </div>
 <!-- Chief of Staff -->
             <div id="chief" class="specific_staff"  style="display: none">
@@ -115,12 +107,22 @@
 <p>
             <label for="ownership">Has Ownership Stake?:</label>
             <select name="own" id="own">
-            <option value="">Select...</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>\
-            </select
+              <option value="">Select...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
              </p>
             </div>
+            <div id="has_ownership" class="specific_staff" style="display: none">
+                <label for="ownership">Has Ownership Stake?:</label>
+                <select name="own" id="own">
+                <option value="">Select...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                </select>
+                </p>
+            </div>
+
             <div id="owner" class="owner_fields" style="display: none">
 <p>
               <label for="shares">Shares:</label>
@@ -143,8 +145,10 @@
               $('#surgeon').show();
               else if($(this).val() == "physician")
                  $('#physician').show();
+                 $('#has_ownership').show();
                  else if($(this).val() == "chief_of_staff")
                     $('#chief').show();
+                    $('#has_ownership').show();
         });
       });
    </script>

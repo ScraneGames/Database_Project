@@ -23,10 +23,10 @@
                <label for="gender">Gender:</label>
                <select name="gender">
                <option value="">Select...</option>
-               <option value="M">Male</option>
-               <option value="F">Female</option>
-               <option value="F">NonBinary</option>
-               <option value="F">Other</option>
+               <option value="Male">Male</option>
+               <option value="Female">Female</option>
+               <option value="NonBinary">NonBinary</option>
+               <option value="Other">Other</option>
                </select>
 </p>
                 </p>

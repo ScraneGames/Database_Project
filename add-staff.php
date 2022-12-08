@@ -56,8 +56,8 @@
                 <option value="Secretary">Secretary</option>
                 </select>
             </p>
-// Hidden specific_staff class sections
-// Nurses
+<!-- Hidden specific_staff class sections
+ Nurses -->
             <div id="nurses" class="specific_staff" style="display: none">
 <p>
               <label for="salary">Salary:</label>
@@ -72,7 +72,7 @@
                  <input type="text" name="experience" id="experience">
                </p>
             </div>
-// Surgeon
+<!-- Surgeon -->
             <div id="surgeon" class="specific_staff"  style="display: none">
 <p>
               <label for="contract_type">Contract Type:</label>
@@ -83,7 +83,7 @@
             <input type="text" name="contract_length" id="contract_type">
                           </p>
             </div>
-// Physician
+<!-- Physician -->
             <div id="physician" class="specific_staff"  style="display: none">
 <p>
               <label for="salary">Salary:</label>
@@ -101,7 +101,7 @@
             <option value="no">No</option>
           </p>
             </div>
-// Chief of Staff
+<!-- Chief of Staff -->
 
             <div id="chief" class="specific_staff"  style="display: none">
 <p>

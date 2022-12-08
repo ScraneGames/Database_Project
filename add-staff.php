@@ -143,12 +143,14 @@
               $('#nurses').show();
            else if($(this).val() == "surgeon")
               $('#surgeon').show();
-              else if($(this).val() == "physician")
+              else if($(this).val() == "physician"){
                  $('#physician').show();
                  $('#has_ownership').show();
-                 else if($(this).val() == "chief_of_staff")
+               }
+                 else if($(this).val() == "chief_of_staff") {
                     $('#chief').show();
                     $('#has_ownership').show();
+                  }
         });
       });
    </script>

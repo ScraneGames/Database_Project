@@ -90,9 +90,11 @@
                 <input type="text" name="specialty" id="specialty">
               </p>
 <p>
-              <label for="ownership">Has Ownership Stake?:</label>
-               <input type="radio" name="ownership" id="ownership">Yes
-               <input type="radio" name="ownership" id="ownership">No
+            <label for="ownership">Has Ownership Stake?:</label>
+            <select name="own" id="own">
+            <option value="">Select...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
                <p>
             </div>
             <div id="chief" class="specific_staff"  style="display: none">
@@ -105,9 +107,11 @@
                 <input type="text" name="specialty" id="specialty">
               </p>
 <p>
-              <label for="ownership">Has Ownership Stake?:</label>
-               <input type="radio" name="ownership" id="owner_yes" value="Yes">Yes
-               <input type="radio" name="ownership" id="owner_no" value="No">No
+            <label for="ownership">Has Ownership Stake?:</label>
+            <select name="own" id="own">
+            <option value="">Select...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
              </p>
             </div>
             <div id="owner" class="owner_fields" style="display: none">
@@ -140,7 +144,7 @@
    </script>
    <script>
    $( document ).ready(function() {
-     $('#ownership').change(function() {
+     $('#own').change(function() {
        $('.owner_fields').hide()
        if($(this.val() == "Yes")
           $('#owner').show();

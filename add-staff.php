@@ -94,25 +94,7 @@
                 <input type="text" name="specialty" id="specialty">
               </p>
             </div>
-<!-- Chief of Staff -->
-            <div id="chief" class="specific_staff"  style="display: none">
-<p>
-              <label for="salary">Salary:</label>
-               <input type="text" name="salary" id="salary">
-             </p>
-<p>
-               <label for="specialty">Specialty:</label>
-                <input type="text" name="specialty" id="specialty">
-              </p>
-<p>
-            <label for="ownership">Has Ownership Stake?:</label>
-            <select name="own" id="own">
-              <option value="">Select...</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-             </p>
-            </div>
+<!-- Has Ownership -->
             <div id="has_ownership" class="specific_staff" style="display: none">
                 <label for="ownership">Has Ownership Stake?:</label>
                 <select name="own" id="own">
@@ -122,7 +104,7 @@
                 </select>
                 </p>
             </div>
-
+<!-- Enter Shares -->
             <div id="owner" class="owner_fields" style="display: none">
 <p>
               <label for="shares">Shares:</label>
@@ -148,7 +130,7 @@
                  $('#has_ownership').show();
                }
                  else if($(this).val() == "chief_of_staff") {
-                    $('#chief').show();
+                    $('#physician').show();
                     $('#has_ownership').show();
                   }
         });

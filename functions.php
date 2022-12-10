@@ -2,7 +2,7 @@
 
 // Connect to database function
 
-function connectdatabase() {
+
   // store database info
  $servername = "localhost";
  $username = "username";
@@ -11,4 +11,3 @@ function connectdatabase() {
 
  // Connect to Database
  $conn = new mysqli($servername, $username, $password, $dbname);
-}

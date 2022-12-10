@@ -19,7 +19,7 @@
         // Connect to Database
 //        $conn = new mysqli($servername, $username, $password, $dbname);
 require "../library.php";
-connectdatabase()
+connectdatabase();
         // check Connection
 
         if ($conn->connect_error) {
@@ -33,7 +33,7 @@ connectdatabase()
         $gender = $_REQUEST['gender'];
         $position = $_REQUEST['position'];
         $address = $_REQUEST['address'];
-        $telephone_number = $_REQUEST['telephone_number']
+        $telephone_number = $_REQUEST['telephone_number'];
 
 
         // Performing insert query execution
@@ -41,24 +41,21 @@ connectdatabase()
 
         // Nurses
 if ($position = "nurse") {
-      $salary = $_REQUEST['salary']
-      $grade = $_REQUEST['grade']
-      $experience = $_REQUEST['experience']
-          $sql = {
-            "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
+      $salary = $_REQUEST['salary'];
+      $grade = $_REQUEST['grade'];
+      $experience = $_REQUEST['experience'];
+          $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
           VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
           SET @last = LAST_INSERT_ID();
           INSERT INTO nurses (employee_id, grade, experience) (@last, '$grade', '$experience');
           INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position) (@last, '$salary', '$position')";
-        }
     } elseif ($position = "physician") {
-        $salary = $_REQUEST['salary']
-        $specialty = $_REQUEST['specialty']
-        $own = $_REQUEST['own']
+        $salary = $_REQUEST['salary'];
+        $specialty = $_REQUEST['specialty'];
+        $own = $_REQUEST['own'];
           if ($own = "yes") {
-            $shares = $_REQUEST['shares']
-            $sql = {
-                "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
+            $shares = $_REQUEST['shares'];
+            $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                   VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                 SET @last = LAST_INSERT_ID();
                 SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
@@ -69,10 +66,9 @@ if ($position = "nurse") {
                   (@last, '$salary', '$position');
                 INSERT INTO owners (fk_owner_name, shares) (@name, '$shares');
                 INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
-                  (@pid, @name, LAST_INSERT_ID())":
+                  (@pid, @name, LAST_INSERT_ID())";
             } else {
-              $sql = {
-                  "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
+              $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                     VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                   SET @last = LAST_INSERT_ID();
                   SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
@@ -80,18 +76,17 @@ if ($position = "nurse") {
                     (@last, '$position');
                   INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
                     (@last, '$salary', '$position')";
-                    }
+
                   }
             }
           } elseif ($position = "chief") {
-            $salary = $_REQUEST['salary']
-            $specialty = $_REQUEST['specialty']
-            $position = 'chief of staff'
-            $own = $_REQUEST['own']
+            $salary = $_REQUEST['salary'];
+            $specialty = $_REQUEST['specialty'];
+            $position = 'chief of staff'];
+            $own = $_REQUEST['own'];
               if ($own = "yes") {
-                $shares = $_REQUEST['shares']
-                $sql = {
-                  "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
+                $shares = $_REQUEST['shares'];
+                $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                     VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                   SET @last = LAST_INSERT_ID();
                   SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
@@ -102,10 +97,9 @@ if ($position = "nurse") {
                     (@last, '$salary', '$position');
                   INSERT INTO owners (fk_owner_name, shares) (@name, '$shares');
                   INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
-                    (@pid, @name, LAST_INSERT_ID())":
+                    (@pid, @name, LAST_INSERT_ID())";
               } else {
-                $sql = {
-                    "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
+                $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                       VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                     SET @last = LAST_INSERT_ID();
                     SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
@@ -113,32 +107,28 @@ if ($position = "nurse") {
                       (@last, '$position');
                     INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
                       (@last, '$salary', '$position')";
-                              }
+
                     }
                   }
                 } elseif ($position = "surgeon") {
-                    $salary = $_REQUEST['salary']
-                    $grade = $_REQUEST['grade']
-                    $experience = $_REQUEST['experience']
-                    $type = $_REQUEST['type']
-                    $length = $_REQUEST['length']
-                    $specialty = $_REQUEST['specialty']
-                        $sql = {
-                          "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
+                    $salary = $_REQUEST['salary'];
+                    $grade = $_REQUEST['grade'];
+                    $experience = $_REQUEST['experience'];
+                    $type = $_REQUEST['type'];
+                    $length = $_REQUEST['length'];
+                    $specialty = $_REQUEST['specialty'];
+                        $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                           SET @last = LAST_INSERT_ID();
                           INSERT INTO contracts (fk_contracts_employee_id, type, length)
                             VALUES (@last, '$type', '$length')
-                          INSERT INTO surgeons (employee_id, specialty, contract_id ) (@last, '$specialty', LAST_INSERT_ID());"
-                      }
+                          INSERT INTO surgeons (employee_id, specialty, contract_id ) (@last, '$specialty', LAST_INSERT_ID())";
                   } elseif ($position = "janitor" || $position = 'secretary') {
-                        $salary = $_REQUEST['salary']
-                            $sql = {
-                              "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
+                        $salary = $_REQUEST['salary'];
+                            $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                             SET @last = LAST_INSERT_ID();
                             INSERT INTO salaries (fk_alary_employee_id, salary, fk_salary_position) (@last, '$salary', '$position')";
-                          }
                       }
                 }
     }

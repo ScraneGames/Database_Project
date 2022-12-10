@@ -19,7 +19,7 @@
         // Connect to Database
 //        $conn = new mysqli($servername, $username, $password, $dbname);
 require "../library.php";
-connectdatabase()
+connectdatabase();
         // check Connection
 
         if ($conn->connect_error) {
@@ -32,16 +32,15 @@ connectdatabase()
         $type_desc = $_REQUEST['type_desc'];
         $anatomical_location = $_REQUEST('anatomical_location');
         $special_needs = $_REQUEST('special_needs');
-        $category = $_REQUEST('category')
+        $category = $_REQUEST('category');
 
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = {
-          "INSERT INTO surgery_types (type_name, type_desc, anatomical_location, special_needs, category)
+        $sql = "INSERT INTO surgery_types (type_name, type_desc, anatomical_location, special_needs, category)
           VALUES ('$type_name', '$type_desc'. '$anatomical_location'. '$special_needs', '$category')";
-        }
+
 
         if(mysqli_query($conn, $sql)){
             echo "<h3>Information added successfully.";

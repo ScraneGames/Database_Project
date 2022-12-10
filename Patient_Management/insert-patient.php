@@ -38,10 +38,8 @@
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = {
-           "INSERT INTO patient_personal_data (patient_name, ssn, gender, dob, address, telephone_number)
-          VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number')";
-        }
+        $sql = "INSERT INTO patient_personal_data (patient_name, ssn, gender, dob, address, telephone_number) VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number')";
+
 
 
         if(mysqli_query($conn, $sql)){

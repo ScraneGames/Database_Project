@@ -19,7 +19,7 @@
         // Connect to Database
 //        $conn = new mysqli($servername, $username, $password, $dbname);
 require "../library.php";
-connectdatabase()
+connectdatabase();
         // check Connection
 
         if ($conn->connect_error) {
@@ -35,10 +35,9 @@ connectdatabase()
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = {
-          "INSERT INTO surgery_skills (skill_name, skill_desc)
+        $sql = "INSERT INTO surgery_skills (skill_name, skill_desc)
           VALUES ('$skill_name', '$skill_desc')";
-        }
+
 
         if(mysqli_query($conn, $sql)){
             echo "<h3>Information added successfully.";

@@ -24,7 +24,9 @@
 
         // check Connection
         require "../library.php";
-        connectdatabase()
+        connectdatabase();
+
+
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -38,10 +40,8 @@
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = {
-          "INSERT INTO allergies (allergy_name, allergy_desc)
+        $sql = "INSERT INTO allergies (allergy_name, allergy_desc)
           VALUES ('$allergy_name', '$allergy_desc')";
-        }
 
         if(mysqli_query($conn, $sql)){
             echo "<h3>Information added successfully.";

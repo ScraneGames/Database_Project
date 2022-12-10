@@ -5,7 +5,7 @@
    </head>
    <body>
       <center>
-         <h1>Adding a Surgery Skill/h1>
+         <h1>Adding a Surgery Skill </h1>
          <form action="insert-surgery-skills.php" method="post">
 
 <p>

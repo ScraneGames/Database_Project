@@ -29,9 +29,9 @@ include "/var/www/html/functions.php";
         // Taking all the values from the patient-administration.php
         $type_name = $_REQUEST['type_name'];
         $type_desc = $_REQUEST['type_desc'];
-        $anatomical_location = $_REQUEST('anatomical_location');
-        $special_needs = $_REQUEST('special_needs');
-        $category = $_REQUEST('category');
+        $anatomical_location = $_REQUEST['anatomical_location'];
+        $special_needs = $_REQUEST['special_needs'];
+        $category = $_REQUEST['category'];
 
 
         // Performing insert query execution

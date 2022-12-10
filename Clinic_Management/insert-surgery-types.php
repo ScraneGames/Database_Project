@@ -38,7 +38,7 @@ include "/var/www/html/functions.php";
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO surgery_types (type_name, type_desc, anatomical_location, special_needs, category)
-          VALUES ('$type_name', "$type_desc", '$anatomical_location', '$special_needs', '$category')";
+          VALUES ('$type_name', '$type_desc', '$anatomical_location', '$special_needs', '$category')";
 
 
 if (mysqli_query($conn, $sql)) {

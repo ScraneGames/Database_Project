@@ -27,7 +27,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $skill_name = $_REUEST['skill_name'];
+        $skill_name = $_REQUEST['skill_name'];
         $skill_desc = $_REQUEST['skill_desc'];
 
 
@@ -38,17 +38,13 @@ include "/var/www/html/functions.php";
           VALUES ('$skill_name', '$skill_desc')";
 
 
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>Information added successfully.";
-
-            echo nl2br("\n$skill_name\n");
-        } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
-        }
-
-        // Close connection
-            mysql_close($conn);
+if (mysqli_query($conn, $sql)) {
+    echo "Record inserted into Skill Types Correctly";
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+// Close connection
+  $conn->close();
             ?>
     </center>
 </body>

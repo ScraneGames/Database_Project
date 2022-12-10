@@ -27,7 +27,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $type_name = $_REUEST['type_name'];
+        $type_name = $_REQUEST['type_name'];
         $type_desc = $_REQUEST['type_desc'];
         $anatomical_location = $_REQUEST('anatomical_location');
         $special_needs = $_REQUEST('special_needs');
@@ -38,20 +38,16 @@ include "/var/www/html/functions.php";
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO surgery_types (type_name, type_desc, anatomical_location, special_needs, category)
-          VALUES ('$type_name', '$type_desc'. '$anatomical_location'. '$special_needs', '$category')";
+          VALUES ('$type_name', '$type_desc, '$anatomical_location', '$special_needs', '$category')";
 
 
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>Information added successfully.";
+if (mysqli_query($conn, $sql)) {
+    echo "Record inserted into Surgery Types Correctly";
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
-            echo nl2br("\n$type_name\n");
-        } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
-        }
-
-        // Close connection
-            mysql_close($conn);
+  $conn->close();
             ?>
     </center>
 </body>

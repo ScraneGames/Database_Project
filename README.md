@@ -6,12 +6,17 @@ Database project for class
 * Allergies
   * tested against the database successfully.
 * beds
+  * tested against the database successfully
 * contracts
+  * function of add-staff
 * illnesses
+ * tested against the database successfully.
 * medical_corporations
   * tested against the database successfully.
 * medications
+  * tested against the database successfully.
 * nurses
+  * function of add-staff
 * owners
   * handled in add-staff and add-medical-corporations files
 * patient_personal_data
@@ -19,6 +24,7 @@ Database project for class
 * physician_owners
   * handled in the add-staff files
 * physicians
+  * function of add-staff
 * salaries
   * Handled in the add-staff files
 * staff

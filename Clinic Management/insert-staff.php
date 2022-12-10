@@ -11,14 +11,15 @@
 
 
         <?php
-        $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "database_project";
+//        $servername = "localhost";
+//        $username = "username";
+//        $password = "password";
+//        $dbname = "database_project";
 
         // Connect to Database
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
+//        $conn = new mysqli($servername, $username, $password, $dbname);
+require "../library.php";
+connectdatabase()
         // check Connection
 
         if ($conn->connect_error) {
@@ -48,7 +49,7 @@ if ($position = "nurse") {
           VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
           SET @last = LAST_INSERT_ID();
           INSERT INTO nurses (employee_id, grade, experience) (@last, '$grade', '$experience');
-          INSERT INTO salaries (employee_id, salary, position) (@last, '$salary', '$position')";
+          INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position) (@last, '$salary', '$position')";
         }
     } elseif ($position = "physician") {
         $salary = $_REQUEST['salary']
@@ -64,11 +65,11 @@ if ($position = "nurse") {
                 INSERT INTO physicians (employee_id, position,)
                   (@last, '$position');
                 SELECT @pid := 'physician_id' FROM physicians WHERE employee_id = '@last';
-                INSERT INTO salaries (employee_id, salary, position)
+                INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
                   (@last, '$salary', '$position');
-                INSERT INTO owners (name, shares) (@name, '$shares');
-                INSERT INTO physician_owners (physician_id, owner_id)
-                  (@name, LAST_INSERT_ID())":
+                INSERT INTO owners (fk_owner_name, shares) (@name, '$shares');
+                INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
+                  (@pid, @name, LAST_INSERT_ID())":
             } else {
               $sql = {
                   "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
@@ -77,8 +78,8 @@ if ($position = "nurse") {
                   SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
                   INSERT INTO physicians (employee_id, position,)
                     (@last, '$position');
-                  INSERT INTO salaries (employee_id, salary, position)
-                    (@last, '$salary', '$position')":
+                  INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
+                    (@last, '$salary', '$position')";
                     }
                   }
             }
@@ -90,28 +91,28 @@ if ($position = "nurse") {
               if ($own = "yes") {
                 $shares = $_REQUEST['shares']
                 $sql = {
+                  "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
+                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
+                  SET @last = LAST_INSERT_ID();
+                  SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
+                  INSERT INTO physicians (employee_id, position,)
+                    (@last, '$position');
+                  SELECT @pid := 'physician_id' FROM physicians WHERE employee_id = '@last';
+                  INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
+                    (@last, '$salary', '$position');
+                  INSERT INTO owners (fk_owner_name, shares) (@name, '$shares');
+                  INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
+                    (@pid, @name, LAST_INSERT_ID())":
+              } else {
+                $sql = {
                     "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                       VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                     SET @last = LAST_INSERT_ID();
                     SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
                     INSERT INTO physicians (employee_id, position,)
                       (@last, '$position');
-                    SELECT @pid := 'physician_id' FROM physicians WHERE employee_id = '@last';
-                    INSERT INTO salaries (employee_id, salary, position)
-                      (@last, '$salary', '$position');
-                    INSERT INTO owners (name, shares) (@name, '$shares');
-                    INSERT INTO physician_owners (physician_id, owner_id)
-                      (@name, LAST_INSERT_ID())":
-                        } else {
-                          $sql = {
-                              "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
-                                VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
-                              SET @last = LAST_INSERT_ID();
-                              SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
-                              INSERT INTO physicians (employee_id, position,)
-                                (@last, '$position');
-                              INSERT INTO salaries (employee_id, salary, position)
-                                (@last, '$salary', '$position')":
+                    INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
+                      (@last, '$salary', '$position')";
                               }
                     }
                   }
@@ -126,7 +127,7 @@ if ($position = "nurse") {
                           "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                           SET @last = LAST_INSERT_ID();
-                          INSERT INTO contracts (employee_id, type, length)
+                          INSERT INTO contracts (fk_contracts_employee_id, type, length)
                             VALUES (@last, '$type', '$length')
                           INSERT INTO surgeons (employee_id, specialty, contract_id ) (@last, '$specialty', LAST_INSERT_ID());"
                       }
@@ -136,7 +137,7 @@ if ($position = "nurse") {
                               "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
                             SET @last = LAST_INSERT_ID();
-                            INSERT INTO salaries (employee_id, salary, position) (@last, '$salary', '$position')";
+                            INSERT INTO salaries (fk_alary_employee_id, salary, fk_salary_position) (@last, '$salary', '$position')";
                           }
                       }
                 }

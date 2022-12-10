@@ -11,14 +11,15 @@
 
 
         <?php
-        $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "database_project";
+//        $servername = "localhost";
+//        $username = "username";
+//        $password = "password";
+//        $dbname = "database_project";
 
         // Connect to Database
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
+//        $conn = new mysqli($servername, $username, $password, $dbname);
+require "../library.php";
+connectdatabase()
         // check Connection
 
         if ($conn->connect_error) {
@@ -27,8 +28,8 @@
 
 
         // Taking all the values from the patient-administration.php
-        $skill_name = $_REUEST['allergy_name'];
-        $skill_desc = $_REQUEST['allergy_desc'];
+        $skill_name = $_REUEST['skill_name'];
+        $skill_desc = $_REQUEST['skill_desc'];
 
 
         // Performing insert query execution

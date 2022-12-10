@@ -121,4 +121,6 @@ Database project for class
 
 ## Views I Need To Create
 
-* heart_risk(?)
+* heart_risk(?) - Created in mysql workbench
+* staff_as_patients - Created in MySQL Workbench
+  * Might not even be needed tbh. Could just be included in a SELECT

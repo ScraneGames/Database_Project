@@ -11,16 +11,20 @@
 
 
         <?php
-        $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "database_project";
+
+//        $servername = "localhost";
+//        $username = "username";
+//        $password = "password";
+//        $dbname = "database_project";
 
         // Connect to Database
-        $conn = new mysqli($servername, $username, $password, $dbname);
+//        $conn = new mysqli($servername, $username, $password, $dbname);
+
+
 
         // check Connection
-
+        require "../library.php";
+        connectdatabase()
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }

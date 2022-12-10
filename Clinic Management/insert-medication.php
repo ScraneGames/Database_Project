@@ -11,14 +11,15 @@
 
 
         <?php
-        $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "database_project";
+//        $servername = "localhost";
+//        $username = "username";
+//        $password = "password";
+//        $dbname = "database_project";
 
         // Connect to Database
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
+//        $conn = new mysqli($servername, $username, $password, $dbname);
+require "../library.php";
+connectdatabase()
         // check Connection
 
         if ($conn->connect_error) {

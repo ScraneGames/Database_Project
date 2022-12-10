@@ -31,24 +31,25 @@ include "/var/www/html/functions.php";
         $nursing_unit = $_REQUEST['nursing_unit'];
         $wing = $_REQUEST['wing'];
         $room_number = $_REQUEST['room_number'];
-        $bed_number = $_REQQUEST['bed'];
+        $bed_number = $_REQUEST['bed'];
 
-
+echo "$nursing_unit"
+echo "$wing"
+echo "$room_number"
+echo "$bed_number"
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO beds (nursing_unit, wing. room_number, bed_number)
-          VALUES ('$nursing_unit', '$wing', '$room_number', '$bed')";
+          VALUES ('$nursing_unit', '$wing', '$room_number', '$bed_number')";
 
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>Information added successfully.";
-        } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
-        }
+if (mysqli_query($conn, $sql)) {
+    echo "Record inserted into Beds Correctly";
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
-        // Close connection
-            mysqli_close($conn);
+  $conn->close();
             ?>
     </center>
 </body>

@@ -10,7 +10,7 @@
 
            <p>
                           <label for="nursing_unit">Nursing Unit:</label>
-                          <select name="nursing_unit">
+                          <select name="nursing_unit" id="nursing_unit">
                           <option value="">Select...</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -23,7 +23,7 @@
            </p>
            <p>
                           <label for="wing">Wing:</label>
-                          <select name="wing">
+                          <select name="wing" id="wing">
                           <option value="">Select...</option>
                           <option value="Blue">Blue</option>
                           <option value="Green">Green</option>
@@ -36,7 +36,7 @@
             </p>
             <p>
                            <label for="bed">Bed:</label>
-                           <select name="bed">
+                           <select name="bed" id="bed">
                            <option value="">Select...</option>
                            <option value="A">A</option>
                            <option value="B">B</option>

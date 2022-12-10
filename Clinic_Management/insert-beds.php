@@ -18,8 +18,7 @@
 
         // Connect to Database
 //        $conn = new mysqli($servername, $username, $password, $dbname);
-require "../library.php";
-connectdatabase();
+include "/var/www/html/functions.php";
 
         // check Connection
 

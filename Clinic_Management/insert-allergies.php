@@ -23,8 +23,7 @@
 
 
         // check Connection
-        require "../library.php";
-        connectdatabase();
+include "/var/www/html/functions.php";
 
 
         if ($conn->connect_error) {

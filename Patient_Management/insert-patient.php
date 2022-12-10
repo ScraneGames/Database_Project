@@ -11,14 +11,14 @@
 
 
         <?php
-        $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "database_project";
+//        $servername = "localhost";
+//        $username = "username";
+//        $password = "password";
+//        $dbname = "database_project";
 
         // Connect to Database
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
+//        $conn = new mysqli($servername, $username, $password, $dbname);
+include "/var/www/html/functions.php";
         // check Connection
 
         if ($conn->connect_error) {
@@ -32,14 +32,14 @@
         $gender = $_REQUEST['gender'];
         $dob = $_REQUEST['dob'];
         $address = $_REQUEST['address'];
-        $telephone_number = $_REQUEST['telephone_number']
+        $telephone_number = $_REQUEST['telephone_number'];
 
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO patient_personal_data (patient_name, ssn, gender, dob, address, telephone_number) VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number')";
-
+        $sql = "INSERT INTO patient_personal_data (patient_name, ssn, gender, dob, address, telephone_number)
+            VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number')";
 
 
         if(mysqli_query($conn, $sql)){

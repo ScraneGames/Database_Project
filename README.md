@@ -8,11 +8,13 @@ Database project for class
 * contracts
 * illnesses
 * medical_corporations
+  * tested against the database successfully.
 * medications
 * nurses
 * owners
   * handled in add-staff and add-medical-corporations files
 * patient_personal_data
+  * tested against the database successfully.
 * physician_owners
   * handled in the add-staff files
 * physicians

@@ -28,7 +28,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $illness_name = $_REUEST['illness_name'];
+        $illness_name = $_REQUEST['illness_name'];
         $illness_desc = $_REQUEST['illness_desc'];
 
 
@@ -38,17 +38,14 @@ include "/var/www/html/functions.php";
         $sql = "INSERT INTO illnesses (illness_name, illness_desc)
           VALUES ('$illness_name', '$illness_desc')";
 
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>Information added successfully.";
+if (mysqli_query($conn, $sql)) {
+    echo "Record inserted into Illnesses Correctly";
+    echo nl2br("\n$illness_name\n");
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
-            echo nl2br("\n$patient_name\n");
-        } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
-        }
-
-        // Close connection
-            mysql_close($conn);
+  $conn->close();
             ?>
     </center>
 </body>

@@ -31,8 +31,8 @@
            </p>
 
 <p>
-               <label for="bed_number">Bed Number:</label>
-               <input type="number" name="bed_number" id="bed_number">
+               <label for="room_number">Room Number:</label>
+               <input type="number" name="room_number" id="room_number">
             </p>
             <p>
                            <label for="bed">Bed:</label>

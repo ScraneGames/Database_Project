@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title> Insert Allergy Page</title>
+    <title> Insert Beds Page</title>
 </head>
 
 
@@ -28,29 +28,27 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the add-beds.php
-        $nursing_unit = $_REUEST['nursing_unit'];
+        $nursing_unit = $_REQUEST['nursing_unit'];
         $wing = $_REQUEST['wing'];
-        $room_number = $_REUEST['room_number'];
-        $bed_number = $_REQUEST['bed_number'];
+        $room_number = $_REQUEST['room_number'];
+        $bed_number = $_REQQUEST['bed'];
 
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO beds (nursing_unit, wing. room_number, bed_number)
-          VALUES ('$nursing_unit', '$wing', '$room_number', '$bed_number')";
+          VALUES ('$nursing_unit', '$wing', '$room_number', '$bed')";
 
         if(mysqli_query($conn, $sql)){
             echo "<h3>Information added successfully.";
-
-            echo nl2br("\n$patient_name\n");
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysql_error($conn);
         }
 
         // Close connection
-            mysql_close($conn);
+            mysqli_close($conn);
             ?>
     </center>
 </body>

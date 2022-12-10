@@ -4,6 +4,7 @@ Database project for class
 ## Completed Insert Pages (not tested against the database yet)
 
 * Allergies
+  * tested against the database successfully.
 * beds
 * contracts
 * illnesses

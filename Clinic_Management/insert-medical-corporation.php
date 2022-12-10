@@ -18,8 +18,8 @@
 
         // Connect to Database
 //        $conn = new mysqli($servername, $username, $password, $dbname);
-require "../library.php";
-connectdatabase();
+include "/var/www/html/functions.php";
+// connectdatabase();
         // check Connection
 
         if ($conn->connect_error) {
@@ -28,7 +28,7 @@ connectdatabase();
 
 
         // Taking all the values from the patient-administration.php
-        $corporation_name = $_REUEST['corporation_name'];
+        $corporation_name = $_REQUEST['corporation_name'];
         $headquarters = $_REQUEST['headquarters'];
         $shares = $_REQUEST['shares'];
 
@@ -36,22 +36,26 @@ connectdatabase();
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO owners (name, shares)
-          VALUES ('$corporation_name', '$shares')
-          INSERT INTO medical_corporations (corporation_name, headquarters, fk_medical_corporations_ownership_id);
-          VALUES ('$corporation_name', '$headquarters', LAST_INSERT_ID())";
 
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>Information added successfully.";
+        $sql = "INSERT INTO owners (fk_owner_name, shares)
+                  VALUES ('$corporation_name', '$shares')";
+        $sql2 = "INSERT INTO medical_corporations (corporation_name, headquarters, fk_medical_corporations_ownership_id)
+        		VALUES ('$corporation_name', '$headquarters',(SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
 
-            echo nl2br("\n$corporation_name\n added!");
-        } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
-        }
+   if (mysqli_query($conn, $sql)) {
+              echo "Record inserted into Owners Correctly";
+              $last_id = mysqli_insert_id($conn);
+              if ($conn->query($sql2) == TRUE){
+              	echo "Record inserted into Medical corporations Correctly";
+              } else {
+              	echo "Error: " . $sql2 . "<br>" . $conn->error;
 
-        // Close connection
-            mysql_close($conn);
+              }
+            } else {
+              echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+
+            $conn->close();
             ?>
     </center>
 </body>

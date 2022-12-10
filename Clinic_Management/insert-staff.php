@@ -44,10 +44,11 @@ if ($position = "nurse") {
       $grade = $_REQUEST['grade'];
       $experience = $_REQUEST['experience'];
           $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
-          VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
-          SET @last = LAST_INSERT_ID();
-          INSERT INTO nurses (employee_id, grade, experience) (@last, '$grade', '$experience');
-          INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position) (@last, '$salary', '$position')";
+          VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number')";
+          $sql .= "INSERT INTO nurses (employee_id, grade, experience) 
+          VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$grade', '$experience')";
+          $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
+          VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position')";
     } elseif ($position = "physician") {
         $salary = $_REQUEST['salary'];
         $specialty = $_REQUEST['specialty'];
@@ -55,26 +56,22 @@ if ($position = "nurse") {
           if ($own = "yes") {
             $shares = $_REQUEST['shares'];
             $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
-                  VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
-                SET @last = LAST_INSERT_ID();
-                SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
-                INSERT INTO physicians (employee_id, position,)
-                  (@last, '$position');
-                SELECT @pid := 'physician_id' FROM physicians WHERE employee_id = '@last';
-                INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
-                  (@last, '$salary', '$position');
-                INSERT INTO owners (fk_owner_name, shares) (@name, '$shares');
-                INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
-                  (@pid, @name, LAST_INSERT_ID())";
+                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number')";
+            $sql .= "INSERT INTO physicians (employee_id, position, specialty)
+                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty')";
+            $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
+                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position')";
+            $sql .= "INSERT INTO owners (fk_owner_name, shares) 
+                    VALUES ((SELECT employee_name FROM staff WHERE employee_id = (SELECT UNIQUE LAST_INSERT_ID() FROM staff)), '$shares')";
+            $sql .= "INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
+                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM physicians), (SELECT employee_name FROM staff WHERE employee_id = (SELECT UNIQUE LAST_INSERT_ID() FROM staff), (SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
             } else {
               $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
-                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number');
-                  SET @last = LAST_INSERT_ID();
-                  SELECT @name := 'employee_name' FROM staff WHERE ssn = '$ssn';
-                  INSERT INTO physicians (employee_id, position,)
-                    (@last, '$position');
-                  INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
-                    (@last, '$salary', '$position')";
+                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number')";
+               $sql .= "INSERT INTO physicians (employee_id, position, specialty)
+                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty')";
+               $sql .="INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
+                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position')";
 
                   }
             }

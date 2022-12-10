@@ -29,8 +29,11 @@ Database project for class
   * Handled in the add-staff files
 * staff
 * surgeons
+ * handled in the add-staff file
 * surgery_skills
+  * tested against the database successfully
 * surgery_types
+  * tested against the database successfully
 
 ## Tables that Need Insert Pages
 

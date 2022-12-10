@@ -20,7 +20,7 @@
             </p>
 <p>
                <label for="anatomical_location">Anatomical Location:</label>
-               <input type="text" name="anatomica_location" id="type_desc">
+               <input type="text" name="anatomical_location" id="anatomical_location">
             </p>
 <p>
                <label for="special_needs">Special Needs:</label>

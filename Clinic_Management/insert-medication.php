@@ -27,7 +27,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $medication_name = $_REUEST['medication_name'];
+        $medication_name = $_REQUEST['medication_name'];
         $quantity_on_hand = $_REQUEST['quantity_on_hand'];
         $quantity_on_order = $_REQUEST['quantity_on_order'];
         $unit_cost = $_REQUEST['unit_cost'];
@@ -38,19 +38,15 @@ include "/var/www/html/functions.php";
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO medications (name, quantity_on_hand, quantity_on_order, unit_cost, ytd_usage)
-          VALUES ('medication_name', '$quantity_on_hand', '$quantity_on_order', '$unit_cost'. '$ytd_usage')";
+          VALUES ('medication_name', '$quantity_on_hand', '$quantity_on_order', '$unit_cost', '$ytd_usage')";
 
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>Information added successfully.";
+if (mysqli_query($conn, $sql)) {
+    echo "Record inserted into Medications Correctly";
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
-            echo nl2br("\n$patient_name\n");
-        } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
-        }
-
-        // Close connection
-            mysql_close($conn);
+  $conn->close();
             ?>
     </center>
 </body>

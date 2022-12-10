@@ -42,7 +42,30 @@ include "/var/www/html/functions.php";
         $sql = "INSERT INTO allergies (allergy_name, allergy_desc)
           VALUES ('$allergy_name', '$allergy_desc')";
 
-        if(mysqli_query($conn, $sql)){
+if (mysqli_query($conn, $sql)) {
+    echo "Record inserted into Allergies Correctly";
+    echo nl2br("\n$allergy_name\n");
+    }
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+  $conn->close();
+
+  //        if(mysqli_query($conn, $sql)){
+  //  echo "<h3>Information added successfully.";
+//
+ //   echo nl2br("\n$patient_name\n");
+//} else {
+//    echo "ERROR: Hush! Sorry $sql. "
+ //       . mysql_error($conn);
+//}
+
+// Close connection
+//    mysql_close($conn);
+  ?>
+
+//        if(mysqli_query($conn, $sql)){
             echo "<h3>Information added successfully.";
 
             echo nl2br("\n$patient_name\n");
@@ -53,7 +76,6 @@ include "/var/www/html/functions.php";
 
         // Close connection
             mysql_close($conn);
-            ?>
     </center>
 </body>
 

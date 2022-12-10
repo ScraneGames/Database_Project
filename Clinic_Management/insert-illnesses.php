@@ -35,7 +35,7 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO illnesses (illness_name, illness_desc)
+        $sql = "INSERT INTO illness (illness_name, illness_desc)
           VALUES ('$illness_name', '$illness_desc')";
 
 if (mysqli_query($conn, $sql)) {

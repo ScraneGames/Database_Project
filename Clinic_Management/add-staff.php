@@ -98,6 +98,7 @@
 
 <!-- Has Ownership -->
             <div id="has_ownership" class="fields" style="display: none">
+ <p>
                            <label for="own">Has Ownership Stake?:</label>
                            <select name="own" id="own">
                            <option value="">Select...</option>

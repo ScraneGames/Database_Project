@@ -38,10 +38,10 @@ $all_employees = mysqli_query($conn,$sql_find_names);
                 while ($employees = mysqli_fetch_array(
                         $all_employees,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $employee["employee_id"];
+                <option value="<?php echo $employees["employee_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $employee["employee_name"];
+                    <?php echo $employees["employee_name"];
                         // To show the category name to the user
                     ?>
                 </option>

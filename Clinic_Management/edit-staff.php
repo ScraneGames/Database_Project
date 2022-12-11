@@ -19,10 +19,9 @@ echo "$sql";
 echo "<br>";
 echo "$original_employee_id";
 echo "<br>";
-echo "$employee_id";
-echo "<br>";
 echo $user['employee_name'];
 echo "<br>";
+$position = $user['position'];
 echo "$position";
 ?>
 
@@ -40,23 +39,22 @@ echo "$position";
 
 <p>
                <label for="Employee_name">Employee Name:</label>
-               <input type="text" name="employee_name" id="employee_name">
+               <input type="text" name="employee_name" value="<?php echo $user['employee_name']; ?>" id="employee_name">
             </p>
 
 
 <p>
                <label for="ssn">Social Security Number:</label>
-               <input type="text" name="ssn" id="ssn">
+               <input type="text" name="ssn" value="<?php $user['ssn']; ?>" id="ssn">
             </p>
 
 <p>
                <label for="gender">Gender:</label>
                <select name="gender">
-               <option value="">Select...</option>
-               <option value="male">Male</option>
-               <option value="female">Female</option>
-               <option value="nonbinary">NonBinary</option>
-               <option value="other">Other</option>
+               <option <?php echo $user['gender'] == "male" ? "selected": ""; ?>>Male</option>
+               <option <?php echo $user['gender'] == "female" ? "selected": ""; ?>>Female</option>
+               <option <?php echo $user['gender'] == "nonbinary" ? "selected": ""; ?>>NonBinary</option>
+               <option <?php echo $user['gender'] == "other" ? "selected": ""; ?>>Other</option>
                </select>
 </p>
                 </p>
@@ -64,13 +62,13 @@ echo "$position";
 
 <p>
                <label for="address">Address:</label>
-               <input type="text" name="address" id="address">
+               <input type="text" name="address" value="<?php echo $user['address']; ?>" id="address">
             </p>
 
 
 <p>
                <label for="telephone_number">Telephone Number:</label>
-               <input type="text" name="telephone_number" id="telephone_number">
+               <input type="text" name="telephone_number" value="<?php echo $user['telephone_number']; ?>" id="telephone_number">
             </p>
 <!-- Hidden fields class sections
  Salary -->

@@ -103,7 +103,7 @@
             </div>
 <!-- Has Ownership -->
             <div id="has_ownership" class="specific_staff" style="display: none">
-                <label for="ownership">Has Ownership Stake?:</label>
+                <label for="own">Has Ownership Stake?:</label>
                 <select name="own" id="own">
                 <option value="">Select...</option>
                 <option value="yes">Yes</option>

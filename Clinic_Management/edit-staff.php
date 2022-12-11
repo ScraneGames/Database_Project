@@ -6,18 +6,19 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$original_employee_id = $_REQUEST['employee_id'];
+$original_employee_id = $_REQUEST['employee'];
 
 
-$find_position = "SELECT position FROM staff WHERE employee_id = '$employee_id'";
+$find_array = "SELECT * FROM staff WHERE employee_id = '$original_employee_id'";
 
-$original_employee_name= $_REQUEST['employee_name'];
-$from_previous_form= $_REQUEST['employee'];
+mysqli_fetch_array($find_array,MYSQLI_ASSOC):;
 
+$user = ["employee_name" => $employee_name, "address" => $address, "telephone_number" => $telephone_number, "ssn" => $ssn, "gender" => $gender];
 echo "$original_employee_id";
 echo "<br>";
-echo "$original_employee_name";
-echo "$from_previous_form";
+echo "$employee_id";
+echo "<br>"
+echo "$user";
 ?>
 
 

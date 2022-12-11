@@ -57,13 +57,13 @@ include "/var/www/html/functions.php";
             $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                     VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
             $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
-                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
+                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position'); ";
             $sql .= "INSERT INTO owners (fk_owner_name, shares)
                     VALUES ('$employee_name', '$shares'); ";
             $sql .= "INSERT INTO physicians (employee_id, position, specialty, employee_name)
-                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty', '$employee_name'); ";
+                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$position', '$specialty', '$employee_name'); ";
             $sql .= "INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
-                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM physicians), '$employee_name', (SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
+                    VALUES ((SELECT physician_id FROM physicians, staff WHERE physicians.employee_id = staff.employee_id), '$employee_name', (SELECT ownership_id FROM owners WHERE fk_owner_name = '$employee_name' AND shares = '$shares'))";
 //            } else {
 //                $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
 //                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";

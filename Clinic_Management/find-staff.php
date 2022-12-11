@@ -6,9 +6,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT UNIQUE employee_name FROM staff";
+$sql_find_names = "SELECT employee_name, employee_id FROM staff";
 
-public mysqli::multi_query(string $sql): bool
+$all_employees = mysqli_query($conn,$sql);
+
+// public mysqli::multi_query(string $sql): bool
 
 
 ?>
@@ -27,17 +29,28 @@ public mysqli::multi_query(string $sql): bool
 
          <form action="edit-staff.php" method="post">
 
-<p>
-               <label for="allergy_name">Allergy Name:</label>
-               <input type="text" name="allergy_name" id="allergy_name">
-            </p>
-
-
-<p>
-               <label for="allergy_desc">Allergy Description:</label>
-               <input type="text" name="allergy_desc" id="allergy_desc">
-            </p>
-
+         <label>Select an Employee</label>
+        <select name="employee">
+            <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($employees = mysqli_fetch_array(
+                        $all_employees,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $employee["employee_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $employee["employee_name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php
+                endwhile;
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
             <input type="submit" value="Submit">
          </form>
       </center>

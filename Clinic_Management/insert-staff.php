@@ -92,6 +92,13 @@ include "/var/www/html/functions.php";
     }
 
     $conn->close();
+
+    echo "<br>";
+    echo "$sql";
+    echo "<br>";
+    echo "$conn";
+    echo "<br>";
+    var_dump $conn;
             ?>
     </center>
 </body>

@@ -17,8 +17,8 @@ $user = ["employee_name" => $employee_name, "address" => $address, "telephone_nu
 echo "$original_employee_id";
 echo "<br>";
 echo "$employee_id";
-echo "<br>"
-echo '$user';
+echo "<br>";
+echo "$user";
 ?>
 
 

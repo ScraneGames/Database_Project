@@ -39,7 +39,7 @@ include "/var/www/html/functions.php";
         // here for our table name is staff
 
         // Nurses
-if ($position = "nurse") {
+if ($position == "nurse") {
       $salary = $_REQUEST['salary'];
       $grade = $_REQUEST['grade'];
       $experience = $_REQUEST['experience'];
@@ -49,11 +49,11 @@ if ($position = "nurse") {
           VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$grade', '$experience'); ";
           $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
           VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position')";
-    } elseif ($position = "physician") {
+    } elseif ($position == "physician") {
         $salary = $_REQUEST['salary'];
         $specialty = $_REQUEST['specialty'];
         $own = $_REQUEST['own'];
-          if ($own = "yes") {
+          if ($own == "yes") {
             $shares = $_REQUEST['shares'];
             $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                     VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
@@ -74,11 +74,11 @@ if ($position = "nurse") {
                     VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
 
                   }
-               } elseif ($position = "chief") {
+               } elseif ($position == "chief_of_staff") {
                       $salary = $_REQUEST['salary'];
                   $specialty = $_REQUEST['specialty'];
                   $own = $_REQUEST['own'];
-                    if ($own = "yes") {
+                    if ($own == "yes") {
                       $shares = $_REQUEST['shares'];
                       $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                               VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
@@ -99,7 +99,7 @@ if ($position = "nurse") {
                               VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
 
                   }
-              } elseif ($position = "surgeon") {
+              } elseif ($position == "surgeon") {
                     $salary = $_REQUEST['salary'];
                     $grade = $_REQUEST['grade'];
                     $experience = $_REQUEST['experience'];
@@ -112,7 +112,7 @@ if ($position = "nurse") {
                               VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$type', '$length'); ";
                         $sql .=  "INSERT INTO surgeons (employee_id, specialty, contract_id )
                           VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$specialty', (SELECT UNIQUE LAST_INSERT_ID() FROM contracts)); ";
-                  } elseif ($position = "janitor" || $position = 'secretary') {
+                  } elseif ($position == "janitor" || $position = 'secretary') {
                         $salary = $_REQUEST['salary'];
                             $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";

@@ -55,7 +55,7 @@ if ($position == "nurse") {
         $own = $_REQUEST['own'];
           if ($own == "yes") {
             $shares = $_REQUEST['shares'];
-            $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
+            $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                     VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
             $sql .= "INSERT INTO physicians (employee_id, position, specialty)
                     VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty'); ";
@@ -80,7 +80,7 @@ if ($position == "nurse") {
                   $own = $_REQUEST['own'];
                     if ($own == "yes") {
                       $shares = $_REQUEST['shares'];
-                      $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
+                      $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                               VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
                       $sql .= "INSERT INTO physicians (employee_id, position, specialty)
                               VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty'); ";

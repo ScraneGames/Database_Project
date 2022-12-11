@@ -38,20 +38,13 @@ include "/var/www/html/functions.php";
 
 
         $sql = "INSERT INTO owners (fk_owner_name, shares)
-                  VALUES ('$corporation_name', '$shares')";
-        $sql2 = "INSERT INTO medical_corporations (corporation_name, headquarters, fk_medical_corporations_ownership_id)
+                  VALUES ('$corporation_name', '$shares'); ";
+        $sql .= "INSERT INTO medical_corporations (corporation_name, headquarters, fk_medical_corporations_ownership_id)
         		VALUES ('$corporation_name', '$headquarters',(SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
 
-   if (mysqli_query($conn, $sql)) {
+   if (mysqli_multi_query($conn, $sql)) {
               echo "Record inserted into Owners Correctly";
-              $last_id = mysqli_insert_id($conn);
-              if ($conn->query($sql2) == TRUE){
-              	echo "Record inserted into Medical corporations Correctly";
-              } else {
-              	echo "Error: " . $sql2 . "<br>" . $conn->error;
-
-              }
-            } else {
+             } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
             }
 

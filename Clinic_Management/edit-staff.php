@@ -45,7 +45,7 @@ echo "$position";
 
 <p>
                <label for="ssn">Social Security Number:</label>
-               <input type="text" name="ssn" value="<?php $user['ssn']; ?>" id="ssn">
+               <input type="text" name="ssn" value="<?php echo $user['ssn']; ?>" id="ssn">
             </p>
 
 <p>

@@ -84,7 +84,7 @@ if ($position == "nurse") {
                             $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
                             $sql .= "INSERT INTO salaries (fk_alary_employee_id, salary, fk_salary_position) ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
-/                     }
+                     }
 
 // The query gets executed here
 if (mysqli_multi_query($conn, $sql)) {

@@ -118,7 +118,6 @@ if ($position = "nurse") {
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number')";
                             $sql .= "INSERT INTO salaries (fk_alary_employee_id, salary, fk_salary_position) ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position')";
                       }
-                }
     }
     if (mysqli_query($conn, $sql)) {
       echo "Record inserted into Staff Correctly";

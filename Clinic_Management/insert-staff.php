@@ -57,8 +57,8 @@ if ($position == "nurse") {
             $shares = $_REQUEST['shares'];
             $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                     VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
-            $sql .= "INSERT INTO physicians (employee_id, position, specialty)
-                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty'); ";
+            $sql .= "INSERT INTO physicians (employee_id, position, specialty, employee_name)
+                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty', '$employee_name'); ";
             $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
                     VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
             $sql .= "INSERT INTO owners (fk_owner_name, shares)
@@ -82,8 +82,8 @@ if ($position == "nurse") {
                       $shares = $_REQUEST['shares'];
                       $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                               VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
-                      $sql .= "INSERT INTO physicians (employee_id, position, specialty)
-                              VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty'); ";
+                      $sql .= "INSERT INTO physicians (employee_id, position, specialty, employee_name)
+                              VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty', '$employee_name'); ";
                       $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
                               VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
                       $sql .= "INSERT INTO owners (fk_owner_name, shares)

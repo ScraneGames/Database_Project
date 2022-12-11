@@ -40,7 +40,7 @@ include "/var/www/html/functions.php";
         $sql = "INSERT INTO owners (fk_owner_name, shares)
                   VALUES ('$corporation_name', '$shares'); ";
         $sql .= "INSERT INTO medical_corporations (corporation_name, headquarters, fk_medical_corporations_ownership_id)
-        		VALUES ('$corporation_name', '$headquarters',(SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
+        		VALUES ('$corporation_name', '$headquarters', (SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
 
    if (mysqli_query($conn, $sql)) {
               echo "Record inserted into Owners Correctly";

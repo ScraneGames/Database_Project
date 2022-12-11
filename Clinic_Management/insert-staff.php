@@ -98,7 +98,7 @@ include "/var/www/html/functions.php";
     echo "<br>";
     echo "$conn";
     echo "<br>";
-    var_dump $conn;
+    var_dump($conn);
             ?>
     </center>
 </body>

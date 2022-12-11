@@ -176,6 +176,7 @@
            if($(this).val() == "nurse"){
               $('#salary_field').show();
               $('#grade_field').show();
+              $('#experience_field').show();
            } else if($(this).val() == "surgeon"){
                $('#contracts_field').show();
                $('#specialty_field').show();

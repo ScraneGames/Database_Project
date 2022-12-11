@@ -11,7 +11,7 @@ $original_employee_id = $_REQUEST['employee'];
 
 $find_array = "SELECT * FROM staff WHERE employee_id = '$original_employee_id'";
 
-mysqli_fetch_array($find_array,MYSQLI_ASSOC):;
+mysqli_fetch_array($find_array,MYSQLI_ASSOC);
 
 $user = ["employee_name" => $employee_name, "address" => $address, "telephone_number" => $telephone_number, "ssn" => $ssn, "gender" => $gender];
 echo "$original_employee_id";

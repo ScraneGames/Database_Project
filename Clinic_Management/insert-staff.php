@@ -27,7 +27,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $employee_name = $_REQUEST['patient_name'];
+        $employee_name = $_REQUEST['employee_name'];
         $ssn = $_REQUEST['ssn'];
         $gender = $_REQUEST['gender'];
         $position = $_REQUEST['position'];

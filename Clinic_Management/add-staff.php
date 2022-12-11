@@ -61,12 +61,14 @@
             <div id="salary_field" class="fields" style="display: none">
 <p>
             <label for="salary">Salary:</label>
+            <input type="number" name="salary" id="salary" min="25000" max="300000">
             </p>
             </div>
 <!-- Grade -->
             <div id="grade_field" class="fields" style="display: none">
 <p>
-            <label for="grade">Salary:</label>
+            <label for="grade">Grade:</label>
+            <input type="text" name="grade" id="grade">
             </p>
             </div>
  <!-- Experience -->

@@ -18,7 +18,7 @@ echo "$original_employee_id";
 echo "<br>";
 echo "$employee_id";
 echo "<br>"
-echo "$user";
+echo '$user';
 ?>
 
 

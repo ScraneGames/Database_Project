@@ -12,10 +12,12 @@ $original_employee_id = $_REQUEST['employee_id'];
 $find_position = "SELECT position FROM staff WHERE employee_id = '$employee_id'";
 
 $original_employee_name= $_REQUEST['employee_name'];
+$from_previous_form= $_REQUEST['employee'];
 
 echo "$original_employee_id";
 echo "<br>";
 echo "$original_employee_name";
+echo "$from_previous_form";
 ?>
 
 

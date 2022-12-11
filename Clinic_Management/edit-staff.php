@@ -185,7 +185,7 @@ echo "$position";
 
    <script>
      $( document ).ready(function() {
-        $('#position').change(function() {
+        $('$position').change(function() {
            $('.fields').hide()
            if($(this).val() == "nurse"){
               $('#salary_field').show();

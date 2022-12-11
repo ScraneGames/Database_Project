@@ -39,8 +39,8 @@ include "/var/www/html/functions.php";
         $own = $_REQUEST['own'];
         $shares = $_REQUEST['shares'];
         $experience = $_REQUEST['experience'];
-        $type = $_REQUEST['type'];
-        $length = $_REQUEST['length'];
+        $type = $_REQUEST['contract_type'];
+        $length = $_REQUEST['contract_length'];
         // Performing insert query execution
         // here for our table name is staff
 

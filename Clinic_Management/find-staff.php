@@ -41,7 +41,7 @@ $all_employees = mysqli_query($conn,$sql_find_names);
                 <option value="<?php echo $employees["employee_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $employees["employee_name", " ", "employee_id"];
+                    <?php echo $employees["{employee_name} {employee_id}"];
                         // To show the employee name to the user
                     ?>
                 </option>

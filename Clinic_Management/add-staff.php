@@ -11,7 +11,7 @@
 
 <p>
                <label for="Employee_name">Employee Name:</label>
-               <input type="text" name="patient_name" id="patient_name">
+               <input type="text" name="employee_name" id="employee_name">
             </p>
 
 

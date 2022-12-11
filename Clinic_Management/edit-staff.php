@@ -9,13 +9,13 @@ if ($conn->connect_error) {
 $original_employee_id = $_REQUEST['employee'];
 
 
-$find_info = "SELECT * FROM staff WHERE employee_id = '$original_employee_id'";
+$sql = "SELECT * FROM staff WHERE employee_id = '$original_employee_id'";
 
-$find_array = mysqli_query($conn,$find_info);
+$result = mysqli_query($conn,$sql);
 
-$user = mysqli_fetch_array($find_array,MYSQLI_ASSOC);
+$user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-echo "$find_array";
+echo "$sql";
 echo "<br>";
 echo "$original_employee_id";
 echo "<br>";

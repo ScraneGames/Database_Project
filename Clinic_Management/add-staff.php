@@ -171,13 +171,13 @@
      $( document ).ready(function() {
         $('#position').change(function() {
            $('.fields').hide()
-           if($(this).val() == "nurse")
+           if($(this).val() == "nurse"){
               $('#salary_field').show();
               $('#grade_field').show();
-           else if($(this).val() == "surgeon")
+           } else if($(this).val() == "surgeon"){
                $('#contracts_field').show();
                $('#specialty_field').show();
-                else if($(this).val() == "physician"){
+           }else if($(this).val() == "physician"){
                   $('#salary_field').show();
                   $('#specialty_field').show();
                   $('#has_ownership').show();
@@ -187,10 +187,11 @@
                      $('#specialty_field').show();
                       $('#has_ownership').show();
                     }
-                      else if($(this).val() == "secretary")
+                      else if($(this).val() == "secretary"){
                         $('#salary_field').show();
-                          else if($(this).val() == "janitor")
+                      }else if($(this).val() == "janitor"){
                            $('#salary_field').show();
+                      }
         });
       });
    </script>
@@ -198,7 +199,7 @@
    $( document ).ready(function() {
      $('#own').change(function() {
        $('.owner_fields').hide()
-       if($(this).val() == "yes")
+         if($(this).val() == "yes")
           $('#owner').show();
      });
    });

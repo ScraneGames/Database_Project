@@ -13,6 +13,8 @@ $find_array = "SELECT * FROM staff WHERE employee_id = '$original_employee_id'";
 
 $user = mysqli_fetch_array($find_array,MYSQLI_ASSOC);
 
+echo "$find_array";
+echo "<br>";
 echo "$original_employee_id";
 echo "<br>";
 echo "$employee_id";

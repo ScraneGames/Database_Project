@@ -62,7 +62,7 @@ include "/var/www/html/functions.php";
                     VALUES ('$employee_name', '$shares'); ";
             $sql .= "INSERT INTO physicians (employee_id, position, specialty, employee_name)
                     VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$position', '$specialty', '$employee_name'); ";
-            $sql .= "INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
+            $sql .= "INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_physician_own_ownership_id)
                     VALUES ((SELECT physician_id FROM physicians WHERE employee_id = (SELECT employee_id FROM staff WHERE ssn = '$ssn')), '$employee_name', (SELECT ownership_id FROM owners WHERE fk_owner_name = '$employee_name' AND shares = '$shares'))";
 //            } else {
 //                $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)

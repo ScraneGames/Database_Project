@@ -74,8 +74,7 @@ if ($position = "nurse") {
                     VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position')";
 
                   }
-            }
-          } elseif ($position = "chief") {
+               } elseif ($position = "chief") {
                       $salary = $_REQUEST['salary'];
                   $specialty = $_REQUEST['specialty'];
                   $own = $_REQUEST['own'];

@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 
 $sql_find_names = "SELECT employee_name, employee_id FROM staff";
 
-$all_employees = mysqli_query($conn,$sql);
+$all_employees = mysqli_query($conn,$sql_find_names);
 
 // public mysqli::multi_query(string $sql): bool
 

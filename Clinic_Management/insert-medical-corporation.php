@@ -46,7 +46,7 @@ include "/var/www/html/functions.php";
               echo "Record inserted into Owners Correctly";
               $last_id = mysqli_insert_id($conn);
             } else {
-              echo '$sql'
+              echo '$sql';
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
 

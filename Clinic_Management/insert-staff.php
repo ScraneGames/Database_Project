@@ -62,8 +62,8 @@ include "/var/www/html/functions.php";
                     VALUES ('$employee_name', '$shares'); ";
             $sql .= "INSERT INTO physicians (employee_id, position, specialty, employee_name)
                     VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty', '$employee_name'); ";
-//            $sql .= "INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
-//                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM physicians), '$employee_name', (SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
+            $sql .= "INSERT INTO physician_owners (fk_own_physician_id, fk_own_employee_name, fk_own_owner_id)
+                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM physicians), '$employee_name', (SELECT UNIQUE LAST_INSERT_ID() FROM owners))";
 //            } else {
 //                $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
 //                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";

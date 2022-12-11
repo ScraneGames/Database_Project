@@ -56,8 +56,59 @@
                 <option value="secretary">Secretary</option>
                 </select>
             </p>
+<!-- Hidden fields class sections
+ Salary -->
+            <div id="salary_field" class="fields" style="display: none">
+<p>
+            <label for="salary">Salary:</label>
+            </p>
+            </div>
+<!-- Grade -->
+            <div id="grade_field" class="fields" style="display: none">
+<p>
+            <label for="grade">Salary:</label>
+            </p>
+            </div>
+ <!-- Experience -->
+ <div id="experience_field" class="fields" style="display: none">
+<p>
+              <label for="experience">Experience(in years):</label>
+                 <input type="number" name="experience" id="experience">
+               </p>
+            </div>
+<!-- Contracts -->
+<div id="contracts_field" class="fields" style="display: none">
+            <p>
+              <label for="contract_type">Contract Type:</label>
+               <input type="text" name="contract_type" id="contract_type">
+             </p>
+ <p>
+             <label for="contract_length">Contract Length(in years):</label>
+            <input type="number" name="contract_length" id="contract_length">
+                          </p>
+                          </div>
+
+<!-- Specialty -->
+<div id="specialty_field" class="fields" style="display: none">
+<p>
+               <label for="specialty">Specialty:</label>
+                <input type="text" name="specialty" id="specialty">
+              </p>
+              </div>
+
+<!-- Has Ownership -->
+            <div id="has_ownership" class="fields" style="display: none">
+                           <label for="own">Has Ownership Stake?:</label>
+                           <select name="own" id="own">
+                           <option value="">Select...</option>
+                           <option value="yes">Yes</option>
+                           <option value="no">No</option>
+                           </select>
+                           </p>
+                        </div>
+
 <!-- Hidden specific_staff class sections
- Nurses -->
+ Nurses
             <div id="nurses" class="specific_staff" style="display: none">
 <p>
               <label for="salary">Salary:</label>
@@ -72,7 +123,7 @@
                  <input type="number" name="experience" id="experience">
                </p>
             </div>
-<!-- Surgeon -->
+<!-- Surgeon
             <div id="surgeon" class="specific_staff"  style="display: none">
 <p>
               <label for="contract_type">Contract Type:</label>
@@ -83,7 +134,7 @@
             <input type="number" name="contract_length" id="contract_type">
                           </p>
             </div>
-<!-- Physician -->
+<!-- Physician
             <div id="physician" class="specific_staff"  style="display: none">
 <p>
               <label for="salary">Salary:</label>
@@ -93,7 +144,7 @@
                <label for="specialty">Specialty:</label>
                 <input type="text" name="specialty" id="specialty">
               </p>
-<!-- Other Staff -->
+<!-- Other Staff
             </div>
             <div id="other_staff" class="specific_staff"  style="display: none">
 <p>
@@ -101,16 +152,7 @@
                <input type="number" name="salary" id="salary" min="25000" max="300000">
              </p>
             </div>
-<!-- Has Ownership -->
-            <div id="has_ownership" class="specific_staff" style="display: none">
-                <label for="own">Has Ownership Stake?:</label>
-                <select name="own" id="own">
-                <option value="">Select...</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-                </select>
-                </p>
-            </div>
+
 <!-- Enter Shares -->
             <div id="owner" class="owner_fields" style="display: none">
 <p>
@@ -127,23 +169,27 @@
    <script>
      $( document ).ready(function() {
         $('#position').change(function() {
-           $('.specific_staff').hide()
+           $('.fields').hide()
            if($(this).val() == "nurse")
-              $('#nurses').show();
+              $('#salary_field').show();
+              $('#grade_field').show();
            else if($(this).val() == "surgeon")
-              $('#surgeon').show();
+               $('#contracts_field').show();
+               $('#specialty_field').show();
                 else if($(this).val() == "physician"){
-                  $('#physician').show();
+                  $('#salary_field').show();
+                  $('#specialty_field').show();
                   $('#has_ownership').show();
                 }
                    else if($(this).val() == "chief_of_staff") {
-                      $('#physician').show();
+                     $('#salary_field').show();
+                     $('#specialty_field').show();
                       $('#has_ownership').show();
                     }
                       else if($(this).val() == "secretary")
-                        $('#other_staff').show();
+                        $('#salary_field').show();
                           else if($(this).val() == "janitor")
-                            $('#other_staff').show();
+                           $('#salary_field').show();
         });
       });
    </script>

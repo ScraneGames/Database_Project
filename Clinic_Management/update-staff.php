@@ -44,9 +44,9 @@ include "/var/www/html/functions.php";
         $length = $_REQUEST['contract_length'];
         // Performing insert query execution
         // here for our table name is staff
-        $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
-        $result = mysqli_query($conn,$owner_sql);
-        echo "$owner_sql";
+    //    $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
+    //    $result = mysqli_query($conn,$owner_sql);
+    //    echo "$owner_sql";
         echo "<br>";
         echo "<br>";
         // Nurses
@@ -61,10 +61,20 @@ if ($position == "nurse") {
                    SET salary = '$salary'
                    WHERE fk_salary_employee_id = '$employee_id'";
     } elseif ($position == "physician" || $position == "chief_of_staff") {
-        if ($result) {
-                    $sql .= "UPDATE owners
-                        SET fk_owner_name = '$employee_name'
-                        WHERE ownership_ID = (SELECT fk_physician_own_ownership_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')); ";
+    //    if ($result) {
+   //                 $sql .= "UPDATE owners
+    //                    SET fk_owner_name = '$employee_name'
+     //                   WHERE ownership_ID = (SELECT fk_physician_own_ownership_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')); ";
+     //               $sql = "UPDATE staff
+     //                   SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
+     //                   WHERE employee_id = '$employee_id'; ";
+    //                $sql .= "UPDATE salaries
+     //                   SET salary = '$salary'
+     //                   WHERE fk_salary_employee_id = '$employee_id'; ";
+    //                $sql .= "UPDATE physicians
+    //                    SET specialty = '$specialty'
+     //                   WHERE employee_id = '$employee_id'";
+    //        } else {
                     $sql = "UPDATE staff
                         SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
                         WHERE employee_id = '$employee_id'; ";
@@ -74,17 +84,7 @@ if ($position == "nurse") {
                     $sql .= "UPDATE physicians
                         SET specialty = '$specialty'
                         WHERE employee_id = '$employee_id'";
-            } else {
-                    $sql = "UPDATE staff
-                        SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
-                        WHERE employee_id = '$employee_id'; ";
-                    $sql .= "UPDATE salaries
-                        SET salary = '$salary'
-                        WHERE fk_salary_employee_id = '$employee_id'; ";
-                    $sql .= "UPDATE physicians
-                        SET specialty = '$specialty'
-                        WHERE employee_id = '$employee_id'";
-                    }
+      //              }
                } elseif ($position == "surgeon") {
                         $sql = "UPDATE staff
                             SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'

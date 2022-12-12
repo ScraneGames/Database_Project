@@ -34,7 +34,7 @@ if ($position == "nurse") {
     $contract_result = mysqli_query($conn,$contract_sql);
     $contract_user = mysqli_fetch_array($contract_result,MYSQLI_ASSOC);
     $surgeon_sql = "SELECT * FROM surgeons WHERE employee_id = '$original_employee_id'";
-    $sureon_result = mysqli_query($conn,$surgeon_sql);
+    $surgeon_result = mysqli_query($conn,$surgeon_sql);
     $surgeon_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
     echo $contract_sql;
     echo $surgeon_sql;

@@ -51,7 +51,8 @@ $all_patients = mysqli_query($conn,$sql_find_names);
             ?>
         </select>
         <br>
-            <input type="submit" value="Submit">
+            <input type="submit" name="button" value="Update">
+            <input type="submit" name="button" value="Delete">
          </form>
       </center>
    </body>

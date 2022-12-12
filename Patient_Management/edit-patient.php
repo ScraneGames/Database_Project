@@ -21,6 +21,12 @@ echo "$original_patient_id";
 echo "<br>";
 echo $user['patient_name'];
 echo "<br"
+
+if($_REQUEST['button']=="Delete"){
+    $delete_sql = "DELETE FROM patient_personal_data WHERE patient_id = '$original_patient_id";
+    mysqli_query($conn,$delete_sql);
+    echo "'$original_patient_id' deleted!"
+}
 ?>
 
 <!DOCTYPE html>

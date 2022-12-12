@@ -73,30 +73,29 @@ echo "$position";
 <p>
                 <label for="position">Position:</label>
                 <name="position" value="<?php echo $user['position']; ?>" id="position">
-<!-- Hidden fields class sections
- Salary -->
-            <div id="salary_field" class="fields" style="display: none">
-<p>
-            <label for="salary">Salary:</label>
+<!--Salary -->
+ <?php if ($user['position'] == "nurse" || $user['position'] == "physician" || $user['position'] == "chief_of_staff" || $user['position'] == "secretary" || $user['position'] == 'janitor'): ?>
+ <p>
+       <label for="salary">Salary:</label>
             <input type="number" name="salary" id="salary" min="25000" max="300000">
             </p>
-            </div>
+            <?php endif; ?>
 <!-- Grade -->
-            <div id="grade_field" class="fields" style="display: none">
+<?php if ($user['position'] == "nurse"): ?>
 <p>
             <label for="grade">Grade:</label>
             <input type="text" name="grade" id="grade">
             </p>
-            </div>
+            <?php endif; ?>
  <!-- Experience -->
- <div id="experience_field" class="fields" style="display: none">
+ <?php if ($user['position'] == "nurse"): ?>
 <p>
               <label for="experience">Experience(in years):</label>
                  <input type="number" name="experience" id="experience">
                </p>
-            </div>
+            <?php endif; ?>
 <!-- Contracts -->
-<div id="contracts_field" class="fields" style="display: none">
+<?php if ($user['position'] == "surgeon"): ?>
             <p>
               <label for="contract_type">Contract Type:</label>
                <input type="text" name="contract_type" id="contract_type">
@@ -105,18 +104,20 @@ echo "$position";
              <label for="contract_length">Contract Length(in years):</label>
             <input type="number" name="contract_length" id="contract_length">
                           </p>
-                          </div>
+            <?php endif; ?>
+
 
 <!-- Specialty -->
-<div id="specialty_field" class="fields" style="display: none">
+<?php if ($user['position'] == "surgeon" || $user['position'] == "physician" || $user['position'] == "chief_of_staff"): ?>
 <p>
                <label for="specialty">Specialty:</label>
                 <input type="text" name="specialty" id="specialty">
               </p>
               </div>
+              <?php endif; ?>
 
-<!-- Has Ownership -->
-            <div id="has_ownership" class="fields" style="display: none">
+<!-- Has Ownership
+<?php if ($user['position'] == "physician" || $user['position'] == "chief_of_staff"): ?>
  <p>
                            <label for="own">Has Ownership Stake?:</label>
                            <select name="own" id="own">
@@ -125,55 +126,11 @@ echo "$position";
                            <option value="no">No</option>
                            </select>
                            </p>
-                        </div>
 
-<!-- Hidden specific_staff class sections
- Nurses
-            <div id="nurses" class="specific_staff" style="display: none">
-<p>
-              <label for="salary">Salary:</label>
-               <input type="number" name="salary" id="salary" min="25000" max="300000">
-             </p>
-<p>
-               <label for="grade">Grade:</label>
-                <input type="text" name="grade" id="grade">
-              </p>
-<p>
-              <label for="experience">Experience(in years):</label>
-                 <input type="number" name="experience" id="experience">
-               </p>
-            </div>
-<!-- Surgeon
-            <div id="surgeon" class="specific_staff"  style="display: none">
-<p>
-              <label for="contract_type">Contract Type:</label>
-               <input type="text" name="contract_type" id="contract_type">
-             </p>
- <p>
-             <label for="contract_type">Contract Length(in years):</label>
-            <input type="number" name="contract_length" id="contract_type">
-                          </p>
-            </div>
-<!-- Physician
-            <div id="physician" class="specific_staff"  style="display: none">
-<p>
-              <label for="salary">Salary:</label>
-               <input type="number" name="salary" id="salary" min="25000" max="300000">
-             </p>
-<p>
-               <label for="specialty">Specialty:</label>
-                <input type="text" name="specialty" id="specialty">
-              </p>
-<!-- Other Staff
-            </div>
-            <div id="other_staff" class="specific_staff"  style="display: none">
-<p>
-              <label for="salary">Salary:</label>
-               <input type="number" name="salary" id="salary" min="25000" max="300000">
-             </p>
-            </div>
+-->
 
-<!-- Enter Shares -->
+
+<!-- Enter Shares
             <div id="owner" class="owner_fields" style="display: none">
 <p>
               <label for="shares">Shares:</label>
@@ -183,64 +140,8 @@ echo "$position";
             <input type="submit" value="Submit">
          </form>
       </center>
-   </body>
+</body>
 
-<!-- New attempt at positions script
-<script>
-    echo "$position";
-    echo "<br>";
-$( document ).ready(function(){
-    $('.fields').hide()
-        if($position == "nurse"){
-            $('#salary_field').show();
-            $('#grade_field').show();
-            $('#experience_field').show();
-            } else if ($position == "surgeon"){
-                $('#contracts_field').show();
-                $('#specialty_field').show();
-                }
-});
-</script>
 -->
 
-<!-- Original function change sript -->
-   <script>
-     $( document ).ready(function() {
-        $('#position').change(function() {
-           $('.fields').hide()
-           if($(this).val() == "nurse"){
-              $('#salary_field').show();
-              $('#grade_field').show();
-              $('#experience_field').show();
-           } else if($(this).val() == "surgeon"){
-               $('#contracts_field').show();
-               $('#specialty_field').show();
-           }else if($(this).val() == "physician"){
-                  $('#salary_field').show();
-                  $('#specialty_field').show();
-                  $('#has_ownership').show();
-                }
-                   else if($(this).val() == "chief_of_staff") {
-                     $('#salary_field').show();
-                     $('#specialty_field').show();
-                      $('#has_ownership').show();
-                    }
-                      else if($(this).val() == "secretary"){
-                        $('#salary_field').show();
-                      }else if($(this).val() == "janitor"){
-                           $('#salary_field').show();
-                      }
-        });
-      });
-   </script>
-<!-- Ownership change field function-->
-   <script>
-   $( document ).ready(function() {
-     $('#own').change(function() {
-       $('.owner_fields').hide()
-         if($(this).val() == "yes")
-          $('#owner').show();
-     });
-   });
-   </script>
 </html>

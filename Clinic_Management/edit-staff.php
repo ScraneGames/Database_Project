@@ -181,6 +181,19 @@ echo "$position";
          </form>
       </center>
    </body>
+<script>
+
+if($position) == "nurse"{
+    $('#salary_field').show();
+    $('#grade_field').show();
+    $('#experience_field').show();
+    } else if ($position == "surgeon"){
+        $('#contracts_field').show();
+        $('#specialty_field').show();
+        }
+
+
+</script>
 
 
    <script>

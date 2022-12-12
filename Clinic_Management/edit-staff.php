@@ -182,6 +182,8 @@ echo "$position";
       </center>
    </body>
 <script>
+    echo "$position";
+    echo "<br>";
 $( document ).ready(function(){
     $('.fields').hide()
         if($position == "nurse"){

@@ -57,7 +57,7 @@ if ($position != "surgeon") {
     $salary_user = mysqli_fetch_array($salary_result,MYSQLI_ASSOC);
     echo "$salary_sql";
     echo "<br>";
-    echo "$salary_user['salary']";
+    echo $salary_user['salary'];
 
 }
 

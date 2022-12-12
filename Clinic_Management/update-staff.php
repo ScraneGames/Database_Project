@@ -57,7 +57,7 @@ if ($position == "nurse") {
           $sql .= "UPDATE nurses
                   SET grade = '$grade', experience = '$experience'
                   WHERE employee_id = $employee_id; ";
-          $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
+          $sql .= "UPDATE salaries
                    SET salary = '$salary'
                    WHERE fk_salary_employee_id = '$employee_id'";
     } elseif ($position == "physician" || $position == "chief_of_staff") {
@@ -68,7 +68,7 @@ if ($position == "nurse") {
                     $sql = "UPDATE staff
                         SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
                         WHERE employee_id = '$employee_id'; ";
-                    $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
+                    $sql .= "UPDATE salaries
                         SET salary = '$salary'
                         WHERE fk_salary_employee_id = '$employee_id'; ";
                     $sql .= "UPDATE physicians
@@ -78,7 +78,7 @@ if ($position == "nurse") {
                     $sql = "UPDATE staff
                         SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
                         WHERE employee_id = '$employee_id'; ";
-                    $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
+                    $sql .= "UPDATE salaries
                         SET salary = '$salary'
                         WHERE fk_salary_employee_id = '$employee_id'; ";
                     $sql .= "UPDATE physicians
@@ -89,17 +89,17 @@ if ($position == "nurse") {
                         $sql = "UPDATE staff
                             SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
                             WHERE employee_id = '$employee_id'; ";
-                        $sql .= "UPDATE contracts (fk_contracts_employee_id, type, length)
+                        $sql .= "UPDATE contracts
                               SET type = '$contract_type', length = '$contract_length'
                               WHERE fk_contracts_employee_id = '$employee_id'; ";
-                        $sql .= "UPDATE surgeons (employee_id, specialty, contract_id )
+                        $sql .= "UPDATE surgeons
                                 SET $specialty = '$specialty'
                                 WHERE employee_id = '$employee_id'";
                   } elseif ($position == "janitor" || $position == 'secretary') {
                             $sql = "UPDATE staff
                                     SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
                                     WHERE employee_id = '$employee_id'; ";
-                            $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
+                            $sql .= "UPDATE salaries
                                     SET salary = '$salary'
                                     WHERE fk_salary_employee_id = '$employee_id'";
                      }

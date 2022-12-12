@@ -49,7 +49,7 @@ include "/var/www/html/functions.php";
         echo "$owner_sql";
         echo "<br>";
         echo "<br>";
-        echo "$position"
+        echo "$position";
         // Nurses
 if ($position == "nurse") {
           $sql = "UPDATE staff

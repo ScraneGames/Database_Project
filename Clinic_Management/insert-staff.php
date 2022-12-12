@@ -49,9 +49,9 @@ if ($position == "nurse") {
           $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
           VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
           $sql .= "INSERT INTO nurses (employee_id, grade, experience)
-          VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$grade', '$experience'); ";
+          VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$grade', '$experience'); ";
           $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
-          VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position')";
+          VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position')";
     } elseif ($position == "physician" || $position == "chief_of_staff") {
           if ($own == "yes") {
             $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
@@ -68,9 +68,9 @@ if ($position == "nurse") {
                 $sql = "INSERT INTO staff employee_name, ssn, gender, position, address, telephone_number)
                     VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
                 $sql .= "INSERT INTO physicians (employee_id, position, specialty, employee_name)
-                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$position', '$specialty', '$employee_name'); ";
+                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$position', '$specialty', '$employee_name'); ";
                 $sql .="INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
-                    VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
+                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position'); ";
                   }
                } elseif ($position == "surgeon") {
                         $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
@@ -78,12 +78,13 @@ if ($position == "nurse") {
                         $sql .= "INSERT INTO contracts (fk_contracts_employee_id, type, length)
                               VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$type', '$length'); ";
                         $sql .=  "INSERT INTO surgeons (employee_id, specialty, contract_id )
-                          VALUES ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$specialty', (SELECT UNIQUE LAST_INSERT_ID() FROM contracts)); ";
+                          VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$specialty', (SELECT contract_id FROM contracts WHERE employee_id = (SELECT employee_id FROM staff WHERE ssn = '$ssn'))); ";
                   } elseif ($position == "janitor" || $position == 'secretary') {
                         $salary = $_REQUEST['salary'];
                             $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
                             VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
-                            $sql .= "INSERT INTO salaries (fk_alary_employee_id, salary, fk_salary_position) ((SELECT UNIQUE LAST_INSERT_ID() FROM staff), '$salary', '$position'); ";
+                            $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
+                            VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position'); ";
                      }
 
 // The query gets executed here

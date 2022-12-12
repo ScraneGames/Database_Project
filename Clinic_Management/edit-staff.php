@@ -23,19 +23,22 @@ echo $user['employee_name'];
 echo "<br>";
 $position = $user['position'];
 echo "$position";
+echo "<br>";
 
 if ($user['position'] == "nurse") {
     $nurse_sql = "SELECT * FROM nurses WHERE employee_id = '$original_employee_id'";
     $nurse_result = mysqli_query($conn,$nurse_sql);
     $nurse_user = mysqli_fetch_array($nurse_result,MYSQLI_ASSOC);
 } elseif ($user['position'] == "surgeon") {
-    $surgeon_sql = "SELECT * FROM contracts WHERE employee_id = '$original_employee_id'; ";
-    $surgeon_sql .= "SELECT * FROM surgeons WHERE employee_id = '$original_employee_id'";
-    $sureon_result = mysqli_multi_query($conn,$surgeon_sql);
+    $contract_sql = "SELECT * FROM contracts WHERE employee_id = '$original_employee_id'"
+    $contract_result = mysqli_query($conn,$surgeon_sql);
+    $contract_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
+    $surgeon_sql = "SELECT * FROM surgeons WHERE employee_id = '$original_employee_id'";
+    $sureon_result = mysqli_query($conn,$surgeon_sql);
     $surgeon_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
-    echo $surgeon_user['length'];
-    echo $surgeon_user['type'];
-    echo $surgeon_sql;
+    echo $contract_user['length'];
+    echo $contract_user['type'];
+    echo $surgeon_user['specialty'];
 } elseif ($user['position'] == "physician" || $user['position'] == "chief_of_staff") {
     $physician_sql = "SELECT * FROM physicians WHERE employee_id = '$original_employee_id'";
     $physician_result = mysqli_query($conn,$physician_sql);
@@ -121,11 +124,11 @@ if ($user['position'] != "surgeon") {
 <?php if ($user['position'] == "surgeon"): ?>
             <p>
               <label for="contract_type">Contract Type:</label>
-               <input type="text" name="contract_type" value="<?php echo $surgeon_user['type']; ?>" id="contract_type">
+               <input type="text" name="contract_type" value="<?php echo $contract_user['type']; ?>" id="contract_type">
              </p>
  <p>
              <label for="contract_length">Contract Length(in years):</label>
-            <input type="number" name="contract_length" value="<?php echo $surgeon_user['length']; ?>" id="contract_length">
+            <input type="number" name="contract_length" value="<?php echo $contract_user['length']; ?>" id="contract_length">
                           </p>
             <?php endif; ?>
 

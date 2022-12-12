@@ -184,7 +184,7 @@ echo "$position";
 <script>
 $( document ).ready(function(){
     $('.fields').hide()
-        if($position) == "nurse"{
+        if($position == "nurse"){
             $('#salary_field').show();
             $('#grade_field').show();
             $('#experience_field').show();

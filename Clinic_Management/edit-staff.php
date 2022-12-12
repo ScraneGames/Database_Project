@@ -33,6 +33,9 @@ if ($user['position'] == "nurse") {
     $surgeon_sql .= "SELECT * FROM surgeons WHERE employee_id = '$original_employee_id'";
     $sureon_result = mysqli_multi_query($conn,$surgeon_sql);
     $surgeon_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
+    echo $surgeon_user['length'];
+    echo $surgeon_user['type'];
+    echo $surgeon_sql;
 } elseif ($user['position'] == "physician" || $user['position'] == "chief_of_staff") {
     $physician_sql = "SELECT * FROM physicians WHERE employee_id = '$original_employee_id'";
     $physician_result = mysqli_query($conn,$physician_sql);

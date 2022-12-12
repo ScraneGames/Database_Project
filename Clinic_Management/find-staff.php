@@ -51,8 +51,8 @@ $all_employees = mysqli_query($conn,$sql_find_names);
             ?>
         </select>
         <br>
-            <input type="update" value="Update">
-            <input type="delete" value="Delete">
+            <input type="submit" value="Update">>
+            <input type="submit" value="Delete">
          </form>
       </center>
    </body>

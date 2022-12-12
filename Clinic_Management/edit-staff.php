@@ -131,7 +131,7 @@ if ($user['position'] != "surgeon") {
 <?php if ($user['position'] == "surgeon" || $user['position'] == "physician" || $user['position'] == "chief_of_staff"): ?>
 <p>
                <label for="specialty">Specialty:</label>
-                <input type="text" name="specialty" value="<?php if ($user['position'] == "surgeon") echo $surgeon_user['specialty'] elseif ($user['position'] == "physician" || $user['position'] == "chief_of_staff") echo $physician_user['specialty']; ?>" id="specialty">
+                <input type="text" name="specialty" value="<?php if ($user['position'] == "surgeon") echo $surgeon_user['specialty']; elseif ($user['position'] == "physician" || $user['position'] == "chief_of_staff") echo $physician_user['specialty']; ?>" id="specialty">
               </p>
               <?php endif; ?>
 

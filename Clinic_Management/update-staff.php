@@ -45,7 +45,7 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is staff
         $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
-        $result =  mysql_query($conn, $owner_sql)
+        $result =  mysql_query($conn, $owner_sql);
         // Nurses
 if ($position == "nurse") {
           $sql = "UPDATE staff

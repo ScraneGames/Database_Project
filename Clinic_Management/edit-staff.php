@@ -70,6 +70,9 @@ echo "$position";
                <label for="telephone_number">Telephone Number:</label>
                <input type="text" name="telephone_number" value="<?php echo $user['telephone_number']; ?>" id="telephone_number">
             </p>
+<p>
+                <label for="position">Position:</label>
+                <name="position" value="<?php echo $user['position']; ?>" id="position">
 <!-- Hidden fields class sections
  Salary -->
             <div id="salary_field" class="fields" style="display: none">
@@ -181,6 +184,8 @@ echo "$position";
          </form>
       </center>
    </body>
+
+<!-- New attempt at positions script
 <script>
     echo "$position";
     echo "<br>";
@@ -196,11 +201,12 @@ $( document ).ready(function(){
                 }
 });
 </script>
+-->
 
-<!-- Original function change sript
+<!-- Original function change sript -->
    <script>
      $( document ).ready(function() {
-        $('$position').change(function() {
+        $('#position').change(function() {
            $('.fields').hide()
            if($(this).val() == "nurse"){
               $('#salary_field').show();
@@ -226,8 +232,8 @@ $( document ).ready(function(){
                       }
         });
       });
-    -->
    </script>
+<!-- Ownership change field function-->
    <script>
    $( document ).ready(function() {
      $('#own').change(function() {

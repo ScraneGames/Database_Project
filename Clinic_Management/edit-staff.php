@@ -48,7 +48,7 @@ if ($position == "nurse") {
 } elseif ($position == "physician" || $position == "chief_of_staff") {
     $physician_sql = "SELECT * FROM physicians WHERE employee_id = '$original_employee_id'";
     $physician_result = mysqli_query($conn,$physician_sql);
-    $physician_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
+    $physician_user = mysqli_fetch_array($physician_result,MYSQLI_ASSOC);
 }
 
 if ($position != "surgeon") {

@@ -182,20 +182,20 @@ echo "$position";
       </center>
    </body>
 <script>
-
-if($position) == "nurse"{
-    $('#salary_field').show();
-    $('#grade_field').show();
-    $('#experience_field').show();
-    } else if ($position == "surgeon"){
-        $('#contracts_field').show();
-        $('#specialty_field').show();
-        }
-
-
+$( document ).ready(function(){
+    $('.fields').hide()
+        if($position) == "nurse"{
+            $('#salary_field').show();
+            $('#grade_field').show();
+            $('#experience_field').show();
+            } else if ($position == "surgeon"){
+                $('#contracts_field').show();
+                $('#specialty_field').show();
+                }
+});
 </script>
 
-
+<!-- Original function change sript
    <script>
      $( document ).ready(function() {
         $('$position').change(function() {
@@ -224,6 +224,7 @@ if($position) == "nurse"{
                       }
         });
       });
+    -->
    </script>
    <script>
    $( document ).ready(function() {

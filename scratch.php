@@ -27,6 +27,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
+        $employee_id = $_REQUEST['employee_id'];
         $employee_name = $_REQUEST['employee_name'];
         $ssn = $_REQUEST['ssn'];
         $gender = $_REQUEST['gender'];
@@ -43,66 +44,82 @@ include "/var/www/html/functions.php";
         $length = $_REQUEST['contract_length'];
         // Performing insert query execution
         // here for our table name is staff
-
+        $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
+        $result = mysqli_query($conn,$owner_sql);
+        echo "$owner_sql";
+        echo "<br>";
+        echo "<br>";
         // Nurses
 if ($position == "nurse") {
-          $sql = "UPDATE staff ssn, gender, position, address, telephone_number)
-          SET employee_name = '$employee_name', ssn = '$ssn', '$gender', '$position', '$address', '$telephone_number')
-          WHERE ssn = '$ssn'";
-          $sql .= "UPDATE nurses (employee_id, grade, experience)
-          SET ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$grade', '$experience'); ";
+          $sql = "UPDATE staff
+                  SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
+                  WHERE employee_id = '$employee_id'; ";
+          $sql .= "UPDATE nurses
+                  SET grade = '$grade', experience = '$experience'
+                  WHERE employee_id = $employee_id; ";
           $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
-          VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position')";
+                   SET salary = '$salary'
+                   WHERE fk_salary_employee_id = '$employee_id'";
     } elseif ($position == "physician" || $position == "chief_of_staff") {
-          if ($own == "yes") {
-            $sql = "UPDATE staff (employee_name, ssn, gender, position, address, telephone_number)
-                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
-            $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
-                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position'); ";
-            $sql .= "UPDATE owners (fk_owner_name, shares)
-                    VALUES ('$employee_name', '$shares'); ";
-            $sql .= "UPDATE physicians (employee_id, position, specialty, employee_name)
-                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$position', '$specialty', '$employee_name'); ";
-            $sql .= "UPDATE physician_owners (fk_own_physician_id, fk_own_employee_name, fk_physician_own_ownership_id)
-                    VALUES ((SELECT physician_id FROM physicians WHERE employee_id = (SELECT employee_id FROM staff WHERE ssn = '$ssn')), '$employee_name', (SELECT ownership_id FROM owners WHERE fk_owner_name = '$employee_name' AND shares = '$shares'))";
+        if ($result) {
+                    $sql .= "UPDATE owners
+                        SET fk_owner_name = '$employee_name'
+                        WHERE ownership_ID = (SELECT fk_physician_own_ownership_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')); ";
+                    $sql = "UPDATE staff
+                        SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
+                        WHERE employee_id = '$employee_id'; ";
+                    $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
+                        SET salary = '$salary'
+                        WHERE fk_salary_employee_id = '$employee_id'; ";
+                    $sql .= "UPDATE physicians
+                        SET specialty = '$specialty'
+                        WHERE employee_id = '$employee_id'";
             } else {
-                $sql = "UPDATE staff employee_name, ssn, gender, position, address, telephone_number)
-                    VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
-                $sql .= "INSERT INTO physicians (employee_id, position, specialty, employee_name)
-                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$position', '$specialty', '$employee_name'); ";
-                $sql .="INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
-                    VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position'); ";
-                  }
+                    $sql = "UPDATE staff
+                        SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
+                        WHERE employee_id = '$employee_id'; ";
+                    $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
+                        SET salary = '$salary'
+                        WHERE fk_salary_employee_id = '$employee_id'; ";
+                    $sql .= "UPDATE physicians
+                        SET specialty = '$specialty'
+                        WHERE employee_id = '$employee_id'";
+                    }
                } elseif ($position == "surgeon") {
-                        $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
-                           VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
-                        $sql .= "INSERT INTO contracts (fk_contracts_employee_id, type, length)
-                              VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$type', '$length'); ";
-                        $sql .=  "INSERT INTO surgeons (employee_id, specialty, contract_id )
-                          VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$specialty', (SELECT contract_id FROM contracts WHERE fk_contracts_employee_id = (SELECT employee_id FROM staff WHERE ssn = '$ssn'))); ";
+                        $sql = "UPDATE staff
+                            SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
+                            WHERE employee_id = '$employee_id'; ";
+                        $sql .= "UPDATE contracts (fk_contracts_employee_id, type, length)
+                              SET type = '$contract_type', length = '$contract_length'
+                              WHERE fk_contracts_employee_id = '$employee_id'; ";
+                        $sql .= "UPDATE surgeons (employee_id, specialty, contract_id )
+                                SET $specialty = '$specialty'
+                                WHERE employee_id = '$employee_id'";
                   } elseif ($position == "janitor" || $position == 'secretary') {
-                        $salary = $_REQUEST['salary'];
-                            $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)
-                            VALUES ('$employee_name', '$ssn', '$gender', '$position', '$address', '$telephone_number'); ";
-                            $sql .= "INSERT INTO salaries (fk_salary_employee_id, salary, fk_salary_position)
-                            VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$salary', '$position'); ";
+                            $sql = "UPDATE staff
+                                    SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
+                                    WHERE employee_id = '$employee_id'; ";
+                            $sql .= "UPDATE salaries (fk_salary_employee_id, salary, fk_salary_position)
+                                    SET salary = '$salary'
+                                    WHERE fk_salary_employee_id = '$employee_id'";
                      }
 
 // The query gets executed here
-if (mysqli_multi_query($conn, $sql)) {
+if (mysqli_multi_query($conn,$sql)) {
       echo "Record inserted into Staff Correctly";
+      echo "$sql";
       } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-    $conn->close();
-
     echo "<br>";
     echo "$sql";
     echo "<br>";
     echo "$conn";
     echo "<br>";
     var_dump($conn);
+    $conn->close();
+
+
             ?>
     </center>
 </body>

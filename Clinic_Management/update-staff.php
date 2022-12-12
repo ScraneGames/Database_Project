@@ -45,7 +45,7 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is staff
         $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
-        $result =  mysqli_query($conn,$owner_sql);
+        $result = mysqli_query($conn,$owner_sql);
         echo "$owner_sql";
         echo "<br>";
         echo "<br>";
@@ -112,14 +112,16 @@ if (mysqli_multi_query($conn,$sql)) {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    $conn->close();
-
     echo "<br>";
     echo "$sql";
     echo "<br>";
     echo "$conn";
     echo "<br>";
     var_dump($conn);
+
+    $conn->close();
+
+
             ?>
     </center>
 </body>

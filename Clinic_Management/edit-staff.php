@@ -55,9 +55,9 @@ if ($position != "surgeon") {
     $salary_sql = "SELECT * FROM salaries WHERE fk_salary_employee_id = '$original_employee_id'";
     $salary_result = mysqli_query($conn,$salary_sql);
     $salary_user = mysqli_fetch_array($salary_result,MYSQLI_ASSOC);
-    echo "$salary_sql"
-    echo "<br>"
-    echo "$salary_user['salary']"
+    echo "$salary_sql";
+    echo "<br>";
+    echo "$salary_user['salary']";
 
 }
 

@@ -37,9 +37,13 @@ if ($position == "nurse") {
     $surgeon_result = mysqli_query($conn,$surgeon_sql);
     $surgeon_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
     echo $contract_sql;
+    echo "<br>";
     echo $surgeon_sql;
+    echo "<br>";
     echo $contract_user['length'];
+    echo "<br>";
     echo $contract_user['type'];
+    echo "<br>";
     echo $surgeon_user['specialty'];
 } elseif ($position == "physician" || $position == "chief_of_staff") {
     $physician_sql = "SELECT * FROM physicians WHERE employee_id = '$original_employee_id'";
@@ -48,9 +52,13 @@ if ($position == "nurse") {
 }
 
 if ($position != "surgeon") {
-    $salary_sql = "SELECT * FROM salaries WHERE employee_id = '$original_employee_id'";
+    $salary_sql = "SELECT * FROM salaries WHERE fk_salary_employee_id = '$original_employee_id'";
     $salary_result = mysqli_query($conn,$salary_sql);
     $salary_user = mysqli_fetch_array($salary_result,MYSQLI_ASSOC);
+    echo "$salary_sql"
+    echo "<br>"
+    echo "$salary_user['salary']"
+
 }
 
 ?>

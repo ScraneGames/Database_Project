@@ -34,7 +34,7 @@ echo "$position";
    </head>
    <body>
       <center>
-         <h1>Editing a Patient</h1>
+         <h1>Editing Staff</h1>
          <form action="update-staff.php" method="post">
 
 <p>
@@ -136,11 +136,11 @@ echo "$position";
                <input type="number" name="shares" id="shares">
              </p>
             </div>
+-->
             <input type="submit" value="Submit">
          </form>
       </center>
 </body>
 
--->
 
 </html>

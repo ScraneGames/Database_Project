@@ -1,26 +1,19 @@
 # Database_Project
 Database project for class
 
-## Completed Insert Pages (not tested against the database yet)
+## Completed Insert Pages (tested against the database)
 
 * Allergies
-  * tested against the database successfully.
 * beds
-  * tested against the database successfully
 * contracts
-  * function of add-staff
 * illnesses
- * tested against the database successfully.
 * medical_corporations
-  * tested against the database successfully.
 * medications
-  * tested against the database successfully.
 * nurses
   * function of add-staff
 * owners
   * handled in add-staff and add-medical-corporations files
-* patient_personal_data
-  * tested against the database successfully.
+* patient_personal_data.
 * physician_owners
   * handled in the add-staff files
 * physicians
@@ -31,9 +24,13 @@ Database project for class
 * surgeons
  * handled in the add-staff file
 * surgery_skills
-  * tested against the database successfully
 * surgery_types
-  * tested against the database successfully
+
+## Written but not tested
+
+* add-medication-reaction
+* insert-medication-reaction
+* update-staff
 
 ## Tables that Need Insert Pages
 
@@ -79,6 +76,10 @@ Database project for class
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
 * work_schedule
   * blocked until I can figure out how to create a drop down menu populated by values from other tables
+
+## Completed Edit Pages
+
+* edit-staff.php
 
 
 ## Tables Requiring View/Edit/Delete Pages

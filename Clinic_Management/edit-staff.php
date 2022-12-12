@@ -23,6 +23,28 @@ echo $user['employee_name'];
 echo "<br>";
 $position = $user['position'];
 echo "$position";
+
+if ($user['position'] == "nurse") {
+    $nurse_sql = "SELECT * FROM nurses WHERE employee_id = '$original_employee_id'";
+    $nurse_result = mysqli_query($conn,$nurse_sql);
+    $nurse_user = mysqli_fetch_array($nurse_result,MYSQLI_ASSOC);
+} elseif ($user['position'] == "surgeon") {
+    $surgeon_sql = "SELECT * FROM contracts WHERE employee_id = '$original_employee_id'; ";
+    $surgeon_sql .= "SELECT * FROM surgeons WHERE employee_id = '$original_employee_id'";
+    $sureon_result = mysqli_multi_query($conn,$surgeon_sql);
+    $surgeon_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
+} elseif ($user['position'] == "physician" || $user['position'] == "chief_of_staff") {
+    $physician_sql = "SELECT * FROM physicians WHERE employee_id = '$original_employee_id'";
+    $physician_result = mysqli_query($conn,$physician_sql);
+    $physician_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
+}
+
+if ($user['position'] != "surgeon") {
+    $salary_sql = "SELECT * FROM salaries WHERE employee_id = '$original_employee_id'";
+    $salary_result = mysqli_query($conn,$salary_sql);
+    $salary_user = mysqli_fetch_array($salary_result,MYSQLI_ASSOC);
+}
+
 ?>
 
 
@@ -71,38 +93,36 @@ echo "$position";
                <input type="text" name="telephone_number" value="<?php echo $user['telephone_number']; ?>" id="telephone_number">
             </p>
 <p>
-                <label for="position">Position:</label>
-                <name="position" value="<?php echo $user['position']; ?>" id="position">
 <!--Salary -->
  <?php if ($user['position'] == "nurse" || $user['position'] == "physician" || $user['position'] == "chief_of_staff" || $user['position'] == "secretary" || $user['position'] == 'janitor'): ?>
  <p>
        <label for="salary">Salary:</label>
-            <input type="number" name="salary" id="salary" min="25000" max="300000">
+            <input type="number" name="salary" value="<?php if ($user['position'] != "surgeon")  echo $salary_user['salary']; ?>" id="salary" min="25000" max="300000">
             </p>
             <?php endif; ?>
 <!-- Grade -->
 <?php if ($user['position'] == "nurse"): ?>
 <p>
             <label for="grade">Grade:</label>
-            <input type="text" name="grade" id="grade">
+            <input type="text" name="grade" value="<?php echo $nurse_user['grade']; ?>" id="grade">
             </p>
             <?php endif; ?>
  <!-- Experience -->
  <?php if ($user['position'] == "nurse"): ?>
 <p>
               <label for="experience">Experience(in years):</label>
-                 <input type="number" name="experience" id="experience">
+                 <input type="number" name="experience" value="<?php echo $nurse_user['experience']; ?>" id="experience">
                </p>
             <?php endif; ?>
 <!-- Contracts -->
 <?php if ($user['position'] == "surgeon"): ?>
             <p>
               <label for="contract_type">Contract Type:</label>
-               <input type="text" name="contract_type" id="contract_type">
+               <input type="text" name="contract_type" value="<?php echo $surgeon_user['type']; ?>" id="contract_type">
              </p>
  <p>
              <label for="contract_length">Contract Length(in years):</label>
-            <input type="number" name="contract_length" id="contract_length">
+            <input type="number" name="contract_length" value="<?php echo $surgeon_user['length']; ?>" id="contract_length">
                           </p>
             <?php endif; ?>
 
@@ -111,9 +131,8 @@ echo "$position";
 <?php if ($user['position'] == "surgeon" || $user['position'] == "physician" || $user['position'] == "chief_of_staff"): ?>
 <p>
                <label for="specialty">Specialty:</label>
-                <input type="text" name="specialty" id="specialty">
+                <input type="text" name="specialty" value="<?php if ($user['position'] == "surgeon") echo $surgeon_user['specialty'] elseif ($user['position'] == "physician" || $user['position'] == "chief_of_staff") echo $physician_user['specialty']; ?>" id="specialty">
               </p>
-              </div>
               <?php endif; ?>
 
 <!-- Has Ownership

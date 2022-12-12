@@ -79,7 +79,7 @@ if ($position != "surgeon") {
                <label for="Employee_name">Employee Name:</label>
                <input type="text" name="employee_name" value="<?php echo $user['employee_name']; ?>" id="employee_name">
             </p>
-
+<input type="hidden" id="employee_id" name="employee_id" value="$original_employee_id">
 
 <p>
                <label for="ssn">Social Security Number:</label>

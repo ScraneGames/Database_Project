@@ -38,6 +38,7 @@ echo "<br"
                <input type="text" name="patient_name" value="<?php echo $user['patient_name']; ?>" id="patient_name">
             </p>
 
+            <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
 
 <p>
                <label for="ssn">Social Security Number:</label>

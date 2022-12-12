@@ -117,7 +117,6 @@ echo "$position";
               <?php endif; ?>
 
 <!-- Has Ownership
-<?php if ($user['position'] == "physician" || $user['position'] == "chief_of_staff"): ?>
  <p>
                            <label for="own">Has Ownership Stake?:</label>
                            <select name="own" id="own">

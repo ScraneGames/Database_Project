@@ -47,7 +47,9 @@ include "/var/www/html/functions.php";
         $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
         $result =  mysqli_query($conn, $owner_sql);
         echo "$owner_sql";
-        echo "<br>"
+        echo "<br>";
+        echo "$result";
+        echo "<br>";
         // Nurses
 if ($position == "nurse") {
           $sql = "UPDATE staff

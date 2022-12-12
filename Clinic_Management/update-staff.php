@@ -46,6 +46,8 @@ include "/var/www/html/functions.php";
         // here for our table name is staff
         $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
         $result =  mysqli_query($conn, $owner_sql);
+        echo "$owner_sql";
+        echo "<br>"
         // Nurses
 if ($position == "nurse") {
           $sql = "UPDATE staff
@@ -58,7 +60,7 @@ if ($position == "nurse") {
                    SET salary = '$salary'
                    WHERE fk_salary_employee_id = '$employee_id'";
     } elseif ($position == "physician" || $position == "chief_of_staff") {
-        if ($result) {
+        if (mysqli_num_rows($result) > 0) {
                     $sql .= "UPDATE owners
                         SET fk_owner_name = '$employee_name'
                         WHERE ownership_ID = (SELECT fk_physician_own_ownership_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')); ";

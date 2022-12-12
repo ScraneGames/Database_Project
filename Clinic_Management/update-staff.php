@@ -61,7 +61,7 @@ if ($position == "nurse") {
                    SET salary = '$salary'
                    WHERE fk_salary_employee_id = '$employee_id'";
     } elseif ($position == "physician" || $position == "chief_of_staff") {
-        if (mysqli_num_rows($result) > 0) {
+        if ($result) {
                     $sql .= "UPDATE owners
                         SET fk_owner_name = '$employee_name'
                         WHERE ownership_ID = (SELECT fk_physician_own_ownership_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')); ";
@@ -105,8 +105,9 @@ if ($position == "nurse") {
                      }
 
 // The query gets executed here
-if (mysqli_multi_query($conn, $sql)) {
+if (mysqli_multi_query($conn,$sql)) {
       echo "Record inserted into Staff Correctly";
+      echo "$sql";
       } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }

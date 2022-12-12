@@ -82,6 +82,7 @@ if ($position != "surgeon") {
 
 
             <input type="hidden" name="employee_id" value="<?php echo "$original_employee_id"; ?>" id="employee_id">
+            <input type="hidden" name="position" value="<?php echo $user['position']; ?>" id="position">
 
 <p>
                <label for="ssn">Social Security Number:</label>

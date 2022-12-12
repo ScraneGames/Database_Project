@@ -78,7 +78,7 @@ if ($position == "nurse") {
                         $sql .= "INSERT INTO contracts (fk_contracts_employee_id, type, length)
                               VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$type', '$length'); ";
                         $sql .=  "INSERT INTO surgeons (employee_id, specialty, contract_id )
-                          VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$specialty', (SELECT contract_id FROM contracts WHERE employee_id = (SELECT employee_id FROM staff WHERE ssn = '$ssn'))); ";
+                          VALUES ((SELECT employee_id FROM staff WHERE ssn = '$ssn'), '$specialty', (SELECT contract_id FROM contracts WHERE fk_contracts_employee_id = (SELECT employee_id FROM staff WHERE ssn = '$ssn'))); ";
                   } elseif ($position == "janitor" || $position == 'secretary') {
                         $salary = $_REQUEST['salary'];
                             $sql = "INSERT INTO staff (employee_name, ssn, gender, position, address, telephone_number)

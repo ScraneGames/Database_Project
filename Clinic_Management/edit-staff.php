@@ -30,7 +30,7 @@ if ($position == "nurse") {
     $nurse_result = mysqli_query($conn,$nurse_sql);
     $nurse_user = mysqli_fetch_array($nurse_result,MYSQLI_ASSOC);
 } elseif ($position == "surgeon") {
-    $contract_sql = "SELECT * FROM contracts WHERE employee_id = '$original_employee_id'";
+    $contract_sql = "SELECT * FROM contracts WHERE fk_contracts_employee_id = '$original_employee_id'";
     $contract_result = mysqli_query($conn,$contract_sql);
     $contract_user = mysqli_fetch_array($contract_result,MYSQLI_ASSOC);
     $surgeon_sql = "SELECT * FROM surgeons WHERE employee_id = '$original_employee_id'";

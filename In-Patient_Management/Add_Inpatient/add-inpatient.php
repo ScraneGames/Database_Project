@@ -29,7 +29,7 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
       <center>
          <h1>Choose a Patient</h1>
 
-         <form action="insert-patient.php" method="post">
+         <form action="insert-inpatient.php" method="post">
 
          <label>Select a Patient</label>
         <select name="patient">

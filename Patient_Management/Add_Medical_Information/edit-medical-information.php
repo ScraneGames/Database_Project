@@ -26,13 +26,13 @@ $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
 
-//if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
- //  $check = " ";
-//} elseif ($user['$high_risk'] == "TRUE"){
-//   $check = "checked";
-//} else {
+if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
+  $check = " ";
+} elseif ($user['$high_risk'] == "TRUE"){
+   $check = "checked";
+} else {
    $check = " ";
-//}
+}
 
 ?>
 

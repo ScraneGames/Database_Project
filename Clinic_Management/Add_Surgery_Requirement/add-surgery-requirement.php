@@ -6,7 +6,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_surgery_types = "SELECT surgery_name, surgery_code FROM surgeries";
+$sql_find_surgery_types = "SELECT type_name, surgery_code FROM surgeries";
 $all_surgeries = mysqli_query($conn,$sql_find_surgery_types);
 
 $sql_find_surgery_skills = "SELECT skill_name, skill_id FROM surgery_skills";
@@ -43,7 +43,7 @@ $all_surgery_skills = mysqli_query($conn,$sql_find_surgery_skills);
                 <option value="<?php echo $surgeries["surgery_code"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $surgeries["surgery_name"] . " ".$surgeries["surgery_id"];
+                    <?php echo $surgeries["type_name"] . " ".$surgeries["surgery_code"];
                         // To show the surgery name to the user
                     ?>
                 </option>

@@ -113,10 +113,10 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                 while ($consultations = mysqli_fetch_array(
                   $consultation_result,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $consultations["consultations.consultation_number"];
+                <option value="<?php echo $consultations["consultation_number"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $consultations["consultations.consultation_number"] . " ".$consultations["consultations.date"] . " ".$consultations["physicians.employee_name"];
+                    <?php echo $consultations["consultation_number"] . " ".$consultations["date"] . " ".$consultations["employee_name"];
                         // To show the employee name to the user
                     ?>
                 </option>

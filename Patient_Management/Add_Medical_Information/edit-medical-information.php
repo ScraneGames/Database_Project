@@ -42,9 +42,10 @@ echo "<br>";
 echo $cholesterol_user['HDL'];
 // echo $consultation_user['date'];
 
-$check = " ";
+$precheck = echo $user['high_risk'];
+echo $precheck;
 
-if ($user['$high_risk'] > 0){
+if ($precheck > 0){
    $check = "checked";
 } else {
    $check = " ";

@@ -26,7 +26,9 @@ $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
 
-if ($user['$high_risk'] == "TRUE"){
+if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
+   $check = " ";
+} elseif ($user['$high_risk'] == "TRUE"){
    $check = "checked";
 } else {
    $check = " ";
@@ -43,9 +45,9 @@ if ($user['$high_risk'] == "TRUE"){
    <body>
       <center>
          <h1>Editing Medical Data</h1>
-         <p>
-         <form action="insert-medical-information.php" method="post">
 
+         <form action="insert-medical-information.php" method="post">
+         <p>
             <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
             <?php
             echo "You are currently editing the information for $personal_result.";

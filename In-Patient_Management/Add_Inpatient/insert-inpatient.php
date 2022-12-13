@@ -21,7 +21,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $patient = $_REUEST['patient'];
+        $patient = $_REQUEST['patient'];
         $bed = $_REQUEST['bed'];
         $date = $_REQUEST['date'];
 

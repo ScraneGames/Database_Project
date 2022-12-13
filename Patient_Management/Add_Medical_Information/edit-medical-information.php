@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 }
 
 $original_patient_id = $_REQUEST['patient'];
-$sql = "SELECT * FROM patient_medical_data WHERE patient_id = '$original_patient_id'";
+$sql = "SELECT * FROM patient_medical_data WHERE fk_medical_data_patient_id = '$original_patient_id'";
 $result = mysqli_query($conn,$sql);
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 

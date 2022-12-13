@@ -93,11 +93,13 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
                <label for="high_risk">High Risk?:</label>
                <input type="checkbox" $check name="high_risk" value="TRUE" id="high_risk">
                <br>
+</p>
+<br>
                <?php
                echo  "The most recent total cholesterol of $personal_result is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
                echo "<br>";
                ?>
-            </p>
+<br>
 <p>
                <label for="consultation">Consultation This Data Is Coming From:</label>
                <select name="consultation">

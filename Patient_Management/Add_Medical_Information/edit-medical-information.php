@@ -28,9 +28,9 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
 
 if ($user['$high_risk'] == "TRUE"){
    $check = "checked";
-} else (
+} else {
    $check = " ";
-)
+}
 
 ?>
 

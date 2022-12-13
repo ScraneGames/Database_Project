@@ -7,9 +7,8 @@ if ($conn->connect_error) {
 }
 
 $sql_find_medications = "SELECT name, medication_code FROM medications";
-
 $all_medications = mysqli_query($conn,$sql_find_medications);
-
+$all_medications2 = mysqli_query($conn,$sql_find_medications);
 
 ?>
 
@@ -56,7 +55,7 @@ $all_medications = mysqli_query($conn,$sql_find_medications);
                 // from the $all_categories variable
                 // and individually display as an option
                 while ($medications2 = mysqli_fetch_array(
-                        $all_medications,MYSQLI_ASSOC)):;
+                        $all_medications2,MYSQLI_ASSOC)):;
             ?>
                 <option value="<?php echo $medications2["medication_code"];
                     // The value we usually set is the primary key
@@ -70,6 +69,7 @@ $all_medications = mysqli_query($conn,$sql_find_medications);
                 // While loop must be terminated
             ?>
         </select>
+        <br>
         <label for="severity">Medication Severity:</label>
                            <select name="severity" id="severity">
                            <option value="">Select...</option>

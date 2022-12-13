@@ -51,12 +51,12 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is patient_personal_data
         if (mysqli_num_rows($medical_result) < 1){
-            $sql = "INSERT INTO patient_medcial_data (fk_medical_data_patient_id, blood_type, high_risk)
+            $sql = "INSERT INTO patient_medical_data (fk_medical_data_patient_id, blood_type, high_risk)
                     VALUES ('$patient', '$blood_type', '$high_risk'); ";
             $sql .= "INSERT INTO cholesterol (fk_cholesterol_patient_id, fk_cholesterol_consultation_number, blood_sugar, hdl, ldl, triglycerides)
                     VALUES ('$patient', '$consultation', '$blood_sugar', '$hdl', '$ldl', '$triglycerides')";
         } else {
-            $sql = "UPDATE patient_medcial_data
+            $sql = "UPDATE patient_medical_data
                     SET blood_type = '$blood_type', high_risk = '$high_risk'
                     WHERE fk_medical_data_patient_id = '$patient'; ";
             $sql .= "INSERT INTO cholesterol (fk_cholesterol_patient_id, fk_cholesterol_consultation_number, blood_sugar, hdl, ldl, triglycerides)

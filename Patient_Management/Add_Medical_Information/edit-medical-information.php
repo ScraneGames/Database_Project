@@ -20,7 +20,7 @@ $cholesterol_result = mysqli_query($conn,$sql_cholesterol);
 $cholesterol_user = mysqli_fetch_array($cholesterol_result,MYSQLI_ASSOC);
 
 $consultation_sql = "SELECT consultations.consultation_number, consultations.date, physicians.employee_name FROM consultations, physicians WHERE fk_consultation_patient_id = '$original_patient_id' AND consultations.fk_consultation_physician_id = physicians.physician_id";
-$consultation_result = mysqli_query($conn,$sql);
+$consultation_result = mysqli_query($conn,$consultation_sql);
 $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));

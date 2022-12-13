@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 $original_patient_id = $_REQUEST['patient'];
 $sql = "SELECT * FROM patient_medical_data WHERE patient_id = '$original_patient_id'";
 $result = mysqli_query($conn,$sql);
-$user = mysqli_fetch_array($result,MYSQLI_ASSOC);
+// $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
 $sql_personal_info = "SELECT patient_name FROM patient_personal_data WHERE patient_id = '$original_patient_id'";
 $personal_result = mysqli_query($conn,$sql_personal_info);
@@ -35,6 +35,7 @@ echo "$original_patient_id";
 // echo "<br>";
 // echo $all_consultations['consultation_number'];
 echo "<br>";
+// echo $user['high_risk'];
 // echo $consultation_user['employee_name'];
 echo "<br>";
 // echo $consultation_user['date'];

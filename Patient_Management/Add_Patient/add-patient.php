@@ -26,7 +26,7 @@ $sql_find_phyisicans_less_20 = "SELECT physicians.employee_name, physicians.phys
 
 $sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_less_20);
 
-$sql_find_illnesses = "SELECT illneess_code, illneess_name FROM illnesses";
+$sql_find_illnesses = "SELECT illness_code, illness_name FROM illnesses";
 $sql_find_illness_result = mysqli_query($conn,$sql_find_illnesses);
 
 ?>

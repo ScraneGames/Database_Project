@@ -28,27 +28,12 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
-echo "$original_patient_id";
-
-echo "<br>";
-echo "$sql";
-echo "<br>";
-echo $user['blood_type'];
-echo "<br>";
-echo $user['high_risk'];
-echo "<br>";
-echo "$sql_cholesterol";
-echo "<br>";
-echo $cholesterol_user['HDL'];
-// echo $consultation_user['date'];
 
 if ($user['high_risk'] > 0){
    $check = "checked";
 } else {
    $check = " ";
 }
-
-echo "$check";
 
 ?>
 

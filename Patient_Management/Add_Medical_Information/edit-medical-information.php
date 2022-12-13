@@ -19,7 +19,7 @@ $sql_cholesterol = "SELECT MAX(fk_cholesterol_consultation_number), HDL, LDL, tr
 $cholesterol_result = mysqli_query($conn,$sql_cholesterol);
 $cholesterol_user = mysqli_fetch_array($cholesterol_result,MYSQLI_ASSOC);
 
-$consultation_sql = "SELECT consultations.consultation_id, consulations.date physicians.employee_name FROM consultations, physicians WHERE fk_consultation_patient_id = '$original_patient_id' AND consultations.fk_consultation_patient_id = physicians.physician_id";
+$consultation_sql = "SELECT consultations.consultation_id, consulations.date physicians.employee_name FROM consultations, physicians WHERE fk_consultation_patient_id = '$original_patient_id' AND consultations.fk_consultation_physician_id = physicians.physician_id";
 $consultation_result = mysqli_query($conn,$sql);
 $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 

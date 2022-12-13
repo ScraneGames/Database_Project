@@ -96,8 +96,8 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
 </p>
 <br>
                <?php
-               echo  "The most recent total cholesterol of $personal_result is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
-               echo "<br>";
+//               echo  "The most recent total cholesterol of $personal_result is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
+//               echo "<br>";
                ?>
 <br>
 <p>

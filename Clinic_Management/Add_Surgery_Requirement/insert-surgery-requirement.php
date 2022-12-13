@@ -25,10 +25,10 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
         $surgery = $_REQUEST['surgery'];
-        $skill = $_REQUEST['surgery'];
-        echo "$allergy_name";
+        $skill = $_REQUEST['skill'];
+        echo "$surgery";
         echo "<br>";
-        echo "$allergy_desc";
+        echo "$skill";
         echo "<br>";
 
 

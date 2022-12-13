@@ -35,9 +35,16 @@ echo "$original_patient_id";
 // echo "<br>";
 // echo $all_consultations['consultation_number'];
 echo "<br>";
-// echo $user['high_risk'];
+ echo $user['high_risk'];
 // echo $consultation_user['employee_name'];
 echo "<br>";
+echo $user['blood_type'];
+echo "<br";
+echo "$sql";
+echo "<br>"
+echo "$sql_cholesterol";
+echo "<br>"
+echo $cholesterol_user['HDL'];
 // echo $consultation_user['date'];
 
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){

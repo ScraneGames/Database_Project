@@ -26,6 +26,12 @@ $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
 
+if ($user['$high_risk'] == "TRUE"){
+   $check = "checked";
+} else (
+   $check = " ";
+)
+
 ?>
 
 
@@ -36,10 +42,13 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
    </head>
    <body>
       <center>
-         <h1>Editing Medical Data for $personal_user['patient_name']</h1>
+         <h1>Editing Medical Data</h1>
          <form action="insert-medical-information.php" method="post">
 
             <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
+            <?php
+            echo " You are currently editing the information for $personal_user['patient_name']"
+            ?>
 <p>
                <label for="blood_type">Blood Type:</label>
                <select name="blood_type">
@@ -75,7 +84,7 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
             </p>
 <p>
                <label for="high_risk">High Risk?:</label>
-               <input type="checkbox" name="high_risk" value="<?php echo $user['high_risk']; ?>" id="high_risk">
+               <input type="checkbox" $check name="high_risk" value="TRUE" id="high_risk">
                <br>
                <?php
                echo  "The most recent total cholesterol of $personal_result is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
@@ -104,6 +113,7 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
                // While loop must be terminated
          ?>
       </select>
+            </p>
             <input type="submit" value="Submit">
          </form>
       </center>

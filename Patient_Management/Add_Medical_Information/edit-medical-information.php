@@ -28,6 +28,8 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
 
 echo "$consultation_sql";
 echo "<br>";
+echo "$consultation_result"
+echo "<br>";
 
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
   $check = " ";
@@ -111,12 +113,12 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                 // from the $all_categories variable
                 // and individually display as an option
                 while ($consultations = mysqli_fetch_array(
-                    $consultation_result,MYSQLI_ASSOC)):;
+                  $consultation_result,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $consultations["consultations.consultation_id"];
+                <option value="<?php echo $consultations["consultations.consultation_number"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $consultations["consultations.consultation_id"] . " ".$consultations["consultations.date"] . " ".$consultations["physicians.employee_name"];
+                    <?php echo $consultations["consultations.consultation_number"] . " ".$consultations["consultations.date"] . " ".$consultations["physicians.employee_name"];
                         // To show the employee name to the user
                     ?>
                 </option>

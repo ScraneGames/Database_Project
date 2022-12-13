@@ -61,7 +61,6 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
 
          <form action="insert-medical-information.php" method="post">
 
-            <input type="hidden" id="patient" name="patient" value="$original_patient_id">
 
 <p>
                <label for="blood_type">Blood Type:</label>
@@ -76,6 +75,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                </select>
                </select>
 </p>
+<input type="hidden" id="patient" name="patient" value="$original_patient_id">
 <p>
                <label for="blood_sugar">Blood Sugar:</label>
                <input type="text" name="blood_sugar" value="<?php echo $cholesterol_user['blood_sugar']; ?>" id="blood_sugar">

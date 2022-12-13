@@ -41,7 +41,7 @@ $all_patients = mysqli_query($conn,$sql_find_names);
                 <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $employees["patient_name"] . " ".$employees["patient_id"];
+                    <?php echo $patients["patient_name"] . " Patient ID: ".$patients["patient_id"];
                         // To show the employee name to the user
                     ?>
                 </option>

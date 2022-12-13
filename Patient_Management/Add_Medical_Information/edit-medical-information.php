@@ -24,7 +24,7 @@ $consultation_result = mysqli_query($conn,$sql);
 $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']))
-$current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl'])
+$current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
 
 ?>
 

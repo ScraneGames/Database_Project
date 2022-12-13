@@ -28,7 +28,7 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['HDL']
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
-echo "$personal_result";
+echo $personal_user['patient_name'];
 echo "<br>";
 echo "$current_cholesterol_total";
 echo "<br>";
@@ -96,7 +96,7 @@ if ($user['high_risk'] > 0){
 </p>
 <br>
                <?php
-               echo  "The most recent total cholesterol of $personal_result is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
+               echo  "The most recent total cholesterol of " . $personal_user['patient_name'] " is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
                echo "<br>";
                ?>
 <br>

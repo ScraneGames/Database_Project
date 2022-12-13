@@ -26,7 +26,7 @@ $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
 
-echo "$sql_consultation";
+echo "$consultation_sql";
 echo "<br>";
 
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){

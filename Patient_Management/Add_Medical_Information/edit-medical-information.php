@@ -21,23 +21,22 @@ $cholesterol_user = mysqli_fetch_array($cholesterol_result,MYSQLI_ASSOC);
 
 $consultation_sql = "SELECT consultation_number, date, employee_name FROM consultations, physicians WHERE fk_consultation_patient_id = '$original_patient_id' AND consultations.fk_consultation_physician_id = physicians.physician_id";
 $consultation_result = mysqli_query($conn,$consultation_sql);
-$consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
+// $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
 
-$all_consultations = mysqli_fetch_array(
-   $consultation_result,MYSQLI_ASSOC);
+$all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
 echo "$consultation_sql";
 echo "<br>";
-echo $consultation_user['consultation_number'];
-echo "<br>";
+// echo $consultation_user['consultation_number'];
+// echo "<br>";
 echo $all_consultations['consultation_number'];
 echo "<br>";
-echo $consultation_user['employee_name'];
+// echo $consultation_user['employee_name'];
 echo "<br>";
-echo $consultation_user['date'];
+// echo $consultation_user['date'];
 
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
   $check = " ";

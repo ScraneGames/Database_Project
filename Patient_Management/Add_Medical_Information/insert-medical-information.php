@@ -44,6 +44,7 @@ include "/var/www/html/functions.php";
         echo "<br>";
         echo "$consultation";
         echo "<br>";
+        echo "$high_risk";
 
         $medical_sql = "SELECT fk_medical_data_patient_id FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";
         $medical_result = mysqli_query($conn,$medical_sql);

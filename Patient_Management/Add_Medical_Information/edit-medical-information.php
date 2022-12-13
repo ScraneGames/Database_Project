@@ -47,9 +47,9 @@ echo "<br>";
 echo $cholesterol_user['HDL'];
 // echo $consultation_user['date'];
 
-if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
+if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "0"){
   $check = " ";
-} elseif ($user['$high_risk'] == "TRUE"){
+} elseif ($user['$high_risk'] == "1"){
    $check = "checked";
 } else {
    $check = " ";
@@ -106,7 +106,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
             </p>
 <p>
                <label for="high_risk">High Risk?:</label>
-               <input type="checkbox" <?php echo $check; ?> name="high_risk" value="TRUE" id="high_risk">
+               <input type="checkbox" <?php echo $check; ?> name="high_risk" value="1" id="high_risk">
                <br>
 </p>
 <br>

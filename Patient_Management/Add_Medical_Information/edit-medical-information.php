@@ -24,7 +24,7 @@ $consultation_result = mysqli_query($conn,$consultation_sql);
 // $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
 $current_cholesterol_total = ($cholesterol_user['HDL']+$cholesterol_user['LDL']+(0.2*$cholesterol_user['triglycerides']));
-$current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['HDL']);
+$current_cholesterol_risk = (round($current_cholesterol_total/$cholesterol_user['HDL']),2);
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
@@ -89,16 +89,17 @@ if ($user['high_risk'] > 0){
                 <label for="triglycerides">Triglycerides:</label>
                 <input type="text" name="triglycerides" value="<?php echo $cholesterol_user['triglycerides']; ?>" id="triglycerides">
             </p>
+            <br>
+               <?php
+               echo  "The most recent total cholesterol of " . $personal_user['patient_name'] . " is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
+               echo "<br>";
+               ?>
 <p>
                <label for="high_risk">High Risk?:</label>
                <input type="checkbox" <?php echo "$check"; ?> name="high_risk" value="1" id="high_risk">
                <br>
 </p>
-<br>
-               <?php
-               echo  "The most recent total cholesterol of " . $personal_user['patient_name'] . " is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
-               echo "<br>";
-               ?>
+
 <br>
 <p>
                <label>Consultation This Data Is Coming From:</label>

@@ -50,9 +50,11 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
          <p>
             <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
 </p>
+<!-- Commenting this php out
             <?php
-            echo "You are currently editing the information for $personal_result.";
+            // echo "You are currently editing the information for $personal_result.";
             ?>
+            -->
 
 <p>
                <label for="blood_type">Blood Type:</label>

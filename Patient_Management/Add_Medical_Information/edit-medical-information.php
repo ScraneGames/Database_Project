@@ -108,8 +108,8 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
 //               echo "<br>";
                ?>
 <br>
-
-               <label for="consultation">Consultation This Data Is Coming From:</label>
+<p>
+               <label>Consultation This Data Is Coming From:</label>
                <select name="consultation">
             <?php
                 // use a while loop to fetch data
@@ -129,6 +129,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                endwhile;
                // While loop must be terminated
          ?>
+         </p>
       </select>
 
             <input type="submit" value="Submit">

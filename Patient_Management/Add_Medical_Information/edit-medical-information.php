@@ -104,8 +104,6 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
                // While loop must be terminated
          ?>
       </select>
-</p>
-
             <input type="submit" value="Submit">
          </form>
       </center>

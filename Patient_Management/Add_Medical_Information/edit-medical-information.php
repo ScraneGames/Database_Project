@@ -28,12 +28,6 @@ $current_cholesterol_risk = (round($current_cholesterol_total/$cholesterol_user[
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
-echo $personal_user['patient_name'];
-echo "<br>";
-echo "$current_cholesterol_total";
-echo "<br>";
-echo "$current_cholesterol_risk";
-
 if ($user['high_risk'] > 0){
    $check = "checked";
 } else {

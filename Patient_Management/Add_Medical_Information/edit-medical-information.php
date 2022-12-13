@@ -31,6 +31,8 @@ echo "<br>";
 echo $consultation_user['consultation_number'];
 echo "<br>";
 echo $consultation_user['employee_name'];
+echo "<br>";
+echo $consultation_use['date'];
 
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
   $check = " ";
@@ -113,13 +115,13 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                 // use a while loop to fetch data
                 // from the $all_categories variable
                 // and individually display as an option
-                while ($consultations = mysqli_fetch_array(
+                while ($all_consultations = mysqli_fetch_array(
                   $consultation_result,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $consultations['consultation_number'];
+                <option value="<?php echo $all_consultations['consultation_number'];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $consultations['consultation_number'] . " ".$consultations['date'] . " ".$consultations['employee_name'];
+                    <?php echo $all_consultations['consultation_number'] . " ".$all_consultations['date'] . " ".$consultations['employee_name'];
                         // To show the employee name to the user
                     ?>
                 </option>

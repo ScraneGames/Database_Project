@@ -26,6 +26,9 @@ $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 $current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
 
+echo "$sql_consultation";
+echo "<br>";
+
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
   $check = " ";
 } elseif ($user['$high_risk'] == "TRUE"){
@@ -76,13 +79,13 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
 
 <p>
                <label for="hdl">HDL:</label>
-               <input type="number" name="ldl" value="<?php echo $cholesterol_user['HDL']; ?>" id="hdl">
+               <input type="number" name="hdl" value="<?php echo $cholesterol_user['HDL']; ?>" id="hdl">
             </p>
 
 
 <p>
                <label for="ldl">LDL:</label>
-               <input type="number" name="ldlr" value="<?php echo $cholesterol_user['LDL']; ?>" id="ldl">
+               <input type="number" name="ldl" value="<?php echo $cholesterol_user['LDL']; ?>" id="ldl">
             </p>
 
 <p>

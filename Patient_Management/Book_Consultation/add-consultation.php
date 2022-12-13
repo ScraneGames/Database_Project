@@ -10,7 +10,7 @@ $sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
 
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_physicians = "SELECT employee_name, physician_id FROM physicians";
+$sql_find_physicians = "SELECT employee_name, physician_id FROM physicians WHERE position <> 'chief_of_staff'";
 
 $all_physicians = mysqli_query($conn,$sql_find_physicians);
 
@@ -45,7 +45,7 @@ $all_physicians = mysqli_query($conn,$sql_find_physicians);
                 <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patiens["patient_name"] . " ".$patients["patient_id"];
+                    <?php echo $patients["patient_name"] . " ".$patients["patient_id"];
                         // To show the employee name to the user
                     ?>
                 </option>

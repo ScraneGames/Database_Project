@@ -153,13 +153,13 @@ $sql_find_illness_result = mysqli_query($conn,$sql_find_illnesses);
                 // use a while loop to fetch data
                 // from the $all_categories variable
                 // and individually display as an option
-                while ($illness = mysqli_fetch_array(
+                while ($illnesses = mysqli_fetch_array(
                         $sql_find_illness_result,MYSQLI_ASSOC)):;
             ?>
                 <option value="<?php echo $illnesses["illness_code"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $illnesses["illness_name"] . " ".$employees["illness_code"];
+                    <?php echo $illnesses["illness_name"] . " ".$illnesses["illness_code"];
                         // To show the employee name to the user
                     ?>
                 </option>

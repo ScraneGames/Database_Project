@@ -28,8 +28,6 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
 
 echo "$consultation_sql";
 echo "<br>";
-echo "$consultation_result";
-echo "<br>";
 
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
   $check = " ";

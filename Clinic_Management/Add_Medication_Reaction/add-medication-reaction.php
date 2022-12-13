@@ -10,8 +10,6 @@ $sql_find_medications = "SELECT name, medication_code FROM medications";
 
 $all_medications = mysqli_query($conn,$sql_find_medications);
 
-// public mysqli::multi_query(string $sql): bool
-
 
 ?>
 
@@ -41,7 +39,7 @@ $all_medications = mysqli_query($conn,$sql_find_medications);
                 <option value="<?php echo $medications["medication_code"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $employees["name"] . " ".$employees["medication_code"];
+                    <?php echo $medications["name"] . " Medication Code: ".$medications["medication_code"];
                         // To show the medication name to the user
                     ?>
                 </option>
@@ -50,7 +48,7 @@ $all_medications = mysqli_query($conn,$sql_find_medications);
                 // While loop must be terminated
             ?>
         </select>
-        <select name="medication">
+        <select name="medication2">
             <?php
                 // use a while loop to fetch data
                 // from the $all_categories variable
@@ -61,7 +59,7 @@ $all_medications = mysqli_query($conn,$sql_find_medications);
                 <option value="<?php echo $medications["medication_code"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $employees["name"] . " ".$employees["medication_code"];
+                    <?php echo $medications["name"] . " ".$medications["medication_code"];
                         // To show the medication name to the user
                     ?>
                 </option>

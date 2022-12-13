@@ -49,10 +49,11 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
          <form action="insert-medical-information.php" method="post">
          <p>
             <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
+</p>
             <?php
             echo "You are currently editing the information for $personal_result.";
             ?>
-            </p>
+
 <p>
                <label for="blood_type">Blood Type:</label>
                <select name="blood_type">

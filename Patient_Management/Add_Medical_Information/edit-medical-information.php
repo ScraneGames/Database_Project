@@ -117,6 +117,9 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                 // and individually display as an option
                 while ($all_consultations = mysqli_fetch_array(
                   $consultation_result,MYSQLI_ASSOC)):;
+                  echo "<br>";
+                  echo $all_consultations['consultation_number'];
+                  echo "<br>";
             ?>
                 <option value="<?php echo $all_consultations['consultation_number'];
                     // The value we usually set is the primary key

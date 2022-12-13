@@ -96,7 +96,7 @@ if ($user['high_risk'] > 0){
 </p>
 <br>
                <?php
-               echo  "The most recent total cholesterol of " . $personal_user['patient_name'] " is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
+               echo  "The most recent total cholesterol of " . $personal_user['patient_name'] . " is $current_cholesterol and their cholesterol/hdl ratio is $current_cholesterol_risk";
                echo "<br>";
                ?>
 <br>

@@ -15,7 +15,7 @@ $sql_personal_info = "SELECT patient_name FROM patient_personal_data WHERE patie
 $personal_result = mysqli_query($conn,$sql_personal_info);
 $personal_user = mysqli_fetch_array($personal_result,MYSQLI_ASSOC);
 
-$sql_cholesterol = "SELECT MAX(fk_cholesterol_consultation_number), HDL, LDL, triglycerides, blood_sugar FROM cholesterol WHERE fk_cholesterol_patient_id = '$original_patient_id' AND ";
+$sql_cholesterol = "SELECT MAX(fk_cholesterol_consultation_number), HDL, LDL, triglycerides, blood_sugar FROM cholesterol WHERE fk_cholesterol_patient_id = '$original_patient_id'";
 $cholesterol_result = mysqli_query($conn,$sql_cholesterol);
 $cholesterol_user = mysqli_fetch_array($cholesterol_result,MYSQLI_ASSOC);
 

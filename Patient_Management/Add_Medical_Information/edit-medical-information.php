@@ -43,12 +43,14 @@ if ($user['$high_risk'] == "TRUE"){
    <body>
       <center>
          <h1>Editing Medical Data</h1>
+         <p>
          <form action="insert-medical-information.php" method="post">
 
             <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
             <?php
-            echo " You are currently editing the information for $personal_result.";
+            echo "You are currently editing the information for $personal_result.";
             ?>
+            </p>
 <p>
                <label for="blood_type">Blood Type:</label>
                <select name="blood_type">

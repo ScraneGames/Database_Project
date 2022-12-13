@@ -41,9 +41,9 @@ echo "<br>";
 echo $user['blood_type'];
 echo "<br";
 echo "$sql";
-echo "<br>"
+echo "<br>";
 echo "$sql_cholesterol";
-echo "<br>"
+echo "<br>";
 echo $cholesterol_user['HDL'];
 // echo $consultation_user['date'];
 

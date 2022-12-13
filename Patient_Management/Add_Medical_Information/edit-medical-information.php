@@ -47,7 +47,7 @@ if ($user['$high_risk'] == "TRUE"){
 
             <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
             <?php
-            echo " You are currently editing the information for " . $personal_user['patient_name'] "."
+            echo " You are currently editing the information for " . $personal_user['patient_name'] ".";
             ?>
 <p>
                <label for="blood_type">Blood Type:</label>

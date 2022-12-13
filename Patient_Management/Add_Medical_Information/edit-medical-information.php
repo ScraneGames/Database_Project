@@ -23,8 +23,8 @@ $consultation_sql = "SELECT consultation_number, date, employee_name FROM consul
 $consultation_result = mysqli_query($conn,$consultation_sql);
 // $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
-$current_cholesterol_total = ($cholesterol_user['hdl']+$cholesterol_user['ldl']+(0.2*$cholesterol_user['triglycerides']));
-$current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']);
+$current_cholesterol_total = ($cholesterol_user['HDL']+$cholesterol_user['LDL']+(0.2*$cholesterol_user['triglycerides']));
+$current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['HDL']);
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 

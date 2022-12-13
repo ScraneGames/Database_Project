@@ -24,7 +24,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $patient = $_REQUEST['patient'];
+        $patient = $_REQUEST['patient_id'];
         $blood_type = $_REQUEST['blood_type'];
         $blood_sugar = $_REQUEST['blood_sugar'];
         $hdl = $_REQUEST['hdl'];
@@ -40,7 +40,9 @@ include "/var/www/html/functions.php";
         echo "<br>";
         echo "$hdl";
         echo "<br>";
-        echo "$physician";
+        echo "$ldl";
+        echo "<br>";
+        echo "$consultation";
         echo "<br>";
 
         $medical_sql = "SELECT fk_medical_data_patient_id FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";

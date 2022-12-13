@@ -55,6 +55,8 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "0"){
    $check = " ";
 }
 
+echo "Check is $check";
+
 ?>
 
 
@@ -106,7 +108,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "0"){
             </p>
 <p>
                <label for="high_risk">High Risk?:</label>
-               <input type="checkbox" <?php echo $check; ?> name="high_risk" value="1" id="high_risk">
+               <input type="checkbox" <?php echo "$check"; ?> name="high_risk" value="1" id="high_risk">
                <br>
 </p>
 <br>

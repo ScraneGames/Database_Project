@@ -39,7 +39,7 @@ $all_medications = mysqli_query($conn,$sql_find_medications);
                 <option value="<?php echo $medications["medication_code"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $medications["name"] . " Medication Code: ".$medications["medication_code"];
+                    <?php echo $medications["name"] . " - Medication Code: ".$medications["medication_code"];
                         // To show the medication name to the user
                     ?>
                 </option>
@@ -48,18 +48,20 @@ $all_medications = mysqli_query($conn,$sql_find_medications);
                 // While loop must be terminated
             ?>
         </select>
+        <br>
+        <label>Select a reacting Medication</label>
         <select name="medication2">
             <?php
                 // use a while loop to fetch data
                 // from the $all_categories variable
                 // and individually display as an option
-                while ($medications = mysqli_fetch_array(
+                while ($medications2 = mysqli_fetch_array(
                         $all_medications,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $medications["medication_code"];
+                <option value="<?php echo $medications2["medication_code"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $medications["name"] . " ".$medications["medication_code"];
+                    <?php echo $medications2["name"] . " - Medication Code: ".$medications2["medication_code"];
                         // To show the medication name to the user
                     ?>
                 </option>

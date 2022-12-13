@@ -24,7 +24,7 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
       <center>
          <h1>Pair a Reaction</h1>
 
-         <form action="insert-reaction.php" method="post">
+         <form action="insert-medication-reaction.php" method="post">
 
          <label>Select a Medication</label>
         <select name="medication1">

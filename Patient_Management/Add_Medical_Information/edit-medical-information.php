@@ -30,6 +30,7 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
 
 echo "$consultation_sql";
 echo "<br>";
+echo "$original_patient_id";
 // echo $consultation_user['consultation_number'];
 // echo "<br>";
 // echo $all_consultations['consultation_number'];
@@ -59,9 +60,9 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
          <h1>Editing Medical Data</h1>
 
          <form action="insert-medical-information.php" method="post">
-         <p>
+
             <input type="hidden" id="patient_id" name="patient_id" value="$original_patient_id">
-</p>
+
 <!-- Commenting this php out
             <?php
             // echo "You are currently editing the information for $personal_result.";

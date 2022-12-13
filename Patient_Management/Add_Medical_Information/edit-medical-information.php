@@ -28,8 +28,6 @@ $current_cholesterol_risk = ($current_cholesterol_total/$cholesterol_user['hdl']
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
-echo "$consultation_sql";
-echo "<br>";
 echo "$original_patient_id";
 // echo $consultation_user['consultation_number'];
 // echo "<br>";

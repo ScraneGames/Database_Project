@@ -14,19 +14,6 @@ $sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$original_patien
 $result = mysqli_query($conn,$sql);
 
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-echo "$sql";
-echo "<br>";
-echo "$original_patient_id";
-echo "<br>";
-echo $user['patient_name'];
-echo "<br"
-
-if($_REQUEST['button']=="Delete"){
-    $delete_sql = "DELETE FROM patient_personal_data WHERE patient_id = '$original_patient_id";
-    mysqli_query($conn,$delete_sql);
-    echo "'$original_patient_id' deleted!"
-}
 ?>
 
 <!DOCTYPE html>
@@ -52,12 +39,12 @@ if($_REQUEST['button']=="Delete"){
             </p>
 
 <p>
-               <label for="gender">Gender:</label>
+<label for="gender">Gender:</label>
                <select name="gender">
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
-               <option value="NonBinary">NonBinary</option>
-               <option value="Other">Other</option>
+               <option <?php echo $user['gender'] == "male" ? "selected": ""; ?>>Male</option>
+               <option <?php echo $user['gender'] == "female" ? "selected": ""; ?>>Female</option>
+               <option <?php echo $user['gender'] == "nonbinary" ? "selected": ""; ?>>NonBinary</option>
+               <option <?php echo $user['gender'] == "other" ? "selected": ""; ?>>Other</option>
                </select>
 </p>
                 </p>
@@ -71,12 +58,12 @@ if($_REQUEST['button']=="Delete"){
 
 <p>
                <label for="telephone_number">Telephone Number:</label>
-               <input type="text" name="telephone_number" value="<?php echo $user['telphone_number']; ?>" id="telephone_number">
+               <input type="tel" name="telephone_number" value="<?php echo $user['telphone_number']; ?>" id="telephone_number">
             </p>
 
 <p>
                 <label for="dob">Date of Birth:</label>
-                <input type="text" name="dob" value="<?php echo $user['dob']; ?>" id="dob">
+                <input type="date" name="dob" value="<?php echo $user['dob']; ?>" id="dob">
             </p>
 
             <input type="submit" value="Submit">

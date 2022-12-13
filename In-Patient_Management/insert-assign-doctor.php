@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title> Insert Inpatient Page</title>
+    <title> Insert Nurse Assignment Page</title>
 </head>
 
 
@@ -21,21 +21,19 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $patient = $_REUEST['patient'];
-        $bed = $_REQUEST['bed'];
-        $date = $_REQUEST['date'];
-
+        $patient = $_REQUEST['patient_name'];
+        $physician= $_REQUEST['physician']
 
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO inpateints (fk_inpatients_bed_id, fk_inpatients_patient_id, date)
-            VALUES ('$bed', '$patient', '$date')";
+        $sql = "INSERT INTO physician_inpatient_assignments (physician_id, patient_id)
+                VALUES ('$physician', '$patient')";
 
 
         if(mysqli_multi_query($conn, $sql)){
-            echo "<h3>Inpatient added successfully.";
+            echo "<h3>Physician Assigned successfully.";
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysql_error($conn);

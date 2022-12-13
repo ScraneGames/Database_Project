@@ -27,7 +27,7 @@ $all_patients = mysqli_query($conn,$sql_find_names);
       <center>
          <h1>Choose a Patient</h1>
 
-         <form action="edit-patient.php" method="post">
+         <form action="edit-medical-information.php" method="post">
 
          <label>Select a Patient</label>
         <select name="patient">

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title> Insert Patient Page</title>
+    <title> Update Patient Page</title>
 </head>
 
 

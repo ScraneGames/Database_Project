@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title> Insert Allergy Page</title>
+    <title> Insert A Consultation</title>
 </head>
 
 
@@ -24,23 +24,27 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $allergy_name = $_REQUEST['allergy_name'];
-        $allergy_desc = $_REQUEST['allergy_desc'];
-        echo "$allergy_name";
+        $patient = $_REQUEST['patient'];
+        $physician = $_REQUEST['physician'];
+        $date = $_REQUEST['date'];
+        $time = $_REQUEST['time'];
+        echo "$patient";
         echo "<br>";
-        echo "$allergy_desc";
+        echo "$physician";
         echo "<br>";
+
 
 
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO allergies (allergy_name, allergy_desc)
-          VALUES ('$allergy_name', '$allergy_desc')";
+        $sql = "INSERT INTO consultations (fk_consultation_physician_id, fk_consultation_patient_id, date, time)
+          VALUES ('$physician', '$patient', '$date', '$time')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Record inserted into Allergies Correctly";
+    echo "Reservation Successfully Booked";
+    echo nl2br("\n$allergy_name\n");
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

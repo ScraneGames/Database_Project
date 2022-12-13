@@ -175,7 +175,7 @@ if ($position != "surgeon") {
              </p>
             </div>
 -->
-            <input type="submit" value="Submit">
+            <input type="submit" value="Update">
          </form>
       </center>
 </body>

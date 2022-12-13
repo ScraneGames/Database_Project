@@ -11,18 +11,18 @@
 
 <p>
                <label for="Employee_name">Employee Name:</label>
-               <input type="text" name="employee_name" id="employee_name">
+               <input type="text" name="employee_name" id="employee_name" required>
             </p>
 
 
 <p>
                <label for="ssn">Social Security Number:</label>
-               <input type="text" name="ssn" id="ssn">
+               <input type="text" name="ssn" id="ssn" required>
             </p>
 
 <p>
                <label for="gender">Gender:</label>
-               <select name="gender">
+               <select name="gender" required>
                <option value="">Select...</option>
                <option value="male">Male</option>
                <option value="female">Female</option>
@@ -35,18 +35,18 @@
 
 <p>
                <label for="address">Address:</label>
-               <input type="text" name="address" id="address">
+               <input type="text" name="address" id="address" required>
             </p>
 
 
 <p>
                <label for="telephone_number">Telephone Number:</label>
-               <input type="text" name="telephone_number" id="telephone_number">
+               <input type="tel" name="telephone_number" id="telephone_number" required>
             </p>
 
 <p>
                 <label for="Position">Position:</label>
-                <select name="position" id="position">
+                <select name="position" id="position" required>
                 <option value="">Select...</option>
                 <option value="nurse">Nurse</option>
                 <option value="surgeon">Surgeon</option>

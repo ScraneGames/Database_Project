@@ -11,13 +11,7 @@
 
 
         <?php
-//        $servername = "localhost";
-//        $username = "username";
-//        $password = "password";
-//        $dbname = "database_project";
-
         // Connect to Database
-//        $conn = new mysqli($servername, $username, $password, $dbname);
 include "/var/www/html/functions.php";
         // check Connection
 
@@ -27,25 +21,34 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $patient_name = $_REUEST['patient_name'];
+        $patient_name = $_REQUEST['patient_name'];
         $ssn = $_REQUEST['ssn'];
         $gender = $_REQUEST['gender'];
         $dob = $_REQUEST['dob'];
         $address = $_REQUEST['address'];
         $telephone_number = $_REQUEST['telephone_number'];
+        $illness=$_REQUEST['illness'];
+
+        if ($_REQUEST['primary_less_7']) {
+            $primary = $_REQUEST['primary_less_7'];
+        } else {
+            $primary = $_REQUEST['primary_less_20'];
+        }
 
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO patient_personal_data (patient_name, ssn, gender, dob, address, telephone_number)
-            VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number')";
+            VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number'); ";
+        $sql .= "INSERT INTO patient_illnesses (fk_illnesses_patient_id, fk_illnesses_illness_code)
+                VALUES ( (SELECT patient_id FROM patients WHERE ssn = '$ssn'), '$illness'; ";
+        $sql .= "INSERT INTO patient_primary (fk_primary_patient_id, fk_primary_physician_id, position)
+                VALUES ( (SELECT patient_if FROM patients WHERE ssn = '$ssn'), '$primary', 'physician')";
 
 
-        if(mysqli_query($conn, $sql)){
+        if(mysqli_multi_query($conn, $sql)){
             echo "<h3>Information added successfully.";
-
-            echo nl2br("\n$patient_name\n");
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysql_error($conn);

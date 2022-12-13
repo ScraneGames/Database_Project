@@ -32,7 +32,7 @@ echo $consultation_user['consultation_number'];
 echo "<br>";
 echo $consultation_user['employee_name'];
 echo "<br>";
-echo $consultation_use['date'];
+echo $consultation_user['date'];
 
 if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
   $check = " ";
@@ -108,7 +108,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
 //               echo "<br>";
                ?>
 <br>
-<p>
+
                <label for="consultation">Consultation This Data Is Coming From:</label>
                <select name="consultation">
             <?php
@@ -121,7 +121,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                 <option value="<?php echo $all_consultations['consultation_number'];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $all_consultations['consultation_number'] . " ".$all_consultations['date'] . " ".$consultations['employee_name'];
+                    <?php echo $all_consultations['consultation_number'] . " " .$all_consultations['date'] . " ".$consultations['employee_name'];
                         // To show the employee name to the user
                     ?>
                 </option>
@@ -130,7 +130,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                // While loop must be terminated
          ?>
       </select>
-            </p>
+
             <input type="submit" value="Submit">
          </form>
       </center>

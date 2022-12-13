@@ -125,7 +125,7 @@ if ($user['$high_risk'] == "NULL" || $user['high_risk'] == "FALSE"){
                 <option value="<?php echo $all_consultations['consultation_number'];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $all_consultations['consultation_number'] . " " .$all_consultations['date'] . " ".$consultations['employee_name'];
+                    <?php echo "Consultation ID: " . $all_consultations['consultation_number'] . " Date: " .$all_consultations['date'] . " Physician: ".$consultations['employee_name'];
                         // To show the employee name to the user
                     ?>
                 </option>

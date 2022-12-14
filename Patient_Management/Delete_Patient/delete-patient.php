@@ -33,7 +33,7 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT REMOVE FROM patient_personal_data WHERE patient_id = '$patient';";
+        $sql = "DELETE FROM patient_personal_data WHERE patient_id = '$patient';";
 
 if (mysqli_query($conn, $sql)) {
     echo "Patient Deleted";

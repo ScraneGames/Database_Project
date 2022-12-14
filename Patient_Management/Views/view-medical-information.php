@@ -90,8 +90,9 @@ $cholesterol_sql = "SELECT * FROM heart_risk_view
 $cholesterol_result = mysqli_query($conn,$cholesterol_sql);
 
 
-
-if ($row['high_risk'] > 0){
+$sql_high_risk = "SELECT high_risk FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";
+$high_risk_result =  mysqli_query($conn,$sql_high_risk);
+if ($high_risk_result > 0){
     $high_risk = "at high risk.";
 } else {
     $high_risk = "not at high risk.";

@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 $sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_surgery_types = "SELECT type_name, surgery_code FROM surgeries";
+$sql_find_surgery_types = "SELECT type_name, surgery_code FROM surgery_types";
 $all_surgeries = mysqli_query($conn,$sql_find_surgery_types);
 
 ?>

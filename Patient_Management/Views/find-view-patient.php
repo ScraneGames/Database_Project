@@ -81,8 +81,7 @@ $all_schedule_patients = mysqli_query($conn,$sql_find_names);
 <br>
    <input type="submit" name="button" value="View Medical Information">
 </form>
-      </center>
-   </body>
+
 
    <form action="View All Consultations.php" method="post">
 
@@ -110,4 +109,6 @@ $all_schedule_patients = mysqli_query($conn,$sql_find_names);
 <br>
    <input type="submit" name="button" value="delete">
 </form>
+        </center>
+   </body>
 </html>

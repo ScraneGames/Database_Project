@@ -28,6 +28,7 @@ include "/var/www/html/functions.php";
         $address = $_REQUEST['address'];
         $telephone_number = $_REQUEST['telephone_number'];
         $illness=$_REQUEST['illness'];
+        $illness=$_REQUEST['blood_type'];
 
         if ($_REQUEST['primary_less_7']) {
             $primary = $_REQUEST['primary_less_7'];
@@ -43,6 +44,8 @@ include "/var/www/html/functions.php";
             VALUES ('$patient_name', '$ssn', '$gender', '$dob', '$address', '$telephone_number'); ";
         $sql .= "INSERT INTO patient_illnesses (fk_illnesses_patient_id, fk_illnesses_illness_code)
                 VALUES ( (SELECT patient_id FROM patients WHERE ssn = '$ssn'), '$illness'; ";
+        $sql .= "INSERT INTO patient_medical_data (fk_medical_data_patient_id, blood_type)
+                VALUES ((SELECT patient_id FROM patients WHERE ssn = '$ssn'), '$blood_type'); ";
         $sql .= "INSERT INTO patient_primary (fk_primary_patient_id, fk_primary_physician_id, position)
                 VALUES ( (SELECT patient_if FROM patients WHERE ssn = '$ssn'), '$primary', 'physician')";
 

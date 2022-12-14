@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 $sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_surgery_types = "SELECT surgery_name, surgery_code FROM surgeries";
+$sql_find_surgery_types = "SELECT type_name, surgery_code FROM surgeries";
 $all_surgeries = mysqli_query($conn,$sql_find_surgery_types);
 
 ?>
@@ -40,7 +40,7 @@ $all_surgeries = mysqli_query($conn,$sql_find_surgery_types);
                 <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $employees["patient_name"] . " ".$employees["patient_id"];
+                    <?php echo $patients["patient_name"] . " ".$patients["patient_id"];
                         // To show the employee name to the user
                     ?>
                 </option>
@@ -62,7 +62,7 @@ $all_surgeries = mysqli_query($conn,$sql_find_surgery_types);
                 <option value="<?php echo $surgeries["surgery_code"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $surgeries["surgery_name"] . " ".$surgeries["surgery_id"];
+                    <?php echo $surgeries["type_name"] . " ".$surgeries["surgery_code"];
                         // To show the surgery name to the user
                     ?>
                 </option>

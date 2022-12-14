@@ -9,8 +9,9 @@ if ($conn->connect_error) {
 $sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_illnesses = "SELECT illneess_code, illneess_name FROM illnesses";
+$sql_find_illnesses = "SELECT illness_code, illness_name FROM illnesses";
 $sql_find_illness_result = mysqli_query($conn,$sql_find_illnesses);
+
 
 // public mysqli::multi_query(string $sql): bool
 

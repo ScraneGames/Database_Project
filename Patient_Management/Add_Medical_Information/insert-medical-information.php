@@ -32,6 +32,8 @@ include "/var/www/html/functions.php";
         $triglycerides = $_REQUEST['triglycerides'];
         $high_risk = $_REQUEST['high_risk'];
         $consultation = $_REQUEST['consultation'];
+
+        if ($high_risk)
         echo "$patient";
         echo "<br>";
         echo "$blood_type";
@@ -71,6 +73,9 @@ if (mysqli_multi_query($conn, $sql)) {
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
+  echo "<br>";
+  echo "$sql";
+  echo "<br>";
 
   $conn->close();
   ?>

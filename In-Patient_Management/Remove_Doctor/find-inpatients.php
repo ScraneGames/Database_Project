@@ -6,7 +6,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
+$sql_find_names = "SELECT patient_personal_data.patient_name, patient_personal_data.patient_id, physicians.employee_name, physicians.physician_id
+                    FROM patient_personal_data, physician_inpatient_assignments, physicians
+                    WHERE patient_personal_data.patient_id = physician_inpatient_assignments.patient_id
+                    AND physician_inpatient_assignments.physician_id = physicians.physician_id";
 
 $all_patients = mysqli_query($conn,$sql_find_names);
 
@@ -27,7 +30,7 @@ $all_patients = mysqli_query($conn,$sql_find_names);
       <center>
          <h1>Choose a Patient</h1>
 
-         <form action="delete-patient.php" method="post">
+         <form action="remove-doctor.php" method="post">
 
          <label>Select a Patient</label>
         <select name="patient">
@@ -41,7 +44,7 @@ $all_patients = mysqli_query($conn,$sql_find_names);
                 <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patients["patient_name"] . " ".$patients["patient_id"];
+                    <?php echo $patients["patient_name"] . " Patient ID: ".$patients["patient_id"] . " Physician To be Unassigned: ".$patients["employee_name"] . " Physician ID: ".$patients["physician_id"];
                         // To show the employee name to the user
                     ?>
                 </option>

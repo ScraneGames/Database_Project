@@ -6,7 +6,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
+$sql_find_names = "SELECT patient_personal_data.patient_name, patient_personal_data.patient_id, staff.employee_name, nurses.nurse_id
+                    FROM patient_personal_data, nurse_inpatient_assignments, nurses, staff
+                    WHERE patient_personal_data.patient_id = nurse_inpatient_assignments.fk_ass_Patient_ID
+                    AND nurse_inpatient_assignments.fk_ass_Nurse_ID = nurses.nurse_id
+                    AND nurses.employee_id = staff.employee_id";
 
 $all_patients = mysqli_query($conn,$sql_find_names);
 
@@ -27,7 +31,7 @@ $all_patients = mysqli_query($conn,$sql_find_names);
       <center>
          <h1>Choose a Patient</h1>
 
-         <form action="delete-patient.php" method="post">
+         <form action="remove-nurse.php" method="post">
 
          <label>Select a Patient</label>
         <select name="patient">
@@ -41,7 +45,7 @@ $all_patients = mysqli_query($conn,$sql_find_names);
                 <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patients["patient_name"] . " ".$patients["patient_id"];
+                    <?php echo $patients["patient_name"] . " Patient ID: ".$patients["patient_id"] . " Nurse To be Unassigned: ".$patients["employee_name"] . " Nurse ID: ".$patients["nurse_id"];
                         // To show the employee name to the user
                     ?>
                 </option>

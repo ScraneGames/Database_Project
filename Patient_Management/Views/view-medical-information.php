@@ -55,7 +55,7 @@ echo "<br>";
 <?php
 
 $illness_sql = "SELECT * FROM view_patient_allergies_and_illnesses
-                WHERE fk_illnesses_patient_id = '$patient'";
+                WHERE patient_id = '$patient'";
 
 $illness_result = mysqli_query($conn,$illness_sql);
 
@@ -132,7 +132,7 @@ echo "</table>";
 
 echo "<br>";
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
         </center>
     </body>

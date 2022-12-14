@@ -37,7 +37,7 @@ echo "<table border='1'>
 <th>Patient ID</th>
 <th>Patient Name</th>
 <th>Gender</th>
-<th>Date of Birth/th>
+<th>Date of Birth</th>
 <th>Address</th>
 <th>Telephone Number</th>
 </tr>";

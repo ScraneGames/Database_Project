@@ -83,7 +83,7 @@ $all_schedule_patients = mysqli_query($conn,$sql_find_names);
 </form>
 
 
-   <form action="View All Consultations.php" method="post">
+   <form action="view-scheduled.php" method="post">
 
 <label>Select a Patient to View All Consultations</label>
 <select name="view_consultations">
@@ -107,7 +107,7 @@ $all_schedule_patients = mysqli_query($conn,$sql_find_names);
    ?>
 </select>
 <br>
-   <input type="submit" name="button" value="delete">
+   <input type="submit" name="button" value="View Scheduled Consultations">
 </form>
         </center>
    </body>

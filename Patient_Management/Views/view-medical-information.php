@@ -74,7 +74,7 @@ while($illness_row = mysqli_fetch_array($illness_result)){
     echo "<tr>";
     echo "<td>" . $illness_row['illness_name'] . "</td>";
     echo "<td>" . $illness_row['illness_desc'] . "</td>";
-    echo "<td>" . $illness_row['allergy_namd'] . "</td>";
+    echo "<td>" . $illness_row['allergy_name'] . "</td>";
     echo "<td>" . $illness_row['allergy_desc'] . "</td>";
     echo "</tr>";
 }

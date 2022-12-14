@@ -33,7 +33,9 @@ include "/var/www/html/functions.php";
         $high_risk = $_REQUEST['high_risk'];
         $consultation = $_REQUEST['consultation'];
 
-        if ($high_risk)
+        if ($high_risk == FALSE){
+            $high_risk = '0';
+        }
         echo "$patient";
         echo "<br>";
         echo "$blood_type";

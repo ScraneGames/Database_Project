@@ -10,7 +10,7 @@ $patient = $_REQUEST['patient'];
 $surgery_type = $_REQUEST['surgery_type'];
 $operating_theater = $_REQUEST['operating_theater'];
 $date = $_REQUEST['date'];
-$time = $_Request['time']
+$time = $_Request['time'];
 
 
 $sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$original_patient_id'";

@@ -31,7 +31,8 @@ $sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id surgery_skil
                         JOIN surgery_skills
                         ON fk_requirement_skill_id
                         WHERE surgery_requirements.fk_requirement_surgery_code = $surgery_type";
-$sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
+$sql_all_nurses1 = mysqli_query($conn,$sql_find_all_nurses);
+$sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +58,7 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                             // from the $all_categories variable
                             // and individually display as an option
                             while ($surgeons = mysqli_fetch_array(
-                                    $all_patients,MYSQLI_ASSOC)):;
+                                    $all_surgeons,MYSQLI_ASSOC)):;
                         ?>
                             <option value="<?php echo $surgeons["surgeons.surgeon_id"];
                                 // The value we usually set is the primary key
@@ -79,7 +80,7 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                     // from the $all_categories variable
                     // and individually display as an option
                     while ($nurses1 = mysqli_fetch_array(
-                            $all_nurses,MYSQLI_ASSOC)):;
+                            $all_nurses1,MYSQLI_ASSOC)):;
                 ?>
                     <option value="<?php echo $nurses1["nurses.nurse_id"];
                         // The value we usually set is the primary key
@@ -101,7 +102,7 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                     // from the $all_categories variable
                     // and individually display as an option
                     while ($nurses1 = mysqli_fetch_array(
-                            $all_nurses,MYSQLI_ASSOC)):;
+                            $all_nurses2,MYSQLI_ASSOC)):;
                 ?>
                     <option value="<?php echo $nurses2["nurses.nurse_id"];
                         // The value we usually set is the primary key

@@ -89,8 +89,7 @@ $cholesterol_sql = "SELECT * FROM heart_risk_view
                     WHERE patient_id = '$patient'";
 $cholesterol_result = mysqli_query($conn,$cholesterol_sql);
 
-echo "$cholesterol_sql";
-echo "<br>";
+
 
 if ($row['high_risk'] > 0){
     $high_risk = "at high risk.";
@@ -117,7 +116,7 @@ echo "<table border='1'>
 <th>Heart Risk</th>
 </tr>";
 
-while($cholesterol_row = mysqli_fetch_array($illness_result)){
+while($cholesterol_row = mysqli_fetch_array($cholesterol_result)){
 echo "<tr>";
 echo "<td>" . $cholesterol_row['date'] . "</td>";
 echo "<td>" . $cholesterol_row['employee_name'] . "</td>";

@@ -99,8 +99,6 @@ if (mysqli_multi_query($conn, $sql)) {
     echo "<br>";
     echo "$sql";
     echo "<br>";
-    echo "$conn";
-    echo "<br>";
     var_dump($conn);
             ?>
     </center>

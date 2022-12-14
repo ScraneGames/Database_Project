@@ -55,10 +55,10 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                 while ($patients = mysqli_fetch_array(
                         $all_patients,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $patients["inpatients.fk_inp_patient_id"];
+                <option value="<?php echo $patients["fk_inp_patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patients["patient_personal_data.patient_name"] . " Patient ID: ".$patients["inpatients.fk_inp_patient_id"] . " Bed ID: ".$patients["inpatients.fk_inp_bed_id"];
+                    <?php echo $patients["patient_name"] . " Patient ID: ".$patients["fk_inp_patient_id"] . " Bed ID: ".$patients["fk_inp_bed_id"];
                         // To show the employee name to the user
                     ?>
                 </option>
@@ -79,10 +79,10 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                 while ($nurses_less_5 = mysqli_fetch_array(
                     $sql_find_nurses_less_5_result,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $nurses_less_5["nurse.nurse_id"];
+                <option value="<?php echo $nurses_less_5["nurse_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $nurses_less_5["staff.employee_name"] . " Nurse ID: ".$nurses_less_5["nurse.nurse_id"];
+                    <?php echo $nurses_less_5["employee_name"] . " Nurse ID: ".$nurses_less_5["nurse_id"];
                         // To show the employee name to the user
                     ?>
                 </option>
@@ -103,10 +103,10 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                         while ($all_nurses = mysqli_fetch_array(
                             $sql_find_all_nurses_result,MYSQLI_ASSOC)):;
                      ?>
-                        <option value="<?php echo $all_nurses["physician_id"];
+                        <option value="<?php echo $all_nurses["nurse_id"];
                            // The value we usually set is the primary key
                         ?>">
-                           <?php echo $all_nurses["staff.employee_name"] . " Nurse ID: ".$all_nurses["nurses.nurse_id"];
+                           <?php echo $all_nurses["employee_name"] . " Nurse ID: ".$all_nurses["nurse_id"];
                                  // To show the employee name to the user
                            ?>
                         </option>

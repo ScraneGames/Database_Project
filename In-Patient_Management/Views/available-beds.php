@@ -26,7 +26,6 @@ include "/var/www/html/functions.php";
         $sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number  FROM beds WHERE bed_id NOT IN (SELECT fk_inpatients_bed_id FROM inpatients)";
         $result = mysqli_query($conn,$sql_find_beds);
 
-$result = mysqli_query($conn,$sql);
 echo "All Beds Without Assigned Patients";
 echo "<br>";
 echo "<table border='1'>

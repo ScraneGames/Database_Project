@@ -87,8 +87,10 @@ echo "<br>";
 
 $cholesterol_sql = "SELECT * FROM heart_risk_view
                     WHERE patient_id = '$patient'";
-
 $cholesterol_result = mysqli_query($conn,$cholesterol_sql);
+
+echo "$cholesterol_sql";
+echo "<br>";
 
 if ($row['high_risk'] > 0){
     $high_risk = "at high risk.";

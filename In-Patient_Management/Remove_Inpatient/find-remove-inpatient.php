@@ -30,7 +30,7 @@ $all_patients = mysqli_query($conn,$sql_find_names);
       <center>
          <h1>Choose a Patient</h1>
 
-         <form action="remove-patient.php" method="post">
+         <form action="remove-inpatient.php" method="post">
 
          <label>Select a Patient</label>
         <select name="patient">

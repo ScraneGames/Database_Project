@@ -28,7 +28,7 @@ include "/var/www/html/functions.php";
         $address = $_REQUEST['address'];
         $telephone_number = $_REQUEST['telephone_number'];
         $illness=$_REQUEST['illness'];
-        $illness=$_REQUEST['blood_type'];
+        $blood_type=$_REQUEST['blood_type'];
 
         if ($_REQUEST['primary_less_7']) {
             $primary = $_REQUEST['primary_less_7'];

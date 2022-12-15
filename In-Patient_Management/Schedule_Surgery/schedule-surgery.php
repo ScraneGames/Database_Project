@@ -93,7 +93,7 @@ $all_surgeries = mysqli_query($conn,$sql_find_surgery_types);
                <input type="time" name="time" id="time" required>
             </p>
 
-            <input type="submit" name="button" value="Update">
+            <input type="submit" name="button" value="Find a Team">
          </form>
       </center>
    </body>

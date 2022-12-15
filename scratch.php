@@ -127,3 +127,88 @@ if (mysqli_multi_query($conn,$sql)) {
 </body>
 
 </html>
+
+SELECT surgery_id,
+(SELECT employee_name
+FROM staff
+JOIN surgeons
+ON staff.employee_id = surgeons.employee_id
+JOIN surgery_schedule
+ON surgeons.surgeon_id = surgery_schedule.fk_schedule_surgeon_id),
+(SELECT employee_name
+FROM staff
+JOIN nurses
+ON staff.employee_id = nurses.employee_id
+JOIN surgery_schedule
+ON nurses.nurse_id = surgery_schedule.fk_nurse_id_1)
+FROM surgery_schedule
+JOIN surgeons
+ON surgery_schedule.fk_schedule_surgeon_id = surgeons.surgeon_id
+JOIN nurses
+ON surgery_schedule.fk_nurse_id_1 = nurses.nurse_id
+JOIN staff
+ON surgeons.employee_id = staff.employee_id
+WHERE staff.employee_id = nurses.nurse_id;
+
+DROP VIEW IF EXISTS `Project_DB`.`view_surgeries` ;
+USE `Project_DB`;
+CREATE  OR REPLACE VIEW view_surgeries
+surgery_id, operating_theater, date, surgery_code, surgery_type, category, surgeonid, surgeon) AS
+SELECT surgery_schedule.surgery_id, surgery_schedule.operating_theater, surgery_schedule.date, surgery_types.surgery_code, surgery_types.type_name, surgery_types.category, surgery_schedule.fk_schedule_surgeon_id, staff.employee_name
+FROM surgery_schedule
+JOIN surgery_types
+ON surgery_schedule.fk_schedule_surgery_code = surgery_types.surgery_code
+JOIN surgeons
+ON surgery_schedule.fk_schedule_surgeon_id = surgeons.surgeon_id
+JOIN staff
+ON staff.employee_id = surgeons.surgeon_id
+WHERE surgeon = (SELECT employee_name FROM staff JOIN surgeons on staff.employee_id = surgeons.employee_id AND surgeons.surgeon_id = surgeonid);
+
+
+
+
+
+nurse1_id, first_nurse, nurse2_id, second_nurse, patient_id, patient_name) AS
+SELECT surgery_schedule.surgery_id, surgery_schedule.operating_theater, surgery_schedule.date, surgery_types.type_name, surgery_types.category,
+(SELECT employee_name
+FROM staff
+JOIN surgeons
+ON staff.employee_id = surgeons.surgeon_id
+WHERE view_surgeries.surgeon_id = surgeons.surgeon_id)
+
+employee_id IN
+(SELECT employee_id FROM surgeons
+JOIN surgery_schedule
+ON surgeons.surgeon_id = surgery_schedule.fk_schedule_surgeon_id)),
+(SELECT employee_name
+FROM staff
+WHERE employee_id IN
+( SELECT employee_ID
+FROM nurses
+JOIN surgery_schedule
+ON nurses.nurse_id = surgery_schedule.fk_nurse_id_1)),
+(SELECT employee_name
+FROM staff
+WHERE employee_id IN
+( SELECT employee_ID
+FROM nurses
+JOIN surgery_schedule
+ON nurses.nurse_id = surgery_schedule.fk_nurse_id_2)),
+(SELECT patient_name
+FROM patient_personal_data
+WHERE patient_id IN
+(SELECT patient_ID
+FROM surgery_schedule)),
+surgery_schedule.patient_id
+FROM surgery_schedule
+JOIN surgery_types
+ON surgery_schedule.fk_schedule_surgery_code = surgery_types.surgery_code
+JOIN patient_personal_data
+ON surgery_schedule.patient_id = patient_personal_data.patient_id
+JOIN surgeons ON surgery_schedule.fk_schedule_surgeon_id = surgeons.surgeon_id
+JOIN staff
+ON surgeons.employee_id = staff.employee_id
+JOIN nurses
+ON surgery_schedule.fk_nurse_id_1 = nurses.nurse_id
+WHERE nurses.employee_id = staff.employee_id
+AND surgery_schedule.fk_nurse_id_2 = nurses.nurse_id;

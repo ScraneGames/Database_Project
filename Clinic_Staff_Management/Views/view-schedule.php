@@ -51,13 +51,13 @@ while($row = mysqli_fetch_array($result)){
     echo "<td>" . $row['employee_name'] . "</td>";
     echo "<td>" . $row['employee_id'] . "</td>";
     echo "<td>" . $row['position'] . "</td>";
-    echo "<td>" . if ($row['sunday'] == 1){ "Working" . "</td>";} else {"Off" . "</td>";}
-    echo "<td>" . if ($row['monday'] == 1){ "Working" . "</td>";} else {"Off" . "</td>";}
-    echo "<td>" . if ($row['tuesday'] == 1){ "Working" . "</td>";} else {"Off" . "</td>";}
-    echo "<td>" . if ($row['wednesday'] == 1){ "Working" . "</td>";} else {"Off" . "</td>";}
-    echo "<td>" . if ($row['thursday'] == 1){ "Working" . "</td>";} else {"Off" . "</td>";}
-    echo "<td>" . if ($row['friday'] == 1){ "Working" . "</td>";} else {"Off" . "</td>";}
-    echo "<td>" . if ($row['saturday'] == 1){ "Working" . "</td>";} else {"Off" . "</td>";}
+    if ($row['sunday'] == 1){echo "<td>" . "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
+    if ($row['monday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . z"Off" . "</td>";}
+    if ($row['tuesday'] == 1){echo "<td>" . "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
+    if ($row['wednesday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
+    if ($row['thursday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
+    if ($row['friday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
+    if ($row['saturday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
     echo "<td>" . $row['start_time'] . "</td>";
     echo "<td>" . $row['end_time'] . "</td>";
     echo "</tr>";

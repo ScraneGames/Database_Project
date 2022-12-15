@@ -41,6 +41,7 @@ $prescribed_medications = "SELECT medication_code, name, dosage, frequency
                            ON medications.medication_code = patient_medications.fk_patient_medication_code
                            WHERE fk_medications_patient_id = '$original_patient_id'";
 $prescribed_results = mysqli_query($conn,$prescribed_medications);
+$prescribed_remove_results = mysqli_query($conn,$prescribed_medications);
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
@@ -215,7 +216,7 @@ echo "<br>";
                 // from the $all_categories variable
                 // and individually display as an option
                 while ($all_prescribed = mysqli_fetch_array(
-                  $prescribed_results,MYSQLI_ASSOC)):;
+                  $prescribed_remove_results,MYSQLI_ASSOC)):;
             ?>
                 <option value="<?php echo $all_prescribed['medication_code'];
                     // The value we usually set is the primary key

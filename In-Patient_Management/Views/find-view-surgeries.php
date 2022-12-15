@@ -48,6 +48,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 <br>
    <input type="submit" name="button" value="View Medical Information">
    <br>
+   <br>
 </form>
 
 

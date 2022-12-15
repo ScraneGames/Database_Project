@@ -264,7 +264,7 @@ echo "<br>";
 
 <script>
    $( document ).ready(function() {
-     $('want_remove').change(function() {
+     $('#want_remove').change(function() {
        $('.remove_fields').hide()
          if($(this).val() == "yes")
           $('#remove_medication').show();

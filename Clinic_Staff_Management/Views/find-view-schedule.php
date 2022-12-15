@@ -70,7 +70,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
 <label>View Schedule Per Day</label>
 <br>
 
-           <label for="own">Has Ownership Stake?:</label>
+           <label for="day">Select a Day To View Schedule:</label>
                            <select name="day" id="day">
                            <option value="">Select...</option>
                            <option value="sunday">Sunday</option>

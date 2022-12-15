@@ -63,7 +63,7 @@ echo "<br>";
                 <input type="checkbox" name="saturday" id="saturday">
                 <br>
 </p>
-<input type="hidden" name="employee_id" value="<?php echo "$original_employee_id"; ?>" id="employee_id">
+<input type="hidden" name="employee_id" value=<?php echo "$original_employee_id"; ?> id="employee_id">
 
 
 <p>

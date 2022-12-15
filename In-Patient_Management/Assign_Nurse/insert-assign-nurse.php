@@ -23,6 +23,9 @@ include "/var/www/html/functions.php";
         // Taking all the values from the patient-administration.php
         $patient = $_REQUEST['patient_name'];
 
+        echo "Nurse less 5 is " . $_REQUEST['nurse_less_5'];
+        echo "<br>";
+        echo "All nurses is " . $_REQUEST['all_nurse']
 
         if ($_REQUEST['nurse_less_5'] == TRUE) {
             $nurse = $_REQUEST['nurse_less_5'];
@@ -41,8 +44,7 @@ include "/var/www/html/functions.php";
         if(mysqli_multi_query($conn, $sql)){
             echo "<h3>Nurse Assigned successfully.";
         } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
         // Close connection

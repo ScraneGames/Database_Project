@@ -21,20 +21,22 @@ include "/var/www/html/functions.php";
         }
 $day = $_REQUEST['day'];
 
+
+
 if ($day == 'monday') {
     $cap_day == 'Monday';
 } elseif ($day == 'tuesday'){
-    $cap_day == 'Tuesday';
+    $cap_day = 'Tuesday';
 } elseif ($day == 'wednesday'){
-    $cap_day == 'Wednesday';
+    $cap_day = 'Wednesday';
 } elseif ($day == 'thursday'){
-    $cap_day == 'Thursday';
+    $cap_day = 'Thursday';
 } elseif ($day == 'friday'){
-    $cap_day == 'Friday';
+    $cap_day = 'Friday';
 } elseif ($day == 'saturday') {
-    $cap_day == 'Saturday';
+    $cap_day = 'Saturday';
 } elseif ($day == 'Sunday'){
-    $cap_day == 'Sunday';
+    $cap_day = 'Sunday';
 }
 
         // Taking all the values from the patient-administration.php

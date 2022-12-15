@@ -69,11 +69,11 @@ echo "<br>";
 
 <p>
                <label for="start_time">Start Time:</label>
-               <input type="text" name="start_time" id="start_time">
+               <input type="timw" name="start_time" id="start_time">
             </p>
             <p>
                <label for="end_time">Start Time:</label>
-               <input type="text" name="end_time" id="end_time">
+               <input type="time" name="end_time" id="end_time">
             </p>
 
             <input type="submit" value="Schedule">

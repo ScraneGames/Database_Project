@@ -35,7 +35,7 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
 
 // public mysqli::multi_query(string $sql): bool
 
-echo "The number of rows in less than 5 is " . mysqli_num_rows($sql_find_nurses_less_5);
+echo "mysqli_num_rows($sql_find_nurses_less_5)";
 
 ?>
 

@@ -69,7 +69,7 @@ echo "<br>";
 
 <p>
                <label for="start_time">Start Time:</label>
-               <input type="timw" name="start_time" id="start_time">
+               <input type="time" name="start_time" id="start_time">
             </p>
             <p>
                <label for="end_time">Start Time:</label>

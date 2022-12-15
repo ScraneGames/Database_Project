@@ -6,10 +6,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id, inpatients.fk_inpatients_bed_id
-                    FROM patient_personal_data, inpatients
-                    WHERE inpatients.fk_inpatients_patient_id = patient_id
-                    AND patient_id
+$sql_find_names = "SELECT patient_name, patient_id, bed_id, nursing_unit, wing, room_number, bed_number
+                    FROM patient_personal_data
+                    JOIN inpatients
+                    ON inpatients.fk_inpatients_patient_id = patient_personal_data.patient_id
+                    JOIN beds
+                    ON inpatients.fk_inpatients_bed_id = beds.bed_id
+                    WHERE patient_id
                     NOT IN (SELECT fk_assignment_patient_id FROM nurse_inpatient_assignments)";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
@@ -59,7 +62,12 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                 <option value="<?php echo $patients["fk_inp_patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patients["patient_name"] . " Patient ID: ".$patients["patient_id"] . " Bed ID: ".$patients["fk_inpatients_bed_id"];
+                    <?php echo $patients["patient_name"] .
+                    " Patient ID: ".$patients["patient_id"] .
+                    " Unit: ".$patients["nursing_unit"] .
+                    " Wing: ".$patients["wing"] .
+                    " Room#: ".$patients["room_number"] .
+                    " Bed: ".$patients["bed_number"];
                         // To show the employee name to the user
                     ?>
                 </option>

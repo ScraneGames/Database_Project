@@ -41,7 +41,6 @@ echo "<table border='1'>
 <th>Thursday</th>
 <th>Friday</th>
 <th>Saturday</th>
-<th>Sunday</th>
 <th>Start Time</th>
 <th>End Time</th>
 </tr>";

@@ -65,7 +65,7 @@ echo "<br>";
 
 </p>
 
-<input type="hidden" name="employee_id" id="employee_name" value="<?php echo "$original_employee_id"; ?>">
+<input type="hidden" name="employee_id" value="<?php echo "$original_employee_id"; ?>" id="employee_id">
 
 <p>
                <label for="hours">Hours:</label>

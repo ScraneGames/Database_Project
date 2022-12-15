@@ -21,8 +21,6 @@ include "/var/www/html/functions.php";
         }
 $day = $_REQUEST['day'];
 
-echo "$day";
-
  if ($day == 'monday') {
     $cap_day == 'Monday';
 } elseif ($day == 'tuesday'){
@@ -44,10 +42,10 @@ echo "$day";
         $sql = "SELECT staff.employee_name, staff.employee_id, staff.position, work_schedule.$day, work_schedule.start_time, work_schedule.end_time FROM work_schedule JOIN staff on work_schedule.fk_work_schedule_employee_id = staff.employee_id";
         $result = mysqli_query($conn,$sql);
 
-        echo "$sql";
+
 
 $result = mysqli_query($conn,$sql);
-echo "The Full Work Schedule";
+echo "The Work Schedule On $cap_day";
 echo "<br>";
 echo "<table border='1'>
 <tr>

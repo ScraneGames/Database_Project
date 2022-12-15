@@ -84,7 +84,7 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                <label for="nurse_less_5">Nurse:</label>
                <select name="nurse_less_5">
             <?php
-                echo "These are the nurses with less than 5 patients assigned.",
+                echo "These are the nurses with less than 5 patients assigned.";
                 echo "<br>";
                 // use a while loop to fetch data
                 // from the $all_categories variable

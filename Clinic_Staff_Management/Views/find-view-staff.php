@@ -21,23 +21,23 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Find Patient</title>
+      <title>Find Staff</title>
    </head>
    <body>
       <center>
-      <h1>View All Schedules</h1>
+      <h1>View All Staff</h1>
 
-         <form action="view-schedule.php" method="post">
+         <form action="view-staff.php" method="post">
 
-         <label>Select a Patient</label>
+         <label>View All of The Staff</label>
         <br>
-            <input type="submit" name="button" value="View All Schedules">
+            <input type="submit" name="button" value="View All Staffs">
             <br>
             <br>
 </form>
       <h1>View Based On Position</h1>
 
-         <form action="edit-medical-information.php" method="post">
+         <form action="view-staff-per-position.php" method="post">
 
          <label>Select a Position</label>
         <select name="position">
@@ -46,7 +46,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
                 // from the $all_categories variable
                 // and individually display as an option
                 while ($positions = mysqli_fetch_array(
-                        $all_ppositions,MYSQLI_ASSOC)):;
+                    $all_positions,MYSQLI_ASSOC)):;
             ?>
                 <option value="<?php echo $positions["position"];
                     // The value we usually set is the primary key
@@ -61,7 +61,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
             ?>
         </select>
         <br>
-            <input type="submit" name="button" value="Update">
+            <input type="submit" name="button" value="Choose Position">
          </form>
       </center>
    </body>

@@ -41,7 +41,7 @@ $sql_find_all_skills_result = mysqli_query($conn,$sql_find_all_skills)
                         <option value="<?php echo $all_nurses["nurse_id"];
                            // The value we usually set is the primary key
                         ?>">
-                           <?php echo $all_nurses["staff.employee_name"] . " Nurse ID: ".$all_nurses["nurses.nurse_id"];
+                           <?php echo $all_nurses["employee_name"] . " Nurse ID: " . $all_nurses["nurse_id"];
                                  // To show the employee name to the user
                            ?>
                         </option>

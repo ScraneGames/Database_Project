@@ -113,6 +113,8 @@ echo "The number of rows is $numrows";
          <label for="all_nurse">Nurse:</label>
                         <select name="all_nurse">
                      <?php
+                     echo "This is selecting all nurses";
+                     echo "<br>";
                         // use a while loop to fetch data
                         // from the $all_categories variable
                         // and individually display as an option

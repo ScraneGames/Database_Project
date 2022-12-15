@@ -33,10 +33,6 @@ include "/var/www/html/functions.php";
         $room_number = $_REQUEST['room_number'];
         $bed_number = $_REQUEST['bed'];
 
-echo "$nursing_unit";
-echo "$wing";
-echo "$room_number";
-echo "$bed_number";
         // Performing insert query execution
         // here for our table name is patient_personal_data
 

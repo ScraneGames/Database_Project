@@ -79,12 +79,6 @@ include "/var/www/html/functions.php";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-
-              echo "<br>";
-              echo "$sql";
-              echo "<br>";
-              echo "Did this work?";
-              echo "<br>";
               var_dump($conn);
     }
             ?>

@@ -37,7 +37,6 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
 
 $numrows = mysqli_num_rows($sql_find_nurses_less_5_result);
 
-echo "The number of rows is $numrows";
 
 ?>
 

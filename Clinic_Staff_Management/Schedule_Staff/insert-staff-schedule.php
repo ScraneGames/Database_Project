@@ -68,25 +68,6 @@ include "/var/www/html/functions.php";
         $start_time = $_REQUEST['start_time'];
         $end_time = $_REQUEST['end_time'];
 
-        echo "Employee ID is $employee";
-        echo "<br>";
-        echo "Monday is $monday";
-        echo "<br>";
-        echo "Tuesday is $tuesday";
-        echo "<br>";
-        echo "Wednesday is $wednesday";
-        echo "<br>";
-        echo "Thursday is $thursday";
-        echo "<br>";
-        echo "Friday is $friday";
-        echo "<br>";
-        echo "Saturday is $saturday";
-        echo "<br>";
-        echo "Sunday is $sunday";
-        echo "<br>";
-        echo "Hours are $hours";
-        echo "<br>";
-
 
 $schedule_sql = "SELECT * FROM work_schedule WHERE fk_work_schedule_employee_id = '$employee'";
 $schedule_sql_result = mysqli_query($conn,$schedule_sql);

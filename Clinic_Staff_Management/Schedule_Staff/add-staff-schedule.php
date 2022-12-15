@@ -15,16 +15,6 @@ $result = mysqli_query($conn,$sql);
 
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-echo "$sql";
-echo "<br>";
-echo "$original_employee_id";
-echo "<br>";
-echo $user['employee_name'];
-echo "<br>";
-$position = $user['position'];
-echo "$position";
-echo "<br>";
-
 ?>
 
 

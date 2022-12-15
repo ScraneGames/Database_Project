@@ -36,19 +36,6 @@ include "/var/www/html/functions.php";
         if ($high_risk == FALSE){
             $high_risk = '0';
         }
-        echo "$patient";
-        echo "<br>";
-        echo "$blood_type";
-        echo "<br>";
-        echo "$blood_sugar";
-        echo "<br>";
-        echo "$hdl";
-        echo "<br>";
-        echo "$ldl";
-        echo "<br>";
-        echo "$consultation";
-        echo "<br>";
-        echo "$high_risk";
 
         $medical_sql = "SELECT fk_medical_data_patient_id FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";
         $medical_result = mysqli_query($conn,$medical_sql);
@@ -75,9 +62,7 @@ if (mysqli_multi_query($conn, $sql)) {
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
-  echo "<br>";
-  echo "$sql";
-  echo "<br>";
+
 
   $conn->close();
   ?>

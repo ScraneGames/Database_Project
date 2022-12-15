@@ -46,11 +46,7 @@ include "/var/www/html/functions.php";
         // here for our table name is staff
         $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$employee_id')";
         $result = mysqli_query($conn,$owner_sql);
-        echo "$owner_sql";
-        echo "<br>";
-        echo "<br>";
-        echo "$position";
-        // Nurses
+
 if ($position == "nurse") {
           $sql = "UPDATE staff
                   SET employee_name = '$employee_name', ssn = '$ssn', gender = '$gender', address =  '$address', telephone_number =  '$telephone_number'
@@ -113,11 +109,6 @@ if (mysqli_multi_query($conn,$sql)) {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    echo "<br>";
-    echo "$sql";
-    echo "<br>";
-    echo "$conn";
-    echo "<br>";
     var_dump($conn);
 
     $conn->close();

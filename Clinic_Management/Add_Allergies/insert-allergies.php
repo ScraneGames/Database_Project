@@ -26,10 +26,6 @@ include "/var/www/html/functions.php";
         // Taking all the values from the patient-administration.php
         $allergy_name = $_REQUEST['allergy_name'];
         $allergy_desc = $_REQUEST['allergy_desc'];
-        echo "$allergy_name";
-        echo "<br>";
-        echo "$allergy_desc";
-        echo "<br>";
 
 
 

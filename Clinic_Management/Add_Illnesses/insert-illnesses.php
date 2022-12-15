@@ -40,7 +40,6 @@ include "/var/www/html/functions.php";
 
 if (mysqli_query($conn, $sql)) {
     echo "Record inserted into Illnesses Correctly";
-    echo nl2br("\n$illness_name\n");
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

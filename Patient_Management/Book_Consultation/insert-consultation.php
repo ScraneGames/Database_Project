@@ -44,7 +44,6 @@ include "/var/www/html/functions.php";
 
 if (mysqli_query($conn, $sql)) {
     echo "Reservation Successfully Booked";
-    echo nl2br("\n$allergy_name\n");
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

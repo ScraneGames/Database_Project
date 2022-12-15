@@ -15,15 +15,6 @@ $result = mysqli_query($conn,$sql);
 
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-echo "$sql";
-echo "<br>";
-echo "$original_employee_id";
-echo "<br>";
-echo $user['employee_name'];
-echo "<br>";
-$position = $user['position'];
-echo "$position";
-echo "<br>";
 
 if ($position == "nurse") {
     $nurse_sql = "SELECT * FROM nurses WHERE employee_id = '$original_employee_id'";
@@ -36,15 +27,7 @@ if ($position == "nurse") {
     $surgeon_sql = "SELECT * FROM surgeons WHERE employee_id = '$original_employee_id'";
     $surgeon_result = mysqli_query($conn,$surgeon_sql);
     $surgeon_user = mysqli_fetch_array($surgeon_result,MYSQLI_ASSOC);
-    echo $contract_sql;
-    echo "<br>";
-    echo $surgeon_sql;
-    echo "<br>";
-    echo $contract_user['length'];
-    echo "<br>";
-    echo $contract_user['type'];
-    echo "<br>";
-    echo $surgeon_user['specialty'];
+
 } elseif ($position == "physician" || $position == "chief_of_staff") {
     $physician_sql = "SELECT * FROM physicians WHERE employee_id = '$original_employee_id'";
     $physician_result = mysqli_query($conn,$physician_sql);
@@ -55,9 +38,6 @@ if ($position != "surgeon") {
     $salary_sql = "SELECT * FROM salaries WHERE fk_salary_employee_id = '$original_employee_id'";
     $salary_result = mysqli_query($conn,$salary_sql);
     $salary_user = mysqli_fetch_array($salary_result,MYSQLI_ASSOC);
-    echo "$salary_sql";
-    echo "<br>";
-    echo $salary_user['salary'];
 
 }
 

@@ -67,9 +67,12 @@ include "/var/www/html/functions.php";
                 } else {
                 echo "Error: " . $remove_sql . "<br>" . $conn->error;
 
-                echo "$remove_sql";
+
                               }
+                              echo "$remove_sql";
         }
+
+
 
         if ($_REQUEST['prescribe_medication'] == TRUE) {
             $prescribe_sql = "INSERT INTO patient_medications ( fk_medications_patient_id, fk_patient_medication_code, fk_medications_consultation_number, dosage, frequency)

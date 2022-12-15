@@ -30,22 +30,14 @@ include "/var/www/html/functions.php";
         $nurse1=$_REQUEST['nurse1'];
         $nurse2=$_REQUEST['nurse2'];
 
-        echo "$patient";
-        echo "<br>";
-        echo "$surgery_type";
-        echo "<br>";
-        echo "$operating_theater";
-        echo "<br>";
-        echo "$date";
-        echo "<br>";
-        echo "$time";
-        echo "<br>";
-        echo "$surgeon";
-        echo "<br>";
-        echo "$nurse1";
-        echo "<br>";
-        echo "$nurse2";
-        echo "<br>";
+        if ($nurse1 = $nurse2) {
+            echo "OOPS! You've selected the same nurse for both spots in the surgery. So sorry.";
+            echo "<br>";
+            echo "I know the lists can be confusing at the moment.";
+            echo "<br>";
+            echo "Please go back and select 2 different nurses.";
+        } else {
+
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
@@ -74,6 +66,7 @@ include "/var/www/html/functions.php";
               echo "Did this work?";
               echo "<br>";
               var_dump($conn);
+    }
             ?>
     </center>
 </body>

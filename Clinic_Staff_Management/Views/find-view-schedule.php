@@ -6,7 +6,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_positions = "SELECT position FROM staff";
+$sql_find_positions = "SELECT UNIQUE position FROM staff";
 
 $all_positions = mysqli_query($conn,$sql_find_positions);
 
@@ -46,7 +46,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
                 // from the $all_categories variable
                 // and individually display as an option
                 while ($positions = mysqli_fetch_array(
-                        $all_ppositions,MYSQLI_ASSOC)):;
+                    $all_positions,MYSQLI_ASSOC)):;
             ?>
                 <option value="<?php echo $positions["position"];
                     // The value we usually set is the primary key
@@ -65,7 +65,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
         <br>
         <br>
 
-<form action="view-schedule.php" method="post">
+<form action="view-schedule-per-day.php" method="post">
 
 <label>View Schedule Per Day</label>
 <br>

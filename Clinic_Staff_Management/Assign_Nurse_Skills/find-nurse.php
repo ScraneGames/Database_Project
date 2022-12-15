@@ -27,7 +27,7 @@ $sql_find_all_skills_result = mysqli_query($conn,$sql_find_all_skills)
    </head>
    <body>
       <center>
-
+      <form action="insert-nurse-skulls.php" method="post">
 <p>
          <label for="all_nurse">Nurse:</label>
                         <select name="nurse">

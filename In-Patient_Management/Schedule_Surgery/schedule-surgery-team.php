@@ -33,6 +33,12 @@ $sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id, surgery_ski
                         WHERE surgery_requirements.fk_requirement_surgery_code = $surgery_type";
 $sql_all_nurses1 = mysqli_query($conn,$sql_find_all_nurses);
 $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
+
+echo "$sql";
+echo "<br>";
+echo "$sql_find_surgeons";
+echo "<br>";
+echo "$sql_all_nurses1";
 ?>
 
 <!DOCTYPE html>

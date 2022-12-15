@@ -19,7 +19,7 @@ $sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$patient'";
 $result = mysqli_query($conn,$sql);
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-$sql_find_surgeons = "SELECT staff.employee_name, surgeons.surgeon_id FROM staff, surgeons WHERE staff.employee_id = surgeons.employee_id";
+$sql_find_surgeons = "SELECT staff.employee_name, surgeons.surgeon_id, surgeons.specialty FROM staff, surgeons WHERE staff.employee_id = surgeons.employee_id";
 $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
 $sql_find_all_nurses = "SELECT UNIQUE staff.employee_name, nurses.nurse_id

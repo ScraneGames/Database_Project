@@ -254,20 +254,20 @@ echo "<br>";
 
    <script>
    $( document ).ready(function() {
-     $('#want_prescribe').change(function() {
-       $('.want_prescribe_fields').hide()
+     $('#prescribe_medication').change(function() {
+       $('.prescribe_medication_fields').hide()
          if($(this).val() == "yes")
-          $('#want_prescribe').show();
+          $('#prescribe_medication').show();
      });
    });
    </script>
 
 <script>
    $( document ).ready(function() {
-     $('want_remove').change(function() {
-       $('.want_remove_fields').hide()
+     $('remove_medication').change(function() {
+       $('.remove_medication_fields').hide()
          if($(this).val() == "yes")
-          $('#want_remove').show();
+          $('#remove_medication').show();
      });
    });
    </script>

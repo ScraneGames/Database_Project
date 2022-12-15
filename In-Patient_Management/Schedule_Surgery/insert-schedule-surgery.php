@@ -71,6 +71,8 @@ include "/var/www/html/functions.php";
               echo "<br>";
               echo "$sql";
               echo "<br>";
+              echo "Did this work?";
+              echo "<br>";
               var_dump($conn);
             ?>
     </center>

@@ -17,15 +17,15 @@ $sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$original_patien
 $result = mysqli_query($conn,$sql);
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-$sql_find_surgeons = "SELECT staff.employee_name, surgeons.surgeon FROM staff, surgeons WHERE staff.employee_id = surgeons.employee_id";
+$sql_find_surgeons = "SELECT staff.employee_name, surgeons.surgeon_id FROM staff, surgeons WHERE staff.employee_id = surgeons.employee_id";
 $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
-$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id surgery_skills.skill_name MAX(surgery_skills.skill_id)
+$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id, surgery_skills.skill_name, MAX(surgery_skills.skill_id)
                         FROM staff
                         JOIN nurses
                         ON staff.employee_id = nurses.employee_id
                         JOIN nurse_skills
-                        ON nurses.nurse_id = nurse_skulls.fk_skills_nurse_id
+                        ON nurses.nurse_id = nurse_skills.fk_skills_nurse_id
                         JOIN surgery_requirements
                         ON fk_nurse_skills_skill_id = fk_requirement_skill_id
                         JOIN surgery_skills

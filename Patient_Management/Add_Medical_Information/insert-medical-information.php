@@ -34,6 +34,9 @@ include "/var/www/html/functions.php";
         $consultation = $_REQUEST['consultation'];
         $remove_prescribe = $_REQUEST['remove_prescribe'];
         $prescribe_medication = $_REQUEST['prescribe'];
+        $dosage = $_REQUEST['dosage'];
+        $frequency = $_REQUEST['frequency'];
+
 
         if ($high_risk == FALSE){
             $high_risk = '0';

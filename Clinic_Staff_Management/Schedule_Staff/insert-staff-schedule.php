@@ -67,7 +67,7 @@ include "/var/www/html/functions.php";
         }
         $hours = $_REQUEST['hours'];
 
-        echo "Employee ID is $employee_id";
+        echo "Employee ID is $employee";
         echo "<br>";
         echo "Monday is $monday";
         echo "<br>";

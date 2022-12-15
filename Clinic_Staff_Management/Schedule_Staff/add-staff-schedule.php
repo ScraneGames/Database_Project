@@ -41,7 +41,6 @@ echo "<br>";
 
 <p>
 
-                <input type="hidden" name="employee_id" value="<?php echo "$original_employee_id"; ?>" id="employee_id">
                 <label for="sunday">Sunday</label>
                 <input type="checkbox" name="sunday" id="sunday">
                 <br>
@@ -63,7 +62,8 @@ echo "<br>";
                 <label for="saturday">Saturday</label>
                 <input type="checkbox" name="saturday" id="saturday">
                 <br>
-
+</p>
+<input type="hidden" name="employee_id" value="<?php echo "$original_employee_id"; ?>" id="employee_id">
 
 
 <p>

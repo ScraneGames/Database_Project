@@ -65,7 +65,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
        while ($view_surgeries_per_patient = mysqli_fetch_array(
                $all_schedule_patients,MYSQLI_ASSOC)):;
    ?>
-       <option value="<?php echo $view_consultations["patient_id"];
+       <option value="<?php echo $view_surgeries_per_patient["patient_id"];
            // The value we usually set is the primary key
        ?>">
            <?php echo $view_surgeries_per_patient["patient_name"] . " Patient ID: ".$view_surgeries_per_patient["patient_id"];

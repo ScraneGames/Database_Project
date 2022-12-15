@@ -34,7 +34,8 @@ include "/var/www/html/functions.php";
         ON  recorded_surgeries.fk_recorded_patient_id = patient_personal_data.patient_id
         JOIN surgery_schedule
         ON recorded_surgeries.surgery_id = surgery_schedule.surgery_ID
-        AND recorded_surgeries.date = surgery_schedule.date";
+        AND recorded_surgeries.date = surgery_schedule.date
+        WHERE recorded_surgeries.date <= CURDATE()";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);

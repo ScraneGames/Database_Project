@@ -7,13 +7,13 @@ if ($conn->connect_error) {
 }
 
 $patient = $_REQUEST['patient'];
-$surgery_type = $_REQUEST['surgery_type'];
+$surgery_type = $_REQUEST['surgery'];
 $operating_theater = $_REQUEST['operating_theater'];
 $date = $_REQUEST['date'];
 $time = $_Request['time'];
 
 
-$sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$original_patient_id'";
+$sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$patient'";
 $result = mysqli_query($conn,$sql);
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
@@ -39,6 +39,7 @@ echo "<br>";
 echo "$sql_find_surgeons";
 echo "<br>";
 echo "$sql_all_nurses1";
+echo "<br>";
 ?>
 
 <!DOCTYPE html>

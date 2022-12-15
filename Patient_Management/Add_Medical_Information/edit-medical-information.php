@@ -64,7 +64,7 @@ if ($user['high_risk'] > 0){
 
          <form action="insert-medical-information.php" method="post">
 
-
+<!-- Show/Edit Blood type if needed -->
 <p>
                <label for="blood_type">Blood Type:</label>
                <select name="blood_type">
@@ -79,37 +79,41 @@ if ($user['high_risk'] > 0){
                </select>
 </p>
 <input type="hidden" id="patient" name="patient" value="<?php echo $original_patient_id; ?>">
+
+<!-- Display/Enter blood sugar -->
 <p>
                <label for="blood_sugar">Blood Sugar:</label>
                <input type="text" name="blood_sugar" value="<?php echo $cholesterol_user['blood_sugar']; ?>" id="blood_sugar">
             </p>
-
+<!-- Display/enter HDL -->
 <p>
                <label for="hdl">HDL:</label>
                <input type="number" name="hdl" value="<?php echo $cholesterol_user['HDL']; ?>" id="hdl">
             </p>
 
-
+<!-- Display/enter LDL -->
 <p>
                <label for="ldl">LDL:</label>
                <input type="number" name="ldl" value="<?php echo $cholesterol_user['LDL']; ?>" id="ldl">
             </p>
-
+<!-- Display/enter Triglycerides -->
 <p>
                 <label for="triglycerides">Triglycerides:</label>
                 <input type="text" name="triglycerides" value="<?php echo $cholesterol_user['triglycerides']; ?>" id="triglycerides">
             </p>
             <br>
+<!-- Show the most recent cholesterol and ratio to help judge if someone wants to  select as high risk -->
                <?php
                echo  "The most recent total cholesterol of " . $personal_user['patient_name'] . " is $current_cholesterol_total and their cholesterol/hdl ratio is $current_cholesterol_risk";
                echo "<br>";
                ?>
+<!-- Allow select high risk -->
 <p>
                <label for="high_risk">High Risk?:</label>
                <input type="checkbox" <?php echo "$check"; ?> name="high_risk" value="1" id="high_risk">
                <br>
 </p>
-
+<!-- Selection to prescribe medication -->
  <p>
                            <label for="want_prescribe">Prescribe Medication?:</label>
                            <select name="want_prescribe" id="want_prescribe">
@@ -120,7 +124,8 @@ if ($user['high_risk'] > 0){
                            </p>
 
 <br>
-   <div id="prescribe_medication" class="prescribe_fields" style="display: none">
+<!-- This should reveal if the above is set to yes -->
+ <!--  <div id="prescribe_medication" class="prescribe_fields" style="display: none"> -->
    <p>
                <label>Medications to Prescribe:</label>
                <select name="prescribe">
@@ -153,10 +158,12 @@ if ($user['high_risk'] > 0){
          <label for="frequency">Frequency:</label>
          <input type="text" name="frequency" id="frequency">
       </p>
-</div>
+<!-- </div> -->
 
 <br>
 <p>
+
+<!-- Show currently Prescribed Medications -->
 <?php
 
 echo "Prescribed Medications";
@@ -184,7 +191,7 @@ echo "<br>";
 
 ?>
             </p>
-
+<!-- Selection to Remove Medications -->
 <p>
                            <label for="want_remove">Un-Prescribe Medication?:</label>
                            <select name="want_remove" id="want_remove">
@@ -197,8 +204,8 @@ echo "<br>";
 <br>
 
 
-
-<div id="remove_medication" class="remove_fields" style="display: none">
+<!-- This should show if the above is set to yes -->
+<!-- <div id="remove_medication" class="remove_fields" style="display: none"> -->
    <p>
                <label>Prescribed Medications to Remove:</label>
                <select name="remove_prescribe">
@@ -222,8 +229,9 @@ echo "<br>";
          ?>
          </p>
       </select>
-            </div>
+  <!--          </div> -->
 <br>
+<!-- Select the consultation to add the info to -->
 <p>
                <label>Consultation This Data Is Coming From:</label>
                <select name="consultation">

@@ -30,6 +30,22 @@ include "/var/www/html/functions.php";
         $nurse1=$_REQUEST['nurse1'];
         $nurse2=$_REQUEST['nurse2'];
 
+        echo "$patient";
+        echo "<br>";
+        echo "$surgery_type";
+        echo "<br>";
+        echo "$operating_theater";
+        echo "<br>";
+        echo "$date";
+        echo "<br>";
+        echo "$time";
+        echo "<br>";
+        echo "$surgeon";
+        echo "<br>";
+        echo "$nurse1";
+        echo "<br>";
+        echo "$nurse2";
+        echo "<br>";
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
@@ -40,14 +56,15 @@ include "/var/www/html/functions.php";
             VALUES ('$surgeon', '$surgery_type', '$patient', (SELECT surgery_id FROM surgery_schedule WHERE patient_id = '$patient' AND fk_schedule_surgery_code = '$surgery_type' AND fk_schedule_surgeon_id = '$surgeon' AND date = '$date' AND time = '$time'), '$date'";
 
         if(mysqli_multi_query($conn, $sql)){
-            echo "<h3>Surgery Scheduled Successfully.";
+            echo "<h3>Surgery Scheduled Successfully.</h3>";
         } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
-        // Close connection
-            mysql_close($conn);
+              echo "<br>";
+              echo "$sql";
+              echo "<br>";
+              var_dump($conn);
             ?>
     </center>
 </body>

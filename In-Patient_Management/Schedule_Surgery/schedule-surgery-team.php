@@ -62,7 +62,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                             while ($surgeons = mysqli_fetch_array(
                                     $all_surgeons,MYSQLI_ASSOC)):;
                         ?>
-                            <option value="<?php echo $surgeons["surgeons.surgeon_id"];
+                            <option value="<?php echo $surgeons["surgeon_id"];
                                 // The value we usually set is the primary key
                             ?>">
                                 <?php echo $surgeons["employee_name"] . " Specialty: ".$surgeons["specialty"] . " Surgeon ID: ".$surgeons["surgeon_id"];
@@ -84,7 +84,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                     while ($nurses1 = mysqli_fetch_array(
                             $sql_all_nurses1,MYSQLI_ASSOC)):;
                 ?>
-                    <option value="<?php echo $nurses1["nurses.nurse_id"];
+                    <option value="<?php echo $nurses1["nurse_id"];
                         // The value we usually set is the primary key
                     ?>">
                         <?php echo $nurses1["employee_name"] . " Specialty: ".$nurses1["skill_name"] . " Nurse ID: ".$nurses1["nurse_id"];
@@ -106,7 +106,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                     while ($nurses2 = mysqli_fetch_array(
                             $sql_all_nurses2,MYSQLI_ASSOC)):;
                 ?>
-                    <option value="<?php echo $nurses2["nurses.nurse_id"];
+                    <option value="<?php echo $nurses2["nurse_id"];
                         // The value we usually set is the primary key
                     ?>">
                         <?php echo $nurses2["employee_name"] . " Specialty: ".$nurses2["skill_name"] . " Nurse ID: ".$nurses2["nurse_id"];

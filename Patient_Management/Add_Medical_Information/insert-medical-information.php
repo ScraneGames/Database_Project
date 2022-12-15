@@ -76,7 +76,7 @@ echo "Prescribe_Medication is $prescribe_medication";
 
 
 
-        if ($_REQUEST['prescribe_medication'] == TRUE) {
+        if ($_REQUEST['prescribe'] == TRUE) {
             $prescribe_sql = "INSERT INTO patient_medications ( fk_medications_patient_id, fk_patient_medication_code, fk_medications_consultation_number, dosage, frequency)
                               VALUES ('$patient', '$prescribe_medication', '$consultation', '$dosage', '$frequency')";
 

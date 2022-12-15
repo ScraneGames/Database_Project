@@ -131,7 +131,7 @@ if ($user['high_risk'] > 0){
                 while ($all_medications = mysqli_fetch_array(
                   $medication_results,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $all_consultations['medication_code'];
+                <option value="<?php echo $all_medications['medication_code'];
                     // The value we usually set is the primary key
                 ?>">
                     <?php echo "Medication Code: " . $all_medications['medication_code'] . " Name: " .$all_medications['name'];

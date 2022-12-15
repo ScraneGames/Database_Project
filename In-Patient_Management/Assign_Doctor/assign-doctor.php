@@ -14,7 +14,9 @@ $sql_find_names = "SELECT patient_name, patient_id
                     FROM physician_inpatient_assignments)";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_phyisicans = "SELECT physicians.employee_name, physicians.physician_id FROM physicians";
+$sql_find_phyisicans = "SELECT physicians.employee_name, physicians.physician_id
+                        FROM physicians
+                        WHERE position <> 'chief_of_staff'";
 
 $sql_find_physicians_result = mysqli_query($conn,$sql_find_phyisicans);
 

@@ -21,8 +21,8 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $patient = $_REQUEST['patient_name'];
-        $physician= $_REQUEST['physician']
+        $patient = $_REQUEST['patient'];
+        $physician= $_REQUEST['physician'];
 
 
         // Performing insert query execution

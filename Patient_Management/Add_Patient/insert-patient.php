@@ -48,13 +48,16 @@ include "/var/www/html/functions.php";
                 VALUES ( (SELECT patient_id FROM patients WHERE ssn = '$ssn'), '$illness'; ";
         $sql .= "INSERT INTO patient_medical_data (fk_medical_data_patient_id, blood_type)
                 VALUES ((SELECT patient_id FROM patients WHERE ssn = '$ssn'), '$blood_type'); ";
-        $sql .= "INSERT INTO patient_primary (fk_primary_patient_id, fk_primary_physician_id, position)
-                VALUES ( (SELECT patient_id FROM patient_personal_data WHERE ssn = '$ssn'), '$primary', 'physician');";
+        $primary_sql = "INSERT INTO patient_primary (fk_primary_patient_id, fk_primary_physician_id, position)
+                VALUES ( (SELECT patient_id FROM patient_personal_data WHERE ssn = '$ssn'), '$primary', 'physician'); ";
 
 echo "$sql";
 
         if(mysqli_multi_query($conn, $sql)){
             echo "<h3>Information added successfully.";
+            if(mysqli_multi_query($conn, $primary_sql)){
+                echo "<h3> Primary physician added successfully";
+            }
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysql_error($conn);

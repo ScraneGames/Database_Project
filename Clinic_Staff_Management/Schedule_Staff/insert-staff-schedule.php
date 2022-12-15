@@ -94,7 +94,7 @@ include "/var/www/html/functions.php";
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO work_schedule (fk_work_schedule_employee_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday, start_time, end_time)
-            VALUES ('$employee', '$monday', '$tuesday', '$wednesday', '$thursday', '$friday', '$saturday', '$sunday', '$start_time', '$end_time)";
+            VALUES ('$employee', '$monday', '$tuesday', '$wednesday', '$thursday', '$friday', '$saturday', '$sunday', '$start_time', '$end_time')";
 
         if(mysqli_query($conn, $sql)){
             echo "<h3>Work schedule added successfully.";

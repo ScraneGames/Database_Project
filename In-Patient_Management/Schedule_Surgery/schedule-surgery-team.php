@@ -109,13 +109,13 @@ echo ""
                     // use a while loop to fetch data
                     // from the $all_categories variable
                     // and individually display as an option
-                    while ($nurses1 = mysqli_fetch_array(
+                    while ($nurses2 = mysqli_fetch_array(
                             $sql_all_nurses2,MYSQLI_ASSOC)):;
                 ?>
                     <option value="<?php echo $nurses2["nurses.nurse_id"];
                         // The value we usually set is the primary key
                     ?>">
-                        <?php echo $nurses2["employee_name"] . " Specialty: ".$nurses2["skill_name"] . " Nurse ID: ".$nurses1["nurse_id"];
+                        <?php echo $nurses2["employee_name"] . " Specialty: ".$nurses2["skill_name"] . " Nurse ID: ".$nurses2["nurse_id"];
                             // To show the employee name to the user
                         ?>
                     </option>

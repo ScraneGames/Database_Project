@@ -27,7 +27,9 @@ $sql_find_nurses_less_5 = "SELECT staff.employee_name, nurses.nurse_id
 
 $sql_find_nurses_less_5_result = mysqli_query($conn,$sql_find_nurses_less_5);
 
-$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id FROM staff, nurses";
+$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id
+                        FROM staff, nurses
+                        WHERE staff.employee_id = nurses.employee_id";
 
 $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
 
@@ -82,6 +84,8 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                <label for="nurse_less_5">Nurse:</label>
                <select name="nurse_less_5">
             <?php
+                echo "These are the nurses with less than 5 patients assigned.",
+                echo "<br>";
                 // use a while loop to fetch data
                 // from the $all_categories variable
                 // and individually display as an option

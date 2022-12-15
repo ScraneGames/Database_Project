@@ -118,8 +118,8 @@ if ($user['high_risk'] > 0){
                            <option value="no">No</option>
                            </select>
                            </p>
-<p>
 
+<br>
    <div id="prescribe_medication" class="prescribe_fields" style="display: none">
    <p>
                <label>Medications to Prescribe:</label>
@@ -155,8 +155,8 @@ if ($user['high_risk'] > 0){
       </p>
 </div>
 
+<br>
 <p>
-
 <?php
 
 echo "Prescribed Medications";
@@ -193,7 +193,8 @@ echo "<br>";
                            <option value="no">No</option>
                            </select>
                            </p>
-<p>
+<br>
+<br>
 
 
 

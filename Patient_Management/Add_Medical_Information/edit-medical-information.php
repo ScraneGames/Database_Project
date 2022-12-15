@@ -125,7 +125,7 @@ if ($user['high_risk'] > 0){
 
 <br>
 <!-- This should reveal if the above is set to yes -->
- <!--  <div id="prescribe_medication" class="prescribe_fields" style="display: none"> -->
+<div id="prescribe_medication" class="prescribe_fields" style="display: none">
    <p>
                <label>Medications to Prescribe:</label>
                <select name="prescribe">
@@ -158,7 +158,7 @@ if ($user['high_risk'] > 0){
          <label for="frequency">Frequency:</label>
          <input type="text" name="frequency" id="frequency">
       </p>
-<!-- </div> -->
+</div>
 
 <br>
 <p>
@@ -205,7 +205,7 @@ echo "<br>";
 
 
 <!-- This should show if the above is set to yes -->
-<!-- <div id="remove_medication" class="remove_fields" style="display: none"> -->
+<div id="remove_medication" class="remove_fields" style="display: none">
    <p>
                <label>Prescribed Medications to Remove:</label>
                <select name="remove_prescribe">
@@ -229,7 +229,7 @@ echo "<br>";
          ?>
          </p>
       </select>
-  <!--          </div> -->
+      </div>
 <br>
 <!-- Select the consultation to add the info to -->
 <p>
@@ -255,6 +255,8 @@ echo "<br>";
          ?>
          </p>
       </select>
+      <br>
+      <br>
 
             <input type="submit" value="Submit">
          </form>

@@ -23,13 +23,48 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
         $employee = $_REUEST['employee_id'];
-        $monday = $_REQUEST['monday'];
-        $tuesday = $_REQUEST['tuesday'];
-        $wednesday = $_REQUEST['wednesday'];
-        $thursday = $_REQUEST['thursday'];
-        $friday = $_REQUEST['friday'];
-        $saturday = $_REQUEST['saturday'];
-        $sunday = $_REQUEST['sunday'];
+// check Monday
+        if ($_REQUEST['monday'] == 'on'){
+            $monday = 1;
+        } else{
+            $monday = 0;
+        }
+// check Tuesday
+        if ($_REQUEST['tuesday'] == 'on'){
+            $tuesday = 1;
+        } else{
+            $tuesday = 0;
+        }
+// check Wednesday
+        if ($_REQUEST['wednesday'] == 'on'){
+            $wednesday = 1;
+        } else{
+            $wednesday = 0;
+        }
+// check Thursday
+        if ($_REQUEST['thursday'] == 'on'){
+            $thursday = 1;
+        } else{
+            $thursday = 0;
+        }
+// check Friday
+        if ($_REQUEST['friday'] == 'on'){
+            $friday = 1;
+        } else{
+            $friday = 0;
+        }
+// check Saturday
+        if ($_REQUEST['saturday'] == 'on'){
+            $saturday = 1;
+        } else{
+            $saturday = 0;
+        }
+// check Sunday
+        if ($_REQUEST['sunday'] == 'on'){
+            $sunday = 1;
+        } else{
+            $sunday = 0;
+        }
         $hours = $_REQUEST['hours'];
 
         echo "Employee ID is $employee";
@@ -52,6 +87,8 @@ include "/var/www/html/functions.php";
         echo "<br>";
 
 
+
+
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
@@ -61,8 +98,7 @@ include "/var/www/html/functions.php";
         if(mysqli_query($conn, $sql)){
             echo "<h3>Work schedule added successfully.";
         } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
         // Close connection

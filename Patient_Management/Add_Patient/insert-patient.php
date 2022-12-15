@@ -49,7 +49,7 @@ include "/var/www/html/functions.php";
         $sql .= "INSERT INTO patient_medical_data (fk_medical_data_patient_id, blood_type)
                 VALUES ((SELECT patient_id FROM patients WHERE ssn = '$ssn'), '$blood_type'); ";
         $sql .= "INSERT INTO patient_primary (fk_primary_patient_id, fk_primary_physician_id, position)
-                VALUES ( (SELECT patient_id FROM patient_personal_data WHERE ssn = '$ssn'), '$primary', 'physician')";
+                VALUES ( (SELECT patient_id FROM patient_personal_data WHERE ssn = '$ssn'), '$primary', 'physician');";
 
 echo "$sql";
 

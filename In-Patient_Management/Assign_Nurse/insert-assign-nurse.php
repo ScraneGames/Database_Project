@@ -21,7 +21,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $patient = $_REQUEST['patient_name'];
+        $patient = $_REQUEST['patient'];
 
         echo "Nurse less 5 is " . $_REQUEST['nurse_less_5'];
         echo "<br>";

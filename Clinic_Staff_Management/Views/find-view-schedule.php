@@ -64,6 +64,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
         <input type="submit" name="button" value="Choose Position">
         <br>
         <br>
+            </form>
 
 <form action="view-schedule-per-day.php" method="post">
 

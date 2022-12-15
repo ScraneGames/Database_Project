@@ -66,6 +66,8 @@ include "/var/www/html/functions.php";
                 echo "Medical Information Updated Successfully";
                 } else {
                 echo "Error: " . $remove_sql . "<br>" . $conn->error;
+
+                echo "$remove_sql";
                               }
         }
 
@@ -78,6 +80,7 @@ include "/var/www/html/functions.php";
                     } else {
                     echo "Error: " . $prescribe_sql . "<br>" . $conn->error;
                 }
+                echo "$prescribe_sql";
         }
 
 if (mysqli_multi_query($conn, $sql)) {

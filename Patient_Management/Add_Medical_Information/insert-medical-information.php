@@ -33,7 +33,7 @@ include "/var/www/html/functions.php";
         $high_risk = $_REQUEST['high_risk'];
         $consultation = $_REQUEST['consultation'];
         $remove_prescribe = $_REQUEST['remove_prescribe'];
-        $prescribe_medication = $_REQUEST['prescribe_medication'];
+        $prescribe_medication = $_REQUEST['prescribe'];
 
         if ($high_risk == FALSE){
             $high_risk = '0';
@@ -42,7 +42,9 @@ include "/var/www/html/functions.php";
         $medical_sql = "SELECT fk_medical_data_patient_id FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";
         $medical_result = mysqli_query($conn,$medical_sql);
 
+echo "Remove_Prescribe is $remove_prescribe";
 
+echo "Prescribe_Medication is $prescribe_medication";
 
         // Performing insert query execution
         // here for our table name is patient_personal_data

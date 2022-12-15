@@ -6,9 +6,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_personal_data.patient_name, inpatients.fk_inp_patient_id, inpatients.fk_inpatients_bed_id
+$sql_find_names = "SELECT patient_name, patient_id, inpatients.fk_inpatients_bed_id
                     FROM patient_personal_data, inpatients
-                    WHERE inpatients.fk_inp_patient_id
+                    WHERE inpatients.fk_inpatients_patient_id = patient_id
+                    AND patient_id
                     NOT IN (SELECT fk_assignment_patient_id FROM nurse_inpatient_assignments)";
 $all_patients = mysqli_query($conn,$sql_find_names);
 

@@ -6,7 +6,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id FROM staff, nurses";
+$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id FROM staff, nurses WHERE staff.employee_id = nurses.employee_id";
 $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
 
 $sql_find_all_skills = "SELECT * FROM surgery_skills";

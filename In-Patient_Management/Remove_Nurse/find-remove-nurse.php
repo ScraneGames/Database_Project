@@ -8,8 +8,8 @@ if ($conn->connect_error) {
 
 $sql_find_names = "SELECT patient_personal_data.patient_name, patient_personal_data.patient_id, staff.employee_name, nurses.nurse_id
                     FROM patient_personal_data, nurse_inpatient_assignments, nurses, staff
-                    WHERE patient_personal_data.patient_id = nurse_inpatient_assignments.fk_ass_Patient_ID
-                    AND nurse_inpatient_assignments.fk_ass_Nurse_ID = nurses.nurse_id
+                    WHERE patient_personal_data.patient_id = nurse_inpatient_assignments.fk_assignment_patient_id
+                    AND nurse_inpatient_assignments.fk_assignment_patient_id = nurses.nurse_id
                     AND nurses.employee_id = staff.employee_id";
 
 $all_patients = mysqli_query($conn,$sql_find_names);

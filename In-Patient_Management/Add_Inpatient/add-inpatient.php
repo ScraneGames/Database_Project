@@ -11,7 +11,10 @@ $sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data
                     NOT IN (SELECT fk_inpatients_patient_id FROM inpatients)";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number  FROM beds WHERE bed_id NOT IN (SELECT fk_inpatients_bed_id FROM inpatients)";
+$sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number
+                    FROM beds
+                    WHERE bed_id
+                    NOT IN (SELECT fk_inpatients_bed_id FROM inpatients)";
 $all_beds = mysqli_query($conn,$sql_find_beds);
 
 // public mysqli::multi_query(string $sql): bool

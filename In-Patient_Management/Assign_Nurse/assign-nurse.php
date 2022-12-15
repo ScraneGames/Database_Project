@@ -83,12 +83,15 @@ echo "The number of rows is $numrows";
         </select>
         <br>
         <?php if (mysqli_num_rows($sql_find_nurses_less_5_result) > 0): ?>
+            <?php
+            echo "These are the nurses with less than 5 patients assigned.";
+            echo "<br>";
+            ?>
 <p>
                <label for="nurse_less_5">Nurse:</label>
                <select name="nurse_less_5">
             <?php
-                echo "These are the nurses with less than 5 patients assigned.";
-                echo "<br>";
+
                 // use a while loop to fetch data
                 // from the $all_categories variable
                 // and individually display as an option
@@ -109,12 +112,13 @@ echo "The number of rows is $numrows";
       </select>
 </p>
       <?php else: ?>
+        <?php echo "This is selecting all nurses";
+                     echo "<br>";
+                     ?>
 <p>
          <label for="all_nurse">Nurse:</label>
                         <select name="all_nurse">
                      <?php
-                     echo "This is selecting all nurses";
-                     echo "<br>";
                         // use a while loop to fetch data
                         // from the $all_categories variable
                         // and individually display as an option

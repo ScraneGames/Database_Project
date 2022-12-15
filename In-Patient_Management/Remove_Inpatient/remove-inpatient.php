@@ -36,7 +36,7 @@ include "/var/www/html/functions.php";
         $sql = "DELETE FROM inpatients WHERE patient_id = '$patient';";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Physician Unassigned";
+    echo "Patient Removed From Inpatients";
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

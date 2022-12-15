@@ -6,7 +6,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
+$sql_find_names = "SELECT patient_personal_data.patient_name, patient_personal_data.patient_id, nursing_unit, wing, room_number, bed_number
+                    FROM patient_personal_data, inpatients, beds
+                    WHERE patient_personal_data.patient_id =  fk_inpatients_patient_id
+                    AND inpatients.fk_inpatients_bed_id = beds.bed_id";
 
 $all_patients = mysqli_query($conn,$sql_find_names);
 
@@ -41,7 +44,12 @@ $all_patients = mysqli_query($conn,$sql_find_names);
                 <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patients["patient_name"] . " ".$patients["patient_id"];
+                    <?php echo $patients["patient_name"] .
+                    " Patient ID: ".$patients["patient_id"] .
+                    " Nursing Unit: ".$patients["nursing_unit"] .
+                    " Wing: ".$patients["wing"] .
+                    " Room Number: ".$patients["room_number"] .
+                    " Bed Letter ".$patients["bed_number"];
                         // To show the employee name to the user
                     ?>
                 </option>

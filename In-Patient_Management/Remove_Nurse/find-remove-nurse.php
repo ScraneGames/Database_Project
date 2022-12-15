@@ -16,6 +16,8 @@ $all_patients = mysqli_query($conn,$sql_find_names);
 
 // public mysqli::multi_query(string $sql): bool
 
+echo "$sql_find_names";
+echo "<br>";
 
 ?>
 

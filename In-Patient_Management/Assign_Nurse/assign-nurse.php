@@ -35,7 +35,9 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
 
 // public mysqli::multi_query(string $sql): bool
 
-echo "mysqli_num_rows($sql_find_nurses_less_5)";
+$numrows = mysqli_num_rows($sql_find_nurses_less_5_result);
+
+echo "The number of rows is $numrows";
 
 ?>
 
@@ -80,7 +82,7 @@ echo "mysqli_num_rows($sql_find_nurses_less_5)";
             ?>
         </select>
         <br>
-        <?php if (mysqli_num_rows($sql_find_nurses_less_5) > 0): ?>
+        <?php if (mysqli_num_rows($sql_find_nurses_less_5_result) > 0): ?>
 <p>
                <label for="nurse_less_5">Nurse:</label>
                <select name="nurse_less_5">

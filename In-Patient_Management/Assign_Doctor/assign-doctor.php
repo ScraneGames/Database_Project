@@ -6,7 +6,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_personal_data.patient_name, inpatients.fk_inp_Patient_ID FROM patient_personal_data, inpatients WHERE inpatients.fk_inp_Patient_ID NOT IN (SELECT patient_id FROM physician_inpatient_assignments)";
+$sql_find_names = "SELECT patient_name, patient_id
+                    FROM patient_personal_data
+                    JOIN inpatients
+                    ON inpatients.fk_inpatients_patient_id = patient_personal_data.patient_id
+                    WHERE patient_id NOT IN (SELECT patient_id
+                    FROM physician_inpatient_assignments)";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
 $sql_find_phyisicans = "SELECT physicians.employee_name, physicians.physician_id FROM physicians";
@@ -41,10 +46,10 @@ $sql_find_physicians_result = mysqli_query($conn,$sql_find_phyisicans);
                 while ($patients = mysqli_fetch_array(
                         $all_patients,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $patients["inpatients.fk_inp_Patient_ID"];
+                <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patients["patient_personal_data.patient_name"] . " ".$patients["inpatients.fk_inp_Patient_ID"];
+                    <?php echo $patients["patient_name"] . " ".$patients["patient_id"];
                         // To show the employee name to the user
                     ?>
                 </option>

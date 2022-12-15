@@ -24,7 +24,7 @@ include "/var/www/html/functions.php";
         $patient = $_REQUEST['patient_name'];
 
 
-        if ($_REQUEST['nurse_less_5']) {
+        if ($_REQUEST['nurse_less_5']) == TRUE {
             $nurse = $_REQUEST['nurse_less_5'];
         } else {
             $nurse = $_REQUEST['all_nurse'];

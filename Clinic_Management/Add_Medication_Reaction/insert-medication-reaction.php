@@ -41,8 +41,10 @@ include "/var/www/html/functions.php";
 
         $sql = "INSERT INTO medication_reactions (fk_initial_medication_code, fk_reacting_medication, severity)
           VALUES ('$medication1', '$medication2', '$severity')";
+        $sql .= "INSERT INTO medication_reactions (fk_initial_medication_code, fk_reacting_medication, severity)
+        VALUES ('$medication2', '$medication1', '$severity')";
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_multi_query($conn, $sql)) {
     echo "Medication Reaction Inserted Correctly";
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

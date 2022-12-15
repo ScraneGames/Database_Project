@@ -36,6 +36,16 @@ $sql_find_all_nurses = "SELECT UNIQUE staff.employee_name, nurses.nurse_id
 $sql_all_nurses1 = mysqli_query($conn,$sql_find_all_nurses);
 $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
 
+$category_sql = "SELECT category FROM surgeries WHERE surgery_type = '$surgery_type'";
+$category_result = mysqli_query($conn,$category_sql);
+$category = mysqli_fetch_array($category_result,MYSQLI_ASSOC);
+
+$sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number
+                    FROM beds
+                    WHERE bed_id
+                    NOT IN (SELECT fk_inpatients_bed_id FROM inpatients)";
+$all_beds = mysqli_query($conn,$sql_find_beds);
+
 
 ?>
 
@@ -54,6 +64,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
+         <input type="hidden" id="category" name="category" value=<?php echo "$category"; ?>>
 <p>
             <label>Select a Surgeon</label>
                     <select name="surgeon">
@@ -121,6 +132,33 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                 ?>
             </select>
             <br>
+            <?php if ($category == 'H'): ?>
+
+                <label>Select a For the Patient After the Surgery</label>
+        <select name="bed">
+            <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($beds = mysqli_fetch_array(
+                        $all_beds,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $beds["bed_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $beds["bed_id"] . " Nursing Unit ".$beds["nursing_unit"] . " Wing ".$beds["wing"] . " Bed Label ".$beds["bed_number"];
+                        // To show the employee name to the user
+                    ?>
+                </option>
+            <?php
+                endwhile;
+                // While loop must be terminated
+            ?>
+        </select>
+        <?php endif; ?>
+
+        <br>
+
             <input type="submit" name="button" value="Book Surgery">
                 </p>
          </form>

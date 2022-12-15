@@ -36,7 +36,7 @@ include "/var/www/html/functions.php";
         $sql = "DELETE FROM nurse_inpatient_assignments WHERE fk_assignment_patient_id = '$patient';";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Physician Unassigned";
+    echo "Nurse Unassigned";
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

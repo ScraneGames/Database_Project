@@ -10,7 +10,7 @@ $patient = $_REQUEST['patient'];
 $surgery_type = $_REQUEST['surgery'];
 $operating_theater = $_REQUEST['operating_theater'];
 $date = $_REQUEST['date'];
-$time = $_Request['time'];
+$time = $_REQUEST['time'];
 
 
 $sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$patient'";
@@ -38,8 +38,9 @@ echo "$sql";
 echo "<br>";
 echo "$sql_find_surgeons";
 echo "<br>";
-echo "$sql_all_nurses1";
+echo "$sql_find_all_nurses";
 echo "<br>";
+echo ""
 ?>
 
 <!DOCTYPE html>

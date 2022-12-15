@@ -120,7 +120,7 @@ if ($user['high_risk'] > 0){
                            </p>
 <p>
 
-   <div id="prescribe_medication" class="fields" style="display: none">
+   <div id="prescribe_medication" class="prescribe_fields" style="display: none">
    <p>
                <label>Medications to Prescribe:</label>
                <select name="prescribe">
@@ -197,7 +197,7 @@ echo "<br>";
 
 
 
-<div id="remove_medication" class="fields" style="display: none">
+<div id="remove_medication" class="remove_fields" style="display: none">
    <p>
                <label>Prescribed Medications to Remove:</label>
                <select name="remove_prescribe">
@@ -254,8 +254,8 @@ echo "<br>";
 
    <script>
    $( document ).ready(function() {
-     $('#prescribe_medication').change(function() {
-       $('.prescribe_medication_fields').hide()
+     $('#want_prescribe').change(function() {
+       $('.prescribe_fields').hide()
          if($(this).val() == "yes")
           $('#prescribe_medication').show();
      });
@@ -264,8 +264,8 @@ echo "<br>";
 
 <script>
    $( document ).ready(function() {
-     $('remove_medication').change(function() {
-       $('.remove_medication_fields').hide()
+     $('want_remove').change(function() {
+       $('.remove_fields').hide()
          if($(this).val() == "yes")
           $('#remove_medication').show();
      });

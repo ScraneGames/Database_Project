@@ -62,8 +62,9 @@ echo "<br>";
                 <label for="saturday">Saturday</label>
                 <input type="checkbox" name="saturday" id="saturday">
                 <br>
+                <input type="hidden" name="employee_id" value=<?php echo "$original_employee_id"; ?> id="employee_id">
 </p>
-<input type="hidden" name="employee_id" value=<?php echo "$original_employee_id"; ?> id="employee_id">
+
 
 
 <p>

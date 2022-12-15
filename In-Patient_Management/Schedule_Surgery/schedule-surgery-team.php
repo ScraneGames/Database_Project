@@ -20,7 +20,7 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $sql_find_surgeons = "SELECT staff.employee_name, surgeons.surgeon_id FROM staff, surgeons WHERE staff.employee_id = surgeons.employee_id";
 $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
-$sql_find_all_nurses = "SELECT UNIQUE staff.employee_name, nurses.nurse_id, surgery_skills.skill_name, surgery_skills.skill_id
+$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id, surgery_skills.skill_name, surgery_skills.skill_id
                         FROM staff
                         JOIN nurses
                         ON staff.employee_id = nurses.employee_id
@@ -63,7 +63,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                             <option value="<?php echo $surgeons["surgeons.surgeon_id"];
                                 // The value we usually set is the primary key
                             ?>">
-                                <?php echo $surgeons["staff.employee_name"] . " Specialty: ".$surgeons["surgeons.specialty"] . " Surgeon ID: ".$surgeons["surgeons.surgeon_id"];
+                                <?php echo $surgeons["employee_name"] . " Specialty: ".$surgeons["specialty"] . " Surgeon ID: ".$surgeons["surgeon_id"];
                                     // To show the employee name to the user
                                 ?>
                             </option>
@@ -85,7 +85,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                     <option value="<?php echo $nurses1["nurses.nurse_id"];
                         // The value we usually set is the primary key
                     ?>">
-                        <?php echo $nurses1["staff.employee_name"] . " Specialty: ".$nurses1["surgery_skills.skill_name"] . " Nurse ID: ".$nurses1["nurses.nurse_id"];
+                        <?php echo $nurses1["employee_name"] . " Specialty: ".$nurses1["skill_name"] . " Nurse ID: ".$nurses1["nurse_id"];
                             // To show the employee name to the user
                         ?>
                     </option>
@@ -107,7 +107,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                     <option value="<?php echo $nurses2["nurses.nurse_id"];
                         // The value we usually set is the primary key
                     ?>">
-                        <?php echo $nurses2["staff.employee_name"] . " Specialty: ".$nurses2["surgery_skills.skill_name"] . " Nurse ID: ".$nurses1["nurses.nurse_id"];
+                        <?php echo $nurses2["employee_name"] . " Specialty: ".$nurses2["skill_name"] . " Nurse ID: ".$nurses1["nurse_id"];
                             // To show the employee name to the user
                         ?>
                     </option>

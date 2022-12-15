@@ -32,8 +32,10 @@ include "/var/www/html/functions.php";
 
         if ($_REQUEST['primary_less_7']) {
             $primary = $_REQUEST['primary_less_7'];
+            echo "Entering primary less than 7";
         } else {
             $primary = $_REQUEST['primary_less_20'];
+            echo "Entering primary less than 20";
         }
 
 
@@ -49,6 +51,7 @@ include "/var/www/html/functions.php";
         $sql .= "INSERT INTO patient_primary (fk_primary_patient_id, fk_primary_physician_id, position)
                 VALUES ( (SELECT patient_if FROM patients WHERE ssn = '$ssn'), '$primary', 'physician')";
 
+echo "$sql";
 
         if(mysqli_multi_query($conn, $sql)){
             echo "<h3>Information added successfully.";

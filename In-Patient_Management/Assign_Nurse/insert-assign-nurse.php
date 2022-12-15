@@ -26,6 +26,8 @@ include "/var/www/html/functions.php";
         echo "Nurse less 5 is " . $_REQUEST['nurse_less_5'];
         echo "<br>";
         echo "All nurses is " . $_REQUEST['all_nurse'];
+        echo "<br>";
+        echo "Patient is " . $_REQUEST['patient'];
 
         if ($_REQUEST['nurse_less_5'] == TRUE) {
             $nurse = $_REQUEST['nurse_less_5'];

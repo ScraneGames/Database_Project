@@ -21,9 +21,9 @@ include "/var/www/html/functions.php";
         }
 $day = $_REQUEST['day'];
 
+echo "$day"
 
-
-if ($day == 'monday') {
+ if ($day == 'monday') {
     $cap_day == 'Monday';
 } elseif ($day == 'tuesday'){
     $cap_day = 'Tuesday';

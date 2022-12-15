@@ -88,13 +88,22 @@ include "/var/www/html/functions.php";
         echo "<br>";
 
 
-
+$schedule_sql = "SELECT * FROM work_schedule WHERE fk_work_schedule_employee_id = '$employee'";
+$schedule_sql_result = mysqli_query($conn,$schedule_sql);
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
-
+if (mysqli_num_rows($schedule_sql_result) <1){
         $sql = "INSERT INTO work_schedule (fk_work_schedule_employee_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday, start_time, end_time)
             VALUES ('$employee', '$monday', '$tuesday', '$wednesday', '$thursday', '$friday', '$saturday', '$sunday', '$start_time', '$end_time')";
+    } else {
+        $sql = "UPDATE work_schedule
+                SET monday = '$monday', tuesday = '$tuesday',
+                    wednesday = '$wednesday', thursday = '$thursday',
+                    friday = '$friday', saturday = '$saturday', sunday = '$sunday',
+                    start_time = '$start_time', end_time '$end_time'
+                WHERE fk_work_schedule_employee_id = '$employee'";
+    }
 
         if(mysqli_query($conn, $sql)){
             echo "<h3>Work schedule added successfully.";

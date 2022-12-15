@@ -40,7 +40,7 @@ include "/var/www/html/functions.php";
         // here for our table name is patient_personal_data
 
         $sql = "INSERT INTO medication_reactions (fk_initial_medication_code, fk_reacting_medication, severity)
-          VALUES ('$medication1', '$medication2', '$severity')";
+          VALUES ('$medication1', '$medication2', '$severity'); ";
         $sql .= "INSERT INTO medication_reactions (fk_initial_medication_code, fk_reacting_medication, severity)
         VALUES ('$medication2', '$medication1', '$severity')";
 

@@ -16,8 +16,6 @@ $all_patients = mysqli_query($conn,$sql_find_names);
 
 // public mysqli::multi_query(string $sql): bool
 
-echo "$sql_find_names";
-echo "<br>";
 
 ?>
 
@@ -47,7 +45,10 @@ echo "<br>";
                 <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $patients["patient_name"] . " Patient ID: ".$patients["patient_id"] . " Nurse To be Unassigned: ".$patients["employee_name"] . " Nurse ID: ".$patients["nurse_id"];
+                    <?php echo $patients["patient_name"] .
+                    " Patient ID: ".$patients["patient_id"] .
+                    " Attending Nurse: ".$patients["employee_name"] .
+                    " Nurse ID: ".$patients["nurse_id"];
                         // To show the employee name to the user
                     ?>
                 </option>

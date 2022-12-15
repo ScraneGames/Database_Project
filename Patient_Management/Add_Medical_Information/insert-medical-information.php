@@ -62,11 +62,22 @@ include "/var/www/html/functions.php";
         if ($_REQUEST['remove_prescribe'] == TRUE) {
             $remove_sql = "DELETE FROM patient_medications WHERE fk_patient_medication_code = '$remove_prescribe'
                             AND fk_medications_patient_id = '$patient'";
+            if (mysqli_multi_query($conn, $remove_sql)) {
+                echo "Medical Information Updated Successfully";
+                } else {
+                echo "Error: " . $remove_sql . "<br>" . $conn->error;
+                              }
         }
 
         if ($_REQUEST['prescribe_medication'] == TRUE) {
             $prescribe_sql = "INSERT INTO patient_medications ( fk_medications_patient_id, fk_patient_medication_code, fk_medications_consultation_number, dosage, frequency)
                               VALUES ('$patient', '$prescribe_medication', '$consultation', '$dosage', '$frequency')";
+
+                if (mysqli_multi_query($conn, $prescribe_sql)) {
+                    echo "Medical Information Updated Successfully";
+                    } else {
+                    echo "Error: " . $prescribe_sql . "<br>" . $conn->error;
+                }
         }
 
 if (mysqli_multi_query($conn, $sql)) {
@@ -74,6 +85,7 @@ if (mysqli_multi_query($conn, $sql)) {
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
+
 
 
   $conn->close();

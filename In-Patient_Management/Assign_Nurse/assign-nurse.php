@@ -61,7 +61,7 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
                 while ($patients = mysqli_fetch_array(
                         $all_patients,MYSQLI_ASSOC)):;
             ?>
-                <option value="<?php echo $patients["fk_inp_patient_id"];
+                <option value="<?php echo $patients["patient_id"];
                     // The value we usually set is the primary key
                 ?>">
                     <?php echo $patients["patient_name"] .

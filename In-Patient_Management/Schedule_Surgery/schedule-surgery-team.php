@@ -125,7 +125,8 @@ echo ""
                 ?>
             </select>
             <br>
-</p?
+            <input type="submit" name="button" value="Book Surgery">
+                </p>
          </form>
       </center>
    </body>

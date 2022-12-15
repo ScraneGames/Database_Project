@@ -47,7 +47,7 @@ echo "<table border='1'>
 <th>Surgeon Name</th>
 <th>Surgeon ID</th>
 <th>Patient Name</th>
-<th>Surgery Type/th>
+<th>Surgery Type</th>
 <th>Surgery Description</th>
 <th>Surgery Category</th>
 <th>Date</th>
@@ -60,7 +60,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<td>" . $row['employee_name'] . "</td>";
     echo "<td>" . $row['surgeon_id'] . "</td>";
     echo "<td>" . $row['patient_name'] . "</td>";
-    echo "<td>" . $row['type'] . "</td>";
+    echo "<td>" . $row['type_name'] . "</td>";
     echo "<td>" . $row['type_desc'] . "</td>";
     echo "<td>" . $row['category'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";

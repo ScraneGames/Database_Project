@@ -68,8 +68,12 @@ echo "<br>";
 <input type="hidden" name="employee_id" value="<?php echo "$original_employee_id"; ?>" id="employee_id">
 
 <p>
-               <label for="hours">Hours:</label>
-               <input type="text" name="hours" id="hours">
+               <label for="start_time">Start Time:</label>
+               <input type="text" name="start_time" id="start_time">
+            </p>
+            <p>
+               <label for="end_time">Start Time:</label>
+               <input type="text" name="end_time" id="end_time">
             </p>
 
             <input type="submit" value="Schedule">

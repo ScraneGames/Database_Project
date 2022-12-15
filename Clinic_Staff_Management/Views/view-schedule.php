@@ -52,7 +52,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<td>" . $row['employee_id'] . "</td>";
     echo "<td>" . $row['position'] . "</td>";
     if ($row['sunday'] == 1){echo "<td>" . "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
-    if ($row['monday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . z"Off" . "</td>";}
+    if ($row['monday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
     if ($row['tuesday'] == 1){echo "<td>" . "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
     if ($row['wednesday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}
     if ($row['thursday'] == 1){echo "<td>" .  "Working" . "</td>";} else {echo "<td>" . "Off" . "</td>";}

@@ -32,6 +32,8 @@ include "/var/www/html/functions.php";
         $triglycerides = $_REQUEST['triglycerides'];
         $high_risk = $_REQUEST['high_risk'];
         $consultation = $_REQUEST['consultation'];
+        $remove_prescribe = $_REQUEST['remove_prescribe'];
+        $prescribe_medication = $_REQUEST['prescribe_medication'];
 
         if ($high_risk == FALSE){
             $high_risk = '0';
@@ -55,6 +57,16 @@ include "/var/www/html/functions.php";
                     WHERE fk_medical_data_patient_id = '$patient'; ";
             $sql .= "INSERT INTO cholesterol (fk_cholesterol_patient_id, fk_cholesterol_consultation_number, blood_sugar, hdl, ldl, triglycerides)
                     VALUES ('$patient', '$consultation', '$blood_sugar', '$hdl', '$ldl', '$triglycerides')";
+        }
+
+        if ($_REQUEST['remove_prescribe'] == TRUE) {
+            $remove_sql = "DELETE FROM patient_medications WHERE fk_patient_medication_code = '$remove_prescribe'
+                            AND fk_medications_patient_id = '$patient'";
+        }
+
+        if ($_REQUEST['prescribe_medication'] == TRUE) {
+            $prescribe_sql = "INSERT INTO patient_medications ( fk_medications_patient_id, fk_patient_medication_code, fk_medications_consultation_number, dosage, frequency)
+                              VALUES ('$patient', '$prescribe_medication', '$consultation', '$dosage', '$frequency')";
         }
 
 if (mysqli_multi_query($conn, $sql)) {

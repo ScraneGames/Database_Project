@@ -26,6 +26,22 @@ $consultation_result = mysqli_query($conn,$consultation_sql);
 $current_cholesterol_total = ($cholesterol_user['HDL']+$cholesterol_user['LDL']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = (round($current_cholesterol_total/$cholesterol_user['HDL'],2));
 
+$medication_sql = "SELECT medication_code, name
+                  FROM medications
+                  WHERE medication_code NOT IN
+                     (SELECT fk_patient_medication_code
+                     FROM patient_medications
+                     WHERE fk_medications_patient_id = '$original_patient_id')
+                  AND quantity_on_hand > 0";
+$medication_results = mysqli_query($conn,$medication_sql);
+
+$prescribed_medications = "SELECT medication_code, name, dosage, frequency
+                           FROM medications
+                           JOIN patient_medications
+                           ON medications.medication_code = patient_medications.fk_patient_medication_code
+                           WHERE fk_medications_patient_id = '$original_patient_id'";
+$prescribed_results = mysqli_query($conn,$prescribed_medications);
+
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
 if ($user['high_risk'] > 0){
@@ -94,6 +110,118 @@ if ($user['high_risk'] > 0){
                <br>
 </p>
 
+ <p>
+                           <label for="want_prescribe">Prescribe Medication?:</label>
+                           <select name="want_prescribe" id="want_prescribe">
+                           <option value="">Select...</option>
+                           <option value="yes">Yes</option>
+                           <option value="no">No</option>
+                           </select>
+                           </p>
+<p>
+
+   <div id="prescribe_medication" class="fields" style="display: none">
+   <p>
+               <label>Medications to Prescribe:</label>
+               <select name="prescribe">
+            <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($all_medications = mysqli_fetch_array(
+                  $medication_results,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $all_consultations['medication_code'];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo "Medication Code: " . $all_medications['medication_code'] . " Name: " .$all_medications['name'];
+                        // To show the employee name to the user
+                    ?>
+                </option>
+               <?php
+               endwhile;
+               // While loop must be terminated
+         ?>
+         </p>
+      </select>
+      <p>
+               <label for="dosage">Dosage:</label>
+               <input type="number" name="dosage" id="dosage">
+            </p>
+
+      <p>
+         <label for="frequency">Frequency:</label>
+         <input type="text" name="frequency" id="frequency">
+      </p>
+</div>
+
+<p>
+
+<?php
+
+echo "Prescribed Medications";
+echo "<br>";
+
+echo "<table border='1'>
+<tr>
+<th>Medication Code</th>
+<th>Medciation Name</th>
+<th>Dosage</th>
+<th>Frequency</th>
+</tr>";
+
+while($prescribed_row = mysqli_fetch_array($prescribed_results)){
+    echo "<tr>";
+    echo "<td>" . $prescribed_row['medication_code'] . "</td>";
+    echo "<td>" . $prescribed_row['name'] . "</td>";
+    echo "<td>" . $prescribed_row['dosage'] . "</td>";
+    echo "<td>" . $prescribed_row['frequency'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<br>";
+
+?>
+            </p>
+
+<p>
+                           <label for="want_remove">Un-Prescribe Medication?:</label>
+                           <select name="want_remove" id="want_remove">
+                           <option value="">Select...</option>
+                           <option value="yes">Yes</option>
+                           <option value="no">No</option>
+                           </select>
+                           </p>
+<p>
+
+
+
+<div id="remove_medication" class="fields" style="display: none">
+   <p>
+               <label>Prescribed Medications to Remove:</label>
+               <select name="remove_prescribe">
+            <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($all_prescribed = mysqli_fetch_array(
+                  $prescribed_results,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $all_prescribed['medication_code'];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo "Medication Code: " . $all_prescribed['medication_code'] . " Name: " .$all_prescribed['name'] . " Dosage: " . $all_prescribed['dosage'] . " Frequency: " .$all_prescribed['frequency'];
+                        // To show the employee name to the user
+                    ?>
+                </option>
+               <?php
+               endwhile;
+               // While loop must be terminated
+         ?>
+         </p>
+      </select>
+            </div>
 <br>
 <p>
                <label>Consultation This Data Is Coming From:</label>
@@ -123,4 +251,26 @@ if ($user['high_risk'] > 0){
          </form>
       </center>
    </body>
+
+   <script>
+   $( document ).ready(function() {
+     $('#want_prescribe').change(function() {
+       $('.want_prescribe_fields').hide()
+         if($(this).val() == "yes")
+          $('#want_prescribe').show();
+     });
+   });
+   </script>
+
+<script>
+   $( document ).ready(function() {
+     $('want_remove').change(function() {
+       $('.want_remove_fields').hide()
+         if($(this).val() == "yes")
+          $('#want_remove').show();
+     });
+   });
+   </script>
+
+
 </html>

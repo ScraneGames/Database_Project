@@ -82,6 +82,41 @@ echo "</table>";
 
 echo "<br>";
 ?>
+
+<h2> Prescribed Medications</h2>
+<?php
+$prescribed_medications = "SELECT medication_code, name, dosage, frequency
+FROM medications
+JOIN patient_medications
+ON medications.medication_code = patient_medications.fk_patient_medication_code
+WHERE fk_medications_patient_id = '$original_patient_id'";
+$prescribed_results = mysqli_query($conn,$prescribed_medications);
+
+echo "Prescribed Medications";
+echo "<br>";
+
+echo "<table border='1'>
+<tr>
+<th>Medication Code</th>
+<th>Medciation Name</th>
+<th>Dosage</th>
+<th>Frequency</th>
+</tr>";
+
+while($prescribed_row = mysqli_fetch_array($prescribed_results)){
+    echo "<tr>";
+    echo "<td>" . $prescribed_row['medication_code'] . "</td>";
+    echo "<td>" . $prescribed_row['name'] . "</td>";
+    echo "<td>" . $prescribed_row['dosage'] . "</td>";
+    echo "<td>" . $prescribed_row['frequency'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<br>";
+
+
+?>
 <h2>Patient's Cholesterol and Heart Risk</h2>
 <?php
 

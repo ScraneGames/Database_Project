@@ -21,15 +21,15 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Find Staff</title>
+      <title>Find Patient</title>
    </head>
    <body>
       <center>
-      <h1>View All Staff</h1>
+      <h1>View All Schedules</h1>
 
          <form action="view-schedule.php" method="post">
 
-         <label>View All of The Staff</label>
+         <label>Select a Patient</label>
         <br>
             <input type="submit" name="button" value="View All Schedules">
             <br>
@@ -37,7 +37,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
 </form>
       <h1>View Based On Position</h1>
 
-         <form action="view-schedule-per-position.php" method="post">
+         <form action="edit-medical-information.php" method="post">
 
          <label>Select a Position</label>
         <select name="position">
@@ -61,35 +61,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
             ?>
         </select>
         <br>
-        <input type="submit" name="button" value="Choose Position">
-        <br>
-        <br>
-
-<form action="view-schedule.php" method="post">
-
-<label>View Schedule Per Day</label>
-<br>
-
-           <label for="own">Has Ownership Stake?:</label>
-                           <select name="day" id="day">
-                           <option value="">Select...</option>
-                           <option value="sunday">Sunday</option>
-                           <option value="monday">Monday</option>
-                           <option value="tuesday">Tuesday</option>
-                           <option value="wednesday">Wednesday</option>
-                           <option value="thursday">Thursday</option>
-                           <option value="friday">Friday</option>
-                           <option value="saturday">Saturday</option>
-                           </select>
-                           <br>
-            <input type="submit" name="button" value="View Schedule on Selected Day">
-   <br>
-   <br>
-</form>
-
-
-
-
+            <input type="submit" name="button" value="Update">
          </form>
       </center>
    </body>

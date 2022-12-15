@@ -47,11 +47,11 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
          <h1>Editing a Patient</h1>
          <form action="insert-schedule-surgery.php" method="post">
 
-         <input type="hidden" id="patient" name="patient" value="$patient">
-         <input type="hidden" id="surgery_type" name="surgery_type" value="$surgery_type">
-         <input type="hidden" id="operating_theater" name="operating_theater" value="$operating_theater">
-         <input type="hidden" id="date" name="date" value="$date">
-         <input type="hidden" id="time" name="time" value="$time">
+         <input type="hidden" id="patient" name="patient" value=<?php echo "$patient"; ?>>
+         <input type="hidden" id="surgery_type" name="surgery_type" value=<?php echo"$surgery_type"; ?>>
+         <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
+         <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
+         <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
 <p>
             <label>Select a Surgeon</label>
                     <select name="surgeon">

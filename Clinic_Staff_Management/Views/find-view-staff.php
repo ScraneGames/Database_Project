@@ -6,7 +6,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_positions = "SELECT position FROM staff";
+$sql_find_positions = "SELECT UNIQUE position FROM staff";
 
 $all_positions = mysqli_query($conn,$sql_find_positions);
 

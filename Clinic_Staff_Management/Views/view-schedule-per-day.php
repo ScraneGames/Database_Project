@@ -55,12 +55,6 @@ echo "<table border='1'>
 <th>Employee Number</th>
 <th>Position</th>
 <th>$cap__day</th>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-<th>Friday</th>
-<th>Saturday</th>
 <th>Start Time</th>
 <th>End Time</th>
 </tr>";

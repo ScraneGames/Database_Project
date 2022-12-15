@@ -6,7 +6,7 @@
    </head>
    <body>
       <center>
-         <h1>Adding a Patient</h1>
+         <h1>Adding a Staff Member</h1>
          <form action="insert-staff.php" method="post">
 
 <p>

@@ -89,7 +89,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                     <option value="<?php echo $nurses1["nurse_id"];
                         // The value we usually set is the primary key
                     ?>">
-                        <?php echo $nurses1["employee_name"] . " Specialty: ".$nurses1["skill_name"] . " Nurse ID: ".$nurses1["nurse_id"];
+                        <?php echo $nurses1["employee_name"] . " Nurse ID: ".$nurses1["nurse_id"];
                             // To show the employee name to the user
                         ?>
                     </option>
@@ -111,7 +111,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
                     <option value="<?php echo $nurses2["nurse_id"];
                         // The value we usually set is the primary key
                     ?>">
-                        <?php echo $nurses2["employee_name"] . " Specialty: ".$nurses2["skill_name"] . " Nurse ID: ".$nurses2["nurse_id"];
+                        <?php echo $nurses2["employee_name"] . " Nurse ID: ".$nurses2["nurse_id"];
                             // To show the employee name to the user
                         ?>
                     </option>

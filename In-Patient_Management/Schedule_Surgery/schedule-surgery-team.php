@@ -20,16 +20,16 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $sql_find_surgeons = "SELECT staff.employee_name, surgeons.surgeon_id FROM staff, surgeons WHERE staff.employee_id = surgeons.employee_id";
 $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
-$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id, surgery_skills.skill_name, MAX(surgery_skills.skill_id)
+$sql_find_all_nurses = "SELECT UNIQUE staff.employee_name, nurses.nurse_id, surgery_skills.skill_name, surgery_skills.skill_id
                         FROM staff
                         JOIN nurses
                         ON staff.employee_id = nurses.employee_id
                         JOIN nurse_skills
                         ON nurses.nurse_id = nurse_skills.fk_skills_nurse_id
                         JOIN surgery_requirements
-                        ON fk_nurse_skills_skill_id = fk_requirement_skill_id
+                        ON nurse_skills.fk_nurse_skills_skill_id = surgery_requirements.fk_requirement_skill_id
                         JOIN surgery_skills
-                        ON fk_requirement_skill_id
+                        ON surgery_requirements.fk_requirement_skill_id = surgery_skills.skill_id
                         WHERE surgery_requirements.fk_requirement_surgery_code = $surgery_type";
 $sql_all_nurses1 = mysqli_query($conn,$sql_find_all_nurses);
 $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);

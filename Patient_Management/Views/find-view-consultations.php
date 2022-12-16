@@ -6,14 +6,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT UNIQUE patient_name, patient_id FROM view_consultations";
+$sql_find_names = "SELECT UNIQUE patient, patient_id FROM view_consultations";
 $all_schedule_patients = mysqli_query($conn,$sql_find_names);
 
 $sql_find_date = "SELECT UNIQUE date FROM view_consultations";
 $all_dates = mysqli_query($conn,$sql_find_date);
 
-$sql_find_physicians = "SELECT UNIQUE employee_name, physician_id
-                        FROM physicians";
+$sql_find_physicians = "SELECT UNIQUE physician, physician_id
+                        FROM view_consultations";
 $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
 
@@ -61,7 +61,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
        <option value="<?php echo $view_consultations_per_patient["patient_id"];
            // The value we usually set is the primary key
        ?>">
-           <?php echo $view_consultations_per_patient["patient_name"] . " Patient ID: ".$view_consultations_per_patient["patient_id"];
+           <?php echo $view_consultations_per_patient["patient"] . " Patient ID: ".$view_consultations_per_patient["patient_id"];
                // To show the employee name to the user
            ?>
        </option>
@@ -122,7 +122,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
        <option value="<?php echo $view_consultations_by_physician["surgeon_id"];
            // The value we usually set is the primary key
        ?>">
-           <?php echo $view_consultations_by_physician["employee_name"] . " Physician ID: ".$view_consultations_by_physician["physician_id"];
+           <?php echo $view_consultations_by_physician["physician"] . " Physician ID: ".$view_consultations_by_physician["physician_id"];
                // To show the employee name to the user
            ?>
        </option>

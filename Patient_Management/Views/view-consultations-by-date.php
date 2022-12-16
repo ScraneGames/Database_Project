@@ -46,9 +46,9 @@ $date = $_REQUEST['view_consultations_per_date'];
             echo "<td>" . $row['consultation_number'] . "</td>";
             echo "<td>" . $row['date'] . "</td>";
             echo "<td>" . $row['time'] . "</td>";
-            echo "<td>" . $row['employee_name'] . "</td>";
+            echo "<td>" . $row['physician'] . "</td>";
             echo "<td>" . $row['physician_id'] . "</td>";
-            echo "<td>" . $row['patient_name'] . "</td>";
+            echo "<td>" . $row['patient'] . "</td>";
             echo "<td>" . $row['patient_id'] . "</td>";
             echo "</tr>";
         }

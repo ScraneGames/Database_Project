@@ -138,7 +138,7 @@ $sql_inpatient_check_result = myqli_query($conn,$sql_inpatient_check);
             </select>
             <br>
 
-            <input type="hidden" name="category" value="<?php if (mysqli_num_rows($sql_inpatient_check_result) <1){ echo "$category";} else { echo "O"}; ?>" id="category">
+            <input type="hidden" name="category" value="<?php if (mysqli_num_rows($sql_inpatient_check_result) <1){ echo "$category";} else { echo "O";} ?>" id="category">
 
 
 

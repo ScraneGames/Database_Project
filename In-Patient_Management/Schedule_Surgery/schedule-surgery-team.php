@@ -59,10 +59,11 @@ echo "The category is" .$surg_category['category'];
 
 echo "<br>";
 if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
-    echo "This if statement worked.";
-    echo "<br>";
+    $input_category = "O"
+    echo "The input category is $input_category";
 } else {
-    echo "This staement dind't work";
+    $input_category = $surg_category['category']
+    echo "The input Category is $input_category";
 }
 
 // if ($inpatient_rows > 0) {

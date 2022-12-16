@@ -87,6 +87,8 @@ echo "The category is" .$category['category'];
          <div data-show-if="category:H">
             <h3> This should not be here </h3>
 
+</div>
+
          <p>
             <label>Select a Surgeon</label>
                     <select name="surgeon">

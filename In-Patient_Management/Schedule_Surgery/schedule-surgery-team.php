@@ -49,6 +49,11 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
 $sql_inpatient_check = "SELECT fk_inpatients_patient_id FROM inpatients
                         WHERE fk_inpatients_patient_id = '$patient'";
 $sql_inpatient_check_result = mysqli_query($conn,$sql_inpatient_check);
+$inpatient_rows = mysqli_num_rows($sql_inpatient_check_result)
+
+echo "Inpatient Rows is $inpatient_rows";+
+echo "<br>";
+echo "$sql_inpatient_chack";
 
 
 ?>
@@ -138,7 +143,7 @@ $sql_inpatient_check_result = mysqli_query($conn,$sql_inpatient_check);
             </select>
             <br>
 
-            <input type="hidden" name="category" value="<?php if (mysqli_num_rows($sql_inpatient_check_result) <1){ echo "$category";} else { echo "O";} ?>" id="category">
+            <input type="hidden" name="category" value="<?php if (mysqli_num_rows($sql_inpatient_check_result) < 1){ echo "$category";} else { echo "O";} ?>" id="category">
 
 
 

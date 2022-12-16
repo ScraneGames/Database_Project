@@ -15,7 +15,7 @@ $sql_find_nurse_result = mysqli_query($conn,$sql_find_nurse);
 $nurse_array = mysqli_fetch_array($sql_find_nurse_result,MYSQLI_ASSOC);
 $nurse_name = $nurse_array['employee_name'];
 
-$sql_find_all_surgeries = "SELECT * FROM surgery_types JOIN surgery_requirements
+$sql_find_all_surgeries = "SELECT UNIQUE surgery_code, type_name FROM surgery_types JOIN surgery_requirements
                         ON surgery_types.surgery_code = surgery_requirements.fk_requirement_surgery_code
                         JOIN nurse_skills
                         ON surgery_requirements.fk_requirement_skill_id = nurse_skills.fk_nurse_skills_skill_id

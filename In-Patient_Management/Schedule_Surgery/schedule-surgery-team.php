@@ -53,9 +53,15 @@ $inpatient_rows = mysqli_num_rows($sql_inpatient_check_result);
 
 echo "Inpatient Rows is $inpatient_rows";
 echo "<br>";
-echo "$sql_inpatient_chack";
+echo "$sql_inpatient_check";
 echo "<br>";
 echo "The category is" .$surg_category['category'];
+
+echo "<br>";
+if ($surg_category['category'] == "H"){
+    echo "This if statement worked."
+    echo "<br>";
+}
 
 // if ($inpatient_rows > 0) {
 //    unset($category);
@@ -82,8 +88,13 @@ echo "The category is" .$surg_category['category'];
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
-         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else {echo "$surg_category";}?>>
 
+
+         <?php if ($inpatient_rows > 0 && $surg_category['category'] == "H"): ?>
+            <p>
+         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else {echo "$surg_category";}?>>
+         </p>
+         <?php endif; ?>
          <div data-show-if="category:H">
             <h3> This should not be here </h3>
 
@@ -159,7 +170,7 @@ echo "The category is" .$surg_category['category'];
 
 
 
-<?php if ($inpatient_rows > 0 && $surg_category['category'] == "H"): ?>
+
                 <label>Select a Bed For the Patient After the Surgery</label>
         <select name="bed">
             <?php
@@ -181,7 +192,6 @@ echo "The category is" .$surg_category['category'];
                 // While loop must be terminated
             ?>
         </select>
-        <?php endif; ?>
 
         <br>
 

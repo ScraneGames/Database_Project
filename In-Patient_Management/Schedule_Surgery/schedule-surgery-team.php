@@ -36,7 +36,7 @@ $sql_find_all_nurses = "SELECT UNIQUE staff.employee_name, nurses.nurse_id
 $sql_all_nurses1 = mysqli_query($conn,$sql_find_all_nurses);
 $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
 
-$category_sql = "SELECT category FROM surgeries WHERE surgery_code = '$surgery_type'";
+$category_sql = "SELECT category FROM surgery_types WHERE surgery_code = '$surgery_type'";
 $category_result = mysqli_query($conn,$category_sql);
 $category = mysqli_fetch_array($category_result,MYSQLI_ASSOC);
 

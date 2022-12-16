@@ -78,7 +78,7 @@ echo "<br>";
 
 <label>Select a Room and a Date to View All Surgeries On That Date</label>
 <br>
-<select name="view_surgeries_per_date">
+<select name="date">
    <?php
        // use a while loop to fetch data
        // from the $all_categories variable

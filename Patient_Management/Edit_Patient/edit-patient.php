@@ -26,7 +26,7 @@ $primary = $primary_user['employee_id'];
 echo $primary_user['employee_id'];
 
 echo "$primary_sql_result";
-echo $iser['primary_physician_id'];
+echo $user['primary_physician_id'];
 
 $sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
                         FROM physicians

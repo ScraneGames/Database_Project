@@ -51,12 +51,6 @@ $sql_inpatient_check = "SELECT fk_inpatients_patient_id FROM inpatients
 $sql_inpatient_check_result = mysqli_query($conn,$sql_inpatient_check);
 $inpatient_rows = mysqli_num_rows($sql_inpatient_check_result);
 
-echo "Inpatient Rows is $inpatient_rows";
-echo "<br>";
-echo "$sql_inpatient_check";
-echo "<br>";
-echo "The category is" .$surg_category['category'];
-
 echo "<br>";
 if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
     $input_category = "O";
@@ -92,7 +86,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
          <input type="hidden" id="category" name="category" value="<?php echo "$input_category";?>">
-</p>
+
 
          <p>
             <label>Select a Surgeon</label>
@@ -116,6 +110,8 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                             // While loop must be terminated
                         ?>
                     </select>
+                        </p>
+                        <p>
                     <br>
             <label>Select The First Nurse</label>
             <select name="nurse1">
@@ -138,6 +134,8 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                     // While loop must be terminated
                 ?>
             </select>
+                </p>
+                <p>
             <br>
             <label>Select The Second Nurse</label>
             <select name="nurse2">
@@ -161,6 +159,9 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                 ?>
             </select>
             <br>
+                </p>
+                <br>
+
 
 
 

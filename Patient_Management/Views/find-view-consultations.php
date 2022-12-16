@@ -119,7 +119,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
        while ($view_consultations_by_physician = mysqli_fetch_array(
                $all_physicians,MYSQLI_ASSOC)):;
    ?>
-       <option value="<?php echo $view_consultations_by_physician["surgeon_id"];
+       <option value="<?php echo $view_consultations_by_physician["physician_id"];
            // The value we usually set is the primary key
        ?>">
            <?php echo $view_consultations_by_physician["physician"] . " Physician ID: ".$view_consultations_by_physician["physician_id"];

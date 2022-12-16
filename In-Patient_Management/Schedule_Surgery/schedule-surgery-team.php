@@ -91,12 +91,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
          <input type="hidden" id="category" name="category" value="<?php if($inpatient_rows > 0 && $surg_category['category'] == "H"){echo "O";} else {echo $surg_category['category'];};?>">
-         </p>
-
-         <div id="add_inpatient" class="add_fields" style="display: none">
-            <h3> This should not be here </h3>
-
-</div>
+</p>
 
          <p>
             <label>Select a Surgeon</label>
@@ -168,7 +163,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
 
 
 
-
+            <div id="add_inpatient" class="add_fields" style="display: none">
                 <label>Select a Bed For the Patient After the Surgery</label>
         <select name="bed">
             <?php
@@ -190,7 +185,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                 // While loop must be terminated
             ?>
         </select>
-
+            </div>
         <br>
 
             <input type="submit" name="button" value="Book Surgery">

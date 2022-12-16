@@ -53,6 +53,7 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
 <html lang="en">
    <head>
       <title>Editing a Patient</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    </head>
    <body>
       <center>
@@ -132,7 +133,11 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
                 ?>
             </select>
             <br>
-      <?php // if ($category['category'] == 'H'): ?>
+
+            <input type="hidden" name="category" value="<?php echo "$category"; ?>" id="category">
+
+
+            <div id="add_inpatient" class="add_fields" style="display: none">
 
                 <label>Select a For the Patient After the Surgery</label>
         <select name="bed">
@@ -155,7 +160,7 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
                 // While loop must be terminated
             ?>
         </select>
-       <?php // endif; ?>
+            </div>
 
         <br>
 
@@ -164,4 +169,13 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
          </form>
       </center>
    </body>
+  <script>
+   $( document ).ready(function() {
+     $('#category').change(function() {
+       $('.add_fields').hide()
+         if($(this).val() == "H")
+          $('#add_inpatient').show();
+     });
+   });
+   </script>
 </html>

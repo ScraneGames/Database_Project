@@ -25,6 +25,8 @@ $primary = $primary_user['employee_id'];
 
 echo $primary_user['employee_id'];
 
+echo "$primary_sql_result";
+
 $sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
                         FROM physicians
                         LEFT OUTER JOIN patient_primary

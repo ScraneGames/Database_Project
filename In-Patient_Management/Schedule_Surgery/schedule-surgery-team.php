@@ -38,7 +38,7 @@ $sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
 
 $category_sql = "SELECT category FROM surgery_types WHERE surgery_code = '$surgery_type'";
 $category_result = mysqli_query($conn,$category_sql);
-$category = mysqli_fetch_array($category_result,MYSQLI_ASSOC);
+$surg_category = mysqli_fetch_array($category_result,MYSQLI_ASSOC);
 
 $sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number
                     FROM beds
@@ -55,7 +55,7 @@ echo "Inpatient Rows is $inpatient_rows";
 echo "<br>";
 echo "$sql_inpatient_chack";
 echo "<br>";
-echo "The category is" .$category['category'];
+echo "The category is" .$surg_category['category'];
 
 // if ($inpatient_rows > 0) {
 //    unset($category);
@@ -82,7 +82,7 @@ echo "The category is" .$category['category'];
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
-         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else {echo "$category";}?>>
+         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else {echo "$surg_category";}?>>
 
          <div data-show-if="category:H">
             <h3> This should not be here </h3>

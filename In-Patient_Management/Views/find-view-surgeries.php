@@ -85,7 +85,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
 <form action="view-surgery-per-day.php" method="post">
 
-<label>Select a Room and a Date to View All Surgeries On That Date</label>
+<label>Select a Date to View All Surgeries On That Date</label>
 <br>
 <select name="view_surgeries_per_date">
    <?php
@@ -143,7 +143,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
    <br>
 </form>
 
-<form action="view-surgery-per-surgeon.php" method="post">
+<form action="view-surgeries-per-room.php" method="post">
 
 <label>Select a Surgeon to View All Surgeries</label>
 <br>

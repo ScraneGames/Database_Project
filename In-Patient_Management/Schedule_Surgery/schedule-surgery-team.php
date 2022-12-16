@@ -59,7 +59,7 @@ echo "The category is" .$surg_category['category'];
 
 echo "<br>";
 if ($surg_category['category'] == "H"){
-    echo "This if statement worked."
+    echo "This if statement worked.";
     echo "<br>";
 }
 

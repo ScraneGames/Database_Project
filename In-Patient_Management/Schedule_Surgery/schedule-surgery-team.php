@@ -91,7 +91,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
-         <input type="hidden" id="category" name="category" value="H">
+         <input type="hidden" id="category" name="category" value="<?php echo "$input_category";?>">
 </p>
 
          <p>
@@ -165,6 +165,10 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
 
 
             <div id="add_inpatient" class="add_fields" style="display: none">
+
+            <h3 You should see this </h3>
+
+                </div>
                 <label>Select a Bed For the Patient After the Surgery</label>
         <select name="bed">
             <?php
@@ -186,7 +190,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                 // While loop must be terminated
             ?>
         </select>
-            </div>
+
         <br>
 
             <input type="submit" name="button" value="Book Surgery">

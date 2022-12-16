@@ -66,8 +66,6 @@ echo "<table border='1'>
 <tr>
 <th>Illness Name</th>
 <th>Illness Description</th>
-<th>Allergy Name</th>
-<th>Allergy Description</th>
 </tr>";
 
 while($illness_row = mysqli_fetch_array($illness_result)){
@@ -81,7 +79,6 @@ echo "</table>";
 echo "<br>";
 ?>
 
-<h2>Diagnosed Illnesses and Allergies</h2>
 <?php
 
 $allergies_sql = "SELECT * FROM view_patient_allergies_and_illnesses
@@ -94,8 +91,6 @@ echo "<br>";
 
 echo "<table border='1'>
 <tr>
-<th>Illness Name</th>
-<th>Illness Description</th>
 <th>Allergy Name</th>
 <th>Allergy Description</th>
 </tr>";

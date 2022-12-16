@@ -28,7 +28,7 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO nurse_surgery_assignments (nurse_d, surgery_code)
+        $sql = "INSERT INTO nurse_surgery_assignments (nurse_id, surgery_code)
                 VALUES ('$nurse', '$surgery')";
 
 

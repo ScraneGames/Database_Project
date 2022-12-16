@@ -27,6 +27,10 @@ $date = $_REQUEST['view_consultations_per_date'];
         WHERE date = '$date'";
         $result = mysqli_query($conn,$sql);
 
+        echo "$sql";
+        echo "<br>";
+        echo "<br>";
+
         echo "All Scheduled Surgeries";
         echo "<br>";
         echo "<table border='1'>

@@ -81,7 +81,7 @@ echo "<br>";
 
 <?php
 
-$allergies_sql = "SELECT * FROM view_patient_allergies_and_illnesses
+$allergies_sql = "SELECT * FROM view_patient_allergies
                 WHERE patient_id = '$patient'";
 
 $allergies_result = mysqli_query($conn,$allergies_sql);

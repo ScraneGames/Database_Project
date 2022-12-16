@@ -53,11 +53,18 @@ if ($user['high_risk'] > 0){
 
 $primary_id = $user['primary_physician_id'];
 
+echo "$primary_id";
+
 $primary_sql = "SELECT employee_name FROM physicians WHERE physician_id = '$primary_id";
 $primary_sql_result = mysqli_query($conn,$primary_sql);
 $primary_user = mysqli_fetch_array($primary_sql_result,MYSQLI_ASSOC);
 
 $primary = $primary_user['employee_id'];
+
+echo "$primary"
+echo $primary_user['employee_id'];
+
+echo "The result is $primary_sql_result";
 
 $sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
                         FROM physicians

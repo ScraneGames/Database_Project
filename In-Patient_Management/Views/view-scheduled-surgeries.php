@@ -42,7 +42,7 @@ echo "<table border='1'>
 <th>First Nurse</th>
 <th>Second Nurse</th>
 <th>Patient Name</th>
-<th>Patient ID/th>
+<th>Patient ID</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result)){

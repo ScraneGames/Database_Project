@@ -159,7 +159,7 @@ echo "The category is" .$surg_category['category'];
 
 
 
-<div data-show-if="category:H">
+<?php if ($inpatient_rows > 0 && $surg_category['category'] == "H"): ?>
                 <label>Select a Bed For the Patient After the Surgery</label>
         <select name="bed">
             <?php
@@ -181,7 +181,7 @@ echo "The category is" .$surg_category['category'];
                 // While loop must be terminated
             ?>
         </select>
-            </div>
+        <?php endif; ?>
 
         <br>
 

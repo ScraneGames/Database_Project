@@ -32,6 +32,7 @@ include "/var/www/html/functions.php";
         $bed  = $_REQUEST['bed'];
         $category = $_REQUEST['category'];
 
+        echo $category['category'];
 
 
         if ($nurse1 == $nurse2) {

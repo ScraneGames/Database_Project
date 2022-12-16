@@ -59,7 +59,7 @@ echo "The category is" .$category['category'];
 
 if ($inpatient_rows > 0) {
     $categpry = "O";
-    echo "the category is $category";
+    echo "the category is {$category}";
 }
 
 

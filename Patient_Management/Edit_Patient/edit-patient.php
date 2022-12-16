@@ -18,6 +18,9 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $primary_id = $user['primary_physician_id'];
 
 $primary_sql = "SELECT employee_name FROM physicians WHERE physician_id = '$primary_id";
+$primary_sql_result = mysqli_query($conn,$primary_sql);
+
+$primary = $primary_sql_result;
 
 $sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
                         FROM physicians

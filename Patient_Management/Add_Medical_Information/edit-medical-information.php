@@ -145,7 +145,7 @@ $sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_le
 </p>
 <h3>
 <?php
-echo "The patient's current primary physician is $primary."
+echo "The patient's current primary physician is $primary.";
 ?>
 </h3>
 </p>

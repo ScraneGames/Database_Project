@@ -46,6 +46,10 @@ $sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number
                     NOT IN (SELECT fk_inpatients_bed_id FROM inpatients)";
 $all_beds = mysqli_query($conn,$sql_find_beds);
 
+$sql_inpatient_check = "SELECT fk_inpatients_patient_id FROM inpatients
+                        WHERE fk_inpatients_patient_id = '$patient'";
+$sql_inpatient_check_result = myqli_query($conn,$sql_inpatient_check);
+
 
 ?>
 
@@ -134,12 +138,12 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
             </select>
             <br>
 
-            <input type="hidden" name="category" value="<?php echo "$category"; ?>" id="category">
+            <input type="hidden" name="category" value="<?php if (mysqli_num_rows($sql_inpatient_check_result) <1){ echo "$category";} else { echo "O"}; ?>" id="category">
 
 
 
 <div data-show-if="category:H">
-                <label>Select a For the Patient After the Surgery</label>
+                <label>Select a Bed For the Patient After the Surgery</label>
         <select name="bed">
             <?php
                 // use a while loop to fetch data

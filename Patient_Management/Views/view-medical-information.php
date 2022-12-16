@@ -54,12 +54,12 @@ echo "<br>";
  <h2>Diagnosed Illnesses and Allergies</h2>
 <?php
 
-$illness_sql = "SELECT * FROM view_patient_allergies_and_illnesses
+$illness_sql = "SELECT * FROM view_patient_illnesses
                 WHERE patient_id = '$patient'";
 
 $illness_result = mysqli_query($conn,$illness_sql);
 
-echo "Diagnosed Illnesses And Allergies";
+echo "Diagnosed Illnesses";
 echo "<br>";
 
 echo "<table border='1'>
@@ -74,14 +74,43 @@ while($illness_row = mysqli_fetch_array($illness_result)){
     echo "<tr>";
     echo "<td>" . $illness_row['illness_name'] . "</td>";
     echo "<td>" . $illness_row['illness_desc'] . "</td>";
-    echo "<td>" . $illness_row['allergy_name'] . "</td>";
-    echo "<td>" . $illness_row['allergy_desc'] . "</td>";
     echo "</tr>";
 }
 echo "</table>";
 
 echo "<br>";
 ?>
+
+<h2>Diagnosed Illnesses and Allergies</h2>
+<?php
+
+$allergies_sql = "SELECT * FROM view_patient_allergies_and_illnesses
+                WHERE patient_id = '$patient'";
+
+$allergies_result = mysqli_query($conn,$allergies_sql);
+
+echo "Diagnosed Allergies";
+echo "<br>";
+
+echo "<table border='1'>
+<tr>
+<th>Illness Name</th>
+<th>Illness Description</th>
+<th>Allergy Name</th>
+<th>Allergy Description</th>
+</tr>";
+
+while($allergies_row = mysqli_fetch_array($allergies_result)){
+    echo "<tr>";
+    echo "<td>" . $allergies_row['allergy_name'] . "</td>";
+    echo "<td>" . $allergies_row['allergy_desc'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<br>";
+?>
+
 
 <h2> Prescribed Medications</h2>
 <?php
@@ -155,7 +184,7 @@ echo "<table border='1'>
 while($cholesterol_row = mysqli_fetch_array($cholesterol_result)){
 echo "<tr>";
 echo "<td>" . $cholesterol_row['date'] . "</td>";
-echo "<td>" . $cholesterol_row['employee_name'] . "</td>";
+echo "<td>" . $cholesterol_row['patient_name'] . "</td>";
 echo "<td>" . $cholesterol_row['blood_sugar'] . "</td>";
 echo "<td>" . $cholesterol_row['hdl'] . "</td>";
 echo "<td>" . $cholesterol_row['ldl'] . "</td>";

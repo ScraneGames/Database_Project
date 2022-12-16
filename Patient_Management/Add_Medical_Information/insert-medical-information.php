@@ -39,6 +39,14 @@ include "/var/www/html/functions.php";
         $want_prescribe = $_REQUEST['want_prescribe'];
         $want_remove = $_REQUEST['want_remove'];
 
+        if ($_REQUEST['primary_less_7']) {
+            $primary = $_REQUEST['primary_less_7'];
+            echo "Entering primary less than 7";
+        } else {
+            $primary = $_REQUEST['primary_less_20'];
+            echo "Entering primary less than 20";
+        }
+
 
         if ($high_risk == FALSE){
             $high_risk = '0';
@@ -51,13 +59,13 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is patient_personal_data
         if (mysqli_num_rows($medical_result) < 1){
-            $sql = "INSERT INTO patient_medical_data (fk_medical_data_patient_id, blood_type, high_risk)
-                    VALUES ('$patient', '$blood_type', '$high_risk'); ";
+            $sql = "INSERT INTO patient_medical_data (fk_medical_data_patient_id, blood_type, high_risk, primary_physician_id)
+                    VALUES ('$patient', '$blood_type', '$high_risk', '$primary'); ";
             $sql .= "INSERT INTO cholesterol (fk_cholesterol_patient_id, fk_cholesterol_consultation_number, blood_sugar, hdl, ldl, triglycerides)
                     VALUES ('$patient', '$consultation', '$blood_sugar', '$hdl', '$ldl', '$triglycerides')";
         } else {
             $sql = "UPDATE patient_medical_data
-                    SET blood_type = '$blood_type', high_risk = '$high_risk'
+                    SET blood_type = '$blood_type', high_risk = '$high_risk', primary_physician_id = '$primary'
                     WHERE fk_medical_data_patient_id = '$patient'; ";
             $sql .= "INSERT INTO cholesterol (fk_cholesterol_patient_id, fk_cholesterol_consultation_number, blood_sugar, hdl, ldl, triglycerides)
                     VALUES ('$patient', '$consultation', '$blood_sugar', '$hdl', '$ldl', '$triglycerides')";

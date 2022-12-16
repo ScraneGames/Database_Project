@@ -61,9 +61,6 @@ $primary_user = mysqli_fetch_array($primary_sql_result,MYSQLI_ASSOC);
 
 $primary = $primary_user['employee_name'];
 
-echo "$primary_sql";
-echo $primary_user['employee_name'];
-
 $sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
                         FROM physicians
                         LEFT OUTER JOIN patient_primary

@@ -10,7 +10,7 @@
     <center>
         <?php
 
-$surgeon = $_REQUEST['view_surgeries_per_surgeon'];
+
 
         // check Connection
 include "/var/www/html/functions.php";
@@ -19,13 +19,16 @@ include "/var/www/html/functions.php";
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql_find_date = "SELECT UNIQUE date FROM view_surgeries WHERE surgeon_id = '$surgeon'";
-        $all_dates = mysqli_query($conn,$sql_find_date);
+$room = $_REQUEST['room'];
+
+
+$sql_find_date = "SELECT UNIQUE date FROM view_surgeries WHERE operating_theater = '$room'";
+$all_dates = mysqli_query($conn,$sql_find_date);
 
         // Taking all the values from the patient-administration.php
 
         $sql = "SELECT * FROM view_surgeries
-        WHERE surgeon_id = '$surgeon'";
+        WHERE operating_theater = '$room'";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -66,14 +69,14 @@ echo "</table>";
 echo "<br>";
 
 ?>
+<br>
+<br>
+<h3> Narrow it down even further by selecting a date</h3>
 
-<h3>Narrow it Down To Per Day</h3>
+<form action="view-surgeries-per-room-per-day.php" method="post">
+<input type="hidden" id="room" name="room" value="<?php echo $room; ?>">
 
-<form action="view-surgeries-per-surgeon-per-day.php" method="post">
-
-<input type="hidden" id="surgon" name="surgeon" value="<?php echo $surgeon; ?>">
-
-<label>Select a Room and a Date to View All Surgeries By This Surgeon On That Date</label>
+<label>Select a Room and a Date to View All Surgeries On That Date</label>
 <br>
 <select name="view_surgeries_per_date">
    <?php
@@ -96,9 +99,11 @@ echo "<br>";
    ?>
 </select>
 <br>
-   <input type="submit" name="button" value="View Surgeries By This Surgeon On This Date">
+   <input type="submit" name="button" value="View Surgeries In This Room On This Date">
    <br>
    <br>
+
+</form>
 
         </center>
     </body>

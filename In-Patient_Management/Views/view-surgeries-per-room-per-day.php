@@ -10,7 +10,7 @@
     <center>
         <?php
 
-$surgeon = $_REQUEST['view_surgeries_per_surgeon'];
+
 
         // check Connection
 include "/var/www/html/functions.php";
@@ -19,13 +19,18 @@ include "/var/www/html/functions.php";
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql_find_date = "SELECT UNIQUE date FROM view_surgeries WHERE surgeon_id = '$surgeon'";
-        $all_dates = mysqli_query($conn,$sql_find_date);
+$room = $_REQUEST['room'];
+$date = $_REQUEST['date'];
+
+
+$sql_find_date = "SELECT UNIQUE date FROM view_surgeries WHERE operating_theater = '$room'";
+$all_dates = mysqli_query($conn,$sql_find_date);
 
         // Taking all the values from the patient-administration.php
 
         $sql = "SELECT * FROM view_surgeries
-        WHERE surgeon_id = '$surgeon'";
+        WHERE operating_theater = '$room'
+        AND date = '$date'";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -66,39 +71,6 @@ echo "</table>";
 echo "<br>";
 
 ?>
-
-<h3>Narrow it Down To Per Day</h3>
-
-<form action="view-surgeries-per-surgeon-per-day.php" method="post">
-
-<input type="hidden" id="surgon" name="surgeon" value="<?php echo $surgeon; ?>">
-
-<label>Select a Room and a Date to View All Surgeries By This Surgeon On That Date</label>
-<br>
-<select name="view_surgeries_per_date">
-   <?php
-       // use a while loop to fetch data
-       // from the $all_categories variable
-       // and individually display as an option
-       while ($view_surgeries_per_date = mysqli_fetch_array(
-               $all_dates,MYSQLI_ASSOC)):;
-   ?>
-       <option value="<?php echo $view_surgeries_per_date["date"];
-           // The value we usually set is the primary key
-       ?>">
-           <?php echo $view_surgeries_per_date["date"];
-               // To show the employee name to the user
-           ?>
-       </option>
-   <?php
-       endwhile;
-       // While loop must be terminated
-   ?>
-</select>
-<br>
-   <input type="submit" name="button" value="View Surgeries By This Surgeon On This Date">
-   <br>
-   <br>
 
         </center>
     </body>

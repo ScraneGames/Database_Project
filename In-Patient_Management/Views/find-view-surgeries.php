@@ -85,7 +85,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
 <form action="view-surgery-per-day.php" method="post">
 
-<label>Select a Date to View All Surgeries On That Date</label>
+<label>Select a Room and a Date to View All Surgeries On That Date</label>
 <br>
 <select name="view_surgeries_per_date">
    <?php
@@ -125,7 +125,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
        while ($view_surgeries_per_surgeon = mysqli_fetch_array(
                $all_surgeons,MYSQLI_ASSOC)):;
    ?>
-       <option value="<?php echo $view_surgeries_per_patient["surgeon_id"];
+       <option value="<?php echo $view_surgeries_per_surgeon["surgeon_id"];
            // The value we usually set is the primary key
        ?>">
            <?php echo $view_surgeries_per_surgeon["surgeon"] . " Surgeon ID: ".$view_surgeries_per_surgeon["surgeon_id"];
@@ -139,6 +139,29 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 </select>
 <br>
    <input type="submit" name="button" value="View Surgeries Performed By This Surgeon">
+   <br>
+   <br>
+</form>
+
+<form action="view-surgery-per-surgeon.php" method="post">
+
+<label>Select a Surgeon to View All Surgeries</label>
+<br>
+<p>
+               <label for="room">Room:</label>
+               <select name="room" required>
+               <option value="">Select...</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               </select>
+</p>
+<br>
+   <input type="submit" name="button" value="View Surgeries In This Room">
    <br>
    <br>
 </form>

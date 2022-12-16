@@ -54,6 +54,12 @@ $inpatient_rows = mysqli_num_rows($sql_inpatient_check_result);
 echo "Inpatient Rows is $inpatient_rows";
 echo "<br>";
 echo "$sql_inpatient_chack";
+echo "<br>";
+echo "The category is $category";
+
+if ($inpatient_rows > 0) {
+    $categpry = "O"
+}
 
 
 ?>
@@ -143,7 +149,7 @@ echo "$sql_inpatient_chack";
             </select>
             <br>
 
-            <input type="hidden" name="category" value="<?php if (mysqli_num_rows($sql_inpatient_check_result) < 1){ echo "$category";} else { echo "O";} ?>" id="category">
+            <input type="hidden" name="category" value="<?php echo "$category"; ?>" id="category">
 
 
 

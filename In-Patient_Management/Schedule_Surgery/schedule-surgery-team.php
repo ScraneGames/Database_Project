@@ -137,8 +137,8 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
             <input type="hidden" name="category" value="<?php echo "$category"; ?>" id="category">
 
 
-            <div id="add_inpatient" class="add_fields" style="display: none">
 
+<div data-show-if="category:H">
                 <label>Select a For the Patient After the Surgery</label>
         <select name="bed">
             <?php

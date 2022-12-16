@@ -36,6 +36,8 @@ include "/var/www/html/functions.php";
         $prescribe_medication = $_REQUEST['prescribe'];
         $dosage = $_REQUEST['dosage'];
         $frequency = $_REQUEST['frequency'];
+        $want_prescribe = $_REQUEST['want_prescribe'];
+        $want_remove = $_REQUEST['want_remove'];
 
 
         if ($high_risk == FALSE){
@@ -64,7 +66,7 @@ echo "Prescribe_Medication is $prescribe_medication";
                     VALUES ('$patient', '$consultation', '$blood_sugar', '$hdl', '$ldl', '$triglycerides')";
         }
 
-        if ($_REQUEST['remove_prescribe'] == TRUE) {
+        if ($_REQUEST['want_remove'] == "yes") {
             $remove_sql = "DELETE FROM patient_medications WHERE fk_patient_medication_code = '$remove_prescribe'
                             AND fk_medications_patient_id = '$patient'";
             if (mysqli_multi_query($conn, $remove_sql)) {
@@ -79,7 +81,7 @@ echo "Prescribe_Medication is $prescribe_medication";
 
 
 
-        if ($_REQUEST['prescribe'] == TRUE) {
+        if ($_REQUEST['want_prescribe'] == "yes") {
             $prescribe_sql = "INSERT INTO patient_medications ( fk_medications_patient_id, fk_patient_medication_code, fk_medications_consultation_number, dosage, frequency)
                               VALUES ('$patient', '$prescribe_medication', '$consultation', '$dosage', '$frequency')";
 

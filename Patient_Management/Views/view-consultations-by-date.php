@@ -22,14 +22,9 @@ include "/var/www/html/functions.php";
 $date = $_REQUEST['view_consultations_by_date'];
 
         // Taking all the values from the patient-administration.php
-echo $_REQUEST['view_consultations_by_date'];
         $sql = "SELECT * FROM view_consultations
                 WHERE date = '$date'";
         $result = mysqli_query($conn,$sql);
-
-        echo "$sql";
-        echo "<br>";
-        echo "<br>";
 
         echo "All Consultations on $date";
         echo "<br>";

@@ -20,8 +20,7 @@ include "/var/www/html/functions.php";
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql_find_date = "SELECT UNIQUE date FROM view_surgeries WHERE surgeon_id = '$surgeon'";
-        $all_dates = mysqli_query($conn,$sql_find_date);
+
 
         // Taking all the values from the patient-administration.php
 
@@ -29,6 +28,8 @@ include "/var/www/html/functions.php";
         WHERE surgeon_id = '$surgeon'
         AND date = '$date'";
         $result = mysqli_query($conn,$sql);
+
+        echo "$sql";
 
 $result = mysqli_query($conn,$sql);
 echo "All Scheduled Surgeries";

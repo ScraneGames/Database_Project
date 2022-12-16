@@ -39,8 +39,7 @@ echo "<table border='1'>
 <th>Surgery Type</th>
 <th>Category</th>
 <th>Surgeon Name</th>
-<th>First Nurse</th>
-<th>Second Nurse</th>
+<th>Nurse Name</th>
 <th>Patient Name</th>
 <th>Patient ID</th>
 </tr>";
@@ -54,8 +53,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<td>" . $row['surgery_type'] . "</td>";
     echo "<td>" . $row['category'] . "</td>";
     echo "<td>" . $row['surgeon'] . "</td>";
-    echo "<td>" . $row['first_nurse'] . "</td>";
-    echo "<td>" . $row['second_nurse'] . "</td>";
+    echo "<td>" . $row['nurse'] . "</td>";
     echo "<td>" . $row['patient_name'] . "</td>";
     echo "<td>" . $row['patient_id'] . "</td>";
     echo "</tr>";

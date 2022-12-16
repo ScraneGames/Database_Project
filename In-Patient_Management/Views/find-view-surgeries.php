@@ -34,16 +34,6 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
       <center>
          <h1>Choose How You Would Like To View Surgeries</h1>
 
-         <form action="view-recorded-surgeries.php" method="post">
-
-         <label>View Recorded Surgeries</label>
-        <br>
-            <input type="submit" name="button" value="View Recorded Surgeries">
-         </form>
-         <br>
-
-         <form action="view-scheduled-surgeries.php" method="post">
-
 <label>View Scheduled Surgeries</label>
 <br>
    <input type="submit" name="button" value="View Scheduled Surgeries">

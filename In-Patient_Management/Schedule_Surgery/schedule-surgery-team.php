@@ -26,15 +26,10 @@ $sql_find_all_nurses = "SELECT UNIQUE staff.employee_name, nurses.nurse_id
                         FROM staff
                         JOIN nurses
                         ON staff.employee_id = nurses.employee_id
-                        JOIN nurse_skills
-                        ON nurses.nurse_id = nurse_skills.fk_skills_nurse_id
-                        JOIN surgery_requirements
-                        ON nurse_skills.fk_nurse_skills_skill_id = surgery_requirements.fk_requirement_skill_id
-                        JOIN surgery_skills
-                        ON surgery_requirements.fk_requirement_skill_id = surgery_skills.skill_id
-                        WHERE surgery_requirements.fk_requirement_surgery_code = $surgery_type";
+                        JOIN nurse_surgery_assignments
+                        ON nurse_surgery_assignments.nurse_id = nurses.nurse_id
+                        WHERE nurse_surgery_assignments.surgery_code = $surgery_type";
 $sql_all_nurses1 = mysqli_query($conn,$sql_find_all_nurses);
-$sql_all_nurses2 = mysqli_query($conn,$sql_find_all_nurses);
 
 $category_sql = "SELECT category FROM surgery_types WHERE surgery_code = '$surgery_type'";
 $category_result = mysqli_query($conn,$category_sql);
@@ -134,31 +129,6 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                     // While loop must be terminated
                 ?>
             </select>
-                </p>
-                <p>
-            <br>
-            <label>Select The Second Nurse</label>
-            <select name="nurse2">
-                <?php
-                    // use a while loop to fetch data
-                    // from the $all_categories variable
-                    // and individually display as an option
-                    while ($nurses2 = mysqli_fetch_array(
-                            $sql_all_nurses2,MYSQLI_ASSOC)):;
-                ?>
-                    <option value="<?php echo $nurses2["nurse_id"];
-                        // The value we usually set is the primary key
-                    ?>">
-                        <?php echo $nurses2["employee_name"] . " Nurse ID: ".$nurses2["nurse_id"];
-                            // To show the employee name to the user
-                        ?>
-                    </option>
-                <?php
-                    endwhile;
-                    // While loop must be terminated
-                ?>
-            </select>
-            <br>
                 </p>
                 <br>
 

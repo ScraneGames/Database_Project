@@ -195,11 +195,9 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
    </body>
   <script>
    $( document ).ready(function() {
-     $('#category').change(function() {
        $('.add_fields').hide()
-         if($(this).val() == "H")
+         if($(#category).val() == "H")
           $('#add_inpatient').show();
-     });
    });
    </script>
 </html>

@@ -86,12 +86,17 @@ echo "<br>";
 <h2> Prescribed Medications</h2>
 <?php
 $prescribed_medications = "SELECT medication_code, name, dosage, frequency
-FROM medications
-JOIN patient_medications
-ON medications.medication_code = patient_medications.fk_patient_medication_code
-WHERE fk_medications_patient_id = '$original_patient_id'";
+                            FROM medications
+                            JOIN patient_medications
+                            ON medications.medication_code = patient_medications.fk_patient_medication_code
+                            WHERE fk_medications_patient_id = '$original_patient_id'";
 $prescribed_results = mysqli_query($conn,$prescribed_medications);
 
+echo "<br>";
+echo "<br>";
+echo "$presribed_medications";
+echo "<br>";
+echo "<br>";
 echo "Prescribed Medications";
 echo "<br>";
 

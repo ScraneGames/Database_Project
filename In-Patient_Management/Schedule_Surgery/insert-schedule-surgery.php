@@ -33,7 +33,8 @@ include "/var/www/html/functions.php";
         $category = $_REQUEST['category'];
 
 
-        if ($nurse1 = $nurse2) {
+
+        if ($nurse1 == $nurse2) {
             echo "OOPS! You've selected the same nurse for both spots in the surgery. So sorry.";
             echo "<br>";
             echo "I know the lists can be confusing at the moment.";

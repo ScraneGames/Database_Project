@@ -61,7 +61,7 @@ $primary_user = mysqli_fetch_array($primary_sql_result,MYSQLI_ASSOC);
 
 $primary = $primary_user['employee_id'];
 
-echo "$primary";
+echo "$primary_sql";
 echo $primary_user['employee_id'];
 
 echo "The result is $primary_sql_result";

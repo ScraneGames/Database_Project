@@ -92,7 +92,7 @@ if ($surg_category['category'] == "H"){
 
          <?php if ($inpatient_rows > 0 && $surg_category['category'] == "H"): ?>
             <p>
-         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else {echo "$surg_category";}?>>
+         <input type="hidden" id="category" name="category" value=<?php echo "O";?>>
          </p>
          <?php endif; ?>
          <div data-show-if="category:H">

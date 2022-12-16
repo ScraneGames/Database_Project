@@ -164,7 +164,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
 
 
 
-            <div id="add_inpatient" class="add_fields" style="display: none">
+            <?php if ($input_category == "H"): ?>
 
             <h3 You should see this </h3>
 
@@ -190,7 +190,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                 // While loop must be terminated
             ?>
         </select>
-
+<?php endif; ?>
         <br>
 
             <input type="submit" name="button" value="Book Surgery">

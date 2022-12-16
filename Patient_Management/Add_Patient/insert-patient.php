@@ -51,7 +51,6 @@ include "/var/www/html/functions.php";
         $sql .= "INSERT INTO patient_primary (fk_primary_patient_id, fk_primary_physician_id, position)
                 VALUES ( (SELECT patient_id FROM patient_personal_data WHERE ssn = '$ssn'), '$primary', 'physician'); ";
 
-echo "$sql";
 
         if(mysqli_multi_query($conn, $sql)){
             echo "<h3>Information added successfully.";

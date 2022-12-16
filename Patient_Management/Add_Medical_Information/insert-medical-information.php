@@ -47,9 +47,6 @@ include "/var/www/html/functions.php";
         $medical_sql = "SELECT fk_medical_data_patient_id FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";
         $medical_result = mysqli_query($conn,$medical_sql);
 
-echo "Remove_Prescribe is $remove_prescribe";
-
-echo "Prescribe_Medication is $prescribe_medication";
 
         // Performing insert query execution
         // here for our table name is patient_personal_data

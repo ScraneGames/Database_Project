@@ -90,14 +90,10 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
-
-
-         <?php if ($inpatient_rows > 0 && $surg_category['category'] == "H"): ?>
-            <p>
          <input type="hidden" id="category" name="category" value=<?php echo "O";?>>
          </p>
-         <?php endif; ?>
-         <div data-show-if="category:H">
+
+         <div id="add_inpatient" class="add_fields" style="display: none">
             <h3> This should not be here </h3>
 
 </div>

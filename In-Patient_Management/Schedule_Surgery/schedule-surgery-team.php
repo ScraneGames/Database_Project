@@ -58,7 +58,7 @@ echo "<br>";
 echo "The category is $category";
 
 if ($inpatient_rows > 0) {
-    $categpry = "O"
+    $categpry = "O";
 }
 
 

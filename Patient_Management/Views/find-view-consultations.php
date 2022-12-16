@@ -81,7 +81,7 @@ $all_physicians = mysqli_query($conn,$sql_find_physicians);
 
 <label>Select a Date to View All Consultations On That Date</label>
 <br>
-<select name="view_consultations_per_date">
+<select name="view_consultations_by_date">
    <?php
        // use a while loop to fetch data
        // from the $all_categories variable

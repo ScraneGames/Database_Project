@@ -19,10 +19,10 @@ include "/var/www/html/functions.php";
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-$date = $_REQUEST['view_consultations_per_date'];
+$date = $_REQUEST['view_consultations_by_date'];
 
         // Taking all the values from the patient-administration.php
-echo $_REQUEST['view_consultations_per_date'];
+echo $_REQUEST['view_consultations_by_date'];
         $sql = "SELECT * FROM view_consultations
                 WHERE date = '$date'";
         $result = mysqli_query($conn,$sql);
@@ -31,7 +31,7 @@ echo $_REQUEST['view_consultations_per_date'];
         echo "<br>";
         echo "<br>";
 
-        echo "All Scheduled Surgeries";
+        echo "All Consultations on $date";
         echo "<br>";
         echo "<table border='1'>
         <tr>

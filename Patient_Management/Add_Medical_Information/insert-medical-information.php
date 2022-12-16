@@ -76,7 +76,6 @@ echo "Prescribe_Medication is $prescribe_medication";
 
 
                               }
-                              echo "$remove_sql";
         }
 
 
@@ -90,7 +89,7 @@ echo "Prescribe_Medication is $prescribe_medication";
                     } else {
                     echo "Error: " . $prescribe_sql . "<br>" . $conn->error;
                 }
-                echo "$prescribe_sql";
+
         }
 
 if (mysqli_multi_query($conn, $sql)) {

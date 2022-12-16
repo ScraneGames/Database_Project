@@ -82,8 +82,12 @@ echo "The category is" .$category['category'];
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
-         <input type="hidden" id="category" name="category" value="O">
-<p>
+         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else {echo "$category";}?>>
+
+         <div data-show-if="category:H">
+            <h3> This should not be here </h3>
+
+         <p>
             <label>Select a Surgeon</label>
                     <select name="surgeon">
                         <?php

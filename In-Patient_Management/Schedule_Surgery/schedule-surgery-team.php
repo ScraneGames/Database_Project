@@ -82,7 +82,7 @@ echo "The category is" .$category['category'];
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
-         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else: {echo "$category"}; ?>>
+         <input type="hidden" id="category" name="category" value=<?php if ($inpatient_rows > 0) {echo "O";} else {echo "$category"}; ?>>
 <p>
             <label>Select a Surgeon</label>
                     <select name="surgeon">

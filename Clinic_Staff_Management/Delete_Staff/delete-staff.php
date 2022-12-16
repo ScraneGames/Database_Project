@@ -29,7 +29,7 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')";
 $owner_result = mysqli_query($conn,$owner_sql);
 
-$primary_check_sql = "SELECT fk_primary_physician_id FROM patient_primary WHERE fk_primary_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')";
+$primary_check_sql = "SELECT primary_physician_id FROM patient_medical_data WHERE primary_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')";
 $primary_check_result = mysqli_query($conn,$owner_sql);
 
 if ($user['position'] == "nurse"){
@@ -38,9 +38,9 @@ if ($user['position'] == "nurse"){
         $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
         } elseif ($user['position'] == "physician" ) {
             if (mysqli_num_rows($primary_check_result) > 0) {
-                $replace_primary_sql = "UPDATE patient_primary
-                                        SET fk_primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
-                                        WHERE fk_primary_physician_id = '$original_employee_id'";
+                $replace_primary_sql = "UPDATE patient_medical_data
+                                        SET primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
+                                        WHERE primary_physician_id = '$original_employee_id'";
                 if (mysqli_query($conn, $replace_primary_sql)) {
                     echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
                     echo "<br>";

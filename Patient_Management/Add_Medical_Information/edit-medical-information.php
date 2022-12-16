@@ -62,21 +62,21 @@ $primary = $primary_user['employee_name'];
 
 $sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
                         FROM physicians
-                        LEFT OUTER JOIN patient_primary
-                        ON physicians.physician_id = patient_primary.fk_primary_physician_id
+                        LEFT OUTER JOIN patient_medical_data
+                        ON physicians.physician_id = patient_medical_data.primary_physician_id
                         WHERE physicians.position <> 'chief_of_staff'
                         GROUP BY physicians.physician_id
-                        HAVING COUNT(patient_primary.fk_primary_physician_id) < 7";
+                        HAVING COUNT(patient_medical_data.primary_physician_id) < 7";
 
 $sql_find_physicians_less_7_result = mysqli_query($conn,$sql_find_phyisicans_less_7);
 
 $sql_find_phyisicans_less_20 = "SELECT physicians.employee_name, physicians.physician_id
-                        FROM physicians
-                        LEFT OUTER JOIN patient_primary
-                        ON physicians.physician_id = patient_primary.fk_primary_physician_id
-                        WHERE physicians.position <> 'chief_of_staff'
-                        GROUP BY physicians.physician_id
-                        HAVING COUNT(patient_primary.fk_primary_physician_id) < 20";
+                                 FROM physicians
+                                 LEFT OUTER JOIN patient_medical_data
+                                 ON physicians.physician_id = patient_medical_data.primary_physician_id
+                                 WHERE physicians.position <> 'chief_of_staff'
+                                 GROUP BY physicians.physician_id
+                                 HAVING COUNT(patient_medical_data.primary_physician_id) < 20";
 
 $sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_less_20);
 

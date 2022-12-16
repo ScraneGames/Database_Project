@@ -94,7 +94,7 @@ $prescribed_results = mysqli_query($conn,$prescribed_medications);
 
 echo "<br>";
 echo "<br>";
-echo "$presribed_medications";
+echo "$prescribed_medications";
 echo "<br>";
 echo "<br>";
 echo "Prescribed Medications";

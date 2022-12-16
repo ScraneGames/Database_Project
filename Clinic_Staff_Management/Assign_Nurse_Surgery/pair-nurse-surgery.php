@@ -8,7 +8,8 @@ if ($conn->connect_error) {
 
 $nurse = $_REQUEST['nurse'];
 
-$sql_find_nurse = "SELECT staff.employee_name, nurses.nurse_id FROM staff, nurses WHERE staff.employee_id = nurses.employee_id AND nurses.nurse_id = '$nurse'";
+$sql_find_nurse = "SELECT staff.employee_name, nurses.nurse_id FROM staff, nurses
+                    WHERE staff.employee_id = nurses.employee_id AND nurses.nurse_id = '$nurse'";
 $sql_find_nurse_result = mysqli_query($conn,$sql_find_nurse);
 
 $nurse_array = mysqli_fetch_array($sql_find_nurse_result,MYSQLI_ASSOC);
@@ -20,7 +21,6 @@ $sql_find_all_surgeries = "SELECT * FROM surgery_types JOIN surgery_requirements
                         ON surgery_requirements.fk_requirement_skill_id = nurse_skills.fk_nurse_skills_skill_id
                         WHERE nurse_skills.fk_skills_nurse_id = '$nurse'";
 $sql_find_all_surgeries_result = mysqli_query($conn,$sql_find_all_surgeries)
-
 // public mysqli::multi_query(string $sql): bool
 
 
@@ -44,18 +44,18 @@ $sql_find_all_surgeries_result = mysqli_query($conn,$sql_find_all_surgeries)
 </p>
 <p>
          <label for="all_nurse">Surgery:</label>
-                        <select name="skill">
+                        <select name="surgery">
                      <?php
                         // use a while loop to fetch data
                         // from the $all_categories variable
                         // and individually display as an option
-                        while ($skills = mysqli_fetch_array(
-                            $sql_find_all_skills_result,MYSQLI_ASSOC)):;
+                        while ($surgeries = mysqli_fetch_array(
+                            $sql_find_all_surgeries_result,MYSQLI_ASSOC)):;
                      ?>
-                        <option value="<?php echo $skills["skill_id"];
+                        <option value="<?php echo $surgeries["surgery_code"];
                            // The value we usually set is the primary key
                         ?>">
-                           <?php echo $skills["skill_name"] . " Skill ID: ".$skills["skill_id"];
+                           <?php echo $surgeries["type_name"] . " Surgery Code: ".$surgeries["surgery_code"];
                                  // To show the employee name to the user
                            ?>
                         </option>

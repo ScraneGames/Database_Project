@@ -166,9 +166,6 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
 
             <?php if ($input_category == "H"): ?>
 
-            <h3 You should see this </h3>
-
-                </div>
                 <label>Select a Bed For the Patient After the Surgery</label>
         <select name="bed">
             <?php

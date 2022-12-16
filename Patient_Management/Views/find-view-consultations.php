@@ -14,7 +14,7 @@ $all_dates = mysqli_query($conn,$sql_find_date);
 
 $sql_find_physicians = "SELECT UNIQUE physician, physician_id
                         FROM view_consultations";
-$all_surgeons = mysqli_query($conn,$sql_find_surgeons);
+$all_physicians = mysqli_query($conn,$sql_find_physicians);
 
 
 

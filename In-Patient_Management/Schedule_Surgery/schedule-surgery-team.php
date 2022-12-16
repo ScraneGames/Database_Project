@@ -48,7 +48,7 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
 
 $sql_inpatient_check = "SELECT fk_inpatients_patient_id FROM inpatients
                         WHERE fk_inpatients_patient_id = '$patient'";
-$sql_inpatient_check_result = myqli_query($conn,$sql_inpatient_check);
+$sql_inpatient_check_result = mysqli_query($conn,$sql_inpatient_check);
 
 
 ?>

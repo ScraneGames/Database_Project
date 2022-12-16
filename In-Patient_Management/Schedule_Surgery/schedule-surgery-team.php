@@ -59,8 +59,8 @@ echo "The category is" .$category['category'];
 
 if ($inpatient_rows > 0) {
     unset($category);
-    $categpry = "O";
-    echo "the category is {$category}";
+    $categpry = echo "O";
+    echo "the category is $category";
 }
 
 
@@ -150,8 +150,6 @@ if ($inpatient_rows > 0) {
                 ?>
             </select>
             <br>
-
-            <input type="hidden" name="category" value="<?php echo "$category"; ?>" id="category">
 
 
 

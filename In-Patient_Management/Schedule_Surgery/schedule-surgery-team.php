@@ -51,7 +51,7 @@ $sql_inpatient_check = "SELECT fk_inpatients_patient_id FROM inpatients
 $sql_inpatient_check_result = mysqli_query($conn,$sql_inpatient_check);
 $inpatient_rows = mysqli_num_rows($sql_inpatient_check_result)
 
-echo "Inpatient Rows is $inpatient_rows";
+printf($inpatient_rows);
 echo "<br>";
 echo "$sql_inpatient_chack";
 

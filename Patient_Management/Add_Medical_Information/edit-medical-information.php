@@ -51,6 +51,34 @@ if ($user['high_risk'] > 0){
    $check = " ";
 }
 
+$primary_id = $mecial_user['primary_physician_id'];
+
+$primary_sql = "SELECT employee_name FROM physicians WHERE physician_id = '$primary_id";
+$primary_sql_result = mysqli_query($conn,$primary_sql);
+$primary_user = mysqli_fetch_array($primary_sql_result,MYSQLI_ASSOC);
+
+$primary = $primary_user['employee_id'];
+
+$sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
+                        FROM physicians
+                        LEFT OUTER JOIN patient_primary
+                        ON physicians.physician_id = patient_primary.fk_primary_physician_id
+                        WHERE physicians.position <> 'chief_of_staff'
+                        GROUP BY physicians.physician_id
+                        HAVING COUNT(patient_primary.fk_primary_physician_id) < 7";
+
+$sql_find_physicians_less_7_result = mysqli_query($conn,$sql_find_phyisicans_less_7);
+
+$sql_find_phyisicans_less_20 = "SELECT physicians.employee_name, physicians.physician_id
+                        FROM physicians
+                        LEFT OUTER JOIN patient_primary
+                        ON physicians.physician_id = patient_primary.fk_primary_physician_id
+                        WHERE physicians.position <> 'chief_of_staff'
+                        GROUP BY physicians.physician_id
+                        HAVING COUNT(patient_primary.fk_primary_physician_id) < 20";
+
+$sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_less_20);
+
 ?>
 
 
@@ -115,6 +143,61 @@ if ($user['high_risk'] > 0){
                <input type="checkbox" <?php echo "$check"; ?> name="high_risk" value="1" id="high_risk">
                <br>
 </p>
+
+<?php
+echo "<h3>The patient's current primary physician is $primary. </h3>"
+?>
+</p>
+<?php if (mysqli_num_rows($sql_find_physicians_less_7_result) > 0): ?>
+<p>
+               <label for="primary_less_7">Primary Physician:</label>
+               <select name="primary_less_7">
+            <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($primary_less_7 = mysqli_fetch_array(
+                  $sql_find_physicians_less_7_result,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $primary_less_7["physician_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $primary_less_7["employee_name"] . " ".$primary_less_7["physician_id"];
+                        // To show the employee name to the user
+                    ?>
+                </option>
+               <?php
+               endwhile;
+               // While loop must be terminated
+         ?>
+      </select>
+</p>
+      <?php elseif (mysqli_num_rows($sql_find_physicians_less_20_result) > 0): ?>
+<p>
+         <label for="primary_less_20">Primary Physician:</label>
+                        <select name="primary_less_20">
+                     <?php
+                        // use a while loop to fetch data
+                        // from the $all_categories variable
+                        // and individually display as an option
+                        while ($primary_less_20 = mysqli_fetch_array(
+                           $sql_find_physicians_less_20_result,MYSQLI_ASSOC)):;
+                     ?>
+                        <option value="<?php echo $primary_less_20["physician_id"];
+                           // The value we usually set is the primary key
+                        ?>">
+                           <?php echo $primary_less_20["employee_name"] . " ".$primary_less_20["physician_id"];
+                                 // To show the employee name to the user
+                           ?>
+                        </option>
+                        <?php
+                        endwhile;
+                        // While loop must be terminated
+                        ?>
+      </select>
+      <?php endif; ?>
+      <br>
+
 <!-- Selection to prescribe medication -->
  <p>
                            <label for="want_prescribe">Prescribe Medication?:</label>

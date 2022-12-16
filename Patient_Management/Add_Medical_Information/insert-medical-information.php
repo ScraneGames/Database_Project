@@ -41,10 +41,8 @@ include "/var/www/html/functions.php";
 
         if ($_REQUEST['primary_less_7']) {
             $primary = $_REQUEST['primary_less_7'];
-            echo "Entering primary less than 7";
         } else {
             $primary = $_REQUEST['primary_less_20'];
-            echo "Entering primary less than 20";
         }
 
 

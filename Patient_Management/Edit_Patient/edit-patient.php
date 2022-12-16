@@ -21,7 +21,7 @@ $primary_sql = "SELECT employee_name FROM physicians WHERE physician_id = '$prim
 $primary_sql_result = mysqli_query($conn,$primary_sql);
 $primary_user = mysqli_fetch_array($primary_sql_result,MYSQLI_ASSOC);
 
-$primary = $primary_user['employee_id']
+$primary = $primary_user['employee_id'];
 
 $sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
                         FROM physicians

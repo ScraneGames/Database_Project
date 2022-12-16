@@ -132,7 +132,7 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
                 ?>
             </select>
             <br>
-            <?php if ($category['category'] == 'H'): ?>
+      <?php // if ($category['category'] == 'H'): ?>
 
                 <label>Select a For the Patient After the Surgery</label>
         <select name="bed">
@@ -155,7 +155,7 @@ $all_beds = mysqli_query($conn,$sql_find_beds);
                 // While loop must be terminated
             ?>
         </select>
-        <?php endif; ?>
+       <?php // endif; ?>
 
         <br>
 

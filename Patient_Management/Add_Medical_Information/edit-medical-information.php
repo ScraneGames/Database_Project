@@ -143,11 +143,11 @@ $sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_le
                <input type="checkbox" <?php echo "$check"; ?> name="high_risk" value="1" id="high_risk">
                <br>
 </p>
-<h3>
+<p>
 <?php
 echo "The patient's current primary physician is $primary.";
 ?>
-</h3>
+<br>
 </p>
 <?php if (mysqli_num_rows($sql_find_physicians_less_7_result) > 0): ?>
 <p>

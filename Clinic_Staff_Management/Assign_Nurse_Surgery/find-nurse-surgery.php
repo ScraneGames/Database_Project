@@ -6,7 +6,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id FROM staff, nurses WHERE staff.employee_id = nurses.employee_id";
+$sql_find_all_nurses = "SELECT staff.employee_name, nurses.nurse_id FROM staff, nurses WHERE staff.employee_id = nurses.employee_id
+                        AND nurses.nurse_id NOT IN (SELECT nurse_id FROM nurse_surgery_assignments)";
 $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
 
 // public mysqli::multi_query(string $sql): bool

@@ -62,7 +62,7 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
                <input type="time" name="start_time" id="start_time">
             </p>
             <p>
-               <label for="end_time">Start Time:</label>
+               <label for="end_time">End Time:</label>
                <input type="time" name="end_time" id="end_time">
             </p>
 

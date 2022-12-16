@@ -122,13 +122,13 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
        // use a while loop to fetch data
        // from the $all_categories variable
        // and individually display as an option
-       while ($view_surgeries_per_patient = mysqli_fetch_array(
+       while ($view_surgeries_per_surgeon = mysqli_fetch_array(
                $all_surgeons,MYSQLI_ASSOC)):;
    ?>
        <option value="<?php echo $view_surgeries_per_patient["surgeon_id"];
            // The value we usually set is the primary key
        ?>">
-           <?php echo $view_surgeries_per_patient["surgeon"] . " Surgeon ID: ".$view_surgeries_per_patient["surgeon_id"];
+           <?php echo $view_surgeries_per_surgeon["surgeon"] . " Surgeon ID: ".$view_surgeries_per_surgeon["surgeon_id"];
                // To show the employee name to the user
            ?>
        </option>

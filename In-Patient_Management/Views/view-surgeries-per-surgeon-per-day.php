@@ -29,7 +29,7 @@ include "/var/www/html/functions.php";
         AND date = '$date'";
         $result = mysqli_query($conn,$sql);
 
-        echo "$sql";
+
 
 $result = mysqli_query($conn,$sql);
 echo "All Scheduled Surgeries";

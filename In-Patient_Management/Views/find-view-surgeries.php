@@ -145,7 +145,7 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 
 <form action="view-surgeries-per-room.php" method="post">
 
-<label>Select a Surgeon to View All Surgeries</label>
+<label>Select a Room to View All Surgeries In That Room</label>
 <br>
 <p>
                <label for="room">Room:</label>

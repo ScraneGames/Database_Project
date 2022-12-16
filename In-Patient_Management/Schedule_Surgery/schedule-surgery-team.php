@@ -91,7 +91,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
          <input type="hidden" id="operating_theater" name="operating_theater" value= <?php echo "$operating_theater"; ?>>
          <input type="hidden" id="date" name="date" value=<?php echo "$date"; ?>>
          <input type="hidden" id="time" name="time" value=<?php echo "$time"; ?>>
-         <input type="hidden" id="category" name="category" value="<?php if($inpatient_rows > 0 && $surg_category['category'] == "H"){echo "O";} else {echo $surg_category['category'];}?>">
+         <input type="hidden" id="category" name="category" value="<?php echo "$input_category";?>">
 </p>
 
          <p>

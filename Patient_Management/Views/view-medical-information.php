@@ -92,11 +92,6 @@ $prescribed_medications = "SELECT medication_code, name, dosage, frequency
                             WHERE fk_medications_patient_id = '$patient'";
 $prescribed_results = mysqli_query($conn,$prescribed_medications);
 
-echo "<br>";
-echo "<br>";
-echo "$prescribed_medications";
-echo "<br>";
-echo "<br>";
 echo "Prescribed Medications";
 echo "<br>";
 

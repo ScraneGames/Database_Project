@@ -89,7 +89,7 @@ $all_physicians = mysqli_query($conn,$sql_find_physicians);
        while ($view_consultations_per_date = mysqli_fetch_array(
                $all_dates,MYSQLI_ASSOC)):;
    ?>
-       <option value="<?php echo $view_surgeries_per_date["date"];
+       <option value="<?php echo $view_consultations_per_date["date"];
            // The value we usually set is the primary key
        ?>">
            <?php echo $view_consultations_per_date["date"];

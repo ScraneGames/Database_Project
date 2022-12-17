@@ -79,7 +79,7 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
                            <option value="n">(N) No Interaction</option>
         <br>
         <br>
-        <p>
+
         <?php
 
 $medication_reactions = "SELECT medication_name, reacting_name, severity
@@ -111,7 +111,7 @@ echo "</table>";
 
 echo "<br>";
         ?>
-        </p>
+
             <input type="submit" value="Submit">
          </form>
       </center>

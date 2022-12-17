@@ -70,7 +70,20 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
             ?>
         </select>
 
-        <?php
+
+        <br>
+        <label for="severity">Medication Severity:</label>
+                           <select name="severity" id="severity">
+                           <option value="">Select...</option>
+                           <option value="s">(S) Severe Interaction</option>
+                           <option value="m">(M) Moderate Interaction</option>
+                           <option value="l">(L) Little Interaction</option>
+                           <option value="n">(N) No Interaction</option>
+            </select>
+                           <br>
+        <br>
+
+<?php
 
 $medication_reactions = "SELECT medication_name, reacting_name, severity
 FROM view_medication_reactions
@@ -103,19 +116,6 @@ echo "<br>";
 
 $conn->close();
         ?>
-
-        <br>
-        <label for="severity">Medication Severity:</label>
-                           <select name="severity" id="severity">
-                           <option value="">Select...</option>
-                           <option value="s">(S) Severe Interaction</option>
-                           <option value="m">(M) Moderate Interaction</option>
-                           <option value="l">(L) Little Interaction</option>
-                           <option value="n">(N) No Interaction</option>
-
-                           <br>
-        <br>
-
             <input type="submit" value="Submit">
          </form>
       </center>

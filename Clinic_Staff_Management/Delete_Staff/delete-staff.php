@@ -95,13 +95,16 @@ if ($user['position'] == "nurse"){
                     (SELECT physician_id
                     FROM physicians
                     WHERE employee_id = '$original_employee_id')); ";
-             //       if (mysqli_query($conn, $delete_owner_sql)) {
-             //           echo "Deleted the Physician's Ownership Record Correctly";
-             //           echo "<br>";
-             //           } else {
-             //           echo "Error: " . $sql . "<br>" . $conn->error;
-             //       }
-             echo "$delete_owner_sql";
+
+                    echo "$delete_owner_sql";
+                  if (mysqli_query($conn, $delete_owner_sql)) {
+                        echo "Deleted the Physician's Ownership Record Correctly";
+                        echo "<br>";
+                        } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                }
+
 
                // Set Delete SQL
                $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
@@ -109,7 +112,9 @@ if ($user['position'] == "nurse"){
                echo "$delete_sql";
 
 
-                }  elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
+                }
+                // Deletes janitor or secretary
+                elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
                 $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
             }
 
@@ -119,17 +124,22 @@ if ($user['position'] == "nurse"){
 
                 // Check if chief is a primary physician, and if so, throw an error
 
-                if (mysqli_num_rows($primary_check_result) > 0) {
+                if (mysqli_num_rows($primary_check_result) > 0 mysqli_num_rows($inpatient_check_sql_result) > 0) ||  {
+
+                    if (mysqli_num_rows($primary_check_result)) > 0 {
                     echo "<br>";
                     echo "The chief of staff has primary patients assigned. Please reassign those patients to new primary doctors before proceeeding.";
                     echo "<br>";
 
-                } else {
-                    if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
+                }
+
+                if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
+
                         echo "<br>";
                         echo "The chief of staff has inpatients assigned. Please reassign those patients to new primary doctors before proceeeding.";
                         echo "<br>";
-                } {
+                }
+             } else {
 
                     // Check if the chief is a n owner, and if so, delete from owners
 
@@ -143,23 +153,20 @@ if ($user['position'] == "nurse"){
                         WHERE employee_id = '$original_employee_id')); ";
                       echo "$delete_owner_sql";
 
-                   //    if (mysqli_query($conn, $delete_owner_sql)) {
-                   //         echo "Deleted the Physician's Ownership Record Correctly";
-                   //         echo "<br>";
-                  //          } else {
-                  //          echo "Error: " . $sql . "<br>" . $conn->error;
-                            $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
-
-                            echo "$delete_sql";
-                       // }
+                      if (mysqli_query($conn, $delete_owner_sql)) {
+                          echo "Deleted the Chief of Staff's Ownership Record Correctly";
+                            echo "<br>";
+                            } else {
+                            echo "Error: " . $sql . "<br>" . $conn->error;
+                        }
                     }
                     $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
 
                     echo "$delete_sql";
                 }
             }
-      }
-    }
+
+
 
 //if (mysqli_query($conn, $delete_sql)) {
 //    echo "Staff Member Deleted Correctly";

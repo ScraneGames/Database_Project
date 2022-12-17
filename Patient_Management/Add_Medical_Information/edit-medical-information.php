@@ -56,7 +56,6 @@ $prescribed_medications = "SELECT medication_code, name, dosage, frequency
 $prescribed_results = mysqli_query($conn,$prescribed_medications);
 $prescribed_remove_results = mysqli_query($conn,$prescribed_medications);
 $prescribed_check_results = mysqli_query($conn,$prescribed_medications);
-$prescribed_array = mysqli_fetch_array($prescribed_results);
 
 // Also find the medications prescribed to the patient
                            $medication_reactions = "SELECT medication_name, reacting_name, severity

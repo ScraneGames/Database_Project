@@ -154,18 +154,18 @@ $inpatient_check_sql_result = mysqli_query($conn,$inpatient_check_sql);
        //l                 WHERE employee_id = '$original_employee_id')); ";
        //l               echo "$delete_owner_sql";
 
-                      if (mysqli_query($conn, $delete_owner_sql)) {
-                          echo "Deleted the Chief of Staff's Ownership Record Correctly";
-                            echo "<br>";
-                            } else {
-                            echo "Error: " . $sql . "<br>" . $conn->error;
-                        }
-                    }
-                    $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
+      //l                if (mysqli_query($conn, $delete_owner_sql)) {
+      //l                    echo "Deleted the Chief of Staff's Ownership Record Correctly";
+       //l                     echo "<br>";
+       //l                     } else {
+        //l                    echo "Error: " . $sql . "<br>" . $conn->error;
+         //l               }
+         //l           }
+         //l           $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
 
-                    echo "$delete_sql";
-                }
-            }
+ //l                   echo "$delete_sql";
+  //l              }
+   //l         }
 
 
 

@@ -97,7 +97,7 @@ echo "<table border='1'>
 <th>Severity</th>
 </tr>";
 
-while($reacting_row = mysqli_fetch_array($reaction_results)){
+while($reacting_row = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC)){
     echo "<tr>";
     echo "<td>" . $reacting_row['medication_name'] . "</td>";
     echo "<td>" . $reacting_row['reacting_name'] . "</td>";

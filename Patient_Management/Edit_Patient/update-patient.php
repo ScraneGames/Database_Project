@@ -43,7 +43,7 @@ include "/var/www/html/functions.php";
                 SET patient_name ='$patient_name', ssn = '$ssn', gender = '$gender', dob = '$dob', address = '$address', telephone_number = '$telephone_number'
                 WHERE patient_id = '$patient_id'";
 
-
+echo "$sql";
         if(mysqli_query($conn, $sql)){
             echo "<h3>Information updated successfully.</h3>";
         } else {

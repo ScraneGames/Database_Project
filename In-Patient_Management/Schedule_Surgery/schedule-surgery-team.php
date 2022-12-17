@@ -183,9 +183,11 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                 // While loop must be terminated
             ?>
         </select>
-
+<p>
+    <br>
         <?php echo "The primary physician for " . $user['patient_name'] ." is " .$user['employee_name'] . " With Physician ID " . $user ['primary_physician_id']; ?>
-
+            </p>
+            <br>
         <?php if (mysqli_num_rows($sql_find_physicians_less_7_result) > 0): ?>
 <p>
                <label for="primary_less_7">Assign A Physician:</label>

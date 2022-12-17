@@ -33,7 +33,7 @@ $sql = "SELECT * FROM patient_medical_data
 
 $result = mysqli_query($conn,$sql);
 
-$result_array = mysqli_fetch_array($result,MULTIASSOC);
+$result_array = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
 
 

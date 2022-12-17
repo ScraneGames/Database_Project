@@ -16,7 +16,7 @@ $medication_reactions = "SELECT medication_name, reacting_name, severity
                            ORDER BY medication_name'";
 $reaction_results = mysqli_query($conn,$medication_reactions);
 
-var_dump($reaction_results);
+var_dump($medication_reactions);
 ?>
 
 

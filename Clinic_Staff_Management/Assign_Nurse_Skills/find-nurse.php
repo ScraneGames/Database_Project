@@ -104,7 +104,7 @@ echo "<table border='1'>
 
 while($skills_row = mysqli_fetch_array($nurse_skills_results)){
     echo "<tr>";
-    echo "<td>" . $skills_row['fk_nurse_skills_skill_id'] . "</td>";
+    echo "<td>" . $skills_row['fk_skills_nurse_id'] . "</td>";
     echo "<td>" . $skills_row['employee_name'] . "</td>";
     echo "<td>" . $skills_row['skill_name'] . "</td>";
     echo "</tr>";

@@ -55,6 +55,7 @@ $prescribed_medications = "SELECT medication_code, name, dosage, frequency
                            WHERE fk_medications_patient_id = '$original_patient_id'";
 $prescribed_results = mysqli_query($conn,$prescribed_medications);
 $prescribed_remove_results = mysqli_query($conn,$prescribed_medications);
+$prescribed_check_results = mysqli_query($conn,$prescribed_medications);
 $prescribed_array = mysqli_fetch_array($prescribed_results);
 
 // Also find the medications prescribed to the patient
@@ -245,9 +246,11 @@ echo "The patient's current primary physician is $primary.";
          <input type="text" name="frequency" id="frequency">
       </p>
 <!-- Show this section if thre is a prescription for the patient -->
-      <?php if (mysqli_num_rows($prescribed_results) > 0): ?>
+      <?php if (mysqli_num_rows($prescribed_check_results) > 0): ?>
       <?php
-echo "Current Medication Reactions";
+
+      echo "Number of rows is " . mysqli_num_rows($prescribed_check_results);
+echo "Current Possible Medication Reactions";
 echo "<br>";
 
 echo "<table border='1'>
@@ -257,7 +260,7 @@ echo "<table border='1'>
 <th>Severity</th>
 </tr>";
 
-while($reacting_row = mysqli_fetch_array($reaction_results)){
+while($reacting_row = mysqli_fetch_array($reactions_results)){
     echo "<tr>";
     echo "<td>" . $reacting_row['medication_name'] . "</td>";
     echo "<td>" . $reacting_row['reacting_name'] . "</td>";
@@ -267,13 +270,10 @@ while($reacting_row = mysqli_fetch_array($reaction_results)){
 echo "</table>";
 
 echo "<br>";
-        ?>
 
-<br>
-<p>
 
-<!-- Show currently Prescribed Medications -->
-<?php
+echo "<br>";
+ echo "<p>";
 
 echo "Prescribed Medications";
 echo "<br>";

@@ -89,6 +89,9 @@ $reaction_results = mysqli_query($conn,$medication_reactions);
         <br>
         <p>
         <?php
+
+        $test = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC)
+        var_dump($test)
 echo "Current Medication Reactions";
 echo "<br>";
 

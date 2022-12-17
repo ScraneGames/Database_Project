@@ -168,11 +168,11 @@ if ($user['position'] == "nurse"){
 
 
 
-//if (mysqli_query($conn, $delete_sql)) {
-//    echo "Staff Member Deleted Correctly";
-//    } else {
-//    echo "Error: " . $sql . "<br>" . $conn->error;
-//}
+if (mysqli_query($conn, $delete_sql)) {
+    echo "Staff Member Deleted Correctly";
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
   $conn->close();
 

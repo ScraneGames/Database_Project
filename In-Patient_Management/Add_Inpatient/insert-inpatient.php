@@ -34,7 +34,7 @@ include "/var/www/html/functions.php";
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO inpatients (fk_inpatients_bed_id, fk_inpatients_patient_id, date_of_admission, attending_physcian_id)
+        $sql = "INSERT INTO inpatients (fk_inpatients_bed_id, fk_inpatients_patient_id, date_of_admission, attending_physician_id)
             VALUES ('$bed', '$patient', '$date', '$primary')";
 
 

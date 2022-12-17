@@ -60,7 +60,7 @@ if ($user['position'] == "nurse"){
                                         SET primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
                                         WHERE primary_physician_id = '$primary_id'";
 
-                var_dump($replace_primary_sql);
+               echo "$replace_primary_sql";
                // if (mysqli_query($conn, $replace_primary_sql)) {
                //     echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
                //     echo "<br>";

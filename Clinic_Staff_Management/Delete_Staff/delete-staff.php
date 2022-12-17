@@ -64,7 +64,13 @@ if ($user['position'] == "nurse"){
                 }
             }
                 if (mysqli_num_rows($owner_result) > 0) {
-                    $delete_owner_sql = "DELETE FROM owners WHERE ownership_id = (SELECT fk_physician_own_ownership_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')); "
+                    $delete_owner_sql = "DELETE FROM owners WHERE ownership_id =
+                    (SELECT fk_physician_own_ownership_id
+                    FROM physician_owners
+                    WHERE fk_own_physician_id =
+                    (SELECT physician_id
+                    FROM physicians
+                    WHERE employee_id = '$original_employee_id')); ";
                     if (mysqli_query($conn, $delete_owner_sql)) {
                         echo "Deleted the Physician's Ownership Record Correctly";
                         echo "<br>";
@@ -83,7 +89,13 @@ if ($user['position'] == "nurse"){
 
                 } else {
                     if (mysqli_num_rows($owner_result) > 0) {
-                        $delete_owner_sql = "DELETE FROM owners WHERE ownership_id = (SELECT fk_physician_own_ownership_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')); "
+                        $delete_owner_sql = "DELETE FROM owners WHERE ownership_id =
+                        (SELECT fk_physician_own_ownership_id
+                        FROM physician_owners
+                        WHERE fk_own_physician_id =
+                        (SELECT physician_id
+                        FROM physicians
+                        WHERE employee_id = '$original_employee_id')); ";
                         if (mysqli_query($conn, $delete_owner_sql)) {
                             echo "Deleted the Physician's Ownership Record Correctly";
                             echo "<br>";

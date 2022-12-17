@@ -47,7 +47,7 @@ if ($position != "surgeon") {
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>edit Staff</title>
+      <title>Edit Staff <?php echo "$position$"?></title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    </head>
    <body>

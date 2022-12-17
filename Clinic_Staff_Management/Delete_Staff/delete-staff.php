@@ -107,7 +107,7 @@ if ($user['position'] == "nurse"){
 
 
                // Set Delete SQL
-               $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
+               $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'; ";
 
                echo "$delete_sql";
 

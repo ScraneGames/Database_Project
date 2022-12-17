@@ -34,6 +34,11 @@ include "/var/www/html/functions.php";
         echo $category['category'];
 
 
+        if ($_REQUEST['primary_less_7']) {
+            $primary = $_REQUEST['primary_less_7'];
+        } else {
+            $primary = $_REQUEST['primary_less_20'];
+        }
 
 
         // Performing insert query execution
@@ -52,8 +57,8 @@ include "/var/www/html/functions.php";
     } else{
             $sql = "INSERT INTO surgery_schedule (patient_id, operating_theater, fk_schedule_surgery_code, fk_schedule_surgeon_id, fk_nurse_id, date, time)
                     VALUES ('$patient', '$operating_theater', '$surgery_type', '$surgeon', '$nurse1', '$date', '$time'); ";
-            $sql .= "INSERT INTO inpatients (fk_inpatients_bed_id, fk_inpatients_patient_id, date_of_admission)
-                    VALUES ('$bed', '$patient', '$date')";
+            $sql .= "INSERT INTO inpatients (fk_inpatients_bed_id, fk_inpatients_patient_id, date_of_admission, attending_physician_id)
+                    VALUES ('$bed', '$patient', '$date', '$primary')";
      if(mysqli_multi_query($conn, $sql)){
         echo "<h3>Surgery Scheduled Successfully.</h3>";
     } else {

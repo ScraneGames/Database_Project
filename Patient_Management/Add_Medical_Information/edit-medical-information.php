@@ -244,10 +244,12 @@ echo "The patient's current primary physician is $primary.";
       <p>
          <label for="frequency">Frequency:</label>
          <input type="text" name="frequency" id="frequency">
-      </p>
-<!-- Show this section if thre is a prescription for the patient -->
-<div>
-      <?php if (mysqli_num_rows($prescribed_check_results) > 0): ?>
+            </p>
+
+</div>
+<p>
+   <!-- Show this section if thre is a prescription for the patient -->
+   <?php if (mysqli_num_rows($prescribed_check_results) > 0): ?>
       <?php
 
 echo "Current Possible Medication Reactions";
@@ -300,7 +302,6 @@ echo "<br>";
 
 ?>
 <?php endif; ?>
-</div>
             </p>
 <!-- Selection to Remove Medications -->
 <p>

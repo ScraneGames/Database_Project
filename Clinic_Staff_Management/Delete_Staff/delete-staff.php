@@ -42,68 +42,69 @@ $inpatient_check_sql_result = mysqli_query($conn,$inpatient_check_sql);
 
 // delete nurse
 
-if ($user['position'] == "nurse"){
-        $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
-    }
+//l if ($user['position'] == "nurse"){
+//l        $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
+//l    }
     // delete surgeon
-    elseif ($user['position'] == "surgeon") {
-        $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
-        }
+//l    elseif ($user['position'] == "surgeon") {
+//l        $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
+    //l    }
         // delte physician
+        // Turn this to an elseif when you undelete everything else
 
-        elseif ($user['position'] == "physician" ) {
+        if ($user['position'] == "physician" ) {
 
             // Check if a primary physician and if so, replace the primary physician id in patient_medical data
             // with the physician id of the chief of staff
-        //    if (mysqli_num_rows($primary_check_result) > 0) {
-        //        $replace_primary_sql = "UPDATE patient_medical_data
-        //                                SET primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
-        //                                WHERE primary_physician_id = '$primary_id';";
-//
-       //        echo "$replace_primary_sql";
-       //        if (mysqli_query($conn, $replace_primary_sql)) {
-        //            echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
-       //             echo "<br>";
-       //             } else {
-      //              echo "Error: " . $replace_primary_sql . "<br>" . $conn->error;
-      //          }
-      //      }
+        //l    if (mysqli_num_rows($primary_check_result) > 0) {
+        //l        $replace_primary_sql = "UPDATE patient_medical_data
+        //l                                SET primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
+        //l                                WHERE primary_physician_id = '$primary_id';";
+//l
+       //l        echo "$replace_primary_sql";
+       //l        if (mysqli_query($conn, $replace_primary_sql)) {
+        //l            echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
+       //l             echo "<br>";
+       //l             } else {
+      //l              echo "Error: " . $replace_primary_sql . "<br>" . $conn->error;
+      //l          }
+      //l      }
 
             // Check if an attending and if so, replace the primary physician id in patient_medical data
             // with the physician id of the chief of staff
 
-       //     if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
-       //         $replace_attending_sql = "UPDATE inpatients
-       //                                 SET attending_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
-        //                                WHERE attending_physician_id = '$primary_id'; ";
-//
-       //         echo "$replace_attending_sql";
-       //         if (mysqli_query($conn, $replace_attending_sql)) {
-       //             echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
-       //             echo "<br>";
-       //             } else {
-      //             echo "Error: " . $replace_attending_sql . "<br>" . $conn->error;
-      //          }
-      //      }
+       //l     if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
+       //l         $replace_attending_sql = "UPDATE inpatients
+       //l                                SET attending_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
+        //l                                WHERE attending_physician_id = '$primary_id'; ";
+//l
+       //l         echo "$replace_attending_sql";
+       //l         if (mysqli_query($conn, $replace_attending_sql)) {
+       //l             echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
+       //l             echo "<br>";
+       //l             } else {
+      //l             echo "Error: " . $replace_attending_sql . "<br>" . $conn->error;
+      //l          }
+      //l      }
 
             // Check if an owner and if so, delete physician from the owners table
-                if (mysqli_num_rows($owner_result) > 0) {
-                    $delete_owner_sql = "DELETE FROM owners WHERE ownership_id =
-                    (SELECT fk_physician_own_ownership_id
-                    FROM physician_owners
-                    WHERE fk_own_physician_id =
-                    (SELECT physician_id
-                    FROM physicians
-                    WHERE employee_id = '$original_employee_id')); ";
-
-                    echo "$delete_owner_sql";
-                  if (mysqli_query($conn, $delete_owner_sql)) {
-                        echo "Deleted the Physician's Ownership Record Correctly";
-                        echo "<br>";
-                        } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
-                    }
-                }
+           //l     if (mysqli_num_rows($owner_result) > 0) {
+          //l          $delete_owner_sql = "DELETE FROM owners WHERE ownership_id =
+           //l         (SELECT fk_physician_own_ownership_id
+          //l          FROM physician_owners
+          //l          WHERE fk_own_physician_id =
+          //l          (SELECT physician_id
+          //l          FROM physicians
+          //l          WHERE employee_id = '$original_employee_id')); ";
+//l
+        //l            echo "$delete_owner_sql";
+          //l        if (mysqli_query($conn, $delete_owner_sql)) {
+         //l               echo "Deleted the Physician's Ownership Record Correctly";
+          //l              echo "<br>";
+          //l              } else {
+         //l               echo "Error: " . $sql . "<br>" . $conn->error;
+         //l           }
+       //l         }
 
 
                // Set Delete SQL
@@ -113,45 +114,45 @@ if ($user['position'] == "nurse"){
 
 
                 }
-                // Deletes janitor or secretary
-                elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
-                $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
-            }
+    //l            // Deletes janitor or secretary
+    //l            elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
+    //l            $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
+    //l        }
 
             // Delete Chief of Staff
 
-            elseif ($user['position'] == "chief_of_staff") {
+     //l       elseif ($user['position'] == "chief_of_staff") {
+//l
+    //l            // Check if chief is a primary physician, and if so, throw an error
 
-                // Check if chief is a primary physician, and if so, throw an error
+     //l           if (mysqli_num_rows($primary_check_result) > 0 || mysqli_num_rows($inpatient_check_sql_result) > 0)  {
 
-                if (mysqli_num_rows($primary_check_result) > 0 || mysqli_num_rows($inpatient_check_sql_result) > 0)  {
+      //l              if (mysqli_num_rows($primary_check_result) > 0) {
+      //l              echo "<br>";
+      //l              echo "The chief of staff has primary patients assigned. Please reassign those patients to new primary doctors before proceeeding.";
+       //l             echo "<br>";
 
-                    if (mysqli_num_rows($primary_check_result) > 0) {
-                    echo "<br>";
-                    echo "The chief of staff has primary patients assigned. Please reassign those patients to new primary doctors before proceeeding.";
-                    echo "<br>";
+       //l         }
 
-                }
+       //l         if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
 
-                if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
-
-                        echo "<br>";
-                        echo "The chief of staff has inpatients assigned. Please reassign those patients to new primary doctors before proceeeding.";
-                        echo "<br>";
-                }
-             } else {
+       //l                 echo "<br>";
+       //l                 echo "The chief of staff has inpatients assigned. Please reassign those patients to new primary doctors before proceeeding.";
+        //l                echo "<br>";
+       //l         }
+       //l      } else {
 
                     // Check if the chief is a n owner, and if so, delete from owners
 
-                    if (mysqli_num_rows($owner_result) > 0) {
-                        $delete_owner_sql = "DELETE FROM owners WHERE ownership_id =
-                        (SELECT fk_physician_own_ownership_id
-                        FROM physician_owners
-                        WHERE fk_own_physician_id =
-                        (SELECT physician_id
-                        FROM physicians
-                        WHERE employee_id = '$original_employee_id')); ";
-                      echo "$delete_owner_sql";
+      //l              if (mysqli_num_rows($owner_result) > 0) {
+      //l                 $delete_owner_sql = "DELETE FROM owners WHERE ownership_id =
+       //l                 (SELECT fk_physician_own_ownership_id
+       //l                 FROM physician_owners
+       //l                 WHERE fk_own_physician_id =
+       //l                (SELECT physician_id
+        //l                FROM physicians
+       //l                 WHERE employee_id = '$original_employee_id')); ";
+       //l               echo "$delete_owner_sql";
 
                       if (mysqli_query($conn, $delete_owner_sql)) {
                           echo "Deleted the Chief of Staff's Ownership Record Correctly";

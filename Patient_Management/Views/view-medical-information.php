@@ -37,7 +37,8 @@ $result_share = mysqli_query($conn,$sql);
 
 $result_array = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-
+echo $result_array['patient_name'];
+echo $result_array['blood_type'];
 
 $primary_id = $result_array['primary_physician_id'];
 $find_primary_name = "SELECT employee_name FROM physicians WHERE physician_id = '$primary_id'";

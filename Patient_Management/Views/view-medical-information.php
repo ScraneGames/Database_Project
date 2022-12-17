@@ -59,7 +59,7 @@ echo "<table border='1'>
 <th>Blood Type</th>
 </tr>";
 
-while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+while($row = mysqli_fetch_array($result)){
     echo "<tr>";
     echo "<td>" . $row['patient_name'] . "</td>";
     echo "<td>" . $row['blood_type'] . "</td>";
@@ -89,7 +89,7 @@ echo "<table border='1'>
 <th>Illness Description</th>
 </tr>";
 
-while($illness_row = mysqli_fetch_array($illness_result,MYSQLI_ASSOC)){
+while($illness_row = mysqli_fetch_array($illness_result)){
     echo "<tr>";
     echo "<td>" . $illness_row['illness_name'] . "</td>";
     echo "<td>" . $illness_row['illness_desc'] . "</td>";

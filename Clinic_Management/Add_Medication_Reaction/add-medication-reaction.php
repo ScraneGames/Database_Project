@@ -69,6 +69,8 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
                 // While loop must be terminated
             ?>
         </select>
+
+        <p>
         <br>
         <label for="severity">Medication Severity:</label>
                            <select name="severity" id="severity">
@@ -77,10 +79,11 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
                            <option value="m">(M) Moderate Interaction</option>
                            <option value="l">(L) Little Interaction</option>
                            <option value="n">(N) No Interaction</option>
+            </p>
+                           <br>
         <br>
-        <br>
-
-        <?php
+<div>
+<?php
 
 $medication_reactions = "SELECT medication_name, reacting_name, severity
 FROM view_medication_reactions
@@ -110,11 +113,12 @@ while($reacting_row = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC)){
 echo "</table>";
 
 echo "<br>";
-        ?>
 
+$conn->close();
+        ?>
+</div>
             <input type="submit" value="Submit">
          </form>
       </center>
    </body>
-   <?php   $conn->close(); ?>
 </html>

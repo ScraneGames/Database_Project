@@ -59,7 +59,7 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
 <p>
                <label for="telephone_number">Telephone Number:</label>
-               <input type="tel" name="telephone_number" value="<?php echo $user['telphone_number']; ?>" id="telephone_number">
+               <input type="tel" name="telephone_number" value="<?php echo $user['telephone_number']; ?>" id="telephone_number">
             </p>
 
 <p>

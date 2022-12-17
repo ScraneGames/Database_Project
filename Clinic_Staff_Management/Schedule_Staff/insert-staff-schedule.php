@@ -22,7 +22,7 @@ include "/var/www/html/functions.php";
 
 
         // Taking all the values from the patient-administration.php
-        $employee = $_REQUEST['employee_id'];
+        $employee = $_REQUEST['employee'];
 // check Monday
         if ($_REQUEST['monday'] == 'on'){
             $monday = 1;

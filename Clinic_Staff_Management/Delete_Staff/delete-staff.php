@@ -118,7 +118,7 @@ if ($user['position'] == "nurse"){
                     echo "The chief of staff has primary patients assigned. Please reassign those patients to new primary doctors before proceeeding.";
                     echo "<br>";
 
-                } elseif {
+                } else {
                     if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
                         echo "<br>";
                         echo "The chief of staff has inpatients assigned. Please reassign those patients to new primary doctors before proceeeding.";

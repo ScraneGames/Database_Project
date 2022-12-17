@@ -53,7 +53,7 @@ include "/var/www/html/functions.php";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-              var_dump($conn);
+
     } else{
             $sql = "INSERT INTO surgery_schedule (patient_id, operating_theater, fk_schedule_surgery_code, fk_schedule_surgeon_id, fk_nurse_id, date, time)
                     VALUES ('$patient', '$operating_theater', '$surgery_type', '$surgeon', '$nurse1', '$date', '$time'); ";
@@ -64,7 +64,7 @@ include "/var/www/html/functions.php";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-          var_dump($conn);
+
     }
 
             ?>

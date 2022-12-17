@@ -47,5 +47,4 @@ if (mysqli_query($conn, $sql)) {
   ?>
     </center>
 </body>
-<?php   $conn->close(); ?>
 </html>

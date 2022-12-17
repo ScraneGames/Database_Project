@@ -10,6 +10,14 @@ $sql_find_medications = "SELECT name, medication_code FROM medications";
 $all_medications = mysqli_query($conn,$sql_find_medications);
 $all_medications2 = mysqli_query($conn,$sql_find_medications);
 
+
+$medication_reactions = "SELECT medication_name, reacting_name, severity
+                           FROM view_medication_reactions
+                           ORDER BY medication_name'";
+$reaction_results = mysqli_query($conn,$medication_reactions);
+
+
+
 ?>
 
 
@@ -78,6 +86,31 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
                            <option value="l">(L) Little Interaction</option>
                            <option value="n">(N) No Interaction</option>
         <br>
+        <br>
+        <p>
+        <?php
+echo "Current Medication Reactions";
+echo "<br>";
+
+echo "<table border='1'>
+<tr>
+<th>Medication Name</th>
+<th>Reacting Medication Name</th>
+<th>Severity</th>
+</tr>";
+
+while($reacting_row = mysqli_fetch_array($reaction_results)){
+    echo "<tr>";
+    echo "<td>" . $reacting_row['medication_name'] . "</td>";
+    echo "<td>" . $reacting_row['reacting_name'] . "</td>";
+    echo "<td>" . $reacting_row['severity'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<br>";
+        ?>
+        </p>
             <input type="submit" value="Submit">
          </form>
       </center>

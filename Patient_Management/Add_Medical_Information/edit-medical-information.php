@@ -6,26 +6,37 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Pull patient ID
 $original_patient_id = $_REQUEST['patient'];
+
+// Gather Patient Medical Information
 $sql = "SELECT * FROM patient_medical_data WHERE fk_medical_data_patient_id = '$original_patient_id'";
 $result = mysqli_query($conn,$sql);
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
+
+// Gather patient personal information
 $sql_personal_info = "SELECT patient_name FROM patient_personal_data WHERE patient_id = '$original_patient_id'";
 $personal_result = mysqli_query($conn,$sql_personal_info);
 $personal_user = mysqli_fetch_array($personal_result,MYSQLI_ASSOC);
 
+
+// Gather the most recent cholesterol information
 $sql_cholesterol = "SELECT MAX(fk_cholesterol_consultation_number), HDL, LDL, triglycerides, blood_sugar FROM cholesterol WHERE fk_cholesterol_patient_id = '$original_patient_id'";
 $cholesterol_result = mysqli_query($conn,$sql_cholesterol);
 $cholesterol_user = mysqli_fetch_array($cholesterol_result,MYSQLI_ASSOC);
 
+
+// Gather information on the consultations
 $consultation_sql = "SELECT consultation_number, date, employee_name FROM consultations, physicians WHERE fk_consultation_patient_id = '$original_patient_id' AND consultations.fk_consultation_physician_id = physicians.physician_id";
 $consultation_result = mysqli_query($conn,$consultation_sql);
 // $consultation_user = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
+// Quick math on the cholesterol total
 $current_cholesterol_total = ($cholesterol_user['HDL']+$cholesterol_user['LDL']+(0.2*$cholesterol_user['triglycerides']));
 $current_cholesterol_risk = (round($current_cholesterol_total/$cholesterol_user['HDL'],2));
 
+// Find all medications not prescribed to the patient
 $medication_sql = "SELECT medication_code, name
                   FROM medications
                   WHERE medication_code NOT IN
@@ -35,6 +46,8 @@ $medication_sql = "SELECT medication_code, name
                   AND quantity_on_hand > 0";
 $medication_results = mysqli_query($conn,$medication_sql);
 
+
+// Check Prescribed medications
 $prescribed_medications = "SELECT medication_code, name, dosage, frequency
                            FROM medications
                            JOIN patient_medications
@@ -42,6 +55,16 @@ $prescribed_medications = "SELECT medication_code, name, dosage, frequency
                            WHERE fk_medications_patient_id = '$original_patient_id'";
 $prescribed_results = mysqli_query($conn,$prescribed_medications);
 $prescribed_remove_results = mysqli_query($conn,$prescribed_medications);
+$prescribed_array = mysqli_fetch_array($prescribed_results);
+
+// Also find the medications prescribed to the patient
+                           $medication_reactions = "SELECT medication_name, reacting_name, severity
+                           FROM view_medication_reactions
+                           JOIN patient_medications
+                           ON view_medication_reactions.medication_id = patient_medications.fk_patient_medication_code
+                           WHERE patient_medications.fk_medications_patient_id = '$original_patient_id'
+                           ORDER BY medication_name";
+$reactions_results = mysqli_query($conn,$medication_reactions);
 
 // $all_consultations = mysqli_fetch_array($consultation_result,MYSQLI_ASSOC);
 
@@ -145,38 +168,13 @@ $sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_le
                <br>
 </p>
 <p>
+
+<!-- See patient primary info and change it -->
 <?php
 echo "The patient's current primary physician is $primary.";
 ?>
 <br>
 </p>
-<?php if (mysqli_num_rows($sql_find_physicians_less_7_result) > 0): ?>
-<p>
-               <label for="primary_less_7">Primary Physician:</label>
-               <select name="primary_less_7">
-            <?php
-                // use a while loop to fetch data
-                // from the $all_categories variable
-                // and individually display as an option
-                while ($primary_less_7 = mysqli_fetch_array(
-                  $sql_find_physicians_less_7_result,MYSQLI_ASSOC)):;
-            ?>
-                <option value="<?php echo $primary_less_7["physician_id"];
-                    // The value we usually set is the primary key
-                ?>"
-                <?php if ($primary_less_7['physician_id'] == $primary_id) { echo " selected";} ?>>
-                    <?php echo $primary_less_7["employee_name"] . " ".$primary_less_7["physician_id"];
-                        // To show the employee name to the user
-                    ?>
-                </option>
-               <?php
-               endwhile;
-               // While loop must be terminated
-         ?>
-      </select>
-</p>
-      <?php elseif (mysqli_num_rows($sql_find_physicians_less_20_result) > 0): ?>
-<p>
          <label for="primary_less_20">Primary Physician:</label>
                         <select name="primary_less_20">
                      <?php
@@ -199,7 +197,6 @@ echo "The patient's current primary physician is $primary.";
                         // While loop must be terminated
                         ?>
       </select>
-      <?php endif; ?>
       <br>
 
 <!-- Selection to prescribe medication -->
@@ -247,7 +244,30 @@ echo "The patient's current primary physician is $primary.";
          <label for="frequency">Frequency:</label>
          <input type="text" name="frequency" id="frequency">
       </p>
-</div>
+<!-- Show this section if thre is a prescription for the patient -->
+      <?php if (mysqli_num_rows($prescribed_results) > 0): ?>
+      <?php
+echo "Current Medication Reactions";
+echo "<br>";
+
+echo "<table border='1'>
+<tr>
+<th>Medication Name</th>
+<th>Reacting Medication Name</th>
+<th>Severity</th>
+</tr>";
+
+while($reacting_row = mysqli_fetch_array($reaction_results)){
+    echo "<tr>";
+    echo "<td>" . $reacting_row['medication_name'] . "</td>";
+    echo "<td>" . $reacting_row['reacting_name'] . "</td>";
+    echo "<td>" . $reacting_row['severity'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<br>";
+        ?>
 
 <br>
 <p>
@@ -279,6 +299,8 @@ echo "</table>";
 echo "<br>";
 
 ?>
+<?php endif; ?>
+</div>
             </p>
 <!-- Selection to Remove Medications -->
 <p>

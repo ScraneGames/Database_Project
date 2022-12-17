@@ -76,6 +76,46 @@ $sql_find_all_skills_result = mysqli_query($conn,$sql_find_all_skills)
       </select>
       <br>
 </p>
+<p>
+<br>
+<?php
+
+$nurse_skills_sql = "SELECT nurse_skills.fk_nurse_skills_skill_id, nurse_skills.fk_skills_nurse_id,
+                    surgery_skills.skill_name, staff.employee_name
+                    FROM nurse_skills
+                    JOIN surgery_skills
+                    ON nurse_skills.fk_nurse_skills_skill_id = surgery_skills.skill_id
+                    JOIN nurses
+                    ON nurse_skills.fk_skills_nurse_id = nurse_id
+                    JOIN staff
+                    ON nurses.employee_id = staff.employee_id
+                    ORDER BY employee_name, skill_name"
+$nurse_skills_results = mysqli_query($conn,$nurse_skills_sql)
+
+echo "Already Assigned Skills";
+echo "<br>";
+
+echo "<table border='1'>
+<tr>
+<th>Nurse ID</th>
+<th>Nurse Name</th>
+<th>Skill Name</th>
+</tr>";
+
+while($skills_row = mysqli_fetch_array($nurse_skills_results)){
+    echo "<tr>";
+    echo "<td>" . $skills_row['fk_nurse_skills_skill_id'] . "</td>";
+    echo "<td>" . $skills_row['employee_name'] . "</td>";
+    echo "<td>" . $skills_row['skill_name'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<br>";
+
+?>
+
+                    </p>
             <input type="submit" name="button" value="Assign">
          </form>
       </center>

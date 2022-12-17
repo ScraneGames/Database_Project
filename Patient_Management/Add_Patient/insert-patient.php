@@ -51,8 +51,8 @@ include "/var/www/html/functions.php";
         if(mysqli_multi_query($conn, $sql)){
             echo "<h3>Information added successfully. </h3>";
         } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
+            echo "Error: " . $sql . "<br>" . $conn->error;
+
         }
 
         // Close connection

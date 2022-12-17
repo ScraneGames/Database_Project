@@ -35,8 +35,7 @@ include "/var/www/html/functions.php";
         if(mysqli_multi_query($conn, $sql)){
             echo "<h3>Nurse Assigned to the Surgery.";
         } else {
-            echo "ERROR: Hush! Sorry $sql. "
-                . mysql_error($conn);
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
         // Close connection

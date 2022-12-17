@@ -6,7 +6,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT employee_name, employee_id FROM staff";
+$sql_find_names = "SELECT employee_name, employee_id, position FROM staff ORDER BY position, name";
 
 $all_employees = mysqli_query($conn,$sql_find_names);
 
@@ -41,7 +41,8 @@ $all_employees = mysqli_query($conn,$sql_find_names);
                 <option value="<?php echo $employees["employee_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $employees["employee_name"] . " ".$employees["employee_id"];
+                    <?php echo "Position: " $employees['position']  .
+                    " Name: " . $employees["employee_name"] . " ID: ".$employees["employee_id"];
                         // To show the employee name to the user
                     ?>
                 </option>

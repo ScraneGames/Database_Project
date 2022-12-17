@@ -118,7 +118,7 @@ echo "<table border='1'>
 <th>Allergy Description</th>
 </tr>";
 
-while($allergies_row = mysqli_fetch_array($allergies_result,MYSQLI_ASSOC)){
+while($allergies_row = mysqli_fetch_array($allergies_result)){
     echo "<tr>";
     echo "<td>" . $allergies_row['allergy_name'] . "</td>";
     echo "<td>" . $allergies_row['allergy_desc'] . "</td>";
@@ -151,7 +151,7 @@ echo "<table border='1'>
 <th>Frequency</th>
 </tr>";
 
-while($prescribed_row = mysqli_fetch_array($prescribed_results,MYSQLI_ASSOC)){
+while($prescribed_row = mysqli_fetch_array($prescribed_results)){
     echo "<tr>";
     echo "<td>" . $prescribed_row['medication_code'] . "</td>";
     echo "<td>" . $prescribed_row['name'] . "</td>";
@@ -175,7 +175,8 @@ $cholesterol_result = mysqli_query($conn,$cholesterol_sql);
 
 $sql_high_risk = "SELECT high_risk FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";
 $high_risk_result =  mysqli_query($conn,$sql_high_risk);
-if ($high_risk_result > 0){
+$high_risk_result_array = mysqli_fetch_array($high_risk_result,MYSQLI_ASSOC)
+if ($high_risk_result_array['high_risk'] > 0){
     $high_risk = "at high risk.";
 } else {
     $high_risk = "not at high risk.";

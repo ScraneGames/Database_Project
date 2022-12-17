@@ -22,14 +22,21 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
         $patient = $_REQUEST['patient'];
-        $physician= $_REQUEST['physician'];
+
+
+        if ($_REQUEST['primary_less_7']) {
+            $primary = $_REQUEST['primary_less_7'];
+        } else {
+            $primary = $_REQUEST['primary_less_20'];
+        }
 
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO physician_inpatient_assignments (physician_id, patient_id)
-                VALUES ('$physician', '$patient')";
+        $sql = "UPDATE inpatients
+                SET attending_physician_id = '$primary'
+                WHERE fk_inpatients_patient_id = '$patient'";
 
 
         if(mysqli_multi_query($conn, $sql)){

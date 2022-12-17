@@ -25,13 +25,17 @@ include "/var/www/html/functions.php";
         $bed = $_REQUEST['bed'];
         $date = $_REQUEST['date'];
 
-
+        if ($_REQUEST['primary_less_7']) {
+            $primary = $_REQUEST['primary_less_7'];
+        } else {
+            $primary = $_REQUEST['primary_less_20'];
+        }
 
         // Performing insert query execution
         // here for our table name is patient_personal_data
 
-        $sql = "INSERT INTO inpatients (fk_inpatients_bed_id, fk_inpatients_patient_id, date_of_admission)
-            VALUES ('$bed', '$patient', '$date')";
+        $sql = "INSERT INTO inpatients (fk_inpatients_bed_id, fk_inpatients_patient_id, date_of_admission, attending_physcian_id)
+            VALUES ('$bed', '$patient', '$date', '$primary')";
 
 
         if(mysqli_multi_query($conn, $sql)){

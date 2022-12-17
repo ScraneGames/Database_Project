@@ -90,8 +90,8 @@ $reaction_results = mysqli_query($conn,$medication_reactions);
         <p>
         <?php
 
-        $test = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC)
-        var_dump($test)
+        $test = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC);
+        var_dump($test);
 echo "Current Medication Reactions";
 echo "<br>";
 
@@ -108,7 +108,7 @@ while($reacting_row = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC)){
     echo "<tr>";
     echo "<td>" . $reacting_row['medication_name'] . "</td>";
     echo "<td>" . $reacting_row['reacting_name'] . "</td>";
-    echo "<td>" . $reacting_row['severity'] . "</td>";
+    echo "<td>" . $reacting_row['severity'] . "<c/td>";
     echo "</tr>";
 }
 echo "</table>";

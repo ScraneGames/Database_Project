@@ -55,36 +55,36 @@ if ($user['position'] == "nurse"){
 
             // Check if a primary physician and if so, replace the primary physician id in patient_medical data
             // with the physician id of the chief of staff
-            if (mysqli_num_rows($primary_check_result) > 0) {
-                $replace_primary_sql = "UPDATE patient_medical_data
-                                        SET primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
-                                        WHERE primary_physician_id = '$primary_id';";
-
-               echo "$replace_primary_sql";
-               if (mysqli_query($conn, $replace_primary_sql)) {
-                    echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
-                    echo "<br>";
-                    } else {
-                    echo "Error: " . $replace_primary_sql . "<br>" . $conn->error;
-                }
-            }
+        //    if (mysqli_num_rows($primary_check_result) > 0) {
+        //        $replace_primary_sql = "UPDATE patient_medical_data
+        //                                SET primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
+        //                                WHERE primary_physician_id = '$primary_id';";
+//
+       //        echo "$replace_primary_sql";
+       //        if (mysqli_query($conn, $replace_primary_sql)) {
+        //            echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
+       //             echo "<br>";
+       //             } else {
+      //              echo "Error: " . $replace_primary_sql . "<br>" . $conn->error;
+      //          }
+      //      }
 
             // Check if an attending and if so, replace the primary physician id in patient_medical data
             // with the physician id of the chief of staff
 
-            if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
-                $replace_attending_sql = "UPDATE inpatients
-                                        SET attending_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
-                                        WHERE attending_physician_id = '$primary_id'; ";
-
-                echo "$replace_attending_sql";
-                if (mysqli_query($conn, $replace_attending_sql)) {
-                    echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
-                    echo "<br>";
-                    } else {
-                   echo "Error: " . $replace_attending_sql . "<br>" . $conn->error;
-                }
-            }
+       //     if (mysqli_num_rows($inpatient_check_sql_result) > 0) {
+       //         $replace_attending_sql = "UPDATE inpatients
+       //                                 SET attending_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
+        //                                WHERE attending_physician_id = '$primary_id'; ";
+//
+       //         echo "$replace_attending_sql";
+       //         if (mysqli_query($conn, $replace_attending_sql)) {
+       //             echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
+       //             echo "<br>";
+       //             } else {
+      //             echo "Error: " . $replace_attending_sql . "<br>" . $conn->error;
+      //          }
+      //      }
 
             // Check if an owner and if so, delete physician from the owners table
                 if (mysqli_num_rows($owner_result) > 0) {

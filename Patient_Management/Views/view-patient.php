@@ -42,7 +42,7 @@ echo "<table border='1'>
 <th>Telephone Number</th>
 </tr>";
 
-while($row = mysqli_fetch_array($result)){
+while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
     echo "<tr>";
     echo "<td>" . $row['patient_id'] . "</td>";
     echo "<td>" . $row['patient_name'] . "</td>";
@@ -59,7 +59,7 @@ $staff_result = mysqli_query($conn,$sql);
 
 if (mysqli_num_rows($sql_find_nurses_less_5) > 0){
     echo "<br>";
-    $staff = (mysqli_fetch_array($staff_result));
+    $staff = (mysqli_fetch_array($staff_result,MYSQLI_ASSOC));
     echo $staff['patient_name'] . " is also a staff member who works as a " . $staff['position'] . " and has the employee ID of " . $staff['employee_id'] . ".";
 }
 

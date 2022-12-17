@@ -40,7 +40,8 @@ $result_array = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $primary_id = $result_array['primary_physician_id'];
 $find_primary_name = "SELECT employee_name FROM physicians WHERE physician_id = '$primary_id'";
 $primary_result = mysqli_query($conn,$find_primary_name);
-$primary_name = $primary_result['employee_name'];
+$primary_result_array = mysqli_fetch_array($primary_result,MYSQLI_ASSOC);
+$primary_name = $primary_result_array['employee_name'];
 
 ?>
 <p>

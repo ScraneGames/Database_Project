@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title> Insert Allergy Page</title>
@@ -146,6 +146,7 @@ if ($user['position'] == "nurse"){
                     $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
                 }
             }
+        }
 
 
 if (mysqli_query($conn, $delete_sql)) {

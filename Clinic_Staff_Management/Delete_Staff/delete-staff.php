@@ -157,3 +157,6 @@ if (mysqli_query($conn, $delete_sql)) {
   $conn->close();
 
 ?>
+     </center>
+   </body>
+</html>

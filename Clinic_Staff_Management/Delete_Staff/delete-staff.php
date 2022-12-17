@@ -77,7 +77,7 @@ if ($user['position'] == "nurse"){
                                         SET attending_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
                                         WHERE primary_physician_id = '$primary_id'";
 
-                var_dump($replace_attending_sql);
+                echo "$replace_attending_sql";
             //    if (mysqli_query($conn, $replace_attending_sql)) {
             //        echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
             //        echo "<br>";
@@ -101,12 +101,12 @@ if ($user['position'] == "nurse"){
              //           } else {
              //           echo "Error: " . $sql . "<br>" . $conn->error;
              //       }
-             var_dump($delete_owner_sql);
+             echo "$delete_owner_sql";
 
                // Set Delete SQL
                $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
 
-               var_dump($delete_sql);
+               echo "$delete_sql";
 
 
                 }  elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
@@ -141,7 +141,7 @@ if ($user['position'] == "nurse"){
                         (SELECT physician_id
                         FROM physicians
                         WHERE employee_id = '$original_employee_id')); ";
-                       var_dump($delete_owner_sql);
+                      echo "$delete_owner_sql";
 
                    //    if (mysqli_query($conn, $delete_owner_sql)) {
                    //         echo "Deleted the Physician's Ownership Record Correctly";
@@ -150,12 +150,12 @@ if ($user['position'] == "nurse"){
                   //          echo "Error: " . $sql . "<br>" . $conn->error;
                             $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
 
-                            var_dump($delete_sql);
+                            echo "$delete_sql";
                        // }
                     }
                     $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
 
-                    var_dump($delte_sql);
+                    echo "$delete_sql";
                 }
             }
       }

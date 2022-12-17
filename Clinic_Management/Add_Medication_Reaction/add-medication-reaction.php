@@ -16,6 +16,10 @@ $medication_reactions = "SELECT medication_name, reacting_name, severity
                            ORDER BY medication_name";
 $reaction_results = mysqli_query($conn,$medication_reactions);
 
+$test = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC);
+
+var_dump($test);
+
 ?>
 
 
@@ -96,6 +100,8 @@ echo "<table border='1'>
 <th>Reacting Medication Name</th>
 <th>Severity</th>
 </tr>";
+
+
 
 while($reacting_row = mysqli_fetch_array($reaction_results,MYSQLI_ASSOC)){
     echo "<tr>";

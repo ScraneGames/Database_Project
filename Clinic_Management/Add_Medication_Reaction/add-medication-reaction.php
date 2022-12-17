@@ -13,10 +13,9 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
 
 $medication_reactions = "SELECT medication_name, reacting_name, severity
                            FROM view_medication_reactions
-                           ORDER BY medication_name'";
+                           ORDER BY medication_name";
 $reaction_results = mysqli_query($conn,$medication_reactions);
 
-var_dump($medication_reactions);
 ?>
 
 

@@ -33,6 +33,8 @@ $sql = "SELECT * FROM patient_medical_data
 
 $result = mysqli_query($conn,$sql);
 
+$result_share = mysqli_query($conn,$sql);
+
 $result_array = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
 
@@ -60,7 +62,7 @@ echo "<table border='1'>
 <th>Blood Type</th>
 </tr>";
 
-while($row = mysqli_fetch_array($result)){
+while($row = mysqli_fetch_array($result_share)){
     echo "<tr>";
     echo "<td>" . $row['patient_name'] . "</td>";
     echo "<td>" . $row['blood_type'] . "</td>";

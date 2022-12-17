@@ -37,7 +37,7 @@ echo "<table border='1'>
 <th>Bed ID</th>
 <th>Nursing Unit</th>
 <th>Wing</th>
-<th>Room Number/th>
+<th>Room Number</th>
 <th>Bed Letter</th>
 </tr>";
 

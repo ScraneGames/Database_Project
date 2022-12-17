@@ -42,7 +42,7 @@ $patient = $_REQUEST['view_consultations_per_patient'];
         <th>Patient ID</th>
         </tr>";
 
-        while($row = mysqli_fetch_array($result)){
+        while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
             echo "<tr>";
             echo "<td>" . $row['consultation_number'] . "</td>";
             echo "<td>" . $row['date'] . "</td>";

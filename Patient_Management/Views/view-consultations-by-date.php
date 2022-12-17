@@ -23,7 +23,8 @@ $date = $_REQUEST['view_consultations_by_date'];
 
         // Taking all the values from the patient-administration.php
         $sql = "SELECT * FROM view_consultations
-                WHERE date = '$date'";
+                WHERE date = '$date'
+                ORDER BY time";
         $result = mysqli_query($conn,$sql);
 
         echo "All Consultations on $date";
@@ -58,4 +59,6 @@ $date = $_REQUEST['view_consultations_by_date'];
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

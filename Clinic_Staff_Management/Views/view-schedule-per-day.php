@@ -39,7 +39,12 @@ $day = $_REQUEST['day'];
 
         // Taking all the values from the patient-administration.php
 
-        $sql = "SELECT staff.employee_name, staff.employee_id, staff.position, work_schedule.$day, work_schedule.start_time, work_schedule.end_time FROM work_schedule JOIN staff on work_schedule.fk_work_schedule_employee_id = staff.employee_id";
+        $sql = "SELECT staff.employee_name, staff.employee_id, staff.position,
+                work_schedule.$day, work_schedule.start_time, work_schedule.end_time
+                FROM work_schedule
+                JOIN staff
+                ON work_schedule.fk_work_schedule_employee_id = staff.employee_id
+                ORDER BY staff.employee_id";
         $result = mysqli_query($conn,$sql);
 
 
@@ -75,4 +80,5 @@ echo "<br>";
 
         </center>
     </body>
+    <?php   $conn->close(); ?>
 </html>

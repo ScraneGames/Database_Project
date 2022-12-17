@@ -6,7 +6,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
+$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data ORDER BY patient_name";
 
 $all_patients = mysqli_query($conn,$sql_find_names);
 
@@ -55,4 +55,6 @@ $all_patients = mysqli_query($conn,$sql_find_names);
          </form>
       </center>
    </body>
+
+   <?php   $conn->close(); ?>
 </html>

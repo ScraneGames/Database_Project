@@ -65,4 +65,5 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

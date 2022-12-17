@@ -24,7 +24,8 @@ $patient = $_REQUEST['view_surgeries_per_patient'];
         // Taking all the values from the patient-administration.php
 
         $sql = "SELECT * FROM view_surgeries
-        WHERE patient_id = '$patient'";
+        WHERE patient_id = '$patient'
+        ORDER BY surgery_id";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -66,4 +67,6 @@ echo "<br>";
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

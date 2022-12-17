@@ -32,10 +32,8 @@ include "/var/www/html/functions.php";
 
         if ($_REQUEST['primary_less_7']) {
             $primary = $_REQUEST['primary_less_7'];
-            echo "Entering primary less than 7";
         } else {
             $primary = $_REQUEST['primary_less_20'];
-            echo "Entering primary less than 20";
         }
 
 
@@ -51,14 +49,14 @@ include "/var/www/html/functions.php";
 
 
         if(mysqli_multi_query($conn, $sql)){
-            echo "<h3>Information added successfully.";
+            echo "<h3>Information added successfully. </h3>";
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysql_error($conn);
         }
 
         // Close connection
-            mysql_close($conn);
+    $conn->close();
             ?>
     </center>
 </body>

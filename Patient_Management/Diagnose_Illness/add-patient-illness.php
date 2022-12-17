@@ -6,10 +6,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
+$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data ORDER BY patient_name";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_illnesses = "SELECT illness_code, illness_name FROM illnesses";
+$sql_find_illnesses = "SELECT illness_code, illness_name FROM illnesses ORDER BY illness_name";
 $sql_find_illness_result = mysqli_query($conn,$sql_find_illnesses);
 
 
@@ -81,4 +81,6 @@ $sql_find_illness_result = mysqli_query($conn,$sql_find_illnesses);
          </form>
       </center>
    </body>
+
+   <?php   $conn->close(); ?>
 </html>

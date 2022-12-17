@@ -23,8 +23,7 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
 
-        $sql = "SELECT * FROM view_consultations
-        WHERE date >= CURDATE()";
+        $sql = "SELECT * FROM view_consultations ORDER BY date, time";
         $result = mysqli_query($conn,$sql);
 
         $result = mysqli_query($conn,$sql);
@@ -60,4 +59,6 @@ include "/var/www/html/functions.php";
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

@@ -45,16 +45,15 @@ include "/var/www/html/functions.php";
 
 
         if(mysqli_query($conn, $sql)){
-            echo "<h3>Information updated successfully.";
+            echo "<h3>Information updated successfully.</h3>";
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysql_error($conn);
         }
 
         // Close connection
-            mysql_close($conn);
+        $conn->close();
             ?>
     </center>
 </body>
-
 </html>

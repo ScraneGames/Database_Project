@@ -55,4 +55,5 @@ $all_employees = mysqli_query($conn,$sql_find_names);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

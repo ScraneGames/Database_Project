@@ -31,7 +31,8 @@ $sql = "SELECT * FROM consultations
         ON consultations.fk_consultation_patient_id = patient_personal_data.patient_id
         JOIN physicians
         ON consultations.fk_consultation_physician_id = physicians.physician_id
-        WHERE consultations.fk_consultation_patient_id = '$patient'";
+        WHERE consultations.fk_consultation_patient_id = '$patient'
+        ORDER BY date, time";
 
 $result = mysqli_query($conn,$sql);
 echo "All Patient Consultations";
@@ -53,9 +54,11 @@ while($row = mysqli_fetch_array($result)){
 echo "</table>";
 
 echo "<br>";
-
+$conn->close();
 ?>
 
         </center>
     </body>
+
+
 </html>

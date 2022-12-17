@@ -70,5 +70,5 @@ include "/var/www/html/functions.php";
             ?>
     </center>
 </body>
-
+<?php   $conn->close(); ?>
 </html>

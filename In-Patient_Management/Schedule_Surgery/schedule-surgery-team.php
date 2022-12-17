@@ -252,4 +252,6 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
           $('#add_inpatient').show();
    });
    </script>
+
+<?php   $conn->close(); ?>
 </html>

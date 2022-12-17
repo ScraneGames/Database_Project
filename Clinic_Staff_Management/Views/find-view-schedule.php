@@ -88,7 +88,7 @@ $all_positions = mysqli_query($conn,$sql_find_positions);
    <br>
 </form>
 
-
+<?php   $conn->close(); ?>
 
 
          </form>

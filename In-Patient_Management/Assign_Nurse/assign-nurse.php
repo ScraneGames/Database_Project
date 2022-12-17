@@ -136,4 +136,5 @@ $numrows = mysqli_num_rows($sql_find_nurses_less_5_result);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

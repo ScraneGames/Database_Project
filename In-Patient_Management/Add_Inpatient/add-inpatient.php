@@ -169,4 +169,5 @@ $sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_le
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

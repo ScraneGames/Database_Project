@@ -95,7 +95,6 @@ if (mysqli_multi_query($conn, $sql)) {
     }
 
     $conn->close();
-    var_dump($conn);
             ?>
     </center>
 </body>

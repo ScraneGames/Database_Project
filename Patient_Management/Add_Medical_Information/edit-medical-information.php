@@ -163,7 +163,8 @@ echo "The patient's current primary physician is $primary.";
             ?>
                 <option value="<?php echo $primary_less_7["physician_id"];
                     // The value we usually set is the primary key
-                ?>">
+                ?>"
+                <?php if ($primary_less_7['physician_id'] == $primary_id) { echo " selected";} ?>>
                     <?php echo $primary_less_7["employee_name"] . " ".$primary_less_7["physician_id"];
                         // To show the employee name to the user
                     ?>
@@ -187,7 +188,8 @@ echo "The patient's current primary physician is $primary.";
                      ?>
                         <option value="<?php echo $primary_less_20["physician_id"];
                            // The value we usually set is the primary key
-                        ?>">
+                        ?>"
+                           <?php if ($primary_less_20['physician_id'] == $primary_id) { echo " selected";} ?>>
                            <?php echo $primary_less_20["employee_name"] . " ".$primary_less_20["physician_id"];
                                  // To show the employee name to the user
                            ?>
@@ -370,5 +372,5 @@ echo "<br>";
    });
    </script>
 
-
+<?php   $conn->close(); ?>
 </html>

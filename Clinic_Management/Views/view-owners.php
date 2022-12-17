@@ -23,7 +23,7 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
 
-        $sql = "SELECT * FROM ownership_perc";
+        $sql = "SELECT * FROM ownership_perc ORDER BY ownership_id";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -46,7 +46,7 @@ while($row = mysqli_fetch_array($result)){
 echo "</table>";
 
 echo "<br>";
-
+$conn->close();
 ?>
 
         </center>

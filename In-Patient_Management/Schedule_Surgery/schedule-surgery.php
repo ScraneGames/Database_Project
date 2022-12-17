@@ -97,4 +97,5 @@ $all_surgeries = mysqli_query($conn,$sql_find_surgery_types);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

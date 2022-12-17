@@ -30,7 +30,8 @@ include "/var/www/html/functions.php";
                         JOIN physicians
                         ON inpatients.attending_physician_id = physicians.physician_id
                         JOIN patient_personal_data
-                        ON inpatients.fk_inpatients_patient_id = patient_personal_data.patient_id";
+                        ON inpatients.fk_inpatients_patient_id = patient_personal_data.patient_id
+                        ORDER BY patient_name";
         $result = mysqli_query($conn,$sql_find_beds);
 
 echo "All Beds Without Assigned Patients";
@@ -61,4 +62,6 @@ echo "<br>";
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

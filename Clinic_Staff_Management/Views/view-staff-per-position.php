@@ -23,7 +23,7 @@ $position = $_REQUEST['position'];
 
         // Taking all the values from the patient-administration.php
 
-        $sql = "SELECT * FROM staff WHERE position = '$position'";
+        $sql = "SELECT * FROM staff WHERE position = '$position' ORDER BY employee_id";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -59,4 +59,5 @@ echo "<br>";
 
         </center>
     </body>
+    <?php   $conn->close(); ?>
 </html>

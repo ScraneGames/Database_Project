@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>GFG- Store Data</title>
+      <title>Add Surgery Skill</title>
    </head>
    <body>
       <center>

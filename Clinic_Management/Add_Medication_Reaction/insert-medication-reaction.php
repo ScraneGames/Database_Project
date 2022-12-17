@@ -27,13 +27,6 @@ include "/var/www/html/functions.php";
         $medication1 = $_REQUEST['medication1'];
         $medication2 = $_REQUEST['medication2'];
         $severity = $_REQUEST['severity'];
-        echo "$medication1";
-        echo "<br>";
-        echo "$medication2";
-        echo "<br>";
-        echo "$severity";
-        echo "<br>";
-
 
 
         // Performing insert query execution

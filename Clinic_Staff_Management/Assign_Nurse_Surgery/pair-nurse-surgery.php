@@ -71,4 +71,5 @@ $sql_find_all_surgeries_result = mysqli_query($conn,$sql_find_all_surgeries)
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

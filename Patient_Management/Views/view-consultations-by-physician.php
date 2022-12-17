@@ -24,7 +24,8 @@ include "/var/www/html/functions.php";
         // Taking all the values from the patient-administration.php
 
         $sql = "SELECT * FROM view_consultations
-        WHERE physician_id = '$physician'";
+        WHERE physician_id = '$physician'
+        ORDER BY date, time";
         $result = mysqli_query($conn,$sql);
 
         $result = mysqli_query($conn,$sql);
@@ -60,4 +61,6 @@ include "/var/www/html/functions.php";
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

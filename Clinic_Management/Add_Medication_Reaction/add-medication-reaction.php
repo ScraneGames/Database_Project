@@ -82,4 +82,5 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

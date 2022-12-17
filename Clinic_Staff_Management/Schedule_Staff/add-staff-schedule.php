@@ -70,6 +70,6 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
          </form>
       </center>
 </body>
-
+<?php   $conn->close(); ?>
 
 </html>

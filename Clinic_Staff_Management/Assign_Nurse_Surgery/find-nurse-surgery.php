@@ -54,4 +54,6 @@ $sql_find_all_nurses_result = mysqli_query($conn,$sql_find_all_nurses);
          </form>
       </center>
    </body>
+
+   <?php   $conn->close(); ?>
 </html>

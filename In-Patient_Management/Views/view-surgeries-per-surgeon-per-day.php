@@ -26,7 +26,8 @@ include "/var/www/html/functions.php";
 
         $sql = "SELECT * FROM view_surgeries
         WHERE surgeon_id = '$surgeon'
-        AND date = '$date'";
+        AND date = '$date'
+        ORDER BY surgery_id";
         $result = mysqli_query($conn,$sql);
 
 
@@ -70,4 +71,6 @@ echo "<br>";
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

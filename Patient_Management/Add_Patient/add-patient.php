@@ -174,4 +174,5 @@ $sql_find_illness_result = mysqli_query($conn,$sql_find_illnesses);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

@@ -32,7 +32,24 @@ $sql = "SELECT * FROM patient_medical_data
         WHERE fk_medical_data_patient_id = '$patient'";
 
 $result = mysqli_query($conn,$sql);
+
+$result_array = mysqli_fetch_array($result);
+
+$primary_id = $result_array['primary_physician_id'];
+$find_primary_name = "SELECT employee_name FROM physicians WHERE physician_id = '$primary_id'";
+$primary_result = mysqli_query($conn,$find_primary_name);
+$primary_name = $primary_result['employee_name'];
+
+?>
+<p>
+    <h3> The  patient's primary physician is <?php echo "$primary_name"; ?> </h3>
+
+    </p>
+    <br>
+    <br>
+    <?php
 echo "Basic Patient Information";
+echo "<br>";
 echo "<br>";
 echo "<table border='1'>
 <tr>
@@ -51,11 +68,13 @@ echo "</table>";
 echo "<br>";
 
 ?>
+
  <h2>Diagnosed Illnesses and Allergies</h2>
 <?php
 
 $illness_sql = "SELECT * FROM view_patient_illnesses
-                WHERE patient_id = '$patient'";
+                WHERE patient_id = '$patient'
+                ORDER BY illness_name";
 
 $illness_result = mysqli_query($conn,$illness_sql);
 
@@ -82,7 +101,8 @@ echo "<br>";
 <?php
 
 $allergies_sql = "SELECT * FROM view_patient_allergies
-                WHERE patient_id = '$patient'";
+                WHERE patient_id = '$patient'
+                ORDER BY allergy_name";
 
 $allergies_result = mysqli_query($conn,$allergies_sql);
 
@@ -113,7 +133,8 @@ $prescribed_medications = "SELECT medication_code, name, dosage, frequency
                             FROM medications
                             JOIN patient_medications
                             ON medications.medication_code = patient_medications.fk_patient_medication_code
-                            WHERE fk_medications_patient_id = '$patient'";
+                            WHERE fk_medications_patient_id = '$patient'
+                            ORDER BY name";
 $prescribed_results = mysqli_query($conn,$prescribed_medications);
 
 echo "Prescribed Medications";
@@ -192,7 +213,7 @@ echo "</table>";
 
 echo "<br>";
 
-mysqli_close($conn);
+$conn->close();
 ?>
         </center>
     </body>

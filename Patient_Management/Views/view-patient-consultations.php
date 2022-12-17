@@ -24,7 +24,8 @@ $patient = $_REQUEST['view_consultations_per_patient'];
         // Taking all the values from the patient-administration.php
 
         $sql = "SELECT * FROM view_consultations
-        WHERE patient_id = '$patient'";
+        WHERE patient_id = '$patient'
+        ORDER BY date, time";
         $result = mysqli_query($conn,$sql);
 
         $result = mysqli_query($conn,$sql);
@@ -55,7 +56,7 @@ $patient = $_REQUEST['view_consultations_per_patient'];
         echo "</table>";
 
         echo "<br>";
-
+        $conn->close();
 ?>
 
         </center>

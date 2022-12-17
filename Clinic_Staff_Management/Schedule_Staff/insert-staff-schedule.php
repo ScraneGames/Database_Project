@@ -93,7 +93,7 @@ if (mysqli_num_rows($schedule_sql_result) <1){
         }
 
         // Close connection
-            mysql_close($conn);
+        $conn->close();
             ?>
     </center>
 </body>

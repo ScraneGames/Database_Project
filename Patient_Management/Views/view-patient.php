@@ -64,7 +64,7 @@ if (mysqli_num_rows($sql_find_nurses_less_5) > 0){
 }
 
 echo "<br>";
-
+$conn->close();
 ?>
 
         </center>

@@ -50,7 +50,7 @@ include "/var/www/html/functions.php";
         }
 
         // Close connection
-            mysql_close($conn);
+         $conn->close();
             ?>
     </center>
 </body>

@@ -23,7 +23,10 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
 
-        $sql = "SELECT * FROM work_schedule JOIN staff on work_schedule.fk_work_schedule_employee_id = staff.employee_id";
+        $sql = "SELECT * FROM work_schedule
+        JOIN staff
+        ON work_schedule.fk_work_schedule_employee_id = staff.employee_id
+        ORDER BY staff.employee_id";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -69,4 +72,5 @@ echo "<br>";
 
         </center>
     </body>
+    <?php   $conn->close(); ?>
 </html>

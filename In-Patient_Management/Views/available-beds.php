@@ -23,7 +23,11 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
 
-        $sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number  FROM beds WHERE bed_id NOT IN (SELECT fk_inpatients_bed_id FROM inpatients)";
+        $sql_find_beds = "SELECT bed_id, nursing_unit, wing, room_number, bed_number
+                        FROM beds
+                        WHERE bed_id
+                        NOT IN (SELECT fk_inpatients_bed_id FROM inpatients)
+                        ORDER BY bed_id";
         $result = mysqli_query($conn,$sql_find_beds);
 
 echo "All Beds Without Assigned Patients";
@@ -54,4 +58,6 @@ echo "<br>";
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

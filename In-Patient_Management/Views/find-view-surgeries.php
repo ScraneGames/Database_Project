@@ -161,4 +161,6 @@ $all_surgeons = mysqli_query($conn,$sql_find_surgeons);
 </form>
         </center>
    </body>
+
+   <?php   $conn->close(); ?>
 </html>

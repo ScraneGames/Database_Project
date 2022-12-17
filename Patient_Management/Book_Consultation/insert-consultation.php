@@ -28,10 +28,6 @@ include "/var/www/html/functions.php";
         $physician = $_REQUEST['physician'];
         $date = $_REQUEST['date'];
         $time = $_REQUEST['time'];
-        echo "$patient";
-        echo "<br>";
-        echo "$physician";
-        echo "<br>";
 
 
 

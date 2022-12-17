@@ -28,7 +28,8 @@ $all_dates = mysqli_query($conn,$sql_find_date);
         // Taking all the values from the patient-administration.php
 
         $sql = "SELECT * FROM view_surgeries
-        WHERE operating_theater = '$room'";
+        WHERE operating_theater = '$room'
+        ORDER BY surgery_id";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -105,4 +106,6 @@ echo "<br>";
 
         </center>
     </body>
+
+    <?php   $conn->close(); ?>
 </html>

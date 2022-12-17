@@ -6,10 +6,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
+$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data ORDER BY patient_name";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_allergies = "SELECT allergy_name, allergy_code FROM allergies";
+$sql_find_allergies = "SELECT allergy_name, allergy_code FROM allergies ORDER BY allergy_name";
 $all_allergies = mysqli_query($conn,$sql_find_allergies);
 
 // public mysqli::multi_query(string $sql): bool
@@ -78,4 +78,5 @@ $all_allergies = mysqli_query($conn,$sql_find_allergies);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

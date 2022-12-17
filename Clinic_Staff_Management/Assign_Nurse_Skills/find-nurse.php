@@ -80,4 +80,5 @@ $sql_find_all_skills_result = mysqli_query($conn,$sql_find_all_skills)
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

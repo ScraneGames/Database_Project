@@ -6,14 +6,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT UNIQUE patient, patient_id FROM view_consultations";
+$sql_find_names = "SELECT UNIQUE patient, patient_id FROM view_consultations ORDER BY patient";
 $all_schedule_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_date = "SELECT UNIQUE date FROM view_consultations";
+$sql_find_date = "SELECT UNIQUE date FROM view_consultations ORDER BY date";
 $all_dates = mysqli_query($conn,$sql_find_date);
 
 $sql_find_physicians = "SELECT UNIQUE physician, physician_id
-                        FROM view_consultations";
+                        FROM view_consultations
+                        ORDER BY physician";
 $all_physicians = mysqli_query($conn,$sql_find_physicians);
 
 
@@ -138,4 +139,6 @@ $all_physicians = mysqli_query($conn,$sql_find_physicians);
 </form>
         </center>
    </body>
+
+   <?php   $conn->close(); ?>
 </html>

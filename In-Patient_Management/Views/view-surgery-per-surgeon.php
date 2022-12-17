@@ -19,13 +19,13 @@ include "/var/www/html/functions.php";
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql_find_date = "SELECT UNIQUE date FROM view_surgeries WHERE surgeon_id = '$surgeon'";
+        $sql_find_date = "SELECT UNIQUE date FROM view_surgeries WHERE surgeon_id = '$surgeon' ORDER BY date";
         $all_dates = mysqli_query($conn,$sql_find_date);
 
         // Taking all the values from the patient-administration.php
 
         $sql = "SELECT * FROM view_surgeries
-        WHERE surgeon_id = '$surgeon'";
+        WHERE surgeon_id = '$surgeon' ORDER BY surgery_id";
         $result = mysqli_query($conn,$sql);
 
 $result = mysqli_query($conn,$sql);
@@ -100,4 +100,5 @@ echo "<br>";
 
         </center>
     </body>
+    <?php   $conn->close(); ?>
 </html>

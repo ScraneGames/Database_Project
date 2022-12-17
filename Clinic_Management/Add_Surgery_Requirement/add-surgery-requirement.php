@@ -79,4 +79,5 @@ $all_surgery_skills = mysqli_query($conn,$sql_find_surgery_skills);
          </form>
       </center>
    </body>
+   <?php   $conn->close(); ?>
 </html>

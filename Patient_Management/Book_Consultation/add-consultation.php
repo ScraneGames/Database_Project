@@ -6,11 +6,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data";
+$sql_find_names = "SELECT patient_name, patient_id FROM patient_personal_data ORDER BY patient_name";
 
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$sql_find_physicians = "SELECT employee_name, physician_id FROM physicians WHERE position <> 'chief_of_staff'";
+$sql_find_physicians = "SELECT employee_name, physician_id FROM physicians WHERE position <> 'chief_of_staff' ORDER BY employee_name";
 
 $all_physicians = mysqli_query($conn,$sql_find_physicians);
 
@@ -90,4 +90,6 @@ $all_physicians = mysqli_query($conn,$sql_find_physicians);
          </form>
       </center>
    </body>
+
+   <?php   $conn->close(); ?>
 </html>

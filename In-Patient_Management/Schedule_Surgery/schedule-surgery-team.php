@@ -15,7 +15,11 @@ $time = $_REQUEST['time'];
 // surgery_skills.skill_name, surgery_skills.skill_id
 
 
-$sql = "SELECT * FROM patient_personal_data WHERE patient_id = '$patient'";
+$sql = "SELECT patient_id, patient_name, primary_physician_id, employee_name FROM patient_personal_data JOIN patient_medical_data
+                ON patient_personal_data.patient_id = patient_medical_data.fk_medical_data_patient_id
+                JOIN physicians
+                ON  patient_medical_data.primary_physician_id = physicians.physician_id
+                WHERE patient_id = '$patient'";
 $result = mysqli_query($conn,$sql);
 $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
@@ -45,6 +49,27 @@ $sql_inpatient_check = "SELECT fk_inpatients_patient_id FROM inpatients
                         WHERE fk_inpatients_patient_id = '$patient'";
 $sql_inpatient_check_result = mysqli_query($conn,$sql_inpatient_check);
 $inpatient_rows = mysqli_num_rows($sql_inpatient_check_result);
+
+
+$sql_find_phyisicans_less_7 = "SELECT physicians.employee_name, physicians.physician_id
+                        FROM physicians
+                        LEFT OUTER JOIN inpatients
+                        ON physicians.physician_id = inpatients.attending_physician_id
+                        WHERE physicians.position <> 'chief_of_staff'
+                        GROUP BY physicians.physician_id
+                        HAVING COUNT(inpatients.attending_physician_id) < 7";
+
+$sql_find_physicians_less_7_result = mysqli_query($conn,$sql_find_phyisicans_less_7);
+
+$sql_find_phyisicans_less_20 = "SELECT physicians.employee_name, physicians.physician_id
+                        FROM physicians
+                        LEFT OUTER JOIN inpatients
+                        ON physicians.physician_id = inpatients.attending_physician_id
+                        WHERE physicians.position <> 'chief_of_staff'
+                        GROUP BY physicians.physician_id
+                        HAVING COUNT(inpatients.attending_physician_id) < 20";
+
+$sql_find_physicians_less_20_result = mysqli_query($conn,$sql_find_phyisicans_less_20);
 
 echo "<br>";
 if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
@@ -108,7 +133,7 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                         </p>
                         <p>
                     <br>
-            <label>Select The First Nurse</label>
+            <label>Select The Assiting Nurse</label>
             <select name="nurse1">
                 <?php
                     // use a while loop to fetch data
@@ -158,6 +183,58 @@ if ($inpatient_rows > 0 && $surg_category['category'] == "H"){
                 // While loop must be terminated
             ?>
         </select>
+
+        <?php echo "The primary physician for " . $user['patient_name'] ." is " .$user['employee_name'] . " With Physician ID " . $user ['primary_physician_id'];
+
+        <?php if (mysqli_num_rows($sql_find_physicians_less_7_result) > 0): ?>
+<p>
+               <label for="primary_less_7">Assign A Physician:</label>
+               <select name="primary_less_7">
+            <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($primary_less_7 = mysqli_fetch_array(
+                  $sql_find_physicians_less_7_result,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $primary_less_7["physician_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $primary_less_7["employee_name"] . " ".$primary_less_7["physician_id"];
+                        // To show the employee name to the user
+                    ?>
+                </option>
+               <?php
+               endwhile;
+               // While loop must be terminated
+         ?>
+      </select>
+</p>
+      <?php elseif (mysqli_num_rows($sql_find_physicians_less_20_result) > 0): ?>
+<p>
+         <label for="primary_less_20">Primary Physician:</label>
+                        <select name="primary_less_20">
+                     <?php
+                        // use a while loop to fetch data
+                        // from the $all_categories variable
+                        // and individually display as an option
+                        while ($primary_less_20 = mysqli_fetch_array(
+                           $sql_find_physicians_less_20_result,MYSQLI_ASSOC)):;
+                     ?>
+                        <option value="<?php echo $primary_less_20["physician_id"];
+                           // The value we usually set is the primary key
+                        ?>">
+                           <?php echo $primary_less_20["employee_name"] . " ".$primary_less_20["physician_id"];
+                                 // To show the employee name to the user
+                           ?>
+                        </option>
+                        <?php
+                        endwhile;
+                        // While loop must be terminated
+                        ?>
+      </select>
+      <?php endif; ?>
+      <br>
 <?php endif; ?>
         <br>
 

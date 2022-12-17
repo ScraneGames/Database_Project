@@ -33,7 +33,9 @@ $sql = "SELECT * FROM patient_medical_data
 
 $result = mysqli_query($conn,$sql);
 
-$result_array = mysqli_fetch_array($result);
+$result_array = mysqli_fetch_array($result,MULTIASSOC);
+
+
 
 $primary_id = $result_array['primary_physician_id'];
 $find_primary_name = "SELECT employee_name FROM physicians WHERE physician_id = '$primary_id'";
@@ -57,7 +59,7 @@ echo "<table border='1'>
 <th>Blood Type</th>
 </tr>";
 
-while($row = mysqli_fetch_array($result)){
+while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
     echo "<tr>";
     echo "<td>" . $row['patient_name'] . "</td>";
     echo "<td>" . $row['blood_type'] . "</td>";
@@ -87,7 +89,7 @@ echo "<table border='1'>
 <th>Illness Description</th>
 </tr>";
 
-while($illness_row = mysqli_fetch_array($illness_result)){
+while($illness_row = mysqli_fetch_array($illness_result,MYSQLI_ASSOC)){
     echo "<tr>";
     echo "<td>" . $illness_row['illness_name'] . "</td>";
     echo "<td>" . $illness_row['illness_desc'] . "</td>";
@@ -115,7 +117,7 @@ echo "<table border='1'>
 <th>Allergy Description</th>
 </tr>";
 
-while($allergies_row = mysqli_fetch_array($allergies_result)){
+while($allergies_row = mysqli_fetch_array($allergies_result,MYSQLI_ASSOC)){
     echo "<tr>";
     echo "<td>" . $allergies_row['allergy_name'] . "</td>";
     echo "<td>" . $allergies_row['allergy_desc'] . "</td>";
@@ -148,7 +150,7 @@ echo "<table border='1'>
 <th>Frequency</th>
 </tr>";
 
-while($prescribed_row = mysqli_fetch_array($prescribed_results)){
+while($prescribed_row = mysqli_fetch_array($prescribed_results,MYSQLI_ASSOC)){
     echo "<tr>";
     echo "<td>" . $prescribed_row['medication_code'] . "</td>";
     echo "<td>" . $prescribed_row['name'] . "</td>";

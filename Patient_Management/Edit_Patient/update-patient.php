@@ -40,7 +40,7 @@ include "/var/www/html/functions.php";
         // here for our table name is patient_personal_data
 
         $sql = "UPDATE patient_personal_data (patient_name, ssn, gender, dob, address, telephone_number)
-                SET patient_name ='$patient_name', ssn = '$ssn', gender = '$gender', dob = '$dob', address = '$address', telephone_number = '$telephone_number
+                SET patient_name ='$patient_name', ssn = '$ssn', gender = '$gender', dob = '$dob', address = '$address', telephone_number = '$telephone_number'
                 WHERE patient_id = '$patient_id'";
 
 

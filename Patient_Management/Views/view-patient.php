@@ -56,10 +56,11 @@ echo "</table>";
 
 $staff_sql = "SELECT * FROM staff_as_patients WHERE patient_id = $view_patient";
 $staff_result = mysqli_query($conn,$sql);
+$staff_results = mysqli_query($conn,$sql);
 
 if (mysqli_num_rows($staff_result) > 0){
     echo "<br>";
-    $staff = (mysqli_fetch_array($staff_result,MYSQLI_ASSOC));
+    $staff = (mysqli_fetch_array($staff_results,MYSQLI_ASSOC));
     echo $staff['patient_name'] . " is also a staff member who works as a " . $staff['position'] . " and has the employee ID of " . $staff['employee_id'] . ".";
 }
 

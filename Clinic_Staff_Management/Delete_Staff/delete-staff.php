@@ -60,13 +60,13 @@ if ($user['position'] == "nurse"){
                                         SET primary_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
                                         WHERE primary_physician_id = '$primary_id'";
 
-
-                if (mysqli_query($conn, $replace_primary_sql)) {
-                    echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
-                    echo "<br>";
-                    } else {
-                    echo "Error: " . $replace_primary_sql . "<br>" . $conn->error;
-                }
+                var_dump($replace_primary_sql);
+               // if (mysqli_query($conn, $replace_primary_sql)) {
+               //     echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
+               //     echo "<br>";
+               //     } else {
+               //     echo "Error: " . $replace_primary_sql . "<br>" . $conn->error;
+               // }
             }
 
             // Check if an attending and if so, replace the primary physician id in patient_medical data
@@ -76,11 +76,13 @@ if ($user['position'] == "nurse"){
                 $replace_attending_sql = "UPDATE inpatients
                                         SET attending_physician_id = (SELECT physician_id FROM physicians WHERE position = 'chief_of_staff')
                                         WHERE primary_physician_id = '$primary_id'";
-                if (mysqli_query($conn, $replace_attending_sql)) {
-                    echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
-                    echo "<br>";
-                    } else {
-                    echo "Error: " . $replace_attending_sql . "<br>" . $conn->error;
+
+                var_dump($replace_attending_sql);
+            //    if (mysqli_query($conn, $replace_attending_sql)) {
+            //        echo "Replaced Existing Primary Physicians With Chief of Staff Correctly";
+            //        echo "<br>";
+            //        } else {
+             //       echo "Error: " . $replace_attending_sql . "<br>" . $conn->error;
                 }
             }
 
@@ -93,19 +95,22 @@ if ($user['position'] == "nurse"){
                     (SELECT physician_id
                     FROM physicians
                     WHERE employee_id = '$original_employee_id')); ";
-                    if (mysqli_query($conn, $delete_owner_sql)) {
-                        echo "Deleted the Physician's Ownership Record Correctly";
-                        echo "<br>";
-                        } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
-                    }
+             //       if (mysqli_query($conn, $delete_owner_sql)) {
+             //           echo "Deleted the Physician's Ownership Record Correctly";
+             //           echo "<br>";
+             //           } else {
+             //           echo "Error: " . $sql . "<br>" . $conn->error;
+             //       }
+             var_dump($delete_owner_sql);
                 }
 
                 // Set Delete SQL
                 $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
 
+                var_dump($delete_sql);
 
-                } elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
+
+                 elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
                 $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
             }
 
@@ -137,25 +142,31 @@ if ($user['position'] == "nurse"){
                         (SELECT physician_id
                         FROM physicians
                         WHERE employee_id = '$original_employee_id')); ";
-                        if (mysqli_query($conn, $delete_owner_sql)) {
-                            echo "Deleted the Physician's Ownership Record Correctly";
-                            echo "<br>";
-                            } else {
-                            echo "Error: " . $sql . "<br>" . $conn->error;
+                       var_dump($delete_owner_sql);
+
+                   //    if (mysqli_query($conn, $delete_owner_sql)) {
+                   //         echo "Deleted the Physician's Ownership Record Correctly";
+                   //         echo "<br>";
+                  //          } else {
+                  //          echo "Error: " . $sql . "<br>" . $conn->error;
                             $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
-                        }
+
+                            var_dump($delete_sql);
+                       // }
                     }
                     $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
+
+                    var_dump($delte_sql);
                 }
             }
-        }
+      }
 
 
-if (mysqli_query($conn, $delete_sql)) {
-    echo "Staff Member Deleted Correctly";
-    } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+//if (mysqli_query($conn, $delete_sql)) {
+//    echo "Staff Member Deleted Correctly";
+//    } else {
+//    echo "Error: " . $sql . "<br>" . $conn->error;
+//}
 
   $conn->close();
 

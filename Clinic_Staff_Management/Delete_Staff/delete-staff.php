@@ -102,15 +102,14 @@ if ($user['position'] == "nurse"){
              //           echo "Error: " . $sql . "<br>" . $conn->error;
              //       }
              var_dump($delete_owner_sql);
-                }
 
-                // Set Delete SQL
-                $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
+               // Set Delete SQL
+               $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
 
-                var_dump($delete_sql);
+               var_dump($delete_sql);
 
 
-                 elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
+                }  elseif ($user['position'] == "janitor" || $user['position'] == "secretary") {
                 $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
             }
 

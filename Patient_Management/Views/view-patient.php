@@ -61,7 +61,7 @@ $staff_results = mysqli_query($conn,$staff_sql);
 if (mysqli_num_rows($staff_result) > 0){
     echo "<br>";
     $staff_emp = (mysqli_fetch_array($staff_results,MYSQLI_ASSOC));
-    echo $staff_emp['patient_name'] . " is also a staff member who works as a " . $staff_emp['position'] . " and has the employee ID of " . $staff_emp['employee_id'] . ".";
+    echo $staff_emp['name'] . " is also a staff member who works as a " . $staff_emp['position'] . " and has the employee ID of " . $staff_emp['employee_id'] . ".";
 }
 
 echo "<br>";

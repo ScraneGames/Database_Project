@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Insert Allergy Page</title>
+    <title> Delete Staff Page</title>
 </head>
 
 
@@ -124,7 +124,7 @@ if ($user['position'] == "nurse"){
 
                 // Check if chief is a primary physician, and if so, throw an error
 
-                if (mysqli_num_rows($primary_check_result) > 0 mysqli_num_rows($inpatient_check_sql_result) > 0) ||  {
+                if (mysqli_num_rows($primary_check_result) > 0 || mysqli_num_rows($inpatient_check_sql_result) > 0)  {
 
                     if (mysqli_num_rows($primary_check_result)) > 0 {
                     echo "<br>";

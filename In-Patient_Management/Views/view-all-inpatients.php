@@ -23,7 +23,7 @@ include "/var/www/html/functions.php";
 
         // Taking all the values from the patient-administration.php
 
-        $sql_find_beds = "SELECT patient_name, employee_name, patient_id, physician_id, position, bed_id, nursing_unit, wing, room_number, bed_number
+        $sql_find_beds = "SELECT patient_name, employee_name, patient_id, physician_id, position, date_of_admission, bed_id, nursing_unit, wing, room_number, bed_number
                         FROM beds
                         JOIN inpatients
                         ON beds.bed_id = inpatients.fk_inpatients_bed_id
@@ -34,10 +34,15 @@ include "/var/www/html/functions.php";
                         ORDER BY patient_name";
         $result = mysqli_query($conn,$sql_find_beds);
 
-echo "All Beds Without Assigned Patients";
+echo "All Current Inpatients";
 echo "<br>";
 echo "<table border='1'>
 <tr>
+<th>Patient ID</th>
+<th>Patient Name</th>
+<th>Attending Physician</th>
+<th>Attending Physician ID</th>
+<th>Date Admitted</th>
 <th>Bed ID</th>
 <th>Nursing Unit</th>
 <th>Wing</th>
@@ -47,6 +52,11 @@ echo "<table border='1'>
 
 while($row = mysqli_fetch_array($result)){
     echo "<tr>";
+    echo "<td>" . $row['patient_id'] . "</td>";
+    echo "<td>" . $row['patient_name'] . "</td>";
+    echo "<td>" . $row['employee_name'] . "</td>";
+    echo "<td>" . $row['physician_id'] . "</td>";
+    echo "<td>" . $row['date_of_admission'] . "</td>";
     echo "<td>" . $row['bed_id'] . "</td>";
     echo "<td>" . $row['nursing_unit'] . "</td>";
     echo "<td>" . $row['wing'] . "</td>";

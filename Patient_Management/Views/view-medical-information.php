@@ -175,7 +175,7 @@ $cholesterol_result = mysqli_query($conn,$cholesterol_sql);
 
 $sql_high_risk = "SELECT high_risk FROM patient_medical_data WHERE fk_medical_data_patient_id = '$patient'";
 $high_risk_result =  mysqli_query($conn,$sql_high_risk);
-$high_risk_result_array = mysqli_fetch_array($high_risk_result,MYSQLI_ASSOC)
+$high_risk_result_array = mysqli_fetch_array($high_risk_result,MYSQLI_ASSOC);
 if ($high_risk_result_array['high_risk'] > 0){
     $high_risk = "at high risk.";
 } else {

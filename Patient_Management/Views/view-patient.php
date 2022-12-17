@@ -55,8 +55,8 @@ while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 echo "</table>";
 
 $staff_sql = "SELECT * FROM staff_as_patients WHERE patient_id = '$patient'";
-$staff_result = mysqli_query($conn,$sql);
-$staff_results = mysqli_query($conn,$sql);
+$staff_result = mysqli_query($conn,$staff_sql);
+$staff_results = mysqli_query($conn,$staff_sql);
 
 if (mysqli_num_rows($staff_result) > 0){
     echo "<br>";

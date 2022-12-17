@@ -246,10 +246,10 @@ echo "The patient's current primary physician is $primary.";
          <input type="text" name="frequency" id="frequency">
       </p>
 <!-- Show this section if thre is a prescription for the patient -->
+<div>
       <?php if (mysqli_num_rows($prescribed_check_results) > 0): ?>
       <?php
 
-      echo "Number of rows is " . mysqli_num_rows($prescribed_check_results);
 echo "Current Possible Medication Reactions";
 echo "<br>";
 

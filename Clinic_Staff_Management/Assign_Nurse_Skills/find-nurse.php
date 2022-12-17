@@ -90,7 +90,7 @@ $nurse_skills_sql = "SELECT nurse_skills.fk_nurse_skills_skill_id, nurse_skills.
                     JOIN staff
                     ON nurses.employee_id = staff.employee_id
                     ORDER BY employee_name, skill_name";
-$nurse_skills_results = mysqli_query($conn,$nurse_skills_sql)
+$nurse_skills_results = mysqli_query($conn,$nurse_skills_sql);
 
 echo "Already Assigned Skills";
 echo "<br>";

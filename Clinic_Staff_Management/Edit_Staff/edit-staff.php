@@ -47,12 +47,12 @@ if ($position != "surgeon") {
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Edit Staff <?php echo "$position$"?></title>
+      <title>Edit Staff</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    </head>
    <body>
       <center>
-         <h1>Editing Staff</h1>
+         <h1>Editing <?php echo "$position$"?></h1>
          <form action="update-staff.php" method="post">
 
 <p>

@@ -28,7 +28,7 @@ $patient = $_REQUEST['view_consultations_per_patient'];
         $result = mysqli_query($conn,$sql);
 
         $result = mysqli_query($conn,$sql);
-        echo "All Scheduled Surgeries";
+        echo "All Scheduled Consultations";
         echo "<br>";
         echo "<table border='1'>
         <tr>

@@ -47,9 +47,9 @@ echo "<table border='1'>
 while($row = mysqli_fetch_array($result)){
     echo "<tr>";
     echo "<td>" . $row['surgery_id'] . "</td>";
-    echo "<td>" . $row['operating_theater'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['time'] . "</td>";
+    echo "<td>" . $row['operating_theater'] . "</td>";
     echo "<td>" . $row['surgery_type'] . "</td>";
     echo "<td>" . $row['category'] . "</td>";
     echo "<td>" . $row['surgeon'] . "</td>";

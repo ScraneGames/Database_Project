@@ -28,7 +28,7 @@ include "/var/www/html/functions.php";
         $result = mysqli_query($conn,$sql);
 
         $result = mysqli_query($conn,$sql);
-        echo "All Scheduled Surgeries";
+        echo "All Scheduled Consultations";
         echo "<br>";
         echo "<table border='1'>
         <tr>

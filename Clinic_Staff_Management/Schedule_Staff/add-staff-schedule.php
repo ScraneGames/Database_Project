@@ -55,7 +55,7 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
 </p>
 
-
+<input type="hidden" id="employee" name="employee" value=<?php echo "$original_employee_id"; ?>>
 
 <p>
                <label for="start_time">Start Time:</label>

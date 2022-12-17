@@ -87,7 +87,7 @@ include "/var/www/html/functions.php";
             $prescribe_sql = "INSERT INTO patient_medications ( fk_medications_patient_id, fk_patient_medication_code, fk_medications_consultation_number, dosage, frequency)
                               VALUES ('$patient', '$prescribe_medication', '$consultation', '$dosage', '$frequency')";
 
-                if (mysqli_multi_query($conn, $prescribe_sql)) {
+                if (mysqli_multi_query($conn,$prescribe_sql)) {
                     echo "Medical Information Updated Successfully";
                     } else {
                     echo "Error: " . $prescribe_sql . "<br>" . $conn->error;

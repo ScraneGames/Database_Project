@@ -82,6 +82,8 @@ $all_medications2 = mysqli_query($conn,$sql_find_medications);
             </select>
                            <br>
         <br>
+        <input type="submit" value="Submit">
+         </form>
 
 <?php
 
@@ -116,8 +118,7 @@ echo "<br>";
 
 $conn->close();
         ?>
-            <input type="submit" value="Submit">
-         </form>
+
       </center>
    </body>
 </html>

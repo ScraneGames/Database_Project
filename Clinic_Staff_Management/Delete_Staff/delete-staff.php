@@ -29,6 +29,10 @@ $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')";
 $owner_result = mysqli_query($conn,$owner_sql);
 
+$surgery_check = "SELECT fk_schedule_surgeon_id FROM surgery_schedule WHERE fk_schedule_surgeon_id = (SELECT surgeon_id FROM surgeons WHERE employee_id = '$original_employee_id')";
+$surgery_results = mysqli_query($conn,$surgery_check)
+
+
 $primary_check_sql = "SELECT primary_physician_id FROM patient_medical_data WHERE primary_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')";
 $primary_check_result = mysqli_query($conn,$primary_check_sql);
 
@@ -47,8 +51,13 @@ $inpatient_check_sql_result = mysqli_query($conn,$inpatient_check_sql);
     }
     // delete surgeon
     elseif ($user['position'] == "surgeon") {
+
+        if (mysqli_num_rows($surgery_results) > 0){
+            echo "This surgeon still has surgeries recorded. Please delete those surgery records in order to delete this surgeon.";
+        } else {
         $delete_sql = "DELETE FROM staff WHERE employee_id = '$original_employee_id'";
         }
+    }
         // delte physician
         // Turn this to an elseif when you undelete everything else
 

@@ -79,7 +79,7 @@ echo "<br>";
        // from the $all_categories variable
        // and individually display as an option
        while ($surgeries = mysqli_fetch_array(
-               $surgeries,MYSQLI_ASSOC)):;
+               $all_surgeries,MYSQLI_ASSOC)):;
    ?>
        <option value="<?php echo $surgeries["surgery_id"];
            // The value we usually set is the primary key

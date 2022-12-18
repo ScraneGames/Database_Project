@@ -15,7 +15,7 @@ $sql_find_names = "SELECT patient_name, patient_id, attending_physician_id, empl
                     JOIN physicians
                     ON inpatients.attending_physician_id = physicians.physician_id
                     WHERE patient_id IN (SELECT patient_id
-                    FROM physician_inpatient_assignments)";
+                    FROM inpatients)";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
 $physician_array = mysqli_fetch_array($all_patients,MYSQLI_ASSOC);

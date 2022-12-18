@@ -18,7 +18,7 @@ $sql_find_names = "SELECT patient_name, patient_id, attending_physician_id, empl
                     FROM physician_inpatient_assignments)";
 $all_patients = mysqli_query($conn,$sql_find_names);
 
-$physician_array = mysqli_fetch_array(;$all_patients,MYSQLI_ASSOC);
+$physician_array = mysqli_fetch_array($all_patients,MYSQLI_ASSOC);
 
 $physician = $physician_array['attending_physician_id'];
 

@@ -30,7 +30,7 @@ $owner_sql = "SELECT fk_own_physician_id FROM physician_owners WHERE fk_own_phys
 $owner_result = mysqli_query($conn,$owner_sql);
 
 $surgery_check = "SELECT fk_schedule_surgeon_id FROM surgery_schedule WHERE fk_schedule_surgeon_id = (SELECT surgeon_id FROM surgeons WHERE employee_id = '$original_employee_id')";
-$surgery_results = mysqli_query($conn,$surgery_check)
+$surgery_results = mysqli_query($conn,$surgery_check);
 
 
 $primary_check_sql = "SELECT primary_physician_id FROM patient_medical_data WHERE primary_physician_id = (SELECT physician_id FROM physicians WHERE employee_id = '$original_employee_id')";

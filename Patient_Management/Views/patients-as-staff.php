@@ -41,7 +41,7 @@ echo "<table border='1'>
 
 while($row = mysqli_fetch_array($result)){
     echo "<tr>";
-    echo "<td>" . $row['employee_name'] . "</td>";
+    echo "<td>" . $row['name'] . "</td>";
     echo "<td>" . $row['position'] . "</td>";
     echo "<td>" . $row['employee_id'] . "</td>";
     echo "<td>" . $row['patient_id'] . "</td>";

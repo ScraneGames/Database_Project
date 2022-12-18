@@ -84,7 +84,7 @@ echo "<br>";
        <option value="<?php echo $all_surgeries["surgery_id"];
            // The value we usually set is the primary key
        ?>">
-           <?php echo $all_surgeries["date"] . "Surgery ID: " . $all_surgeries["surgery_id"] . " Patient Name: " . $all_surgeries["patient_name"] . " Surgery Type: " $all_surgeries["surgery_type"];
+           <?php echo $all_surgeries["date"] . "Surgery ID: " . $all_surgeries["surgery_id"] . " Patient Name: " . $all_surgeries["patient_name"] . " Surgery Type: " . $all_surgeries["surgery_type"];
                // To show the employee name to the user
            ?>
        </option>

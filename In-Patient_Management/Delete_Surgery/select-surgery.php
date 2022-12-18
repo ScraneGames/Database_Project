@@ -10,7 +10,7 @@
     <center>
         <?php
 
-$surgeon = $_REQUEST['view_surgeries_per_surgeon'];
+$surgeon = $_REQUEST['surgeonn'];
 
         // check Connection
 include "/var/www/html/functions.php";

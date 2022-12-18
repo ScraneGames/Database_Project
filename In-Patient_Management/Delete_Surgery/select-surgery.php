@@ -10,7 +10,7 @@
     <center>
         <?php
 
-$surgeon = $_REQUEST['surgeonn'];
+$surgeon = $_REQUEST['surgeon'];
 
         // check Connection
 include "/var/www/html/functions.php";
